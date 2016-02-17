@@ -1,0 +1,222 @@
+@startuml
+
+skinparam state {
+	AttributeFontName Consolas
+}
+
+0 : PROG -> •PD PI
+0 : PD   -> •PD D;
+0 : PD   -> •
+
+1 : PROG -> PD •PI
+1 : PI   -> •PI I;
+1 : PI   -> •
+1 : PD   -> PD •D;
+1 : D    -> •var LID
+1 : D    -> •const LIDV
+
+2 : PROG -> PD PI•
+2 : PI   -> PI •I;
+2 : I    -> •lire id
+2 : I    -> •ecrire E
+2 : I    -> •id := E
+
+3 : PD -> PD D•;
+
+4 : D   -> var •LID
+4 : LID -> •LID, id
+4 : LID -> •id
+
+5 : D    -> const •LIDV
+5 : LIDV -> •LIDV, id=val
+5 : LIDV -> •id=val
+
+6 : PI I•;
+
+7 : I -> lire •id
+
+8 : I -> ecrire •E
+8 : E -> •E opa T
+8 : E -> •T
+8 : T -> •T opm F
+8 : T -> •F
+8 : F -> •(E)
+8 : F -> •id
+8 : F -> •val
+
+9 : I -> id •:= E
+
+10 : PD -> PD D;•
+
+11 : D   -> var LID•
+11 : LID -> LID•, id
+
+12 : LID -> id•
+
+13 : D    -> const LIDV•
+13 : LIDV -> LIDV•, id=val
+
+14 : LIDV -> id•=val
+
+15 : PI -> PI I;•
+
+16 : I -> lire id•
+
+17 : I -> ecrire E•
+17 : E -> E •opa T
+
+18 : E -> T•
+18 : T -> T •opm F
+
+19 : T -> F•
+
+20 : F -> (•E)
+20 : E -> •E opa T
+20 : E -> •T
+20 : T -> •T opm F
+20 : T -> •F
+20 : F -> •(E)
+20 : F -> •id
+20 : F -> •val
+
+21 : F -> id•
+
+22 : F -> val•
+
+23 : I -> id := •E
+23 : E -> •E opa T
+23 : E -> •T
+23 : T -> •T opm F
+23 : T -> •F
+23 : F -> •(E)
+23 : F -> •id
+23 : F -> •val
+
+24 : LID -> LID, •id
+
+25 : LIDV -> LIDV, •id=val
+
+26 : LIDV -> id=•val
+
+27 : E -> E opa •T
+27 : T -> •T opm F
+27 : T -> •F
+27 : F -> •(E)
+27 : F -> •id
+27 : F -> •val
+
+28 : T -> T opm •F
+28 : F -> •(E)
+28 : F -> •id
+28 : F -> •val
+
+29 : F -> (E•)
+29 : E -> E •opa T
+
+30 : I -> id := E•
+30 : E -> E •opa T
+
+31 : LID -> LID, id•
+
+32 : LIDV -> LIDV, id•=val
+
+33 : LIDV -> id=val•
+
+34 : E -> E opa T•
+34 : T -> T •opm F
+
+35 : T -> T opm F•
+
+36 : F -> (E)•
+
+37 : LIDV -> LIDV, id=•val
+
+38 : LIDV -> LIDV, id=val•
+
+[*] --> 0
+0 --> 1 : PD
+
+1 --> 2 : PI
+1 --> 3 : D
+1 --> 4 : var
+1 --> 5 : const
+
+2 --> [*] : $
+2 --> 6 : I
+2 --> 7 : lire
+2 --> 8 : ecrire
+2 --> 9 : id
+
+3 --> 10 : ;
+
+4 --> 11 : LID
+4 --> 12 : id
+
+5 --> 13 : LIDV
+5 --> 14 : id
+
+6 --> 15 : ;
+
+7 --> 16 : id
+
+8 --> 17 : E
+8 --> 18 : T
+8 --> 19 : F
+8 --> 20 : (
+8 --> 21 : id
+8 --> 22 : val
+
+9 --> 23 : :=
+
+11 --> 24 : ,
+
+13 --> 25 : ,
+
+14 --> 26 : =
+
+17 --> 27 : opa
+
+18 --> 28 : opm
+
+20 --> 29 : E
+20 --> 18 : T
+20 --> 19 : F
+20 --> 20 : (
+20 --> 21 : id
+20 --> 22 : val
+
+23 --> 30 : E
+23 --> 18 : T
+23 --> 19 : F
+23 --> 20 : (
+23 --> 21 : id
+23 --> 22 : val
+
+24 --> 31 : id
+
+25 --> 32 : id
+
+26 --> 33 : val
+
+27 --> 34 : T
+27 --> 19 : F
+27 --> 20 : (
+27 --> 21 : id
+27 --> 22 : val
+
+28 --> 35 : F
+28 --> 20 : (
+28 --> 21 : id
+28 --> 22 : val
+
+29 --> 36 : )
+29 --> 27 : opa
+
+30 --> 27 : opa
+
+32 --> 37 : =
+
+34 --> 28 : opm
+
+37 --> 38 : val
+@enduml
