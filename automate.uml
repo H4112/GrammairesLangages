@@ -31,7 +31,7 @@ skinparam state {
 5 : LIDV -> •LIDV, id=val
 5 : LIDV -> •id=val
 
-6 : PI I•;
+6 : PI -> PI I•;
 
 7 : I -> lire •id
 
