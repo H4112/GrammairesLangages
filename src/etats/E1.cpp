@@ -1,7 +1,7 @@
 /*************************************************************************
                            E1  -  Etat de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:30:17
+    début                : 1 mars 2016 11:38:26
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -48,7 +48,7 @@ bool E1::transition(Automate & automate, Symbole* s)
 	case FIN:
 
 		Symbole * nouveauSymbole;
-		//TODO remplir cette variable pour r�duire R10
+		//TODO remplir cette variable pour réduire R10
 		automate.reduction(nouveauSymbole, PI, 0);
 		return true;
 	case D:

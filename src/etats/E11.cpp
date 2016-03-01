@@ -1,7 +1,7 @@
 /*************************************************************************
                            E11  -  Etat de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:30:17
+    début                : 1 mars 2016 11:38:26
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -44,7 +44,7 @@ bool E11::transition(Automate & automate, Symbole* s)
 		Symbole * var = automate.popSymbole();
 
 		Symbole * nouveauSymbole;
-		//TODO remplir cette variable pour r�duire R3
+		//TODO remplir cette variable pour réduire R3
 		automate.reduction(nouveauSymbole, D, 2);
 		return true;
 	}

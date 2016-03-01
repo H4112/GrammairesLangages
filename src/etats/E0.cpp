@@ -1,7 +1,7 @@
 /*************************************************************************
                            E0  -  Etat de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:30:17
+    début                : 1 mars 2016 11:38:26
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -44,7 +44,7 @@ bool E0::transition(Automate & automate, Symbole* s)
 	case FIN:
 
 		Symbole * nouveauSymbole;
-		//TODO remplir cette variable pour r�duire R2
+		//TODO remplir cette variable pour réduire R2
 		automate.reduction(nouveauSymbole, PD, 0);
 		return true;
 	case PD:

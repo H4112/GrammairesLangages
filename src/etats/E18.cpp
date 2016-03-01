@@ -1,7 +1,7 @@
 /*************************************************************************
                            E18  -  Etat de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:30:18
+    début                : 1 mars 2016 11:38:26
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -42,7 +42,7 @@ bool E18::transition(Automate & automate, Symbole* s)
 		Symbole * t = automate.popSymbole();
 
 		Symbole * nouveauSymbole;
-		//TODO remplir cette variable pour r�duire R15
+		//TODO remplir cette variable pour réduire R15
 		automate.reduction(nouveauSymbole, E, 1);
 		return true;
 	case OPM:

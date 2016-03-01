@@ -1,7 +1,7 @@
 /*************************************************************************
                            E12  -  Etat de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:30:17
+    début                : 1 mars 2016 11:38:26
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -41,7 +41,7 @@ bool E12::transition(Automate & automate, Symbole* s)
 		Symbole * id = automate.popSymbole();
 
 		Symbole * nouveauSymbole;
-		//TODO remplir cette variable pour r�duire R6
+		//TODO remplir cette variable pour réduire R6
 		automate.reduction(nouveauSymbole, LID, 1);
 		return true;
 	}

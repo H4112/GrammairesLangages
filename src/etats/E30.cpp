@@ -1,7 +1,7 @@
 /*************************************************************************
                            E30  -  Etat de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:30:18
+    début                : 1 mars 2016 11:38:26
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -42,7 +42,7 @@ bool E30::transition(Automate & automate, Symbole* s)
 		Symbole * id = automate.popSymbole();
 
 		Symbole * nouveauSymbole;
-		//TODO remplir cette variable pour r�duire R13
+		//TODO remplir cette variable pour réduire R13
 		automate.reduction(nouveauSymbole, I, 3);
 		return true;
 	case OPA:
