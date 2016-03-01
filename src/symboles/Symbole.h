@@ -1,0 +1,92 @@
+/*************************************************************************
+                           Symbole  -  Symbole de l'analyseur
+                             -------------------
+    début                : 1 mars 2016 11:16:42
+    copyright            : (C) 2016 par H4112
+*************************************************************************/
+
+//---------- Interface de la classe <Symbole> (fichier Symbole.h) ------
+#if ! defined ( SYMBOLE_H )
+#define SYMBOLE_H
+
+//--------------------------------------------------- Interfaces utilisées
+
+//------------------------------------------------------------- Constantes 
+const int E = 0;
+const int AFFECTATION = 1;
+const int CONST = 2;
+const int VAR = 3;
+const int LIRE = 4;
+const int ECRIRE = 5;
+const int EGAL = 6;
+const int VIRGULE = 7;
+const int F = 8;
+const int FERMEPAR = 9;
+const int OUVREPAR = 10;
+const int FIN = 11;
+const int ID = 12;
+const int I = 13;
+const int LID = 14;
+const int LIDV = 15;
+const int OPA = 16;
+const int OPM = 17;
+const int POINT_VIRGULE = 18;
+const int PD = 19;
+const int PI = 20;
+const int PROG = 21;
+const int T = 22;
+const int VAL = 23;
+const int D = 24;
+
+//------------------------------------------------------------------ Types 
+
+//------------------------------------------------------------------------ 
+// Rôle de la classe <Symbole>
+// Définit le symbole manipulé par l'automate.
+//
+//------------------------------------------------------------------------ 
+
+class Symbole
+{
+//----------------------------------------------------------------- PUBLIC
+
+public:
+//----------------------------------------------------- Méthodes publiques
+
+//------------------------------------------------- Surcharge d'opérateurs
+
+//-------------------------------------------- Constructeurs - destructeur
+    Symbole ( const Symbole & unSymbole );
+
+    Symbole ( );
+
+    virtual ~Symbole ( );
+
+//------------------------------------------------------------------ PRIVE 
+
+protected:
+//----------------------------------------------------- Méthodes protégées
+
+private:
+//------------------------------------------------------- Méthodes privées
+
+protected:
+//----------------------------------------------------- Attributs protégés
+
+private:
+//------------------------------------------------------- Attributs privés
+string nom;
+bool terminal;
+int ident;
+
+//---------------------------------------------------------- Classes amies
+
+//-------------------------------------------------------- Classes privées
+
+//----------------------------------------------------------- Types privés
+
+};
+
+//----------------------------------------- Types dépendants de <Symbole>
+
+#endif // SYMBOLE_H
