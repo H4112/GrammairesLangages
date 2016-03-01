@@ -1,7 +1,7 @@
 /*************************************************************************
                            E16  -  Etat de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -36,14 +36,16 @@ bool E16::transition(Automate & automate, Symbole* s)
 {
 	switch(*s)
 	{
-	case POINT_VIRGULE:
-		Symbole * id = automate.popSymbole();
-		Symbole * lire = automate.popSymbole();
+		case POINT_VIRGULE:
+		{
+			Symbole * id = automate.popSymbole();
+			Symbole * lire = automate.popSymbole();
 
-		Symbole * nouveauSymbole;
-		//TODO remplir cette variable pour réduire R11
-		automate.reduction(nouveauSymbole, I, 2);
-		return true;
+			Symbole * nouveauSymbole;
+			//TODO remplir cette variable pour réduire R11
+			automate.reduction(nouveauSymbole, 2);
+			return true;
+		}
 	}
 	
 	return false;
@@ -53,6 +55,7 @@ bool E16::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E16::E16 ( const E16 & unE16 )
+	: Etat(unE16)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E16>" << endl;
@@ -61,6 +64,7 @@ E16::E16 ( const E16 & unE16 )
 
 
 E16::E16 ( )
+	: Etat()
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E16>" << endl;

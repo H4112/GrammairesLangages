@@ -1,7 +1,7 @@
 /*************************************************************************
                            Egal  -  Symbole de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -31,7 +31,8 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Egal::Egal ( const Egal & unEgal )
+Egal::Egal ( const Egal & unEgal ) 
+	: Symbole(unEgal)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Egal>" << endl;
@@ -39,7 +40,8 @@ Egal::Egal ( const Egal & unEgal )
 } //----- Fin de Egal (constructeur de copie)
 
 
-Egal::Egal ( ) : Symbole("=", EGAL, true)
+Egal::Egal ( ) 
+	: Symbole("=", EGAL, true)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Egal>" << endl;

@@ -1,7 +1,7 @@
 /*************************************************************************
                            Identifiant  -  Symbole de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -31,7 +31,8 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Identifiant::Identifiant ( const Identifiant & unIdentifiant )
+Identifiant::Identifiant ( const Identifiant & unIdentifiant ) 
+	: Symbole(unIdentifiant)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Identifiant>" << endl;
@@ -39,7 +40,8 @@ Identifiant::Identifiant ( const Identifiant & unIdentifiant )
 } //----- Fin de Identifiant (constructeur de copie)
 
 
-Identifiant::Identifiant ( ) : Symbole("nom", ID, true)
+Identifiant::Identifiant ( ) 
+	: Symbole("nom", ID, true)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Identifiant>" << endl;

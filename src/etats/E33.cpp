@@ -1,7 +1,7 @@
 /*************************************************************************
                            E33  -  Etat de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -36,16 +36,18 @@ bool E33::transition(Automate & automate, Symbole* s)
 {
 	switch(*s)
 	{
-	case VIRGULE:
-	case POINT_VIRGULE:
-		Symbole * val = automate.popSymbole();
-		Symbole * egal = automate.popSymbole();
-		Symbole * id = automate.popSymbole();
+		case VIRGULE:
+		case POINT_VIRGULE:
+		{
+			Symbole * val = automate.popSymbole();
+			Symbole * egal = automate.popSymbole();
+			Symbole * id = automate.popSymbole();
 
-		Symbole * nouveauSymbole;
-		//TODO remplir cette variable pour réduire R8
-		automate.reduction(nouveauSymbole, LIDV, 3);
-		return true;
+			Symbole * nouveauSymbole;
+			//TODO remplir cette variable pour réduire R8
+			automate.reduction(nouveauSymbole, 3);
+			return true;
+		}
 	}
 	
 	return false;
@@ -55,6 +57,7 @@ bool E33::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E33::E33 ( const E33 & unE33 )
+	: Etat(unE33)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E33>" << endl;
@@ -63,6 +66,7 @@ E33::E33 ( const E33 & unE33 )
 
 
 E33::E33 ( )
+	: Etat()
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E33>" << endl;

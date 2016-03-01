@@ -1,42 +1,65 @@
 /*************************************************************************
-                           Identifiant  -  Symbole de l'analyseur
+                           Etat  -  Etat de l'automate
                              -------------------
-    début                : 1 mars 2016 18:29:02
+    début                : 1 mars 2016 17:48:07
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
-//---------- Interface de la classe <Identifiant> (fichier Identifiant.h) ------
-#if ! defined ( IDENTIFIANT_H )
-#define IDENTIFIANT_H
+//---------- Interface de la classe <Etat> (fichier Etat.h) ------
+#ifndef ETAT_H
+#define ETAT_H
+
+class Etat; //Automate a besoin d'Etat, il faut l'avoir déclaré
 
 //--------------------------------------------------- Interfaces utilisées
-#include "Symbole.h"
+#include "../Automate.h"
+#include "../symboles/Symbole.h"
 
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <Identifiant>
-// Définit le symbole Identifiant manipulé par l'automate.
+// Rôle de la classe <Etat>
+//	Cette classe représente un état de l'analyseur
+//	syntaxique. La méthode transition permet à l'automate
+//	de passer à l'état suivant en fonction du symbole lu.
 //
 //------------------------------------------------------------------------ 
 
-class Identifiant : public Symbole
+class Etat
 {
 //----------------------------------------------------------------- PUBLIC
 
 public:
 //----------------------------------------------------- Méthodes publiques
+	virtual bool transition(Automate & automate, Symbole* s) = 0;
+    // Mode d'emploi :
+    //  Permet d'effectuer la transition vers l'état suivant.
+    // Contrat :
+    //  Aucun
 
 //------------------------------------------------- Surcharge d'opérateurs
 
+
 //-------------------------------------------- Constructeurs - destructeur
-    Identifiant ( const Identifiant & unIdentifiant );
+    virtual ~Etat ( );
+    // Mode d'emploi :
+    //	Détruit un état.
+    // Contrat :
+    //	Aucun
 
-    Identifiant ( ); 
+    Etat ( const Etat & unEtat );
+    // Mode d'emploi (constructeur de copie) :
+    //	
+    // Contrat :
+    //	Aucun
 
-    virtual ~Identifiant ( );
+    Etat ( );
+    // Mode d'emploi :
+    //	Crée un état. Ne peut pas être utilisé directement.
+    // Contrat :
+    //	Aucun
 
 //------------------------------------------------------------------ PRIVE 
 
@@ -60,6 +83,6 @@ private:
 
 };
 
-//----------------------------------------- Types dépendants de <Identifiant>
+//----------------------------------------- Types dépendants de <Etat>
 
-#endif // IDENTIFIANT_H
+#endif // ETAT_H

@@ -1,7 +1,7 @@
 /*************************************************************************
                            E37  -  Etat de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -15,6 +15,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "E37.h"
+#include "E38.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -36,9 +37,11 @@ bool E37::transition(Automate & automate, Symbole* s)
 {
 	switch(*s)
 	{
-	case VAL:
+		case VAL:
+		{
 		automate.decalage(s, new E38);
-		return true;
+			return true;
+		}
 	}
 	
 	return false;
@@ -48,6 +51,7 @@ bool E37::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E37::E37 ( const E37 & unE37 )
+	: Etat(unE37)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E37>" << endl;
@@ -56,6 +60,7 @@ E37::E37 ( const E37 & unE37 )
 
 
 E37::E37 ( )
+	: Etat()
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E37>" << endl;

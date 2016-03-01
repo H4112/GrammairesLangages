@@ -1,7 +1,7 @@
 /*************************************************************************
                            ListeIdentifiantsValeurs  -  Symbole de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:03
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -31,7 +31,8 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-ListeIdentifiantsValeurs::ListeIdentifiantsValeurs ( const ListeIdentifiantsValeurs & unListeIdentifiantsValeurs )
+ListeIdentifiantsValeurs::ListeIdentifiantsValeurs ( const ListeIdentifiantsValeurs & unListeIdentifiantsValeurs ) 
+	: Symbole(unListeIdentifiantsValeurs)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <ListeIdentifiantsValeurs>" << endl;
@@ -39,7 +40,8 @@ ListeIdentifiantsValeurs::ListeIdentifiantsValeurs ( const ListeIdentifiantsVale
 } //----- Fin de ListeIdentifiantsValeurs (constructeur de copie)
 
 
-ListeIdentifiantsValeurs::ListeIdentifiantsValeurs ( ) : Symbole("RIEN", LIDV, false)
+ListeIdentifiantsValeurs::ListeIdentifiantsValeurs ( ) 
+	: Symbole("RIEN", LIDV, false)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <ListeIdentifiantsValeurs>" << endl;

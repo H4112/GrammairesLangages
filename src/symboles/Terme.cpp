@@ -1,7 +1,7 @@
 /*************************************************************************
                            Terme  -  Symbole de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:03
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -31,7 +31,8 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Terme::Terme ( const Terme & unTerme )
+Terme::Terme ( const Terme & unTerme ) 
+	: Symbole(unTerme)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Terme>" << endl;
@@ -39,7 +40,8 @@ Terme::Terme ( const Terme & unTerme )
 } //----- Fin de Terme (constructeur de copie)
 
 
-Terme::Terme ( ) : Symbole("RIEN", T, false)
+Terme::Terme ( ) 
+	: Symbole("RIEN", T, false)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Terme>" << endl;

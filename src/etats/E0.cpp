@@ -1,7 +1,7 @@
 /*************************************************************************
                            E0  -  Etat de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -15,6 +15,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "E0.h"
+#include "E1.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -36,20 +37,24 @@ bool E0::transition(Automate & automate, Symbole* s)
 {
 	switch(*s)
 	{
-	case VAR:
-	case CONST:
-	case LIRE:
-	case ECRIRE:
-	case ID:
-	case FIN:
+		case VAR:
+		case CONST:
+		case LIRE:
+		case ECRIRE:
+		case ID:
+		case FIN:
+		{
 
-		Symbole * nouveauSymbole;
-		//TODO remplir cette variable pour réduire R2
-		automate.reduction(nouveauSymbole, PD, 0);
-		return true;
-	case PD:
+			Symbole * nouveauSymbole;
+			//TODO remplir cette variable pour réduire R2
+			automate.reduction(nouveauSymbole, 0);
+			return true;
+		}
+		case PD:
+		{
 		automate.decalage(s, new E1);
-		return true;
+			return true;
+		}
 	}
 	
 	return false;
@@ -59,6 +64,7 @@ bool E0::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E0::E0 ( const E0 & unE0 )
+	: Etat(unE0)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E0>" << endl;
@@ -67,6 +73,7 @@ E0::E0 ( const E0 & unE0 )
 
 
 E0::E0 ( )
+	: Etat()
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E0>" << endl;

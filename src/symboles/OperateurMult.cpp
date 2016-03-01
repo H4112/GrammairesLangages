@@ -1,7 +1,7 @@
 /*************************************************************************
                            OperateurMult  -  Symbole de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -31,7 +31,8 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-OperateurMult::OperateurMult ( const OperateurMult & unOperateurMult )
+OperateurMult::OperateurMult ( const OperateurMult & unOperateurMult ) 
+	: Symbole(unOperateurMult)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <OperateurMult>" << endl;
@@ -39,7 +40,8 @@ OperateurMult::OperateurMult ( const OperateurMult & unOperateurMult )
 } //----- Fin de OperateurMult (constructeur de copie)
 
 
-OperateurMult::OperateurMult ( ) : Symbole("nom", OPM, true)
+OperateurMult::OperateurMult ( ) 
+	: Symbole("nom", OPM, true)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <OperateurMult>" << endl;

@@ -1,7 +1,7 @@
 /*************************************************************************
                            E14  -  Etat de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -15,6 +15,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "E14.h"
+#include "E26.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -36,9 +37,11 @@ bool E14::transition(Automate & automate, Symbole* s)
 {
 	switch(*s)
 	{
-	case EGAL:
+		case EGAL:
+		{
 		automate.decalage(s, new E26);
-		return true;
+			return true;
+		}
 	}
 	
 	return false;
@@ -48,6 +51,7 @@ bool E14::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E14::E14 ( const E14 & unE14 )
+	: Etat(unE14)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E14>" << endl;
@@ -56,6 +60,7 @@ E14::E14 ( const E14 & unE14 )
 
 
 E14::E14 ( )
+	: Etat()
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E14>" << endl;

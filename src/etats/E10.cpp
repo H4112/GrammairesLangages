@@ -1,7 +1,7 @@
 /*************************************************************************
                            E10  -  Etat de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -36,20 +36,22 @@ bool E10::transition(Automate & automate, Symbole* s)
 {
 	switch(*s)
 	{
-	case VAR:
-	case CONST:
-	case LIRE:
-	case ECRIRE:
-	case ID:
-	case FIN:
-		Symbole * point_virgule = automate.popSymbole();
-		Symbole * d = automate.popSymbole();
-		Symbole * pd = automate.popSymbole();
+		case VAR:
+		case CONST:
+		case LIRE:
+		case ECRIRE:
+		case ID:
+		case FIN:
+		{
+			Symbole * point_virgule = automate.popSymbole();
+			Symbole * d = automate.popSymbole();
+			Symbole * pd = automate.popSymbole();
 
-		Symbole * nouveauSymbole;
-		//TODO remplir cette variable pour réduire R1
-		automate.reduction(nouveauSymbole, PD, 3);
-		return true;
+			Symbole * nouveauSymbole;
+			//TODO remplir cette variable pour réduire R1
+			automate.reduction(nouveauSymbole, 3);
+			return true;
+		}
 	}
 	
 	return false;
@@ -59,6 +61,7 @@ bool E10::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E10::E10 ( const E10 & unE10 )
+	: Etat(unE10)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E10>" << endl;
@@ -67,6 +70,7 @@ E10::E10 ( const E10 & unE10 )
 
 
 E10::E10 ( )
+	: Etat()
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E10>" << endl;

@@ -28,21 +28,20 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-string getNom()
+string Symbole::getNom()
 {
 	return nom;
 }
 
-bool estTerminal()
+bool Symbole::estTerminal()
 {
 	return terminal;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
-operator int() const { return ident; }
 
 //-------------------------------------------- Constructeurs - destructeur
-Symbole ( const Symbole & unSymbole )
+Symbole::Symbole ( const Symbole & unSymbole )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Symbole>" << endl;
@@ -50,7 +49,7 @@ Symbole ( const Symbole & unSymbole )
 } //----- Fin de Symbole (constructeur de copie)
 
 
-Symbole(string nomTemp, int identTemp, bool terminalTemp)
+Symbole::Symbole(string nomTemp, int identTemp, bool terminalTemp)
 {
 #ifdef MAP
 	nom=nomTemp;
@@ -61,7 +60,7 @@ Symbole(string nomTemp, int identTemp, bool terminalTemp)
 } //----- Fin de Symbole
 
 
-~Symbole ( )
+Symbole::~Symbole ( )
 {
 #ifdef MAP
     cout << "Appel au destructeur de <Symbole>" << endl;

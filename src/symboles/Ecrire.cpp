@@ -1,7 +1,7 @@
 /*************************************************************************
                            Ecrire  -  Symbole de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -31,7 +31,8 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Ecrire::Ecrire ( const Ecrire & unEcrire )
+Ecrire::Ecrire ( const Ecrire & unEcrire ) 
+	: Symbole(unEcrire)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Ecrire>" << endl;
@@ -39,7 +40,8 @@ Ecrire::Ecrire ( const Ecrire & unEcrire )
 } //----- Fin de Ecrire (constructeur de copie)
 
 
-Ecrire::Ecrire ( ) : Symbole("ecrire", ECRIRE, true)
+Ecrire::Ecrire ( ) 
+	: Symbole("ecrire", ECRIRE, true)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Ecrire>" << endl;

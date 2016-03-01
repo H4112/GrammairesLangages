@@ -1,7 +1,7 @@
 /*************************************************************************
                            Valeur  -  Symbole de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -31,7 +31,8 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Valeur::Valeur ( const Valeur & unValeur )
+Valeur::Valeur ( const Valeur & unValeur ) 
+	: Symbole(unValeur)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Valeur>" << endl;
@@ -39,7 +40,8 @@ Valeur::Valeur ( const Valeur & unValeur )
 } //----- Fin de Valeur (constructeur de copie)
 
 
-Valeur::Valeur ( ) : Symbole("nom", VAL, true)
+Valeur::Valeur ( ) 
+	: Symbole("nom", VAL, true)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Valeur>" << endl;

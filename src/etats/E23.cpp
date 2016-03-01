@@ -1,7 +1,7 @@
 /*************************************************************************
                            E23  -  Etat de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -15,6 +15,12 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "E23.h"
+#include "E20.h"
+#include "E21.h"
+#include "E22.h"
+#include "E30.h"
+#include "E18.h"
+#include "E19.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -36,24 +42,36 @@ bool E23::transition(Automate & automate, Symbole* s)
 {
 	switch(*s)
 	{
-	case OUVREPAR:
+		case OUVREPAR:
+		{
 		automate.decalage(s, new E20);
-		return true;
-	case ID:
+			return true;
+		}
+		case ID:
+		{
 		automate.decalage(s, new E21);
-		return true;
-	case VAL:
+			return true;
+		}
+		case VAL:
+		{
 		automate.decalage(s, new E22);
-		return true;
-	case E:
+			return true;
+		}
+		case E:
+		{
 		automate.decalage(s, new E30);
-		return true;
-	case T:
+			return true;
+		}
+		case T:
+		{
 		automate.decalage(s, new E18);
-		return true;
-	case F:
+			return true;
+		}
+		case F:
+		{
 		automate.decalage(s, new E19);
-		return true;
+			return true;
+		}
 	}
 	
 	return false;
@@ -63,6 +81,7 @@ bool E23::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E23::E23 ( const E23 & unE23 )
+	: Etat(unE23)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E23>" << endl;
@@ -71,6 +90,7 @@ E23::E23 ( const E23 & unE23 )
 
 
 E23::E23 ( )
+	: Etat()
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E23>" << endl;

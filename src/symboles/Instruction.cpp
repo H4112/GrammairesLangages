@@ -1,7 +1,7 @@
 /*************************************************************************
                            Instruction  -  Symbole de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:03
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -31,7 +31,8 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Instruction::Instruction ( const Instruction & unInstruction )
+Instruction::Instruction ( const Instruction & unInstruction ) 
+	: Symbole(unInstruction)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Instruction>" << endl;
@@ -39,7 +40,8 @@ Instruction::Instruction ( const Instruction & unInstruction )
 } //----- Fin de Instruction (constructeur de copie)
 
 
-Instruction::Instruction ( ) : Symbole("RIEN", I, false)
+Instruction::Instruction ( ) 
+	: Symbole("RIEN", I, false)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Instruction>" << endl;

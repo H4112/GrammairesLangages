@@ -1,7 +1,7 @@
 /*************************************************************************
                            Expression  -  Symbole de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:03
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -31,7 +31,8 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Expression::Expression ( const Expression & unExpression )
+Expression::Expression ( const Expression & unExpression ) 
+	: Symbole(unExpression)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Expression>" << endl;
@@ -39,7 +40,8 @@ Expression::Expression ( const Expression & unExpression )
 } //----- Fin de Expression (constructeur de copie)
 
 
-Expression::Expression ( ) : Symbole("RIEN", E, false)
+Expression::Expression ( ) 
+	: Symbole("RIEN", E, false)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Expression>" << endl;

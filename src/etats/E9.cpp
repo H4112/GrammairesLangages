@@ -1,7 +1,7 @@
 /*************************************************************************
                            E9  -  Etat de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -15,6 +15,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "E9.h"
+#include "E23.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -36,9 +37,11 @@ bool E9::transition(Automate & automate, Symbole* s)
 {
 	switch(*s)
 	{
-	case AFFECTATION:
+		case AFFECTATION:
+		{
 		automate.decalage(s, new E23);
-		return true;
+			return true;
+		}
 	}
 	
 	return false;
@@ -48,6 +51,7 @@ bool E9::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E9::E9 ( const E9 & unE9 )
+	: Etat(unE9)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E9>" << endl;
@@ -56,6 +60,7 @@ E9::E9 ( const E9 & unE9 )
 
 
 E9::E9 ( )
+	: Etat()
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E9>" << endl;

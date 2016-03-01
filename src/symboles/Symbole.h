@@ -52,13 +52,25 @@ class Symbole
 
 public:
 //----------------------------------------------------- Méthodes publiques
+	string getNom();
+	//Mode d'emploi :
+	//	Permet d'obtenir un nom affichable pour le symbole.
+	//Contrat :
+	//	Aucun
+	
+	bool estTerminal();
+	//Mode d'emploi :
+	//	Vaut true si le symbole est terminal, sinon false.
+	//Contrat :
+	//	Aucun
 
 //------------------------------------------------- Surcharge d'opérateurs
+	operator int() const { return ident; }
 
 //-------------------------------------------- Constructeurs - destructeur
     Symbole ( const Symbole & unSymbole );
 
-    Symbole ( );
+    Symbole (string nomTemp, int identTemp, bool terminalTemp);
 
     virtual ~Symbole ( );
 

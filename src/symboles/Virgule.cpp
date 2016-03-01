@@ -1,7 +1,7 @@
 /*************************************************************************
                            Virgule  -  Symbole de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -31,7 +31,8 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Virgule::Virgule ( const Virgule & unVirgule )
+Virgule::Virgule ( const Virgule & unVirgule ) 
+	: Symbole(unVirgule)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Virgule>" << endl;
@@ -39,7 +40,8 @@ Virgule::Virgule ( const Virgule & unVirgule )
 } //----- Fin de Virgule (constructeur de copie)
 
 
-Virgule::Virgule ( ) : Symbole(""", VIRGULE, true)
+Virgule::Virgule ( ) 
+	: Symbole("METTEZ UNE VIRGULE ICI", VIRGULE, true)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Virgule>" << endl;

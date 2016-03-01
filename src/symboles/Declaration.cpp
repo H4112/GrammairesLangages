@@ -1,7 +1,7 @@
 /*************************************************************************
                            Declaration  -  Symbole de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -31,7 +31,8 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Declaration::Declaration ( const Declaration & unDeclaration )
+Declaration::Declaration ( const Declaration & unDeclaration ) 
+	: Symbole(unDeclaration)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Declaration>" << endl;
@@ -39,7 +40,8 @@ Declaration::Declaration ( const Declaration & unDeclaration )
 } //----- Fin de Declaration (constructeur de copie)
 
 
-Declaration::Declaration ( ) : Symbole("RIEN", D, false)
+Declaration::Declaration ( ) 
+	: Symbole("RIEN", D, false)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Declaration>" << endl;

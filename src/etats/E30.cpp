@@ -1,7 +1,7 @@
 /*************************************************************************
                            E30  -  Etat de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -15,6 +15,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "E30.h"
+#include "E27.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -36,18 +37,22 @@ bool E30::transition(Automate & automate, Symbole* s)
 {
 	switch(*s)
 	{
-	case POINT_VIRGULE:
-		Symbole * e = automate.popSymbole();
-		Symbole * affectation = automate.popSymbole();
-		Symbole * id = automate.popSymbole();
+		case POINT_VIRGULE:
+		{
+			Symbole * e = automate.popSymbole();
+			Symbole * affectation = automate.popSymbole();
+			Symbole * id = automate.popSymbole();
 
-		Symbole * nouveauSymbole;
-		//TODO remplir cette variable pour réduire R13
-		automate.reduction(nouveauSymbole, I, 3);
-		return true;
-	case OPA:
+			Symbole * nouveauSymbole;
+			//TODO remplir cette variable pour réduire R13
+			automate.reduction(nouveauSymbole, 3);
+			return true;
+		}
+		case OPA:
+		{
 		automate.decalage(s, new E27);
-		return true;
+			return true;
+		}
 	}
 	
 	return false;
@@ -57,6 +62,7 @@ bool E30::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E30::E30 ( const E30 & unE30 )
+	: Etat(unE30)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E30>" << endl;
@@ -65,6 +71,7 @@ E30::E30 ( const E30 & unE30 )
 
 
 E30::E30 ( )
+	: Etat()
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E30>" << endl;

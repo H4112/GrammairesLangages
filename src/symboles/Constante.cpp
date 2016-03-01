@@ -1,7 +1,7 @@
 /*************************************************************************
                            Constante  -  Symbole de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -31,7 +31,8 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Constante::Constante ( const Constante & unConstante )
+Constante::Constante ( const Constante & unConstante ) 
+	: Symbole(unConstante)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Constante>" << endl;
@@ -39,7 +40,8 @@ Constante::Constante ( const Constante & unConstante )
 } //----- Fin de Constante (constructeur de copie)
 
 
-Constante::Constante ( ) : Symbole("const", CONST, true)
+Constante::Constante ( ) 
+	: Symbole("const", CONST, true)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Constante>" << endl;

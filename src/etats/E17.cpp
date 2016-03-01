@@ -1,7 +1,7 @@
 /*************************************************************************
                            E17  -  Etat de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -15,6 +15,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "E17.h"
+#include "E27.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -36,17 +37,21 @@ bool E17::transition(Automate & automate, Symbole* s)
 {
 	switch(*s)
 	{
-	case POINT_VIRGULE:
-		Symbole * e = automate.popSymbole();
-		Symbole * ecrire = automate.popSymbole();
+		case POINT_VIRGULE:
+		{
+			Symbole * e = automate.popSymbole();
+			Symbole * ecrire = automate.popSymbole();
 
-		Symbole * nouveauSymbole;
-		//TODO remplir cette variable pour réduire R12
-		automate.reduction(nouveauSymbole, I, 2);
-		return true;
-	case OPA:
+			Symbole * nouveauSymbole;
+			//TODO remplir cette variable pour réduire R12
+			automate.reduction(nouveauSymbole, 2);
+			return true;
+		}
+		case OPA:
+		{
 		automate.decalage(s, new E27);
-		return true;
+			return true;
+		}
 	}
 	
 	return false;
@@ -56,6 +61,7 @@ bool E17::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E17::E17 ( const E17 & unE17 )
+	: Etat(unE17)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E17>" << endl;
@@ -64,6 +70,7 @@ E17::E17 ( const E17 & unE17 )
 
 
 E17::E17 ( )
+	: Etat()
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E17>" << endl;

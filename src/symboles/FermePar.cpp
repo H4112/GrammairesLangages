@@ -1,7 +1,7 @@
 /*************************************************************************
                            FermePar  -  Symbole de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -31,7 +31,8 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-FermePar::FermePar ( const FermePar & unFermePar )
+FermePar::FermePar ( const FermePar & unFermePar ) 
+	: Symbole(unFermePar)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <FermePar>" << endl;
@@ -39,7 +40,8 @@ FermePar::FermePar ( const FermePar & unFermePar )
 } //----- Fin de FermePar (constructeur de copie)
 
 
-FermePar::FermePar ( ) : Symbole(")", FERMEPAR, true)
+FermePar::FermePar ( ) 
+	: Symbole(")", FERMEPAR, true)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <FermePar>" << endl;

@@ -1,7 +1,7 @@
 /*************************************************************************
                            E36  -  Etat de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -36,18 +36,20 @@ bool E36::transition(Automate & automate, Symbole* s)
 {
 	switch(*s)
 	{
-	case POINT_VIRGULE:
-	case FERMEPAR:
-	case OPA:
-	case OPM:
-		Symbole * fermepar = automate.popSymbole();
-		Symbole * e = automate.popSymbole();
-		Symbole * ouvrepar = automate.popSymbole();
+		case POINT_VIRGULE:
+		case FERMEPAR:
+		case OPA:
+		case OPM:
+		{
+			Symbole * fermepar = automate.popSymbole();
+			Symbole * e = automate.popSymbole();
+			Symbole * ouvrepar = automate.popSymbole();
 
-		Symbole * nouveauSymbole;
-		//TODO remplir cette variable pour réduire R18
-		automate.reduction(nouveauSymbole, F, 3);
-		return true;
+			Symbole * nouveauSymbole;
+			//TODO remplir cette variable pour réduire R18
+			automate.reduction(nouveauSymbole, 3);
+			return true;
+		}
 	}
 	
 	return false;
@@ -57,6 +59,7 @@ bool E36::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E36::E36 ( const E36 & unE36 )
+	: Etat(unE36)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E36>" << endl;
@@ -65,6 +68,7 @@ E36::E36 ( const E36 & unE36 )
 
 
 E36::E36 ( )
+	: Etat()
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E36>" << endl;

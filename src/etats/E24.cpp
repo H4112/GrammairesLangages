@@ -1,7 +1,7 @@
 /*************************************************************************
                            E24  -  Etat de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -15,6 +15,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "E24.h"
+#include "E31.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -36,9 +37,11 @@ bool E24::transition(Automate & automate, Symbole* s)
 {
 	switch(*s)
 	{
-	case ID:
+		case ID:
+		{
 		automate.decalage(s, new E31);
-		return true;
+			return true;
+		}
 	}
 	
 	return false;
@@ -48,6 +51,7 @@ bool E24::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E24::E24 ( const E24 & unE24 )
+	: Etat(unE24)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E24>" << endl;
@@ -56,6 +60,7 @@ E24::E24 ( const E24 & unE24 )
 
 
 E24::E24 ( )
+	: Etat()
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E24>" << endl;

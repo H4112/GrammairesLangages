@@ -1,7 +1,7 @@
 /*************************************************************************
                            E4  -  Etat de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -15,6 +15,8 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "E4.h"
+#include "E12.h"
+#include "E11.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -36,12 +38,16 @@ bool E4::transition(Automate & automate, Symbole* s)
 {
 	switch(*s)
 	{
-	case ID:
+		case ID:
+		{
 		automate.decalage(s, new E12);
-		return true;
-	case LID:
+			return true;
+		}
+		case LID:
+		{
 		automate.decalage(s, new E11);
-		return true;
+			return true;
+		}
 	}
 	
 	return false;
@@ -51,6 +57,7 @@ bool E4::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E4::E4 ( const E4 & unE4 )
+	: Etat(unE4)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E4>" << endl;
@@ -59,6 +66,7 @@ E4::E4 ( const E4 & unE4 )
 
 
 E4::E4 ( )
+	: Etat()
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E4>" << endl;

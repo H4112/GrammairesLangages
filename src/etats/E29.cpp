@@ -1,7 +1,7 @@
 /*************************************************************************
                            E29  -  Etat de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -15,6 +15,8 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "E29.h"
+#include "E36.h"
+#include "E27.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -36,12 +38,16 @@ bool E29::transition(Automate & automate, Symbole* s)
 {
 	switch(*s)
 	{
-	case FERMEPAR:
+		case FERMEPAR:
+		{
 		automate.decalage(s, new E36);
-		return true;
-	case OPA:
+			return true;
+		}
+		case OPA:
+		{
 		automate.decalage(s, new E27);
-		return true;
+			return true;
+		}
 	}
 	
 	return false;
@@ -51,6 +57,7 @@ bool E29::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E29::E29 ( const E29 & unE29 )
+	: Etat(unE29)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E29>" << endl;
@@ -59,6 +66,7 @@ E29::E29 ( const E29 & unE29 )
 
 
 E29::E29 ( )
+	: Etat()
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E29>" << endl;

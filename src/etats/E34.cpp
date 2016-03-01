@@ -1,7 +1,7 @@
 /*************************************************************************
                            E34  -  Etat de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -15,6 +15,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "E34.h"
+#include "E28.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -36,20 +37,24 @@ bool E34::transition(Automate & automate, Symbole* s)
 {
 	switch(*s)
 	{
-	case POINT_VIRGULE:
-	case FERMEPAR:
-	case OPA:
-		Symbole * t = automate.popSymbole();
-		Symbole * opa = automate.popSymbole();
-		Symbole * e = automate.popSymbole();
+		case POINT_VIRGULE:
+		case FERMEPAR:
+		case OPA:
+		{
+			Symbole * t = automate.popSymbole();
+			Symbole * opa = automate.popSymbole();
+			Symbole * e = automate.popSymbole();
 
-		Symbole * nouveauSymbole;
-		//TODO remplir cette variable pour réduire R14
-		automate.reduction(nouveauSymbole, E, 3);
-		return true;
-	case OPM:
+			Symbole * nouveauSymbole;
+			//TODO remplir cette variable pour réduire R14
+			automate.reduction(nouveauSymbole, 3);
+			return true;
+		}
+		case OPM:
+		{
 		automate.decalage(s, new E28);
-		return true;
+			return true;
+		}
 	}
 	
 	return false;
@@ -59,6 +64,7 @@ bool E34::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E34::E34 ( const E34 & unE34 )
+	: Etat(unE34)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E34>" << endl;
@@ -67,6 +73,7 @@ E34::E34 ( const E34 & unE34 )
 
 
 E34::E34 ( )
+	: Etat()
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E34>" << endl;

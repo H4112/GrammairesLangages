@@ -1,7 +1,7 @@
 /*************************************************************************
                            E11  -  Etat de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -15,6 +15,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "E11.h"
+#include "E24.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -36,17 +37,21 @@ bool E11::transition(Automate & automate, Symbole* s)
 {
 	switch(*s)
 	{
-	case VIRGULE:
+		case VIRGULE:
+		{
 		automate.decalage(s, new E24);
-		return true;
-	case POINT_VIRGULE:
-		Symbole * lid = automate.popSymbole();
-		Symbole * var = automate.popSymbole();
+			return true;
+		}
+		case POINT_VIRGULE:
+		{
+			Symbole * lid = automate.popSymbole();
+			Symbole * var = automate.popSymbole();
 
-		Symbole * nouveauSymbole;
-		//TODO remplir cette variable pour réduire R3
-		automate.reduction(nouveauSymbole, D, 2);
-		return true;
+			Symbole * nouveauSymbole;
+			//TODO remplir cette variable pour réduire R3
+			automate.reduction(nouveauSymbole, 2);
+			return true;
+		}
 	}
 	
 	return false;
@@ -56,6 +61,7 @@ bool E11::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E11::E11 ( const E11 & unE11 )
+	: Etat(unE11)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E11>" << endl;
@@ -64,6 +70,7 @@ E11::E11 ( const E11 & unE11 )
 
 
 E11::E11 ( )
+	: Etat()
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E11>" << endl;

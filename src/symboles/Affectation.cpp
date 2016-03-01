@@ -1,7 +1,7 @@
 /*************************************************************************
                            Affectation  -  Symbole de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -31,7 +31,8 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Affectation::Affectation ( const Affectation & unAffectation )
+Affectation::Affectation ( const Affectation & unAffectation ) 
+	: Symbole(unAffectation)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Affectation>" << endl;
@@ -39,7 +40,8 @@ Affectation::Affectation ( const Affectation & unAffectation )
 } //----- Fin de Affectation (constructeur de copie)
 
 
-Affectation::Affectation ( ) : Symbole(":=", AFFECTATION, true)
+Affectation::Affectation ( ) 
+	: Symbole(":=", AFFECTATION, true)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Affectation>" << endl;

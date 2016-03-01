@@ -1,11 +1,11 @@
 /*************************************************************************
-                           E15  -  Etat de l'analyseur
+                           Etat  -  Etat de l'automate
                              -------------------
-    début                : 1 mars 2016 18:29:02
+    début                : 1 mars 2016 17:48:07
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
-//---------- Réalisation de la classe <E15> (fichier E15.cpp) --
+//---------- Réalisation de la classe <Etat> (fichier Etat.cpp) --
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -14,7 +14,7 @@ using namespace std;
 #include <iostream>
 
 //------------------------------------------------------ Include personnel
-#include "E15.h"
+#include "Etat.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -27,61 +27,32 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E15::print() const 
-{
-	cout << "E15" << endl;
-}
 
-bool E15::transition(Automate & automate, Symbole* s)
-{
-	switch(*s)
-	{
-		case LIRE:
-		case ECRIRE:
-		case ID:
-		case FIN:
-		{
-			Symbole * point_virgule = automate.popSymbole();
-			Symbole * i = automate.popSymbole();
-			Symbole * pi = automate.popSymbole();
-
-			Symbole * nouveauSymbole;
-			//TODO remplir cette variable pour réduire R9
-			automate.reduction(nouveauSymbole, 3);
-			return true;
-		}
-	}
-	
-	return false;
-}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
+
 //-------------------------------------------- Constructeurs - destructeur
-E15::E15 ( const E15 & unE15 )
-	: Etat(unE15)
+Etat::~Etat ( )
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <E15>" << endl;
+    cout << "Appel au destructeur de <Etat>" << endl;
 #endif
-} //----- Fin de E15 (constructeur de copie)
+} //----- Fin de ~Etat
 
-
-E15::E15 ( )
-	: Etat()
+Etat::Etat ( const Etat & unEtat )
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <E15>" << endl;
+    cout << "Appel au constructeur de copie de <Etat>" << endl;
 #endif
-} //----- Fin de E15
+} //----- Fin de Etat (constructeur de copie)
 
-
-E15::~E15 ( )
+Etat::Etat ( )
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <E15>" << endl;
+    cout << "Appel au constructeur de <Etat>" << endl;
 #endif
-} //----- Fin de ~E15
+} //----- Fin de Etat
 
 
 //------------------------------------------------------------------ PRIVE
@@ -89,3 +60,5 @@ E15::~E15 ( )
 //----------------------------------------------------- Méthodes protégées
 
 //------------------------------------------------------- Méthodes privées
+
+

@@ -1,7 +1,7 @@
 /*************************************************************************
                            Fin  -  Symbole de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -31,7 +31,8 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Fin::Fin ( const Fin & unFin )
+Fin::Fin ( const Fin & unFin ) 
+	: Symbole(unFin)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Fin>" << endl;
@@ -39,7 +40,8 @@ Fin::Fin ( const Fin & unFin )
 } //----- Fin de Fin (constructeur de copie)
 
 
-Fin::Fin ( ) : Symbole("RIEN", FIN, true)
+Fin::Fin ( ) 
+	: Symbole("RIEN", FIN, true)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Fin>" << endl;

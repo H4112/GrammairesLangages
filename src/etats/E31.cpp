@@ -1,7 +1,7 @@
 /*************************************************************************
                            E31  -  Etat de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -36,16 +36,18 @@ bool E31::transition(Automate & automate, Symbole* s)
 {
 	switch(*s)
 	{
-	case VIRGULE:
-	case POINT_VIRGULE:
-		Symbole * id = automate.popSymbole();
-		Symbole * virgule = automate.popSymbole();
-		Symbole * lid = automate.popSymbole();
+		case VIRGULE:
+		case POINT_VIRGULE:
+		{
+			Symbole * id = automate.popSymbole();
+			Symbole * virgule = automate.popSymbole();
+			Symbole * lid = automate.popSymbole();
 
-		Symbole * nouveauSymbole;
-		//TODO remplir cette variable pour réduire R5
-		automate.reduction(nouveauSymbole, LID, 3);
-		return true;
+			Symbole * nouveauSymbole;
+			//TODO remplir cette variable pour réduire R5
+			automate.reduction(nouveauSymbole, 3);
+			return true;
+		}
 	}
 	
 	return false;
@@ -55,6 +57,7 @@ bool E31::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E31::E31 ( const E31 & unE31 )
+	: Etat(unE31)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E31>" << endl;
@@ -63,6 +66,7 @@ E31::E31 ( const E31 & unE31 )
 
 
 E31::E31 ( )
+	: Etat()
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E31>" << endl;

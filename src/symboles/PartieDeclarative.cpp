@@ -1,7 +1,7 @@
 /*************************************************************************
                            PartieDeclarative  -  Symbole de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -31,7 +31,8 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-PartieDeclarative::PartieDeclarative ( const PartieDeclarative & unPartieDeclarative )
+PartieDeclarative::PartieDeclarative ( const PartieDeclarative & unPartieDeclarative ) 
+	: Symbole(unPartieDeclarative)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <PartieDeclarative>" << endl;
@@ -39,7 +40,8 @@ PartieDeclarative::PartieDeclarative ( const PartieDeclarative & unPartieDeclara
 } //----- Fin de PartieDeclarative (constructeur de copie)
 
 
-PartieDeclarative::PartieDeclarative ( ) : Symbole("RIEN", PD, false)
+PartieDeclarative::PartieDeclarative ( ) 
+	: Symbole("RIEN", PD, false)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <PartieDeclarative>" << endl;

@@ -1,7 +1,7 @@
 /*************************************************************************
                            Variable  -  Symbole de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:38:26
+    début                : 1 mars 2016 18:29:02
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -31,7 +31,8 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Variable::Variable ( const Variable & unVariable )
+Variable::Variable ( const Variable & unVariable ) 
+	: Symbole(unVariable)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Variable>" << endl;
@@ -39,7 +40,8 @@ Variable::Variable ( const Variable & unVariable )
 } //----- Fin de Variable (constructeur de copie)
 
 
-Variable::Variable ( ) : Symbole("var", VAR, true)
+Variable::Variable ( ) 
+	: Symbole("var", VAR, true)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Variable>" << endl;
