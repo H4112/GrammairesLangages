@@ -1,7 +1,7 @@
 /*************************************************************************
                            E26  -  Etat de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:16:42
+    dÃ©but                : 1 mars 2016 11:30:18
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -9,15 +9,17 @@
 #if ! defined ( E26_H )
 #define E26_H
 
-//--------------------------------------------------- Interfaces utilisées
+//--------------------------------------------------- Interfaces utilisÃ©es
+#include "../symboles/Symbole.h"
+#include "../Automate.h"
 
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <E26>
-// Définit l'état E26 de l'automate et ses transitions.
+// RÃ´le de la classe <E26>
+// DÃ©finit l'Ã©tat E26 de l'automate et ses transitions.
 //
 //------------------------------------------------------------------------ 
 
@@ -26,21 +28,21 @@ class E26 : public Etat
 //----------------------------------------------------------------- PUBLIC
 
 public:
-//----------------------------------------------------- Méthodes publiques
+//----------------------------------------------------- MÃ©thodes publiques
     void print() const;
     // Mode d'emploi :
-    //  Ecrit le nom de l'état sur la sortie standard.
+    //  Ecrit le nom de l'Ã©tat sur la sortie standard.
     // Contrat :
     //  Aucun
 	
 	bool transition(Automate & automate, Symbole* s);
     // Mode d'emploi :
-    //  Appelle l'automate donné en paramètre pour effectuer le décalage
-	//  ou la réduction correspondant au symbole passé en paramètre.
+    //  Appelle l'automate donnÃ© en paramÃ¨tre pour effectuer le dÃ©calage
+	//  ou la rÃ©duction correspondant au symbole passÃ© en paramÃ¨tre.
     // Contrat :
     //  Aucun
 
-//------------------------------------------------- Surcharge d'opérateurs
+//------------------------------------------------- Surcharge d'opÃ©rateurs
     
 
 //-------------------------------------------- Constructeurs - destructeur
@@ -53,25 +55,25 @@ public:
 //------------------------------------------------------------------ PRIVE 
 
 protected:
-//----------------------------------------------------- Méthodes protégées
+//----------------------------------------------------- MÃ©thodes protÃ©gÃ©es
 
 private:
-//------------------------------------------------------- Méthodes privées
+//------------------------------------------------------- MÃ©thodes privÃ©es
 
 protected:
-//----------------------------------------------------- Attributs protégés
+//----------------------------------------------------- Attributs protÃ©gÃ©s
 
 private:
-//------------------------------------------------------- Attributs privés
+//------------------------------------------------------- Attributs privÃ©s
 
 //---------------------------------------------------------- Classes amies
 
-//-------------------------------------------------------- Classes privées
+//-------------------------------------------------------- Classes privÃ©es
 
-//----------------------------------------------------------- Types privés
+//----------------------------------------------------------- Types privÃ©s
 
 };
 
-//----------------------------------------- Types dépendants de <E26>
+//----------------------------------------- Types dÃ©pendants de <E26>
 
 #endif // E26_H

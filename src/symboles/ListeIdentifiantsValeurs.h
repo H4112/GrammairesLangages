@@ -1,7 +1,7 @@
 /*************************************************************************
                            ListeIdentifiantsValeurs  -  Symbole de l'analyseur
                              -------------------
-    début                : 1 mars 2016 11:16:42
+    dÃ©but                : 1 mars 2016 11:30:18
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -9,15 +9,16 @@
 #if ! defined ( LISTEIDENTIFIANTSVALEURS_H )
 #define LISTEIDENTIFIANTSVALEURS_H
 
-//--------------------------------------------------- Interfaces utilisées
+//--------------------------------------------------- Interfaces utilisÃ©es
+#include "Symbole.h"
 
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <ListeIdentifiantsValeurs>
-// Définit le symbole ListeIdentifiantsValeurs manipulé par l'automate.
+// RÃ´le de la classe <ListeIdentifiantsValeurs>
+// DÃ©finit le symbole ListeIdentifiantsValeurs manipulÃ© par l'automate.
 //
 //------------------------------------------------------------------------ 
 
@@ -26,9 +27,9 @@ class ListeIdentifiantsValeurs : public Symbole
 //----------------------------------------------------------------- PUBLIC
 
 public:
-//----------------------------------------------------- Méthodes publiques
+//----------------------------------------------------- MÃ©thodes publiques
 
-//------------------------------------------------- Surcharge d'opérateurs
+//------------------------------------------------- Surcharge d'opÃ©rateurs
 
 //-------------------------------------------- Constructeurs - destructeur
     ListeIdentifiantsValeurs ( const ListeIdentifiantsValeurs & unListeIdentifiantsValeurs );
@@ -40,25 +41,25 @@ public:
 //------------------------------------------------------------------ PRIVE 
 
 protected:
-//----------------------------------------------------- Méthodes protégées
+//----------------------------------------------------- MÃ©thodes protÃ©gÃ©es
 
 private:
-//------------------------------------------------------- Méthodes privées
+//------------------------------------------------------- MÃ©thodes privÃ©es
 
 protected:
-//----------------------------------------------------- Attributs protégés
+//----------------------------------------------------- Attributs protÃ©gÃ©s
 
 private:
-//------------------------------------------------------- Attributs privés
+//------------------------------------------------------- Attributs privÃ©s
 
 //---------------------------------------------------------- Classes amies
 
-//-------------------------------------------------------- Classes privées
+//-------------------------------------------------------- Classes privÃ©es
 
-//----------------------------------------------------------- Types privés
+//----------------------------------------------------------- Types privÃ©s
 
 };
 
-//----------------------------------------- Types dépendants de <ListeIdentifiantsValeurs>
+//----------------------------------------- Types dÃ©pendants de <ListeIdentifiantsValeurs>
 
 #endif // LISTEIDENTIFIANTSVALEURS_H
