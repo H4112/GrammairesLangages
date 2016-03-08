@@ -41,7 +41,8 @@ bool Symbole::estTerminal()
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Symbole::Symbole ( const Symbole & unSymbole )
+Symbole::Symbole ( const Symbole & unSymbole ) :
+	nom (unSymbole.nom), terminal(unSymbole.terminal), ident(unSymbole.ident)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Symbole>" << endl;
@@ -50,11 +51,9 @@ Symbole::Symbole ( const Symbole & unSymbole )
 
 
 Symbole::Symbole(string nomTemp, int identTemp, bool terminalTemp)
+	: nom(nomTemp), terminal(terminalTemp), ident(identTemp)
 {
 #ifdef MAP
-	nom=nomTemp;
-	terminal=terminalTemp;
-	ident=identTemp;
     cout << "Appel au constructeur de <Symbole>" << endl;
 #endif
 } //----- Fin de Symbole

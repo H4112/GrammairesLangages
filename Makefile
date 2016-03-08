@@ -1,3 +1,5 @@
+COMPFLAGS := -Wall -Wextra -DMAP
+
 OUTFILE := build/lutin
 
 CPP = $(shell ls src/*.cpp src/*/*.cpp)
@@ -10,7 +12,7 @@ $(OUTFILE) : $(OBJ)
 	
 %.o : %.cpp %.h src/symboles/Symbole.h src/Automate.h src/etats/Etat.h
 	@echo ">> Compiling $@"
-	g++ -c -o $@ $<
+	g++ -c $(COMPFLAGS) -o $@ $<
 
 automate.png : automate.uml
 	java -Dfile.encoding=UTF-8 -jar plantuml.jar -Tpng $<
