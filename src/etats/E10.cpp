@@ -47,8 +47,8 @@ bool E10::Transition ( Automate & automate, Symbole * s )
 		{
 			//Symbole * point_virgule = 
 			delete automate.PopSymbole();
-			ListeDeclaration * d = automate.PopSymbole();
-			PartieDeclarative * pd = automate.PopSymbole();
+			ListeDeclaration * d = (ListeDeclaration *) automate.PopSymbole();
+			PartieDeclarative * pd = (PartieDeclarative *) automate.PopSymbole();
 
 			if( ! pd->AjouterDeclarations(d) )
 			{
