@@ -1,28 +1,28 @@
 /*************************************************************************
-                           Constante  -  Symbole de l'analyseur
+                           Const  -  Symbole de l'analyseur
                              -------------------
     début                : 8 mars 2016 08:23:13
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
-//---------- Interface de la classe <Constante> (fichier Constante.h) ------
-#if ! defined ( CONSTANTE_H )
-#define CONSTANTE_H
+//---------- Interface de la classe <Const> (fichier Const.h) ------
+#if ! defined ( CONST_H )
+#define CONST_H
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Symbole.h"
 
-//------------------------------------------------------------- Constantes 
+//------------------------------------------------------------- Consts 
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <Constante>
-// Définit le symbole Constante manipulé par l'automate.
+// Rôle de la classe <Const>
+// Définit le symbole Const manipulé par l'automate.
 //
 //------------------------------------------------------------------------ 
 
-class Constante : public Symbole
+class Const : public Symbole
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -32,11 +32,11 @@ public:
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-    Constante ( const Constante & unConstante );
+    Const ( const Const & unConst );
 
-    Constante ( ); 
+    Const ( ); 
 
-    virtual ~Constante ( );
+    virtual ~Const ( );
 
 //------------------------------------------------------------------ PRIVE 
 
@@ -60,6 +60,6 @@ private:
 
 };
 
-//----------------------------------------- Types dépendants de <Constante>
+//----------------------------------------- Types dépendants de <Const>
 
-#endif // CONSTANTE_H
+#endif // CONST_H

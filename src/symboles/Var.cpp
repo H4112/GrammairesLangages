@@ -1,11 +1,11 @@
 /*************************************************************************
-                           Variable  -  Symbole de l'analyseur
+                           Var  -  Symbole de l'analyseur
                              -------------------
     début                : 8 mars 2016 08:23:13
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
-//---------- Réalisation de la classe <Variable> (fichier Variable.cpp) --
+//---------- Réalisation de la classe <Var> (fichier Var.cpp) --
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -14,7 +14,7 @@
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "Variable.h"
+#include "Var.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -31,30 +31,30 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Variable::Variable ( const Variable & unVariable ) 
-	: Symbole(unVariable)
+Var::Var ( const Var & unVar ) 
+	: Symbole(unVar)
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <Variable>" << endl;
+    cout << "Appel au constructeur de copie de <Var>" << endl;
 #endif
-} //----- Fin de Variable (constructeur de copie)
+} //----- Fin de Var (constructeur de copie)
 
 
-Variable::Variable ( ) 
+Var::Var ( ) 
 	: Symbole("var", VAR, true)
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <Variable>" << endl;
+    cout << "Appel au constructeur de <Var>" << endl;
 #endif
-} //----- Fin de Variable
+} //----- Fin de Var
 
 
-Variable::~Variable ( )
+Var::~Var ( )
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <Variable>" << endl;
+    cout << "Appel au destructeur de <Var>" << endl;
 #endif
-} //----- Fin de ~Variable
+} //----- Fin de ~Var
 
 
 //------------------------------------------------------------------ PRIVE

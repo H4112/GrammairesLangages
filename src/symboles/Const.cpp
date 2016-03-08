@@ -1,11 +1,11 @@
 /*************************************************************************
-                           Constante  -  Symbole de l'analyseur
+                           Const -  Symbole de l'analyseur
                              -------------------
     début                : 8 mars 2016 08:23:13
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
-//---------- Réalisation de la classe <Constante> (fichier Constante.cpp) --
+//---------- Réalisation de la classe <Const> (fichier Const.cpp) --
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -14,7 +14,7 @@
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "Constante.h"
+#include "Const.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -31,30 +31,30 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Constante::Constante ( const Constante & unConstante ) 
-	: Symbole(unConstante)
+Const::Const ( const Const & unConst ) 
+	: Symbole(unConst)
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <Constante>" << endl;
+    cout << "Appel au constructeur de copie de <Const>" << endl;
 #endif
-} //----- Fin de Constante (constructeur de copie)
+} //----- Fin de Const (constructeur de copie)
 
 
-Constante::Constante ( ) 
+Const::Const ( ) 
 	: Symbole("const", CONST, true)
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <Constante>" << endl;
+    cout << "Appel au constructeur de <Const>" << endl;
 #endif
-} //----- Fin de Constante
+} //----- Fin de Const
 
 
-Constante::~Constante ( )
+Const::~Const ( )
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <Constante>" << endl;
+    cout << "Appel au destructeur de <Const>" << endl;
 #endif
-} //----- Fin de ~Constante
+} //----- Fin de ~Const
 
 
 //------------------------------------------------------------------ PRIVE

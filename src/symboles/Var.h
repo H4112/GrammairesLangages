@@ -1,13 +1,13 @@
 /*************************************************************************
-                           Declaration  -  Symbole de l'analyseur
+                           Var  -  Symbole de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:14
+    début                : 8 mars 2016 08:23:13
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
-//---------- Interface de la classe <Declaration> (fichier Declaration.h) ------
-#if ! defined ( DECLARATION_H )
-#define DECLARATION_H
+//---------- Interface de la classe <Var> (fichier Var.h) ------
+#if ! defined ( VAR_H )
+#define VAR_H
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Symbole.h"
@@ -17,12 +17,12 @@
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <Declaration>
-// Définit le symbole Declaration manipulé par l'automate.
+// Rôle de la classe <Var>
+// Définit le symbole Var manipulé par l'automate.
 //
 //------------------------------------------------------------------------ 
 
-class Declaration : public Symbole
+class Var : public Symbole
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -32,11 +32,11 @@ public:
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-    Declaration ( const Declaration & unDeclaration );
+    Var ( const Var & unVar );
 
-    Declaration ( ); 
+    Var ( ); 
 
-    virtual ~Declaration ( );
+    virtual ~Var ( );
 
 //------------------------------------------------------------------ PRIVE 
 
@@ -60,6 +60,6 @@ private:
 
 };
 
-//----------------------------------------- Types dépendants de <Declaration>
+//----------------------------------------- Types dépendants de <Var>
 
-#endif // DECLARATION_H
+#endif // VAR_H

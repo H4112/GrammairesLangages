@@ -1,13 +1,13 @@
 /*************************************************************************
-                           Variable  -  Symbole de l'analyseur
+                           ListeDeclaration  -  Symbole de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:13
+    début                : 8 mars 2016 08:23:14
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
-//---------- Interface de la classe <Variable> (fichier Variable.h) ------
-#if ! defined ( VARIABLE_H )
-#define VARIABLE_H
+//---------- Interface de la classe <ListeDeclaration> (fichier ListeDeclaration.h) ------
+#if ! defined ( ListeDECLARATION_H )
+#define LISTEDECLARATION_H
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Symbole.h"
@@ -17,12 +17,12 @@
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <Variable>
-// Définit le symbole Variable manipulé par l'automate.
+// Rôle de la classe <ListeDeclaration>
+// Définit le symbole ListeDeclaration manipulé par l'automate.
 //
 //------------------------------------------------------------------------ 
 
-class Variable : public Symbole
+class ListeDeclaration : public Symbole
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -32,11 +32,11 @@ public:
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-    Variable ( const Variable & unVariable );
+    ListeDeclaration ( const ListeDeclaration & unListeDeclaration );
 
-    Variable ( ); 
+    ListeDeclaration ( ); 
 
-    virtual ~Variable ( );
+    virtual ~ListeDeclaration ( );
 
 //------------------------------------------------------------------ PRIVE 
 
@@ -60,6 +60,6 @@ private:
 
 };
 
-//----------------------------------------- Types dépendants de <Variable>
+//----------------------------------------- Types dépendants de <ListeDeclaration>
 
-#endif // VARIABLE_H
+#endif // LISTEDECLARATION_H

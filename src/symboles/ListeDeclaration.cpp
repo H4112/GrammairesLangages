@@ -1,11 +1,11 @@
 /*************************************************************************
-                           Declaration  -  Symbole de l'analyseur
+                           ListeDeclaration  -  Symbole de l'analyseur
                              -------------------
     début                : 8 mars 2016 08:23:14
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
-//---------- Réalisation de la classe <Declaration> (fichier Declaration.cpp) --
+//---------- Réalisation de la classe <ListeDeclaration> (fichier ListeDeclaration.cpp) --
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -14,7 +14,7 @@
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "Declaration.h"
+#include "ListeDeclaration.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -31,30 +31,30 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Declaration::Declaration ( const Declaration & unDeclaration ) 
-	: Symbole(unDeclaration)
+ListeDeclaration::ListeDeclaration ( const ListeDeclaration & unListeDeclaration ) 
+	: Symbole(unListeDeclaration)
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <Declaration>" << endl;
+    cout << "Appel au constructeur de copie de <ListeDeclaration>" << endl;
 #endif
-} //----- Fin de Declaration (constructeur de copie)
+} //----- Fin de ListeDeclaration (constructeur de copie)
 
 
-Declaration::Declaration ( ) 
+ListeDeclaration::ListeDeclaration ( ) 
 	: Symbole("RIEN", D, false)
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <Declaration>" << endl;
+    cout << "Appel au constructeur de <ListeDeclaration>" << endl;
 #endif
-} //----- Fin de Declaration
+} //----- Fin de ListeDeclaration
 
 
-Declaration::~Declaration ( )
+ListeDeclaration::~ListeDeclaration ( )
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <Declaration>" << endl;
+    cout << "Appel au destructeur de <ListeDeclaration>" << endl;
 #endif
-} //----- Fin de ~Declaration
+} //----- Fin de ~ListeDeclaration
 
 
 //------------------------------------------------------------------ PRIVE
