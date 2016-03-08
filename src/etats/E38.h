@@ -11,6 +11,9 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "../symboles/Symbole.h"
+#include "../symboles/Identifiant.h"
+#include "../symboles/Valeur.h"
+#include "../symboles/ListeIdentifiantsValeurs.h"
 #include "../Automate.h"
 #include "Etat.h"
 

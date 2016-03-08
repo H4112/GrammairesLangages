@@ -18,7 +18,6 @@ class Automate; //Etat utilise Automate, nous devons l'avoir déclaré
 #include <string>
 
 #include "symboles/Symbole.h"
-#include "symboles/Declaration.h"
 #include "etats/Etat.h"
 #include "Lexer.h"
 

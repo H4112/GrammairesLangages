@@ -68,6 +68,10 @@ public:
 	operator int() const { return ident; }
 
 //-------------------------------------------- Constructeurs - destructeur
+
+	Symbole ( );
+	// Interdit
+
     Symbole ( const Symbole & unSymbole );
 
     Symbole ( string nomTemp, int identTemp, bool terminalTemp );

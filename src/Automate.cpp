@@ -32,6 +32,7 @@ void Automate::Reduction ( Symbole * symboleEmpile, int nbDepile )
 {
 	for ( int i = 0 ; i < nbDepile ; i++ )
     {
+        delete pileEtats.top();
         pileEtats.pop();
     }
     pileEtats.top()->Transition(*this, symboleEmpile);
@@ -55,7 +56,8 @@ Symbole * Automate::PopSymbole ( )
 //-------------------------------------------- Constructeurs - destructeur
 Automate::Automate ( const Automate & unAutomate )
     : pileSymboles ( unAutomate.pileSymboles ),
-      pileEtats ( unAutomate.pileEtats )
+      pileEtats ( unAutomate.pileEtats ),
+      lexer ( unAutomate.lexer )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Automate>" << endl;

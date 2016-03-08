@@ -27,6 +27,15 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
+void Instruction::Executer( map < string, Declaration * > tableDeclarations )
+{
+	//TODO
+}
+
+void Instruction::Simplifier( map < string, Declaration * > tableDeclarations )
+{
+	//TODO
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 

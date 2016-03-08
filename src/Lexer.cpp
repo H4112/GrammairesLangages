@@ -40,7 +40,7 @@ Lexer::Lexer ( const Lexer & unLexer )
 } //----- Fin de Lexer (constructeur de copie)
 
 
-Lexer::Lexer ( string nomFichier ) : Lexer ( nomFichier )
+Lexer::Lexer ( string nomFichier )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Lexer>" << endl;

@@ -40,8 +40,8 @@ Valeur::Valeur ( const Valeur & unValeur )
 } //----- Fin de Valeur (constructeur de copie)
 
 
-Valeur::Valeur ( ) 
-	: Symbole("nom", VAL, true)
+Valeur::Valeur ( int val ) 
+	: Symbole(to_string(val), VAL, true), valeur(val)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Valeur>" << endl;

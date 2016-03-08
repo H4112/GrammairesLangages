@@ -39,15 +39,18 @@ bool E38::Transition ( Automate & automate, Symbole * s )
 		case VIRGULE:
 		case POINT_VIRGULE:
 		{
-			Symbole * val = automate.PopSymbole();
-			Symbole * egal = automate.PopSymbole();
-			Symbole * id = automate.PopSymbole();
-			Symbole * virgule = automate.PopSymbole();
-			Symbole * lidv = automate.PopSymbole();
+			Valeur * val = (Valeur *)automate.PopSymbole();
+			//Symbole * egal = 
+			delete automate.PopSymbole();
+			Identifiant * id = (Identifiant *)automate.PopSymbole();
+			//Symbole * virgule = 
+			delete automate.PopSymbole();
+			ListeIdentifiantsValeurs * lidv = (ListeIdentifiantsValeurs *)automate.PopSymbole();
 
-			Symbole * nouveauSymbole;
-			//TODO remplir cette variable pour réduire R7
-			automate.Reduction(nouveauSymbole, 5);
+			lidv->AjouterConstante(id,val);
+
+			//réduire R7
+			automate.Reduction(lidv, 5);
 			return true;
 		}
 	}

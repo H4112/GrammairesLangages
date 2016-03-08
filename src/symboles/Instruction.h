@@ -10,7 +10,9 @@
 #define INSTRUCTION_H
 
 //--------------------------------------------------- Interfaces utilisées
+#include <map>
 #include "Symbole.h"
+#include "../Declaration.h"
 
 //------------------------------------------------------------- Constantes 
 
@@ -28,7 +30,12 @@ class Instruction : public Symbole
 
 public:
 //----------------------------------------------------- Méthodes publiques
-
+    void Executer( map < string, Declaration * > tableDeclarations );
+    // Mode d'emploi : exécute l'instruction et met à jour les variables
+    //     si nécessaire.
+    void Simplifier( map < string, Declaration * > tableDeclarations );
+    // Mode d'emploi : simplifie l'instruction en propageant les
+    //     constantes, supprimant les éléments neutres, etc.
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur

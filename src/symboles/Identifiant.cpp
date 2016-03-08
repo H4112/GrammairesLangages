@@ -40,8 +40,8 @@ Identifiant::Identifiant ( const Identifiant & unIdentifiant )
 } //----- Fin de Identifiant (constructeur de copie)
 
 
-Identifiant::Identifiant ( ) 
-	: Symbole("nom", ID, true)
+Identifiant::Identifiant ( string unId ) 
+	: Symbole(unId, ID, true), id(unId)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Identifiant>" << endl;

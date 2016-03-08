@@ -1,5 +1,5 @@
 /*************************************************************************
-                           Programme  -  Symbole de l'analyseur
+                         Programme  -  Symbole de l'analyseur
                              -------------------
     début                : 8 mars 2016 08:23:14
     copyright            : (C) 2016 par H4112
@@ -14,7 +14,7 @@
 
 #include "Symbole.h"
 #include "Instruction.h"
-#include "Declaration.h"
+#include "../Declaration.h"
 
 //------------------------------------------------------------- Constantes 
 
@@ -34,14 +34,6 @@ public:
 //----------------------------------------------------- Méthodes publiques
     void Executer ( );
     // Mode d'emploi : exécute le programme
-    // Contrat : aucun
-
-    void AjouterDeclaration ( Declaration * declaration );
-    // Mode d'emploi : ajoute une nouvelle déclaration au programme
-    // Contrat : aucun
-
-    void AjouterInstruction ( Instruction * instruction );
-    // Mode d'emploi : ajoute une nouvelle instruction au programme
     // Contrat : aucun
 
 //------------------------------------------------- Surcharge d'opérateurs

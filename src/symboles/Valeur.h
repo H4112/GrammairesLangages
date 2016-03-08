@@ -30,11 +30,13 @@ public:
 //----------------------------------------------------- Méthodes publiques
 
 //------------------------------------------------- Surcharge d'opérateurs
-
+	operator int() const { return valeur; }
 //-------------------------------------------- Constructeurs - destructeur
     Valeur ( const Valeur & unValeur );
 
     Valeur ( ); 
+
+    Valeur ( int val );
 
     virtual ~Valeur ( );
 
@@ -51,7 +53,7 @@ protected:
 
 private:
 //------------------------------------------------------- Attributs privés
-
+	int valeur;
 //---------------------------------------------------------- Classes amies
 
 //-------------------------------------------------------- Classes privées

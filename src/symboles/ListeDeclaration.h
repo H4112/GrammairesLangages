@@ -1,12 +1,12 @@
 /*************************************************************************
-                           ListeDeclaration  -  Symbole de l'analyseur
+                    ListeDeclaration  -  Symbole de l'analyseur
                              -------------------
     début                : 8 mars 2016 08:23:14
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
 //---------- Interface de la classe <ListeDeclaration> (fichier ListeDeclaration.h) ------
-#if ! defined ( ListeDECLARATION_H )
+#if ! defined ( LISTEDECLARATION_H )
 #define LISTEDECLARATION_H
 
 //--------------------------------------------------- Interfaces utilisées
@@ -44,7 +44,7 @@ public:
 //-------------------------------------------- Constructeurs - destructeur
     ListeDeclaration ( const ListeDeclaration & unListeDeclaration );
 
-    ListeDeclaration ( ); 
+    ListeDeclaration ( );
 
     virtual ~ListeDeclaration ( );
 

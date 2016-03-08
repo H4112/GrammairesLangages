@@ -1,5 +1,5 @@
 /*************************************************************************
-                           ListeIdentifiantsValeurs  -  Symbole de l'analyseur
+           ListeIdentifiantsValeurs  -  Symbole de l'analyseur
                              -------------------
     début                : 8 mars 2016 08:23:14
     copyright            : (C) 2016 par H4112
@@ -10,7 +10,13 @@
 #define LISTEIDENTIFIANTSVALEURS_H
 
 //--------------------------------------------------- Interfaces utilisées
+#include <list>
+
 #include "Symbole.h"
+#include "Identifiant.h"
+#include "Valeur.h"
+#include "ListeDeclaration.h"
+#include "../Constante.h"
 
 //------------------------------------------------------------- Constantes 
 
@@ -22,13 +28,14 @@
 //
 //------------------------------------------------------------------------ 
 
-class ListeIdentifiantsValeurs : public Symbole
+class ListeIdentifiantsValeurs : public ListeDeclaration
 {
 //----------------------------------------------------------------- PUBLIC
 
 public:
 //----------------------------------------------------- Méthodes publiques
-
+	void AjouterConstante ( Identifiant * id, Valeur * val );
+	// Mode d'emploi : crée une nouvelle constante et l'ajoute à la liste.
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
@@ -51,7 +58,7 @@ protected:
 
 private:
 //------------------------------------------------------- Attributs privés
-	list<Constante>
+	list<Constante> listeConstantes;
 //---------------------------------------------------------- Classes amies
 
 //-------------------------------------------------------- Classes privées

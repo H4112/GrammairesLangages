@@ -27,12 +27,17 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-
+void ListeIdentifiantsValeurs::AjouterConstante ( Identifiant * id, Valeur * val )
+{
+	ajouterDeclaration(new Constante(*id,*val));
+    delete id;
+    delete val;
+}
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-ListeIdentifiantsValeurs::ListeIdentifiantsValeurs ( const ListeIdentifiantsValeurs & unListeIdentifiantsValeurs ) 
-	: Symbole(unListeIdentifiantsValeurs)
+ListeIdentifiantsValeurs::ListeIdentifiantsValeurs ( const ListeIdentifiantsValeurs & uneListeIdentifiantsValeurs ) 
+	: ListeDeclaration ( uneListeIdentifiantsValeurs )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <ListeIdentifiantsValeurs>" << endl;
@@ -41,7 +46,7 @@ ListeIdentifiantsValeurs::ListeIdentifiantsValeurs ( const ListeIdentifiantsVale
 
 
 ListeIdentifiantsValeurs::ListeIdentifiantsValeurs ( ) 
-	: Symbole("RIEN", LIDV, false)
+	: ListeDeclaration ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <ListeIdentifiantsValeurs>" << endl;

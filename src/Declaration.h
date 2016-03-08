@@ -30,35 +30,43 @@ class Declaration
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    virtual bool EstAffectable ( ) = 0;
+    virtual bool EstAffectable ( ) const = 0;
     // Mode d'emploi :
     //	Indique s'il est possible de modifier la valeur
     //	de cette déclaration.
     // Contrat :
     //	Aucun
 
-	bool EstUtilise ( );
+	bool EstUtilise ( ) const;
     // Mode d'emploi :
     //	Indique si la variable a été utilisée (GetValeur() a été appelé
 	//	au moins 1 fois).
     // Contrat :
     //	Aucun
 	
-	string GetId ( );
+	string GetId ( ) const;
 	// Mode d'emploi :
 	//	Renvoie l'identifiant de cette variable.
 	// Contrat :
 	//	Aucun
 	
-	int GetValeur ( );
+	int UtiliserValeur ( );
 	// Mode d'emploi :
 	//	Renvoie la valeur contenue par cette variable, et la marque comme
 	//	étant utilisée.
 	// Contrat :
 	//	Si la variable n'est pas affectée, le comportement de cette méthode
 	//	est indéfini.
+
+    int GetValeur ( ) const;
+    // Mode d'emploi :
+    //  Renvoie la valeur contenue par cette variable, sans la marquer comme
+    //  étant utilisée.
+    // Contrat :
+    //  Si la variable n'est pas affectée, le comportement de cette méthode
+    //  est indéfini.
 	
-	virtual bool EstAffecte ( ) = 0;
+	virtual bool EstAffecte ( ) const = 0;
 	// Mode d'emploi :
 	//	Indique si la variable possède une valeur valide.
 	//	A appeler avant GetValeur().
@@ -66,7 +74,8 @@ public:
 	//	Aucun
 
 //------------------------------------------------- Surcharge d'opérateurs
-
+    friend ostream & operator << ( ostream & out,
+        const Declaration & declaration );
 
 //-------------------------------------------- Constructeurs - destructeur
     Declaration ( string unId, int uneValeur = 0 );
@@ -76,7 +85,7 @@ public:
     // Contrat :
     //	Aucun
 
-    Declaration ( const Declaration & unDeclaration );
+    Declaration ( const Declaration & uneDeclaration );
     // Mode d'emploi (constructeur de copie) :
     //	Permet de copier l'id et la valeur de la déclaration.
     // Contrat :
