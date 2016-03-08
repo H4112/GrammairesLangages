@@ -1,7 +1,7 @@
 /*************************************************************************
                            E35  -  Etat de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:13
+    début                : 8 mars 2016 10:43:21
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -27,12 +27,12 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E35::print() const 
+void E35::Print ( ) const 
 {
 	cout << "E35" << endl;
 }
 
-bool E35::transition(Automate & automate, Symbole* s)
+bool E35::Transition ( Automate & automate, Symbole * s )
 {
 	switch(*s)
 	{
@@ -41,13 +41,13 @@ bool E35::transition(Automate & automate, Symbole* s)
 		case OPA:
 		case OPM:
 		{
-			Symbole * f = automate.popSymbole();
-			Symbole * opm = automate.popSymbole();
-			Symbole * t = automate.popSymbole();
+			Symbole * f = automate.PopSymbole();
+			Symbole * opm = automate.PopSymbole();
+			Symbole * t = automate.PopSymbole();
 
 			Symbole * nouveauSymbole;
 			//TODO remplir cette variable pour réduire R16
-			automate.reduction(nouveauSymbole, 3);
+			automate.Reduction(nouveauSymbole, 3);
 			return true;
 		}
 	}
@@ -59,7 +59,7 @@ bool E35::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E35::E35 ( const E35 & unE35 )
-	: Etat(unE35)
+	: Etat ( unE35 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E35>" << endl;
@@ -68,7 +68,7 @@ E35::E35 ( const E35 & unE35 )
 
 
 E35::E35 ( )
-	: Etat()
+	: Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E35>" << endl;

@@ -1,7 +1,7 @@
 /*************************************************************************
                            E2  -  Etat de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:11
+    début                : 8 mars 2016 10:43:20
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -31,28 +31,28 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E2::print() const 
+void E2::Print ( ) const 
 {
 	cout << "E2" << endl;
 }
 
-bool E2::transition(Automate & automate, Symbole* s)
+bool E2::Transition ( Automate & automate, Symbole * s )
 {
 	switch(*s)
 	{
 		case LIRE:
 		{
-		automate.decalage(s, new E7);
+			automate.Decalage(s, new E7);
 			return true;
 		}
 		case ECRIRE:
 		{
-		automate.decalage(s, new E8);
+			automate.Decalage(s, new E8);
 			return true;
 		}
 		case ID:
 		{
-		automate.decalage(s, new E9);
+			automate.Decalage(s, new E9);
 			return true;
 		}
 		case FIN:
@@ -62,7 +62,7 @@ bool E2::transition(Automate & automate, Symbole* s)
 		}
 		case I:
 		{
-		automate.decalage(s, new E6);
+			automate.Decalage(s, new E6);
 			return true;
 		}
 	}
@@ -74,7 +74,7 @@ bool E2::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E2::E2 ( const E2 & unE2 )
-	: Etat(unE2)
+	: Etat ( unE2 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E2>" << endl;
@@ -83,7 +83,7 @@ E2::E2 ( const E2 & unE2 )
 
 
 E2::E2 ( )
-	: Etat()
+	: Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E2>" << endl;

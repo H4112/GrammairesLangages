@@ -1,7 +1,7 @@
 /*************************************************************************
                            E12  -  Etat de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:12
+    début                : 8 mars 2016 10:43:21
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -27,23 +27,23 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E12::print() const 
+void E12::Print ( ) const 
 {
 	cout << "E12" << endl;
 }
 
-bool E12::transition(Automate & automate, Symbole* s)
+bool E12::Transition ( Automate & automate, Symbole * s )
 {
 	switch(*s)
 	{
 		case VIRGULE:
 		case POINT_VIRGULE:
 		{
-			Symbole * id = automate.popSymbole();
+			Symbole * id = automate.PopSymbole();
 
 			Symbole * nouveauSymbole;
 			//TODO remplir cette variable pour réduire R6
-			automate.reduction(nouveauSymbole, 1);
+			automate.Reduction(nouveauSymbole, 1);
 			return true;
 		}
 	}
@@ -55,7 +55,7 @@ bool E12::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E12::E12 ( const E12 & unE12 )
-	: Etat(unE12)
+	: Etat ( unE12 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E12>" << endl;
@@ -64,7 +64,7 @@ E12::E12 ( const E12 & unE12 )
 
 
 E12::E12 ( )
-	: Etat()
+	: Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E12>" << endl;

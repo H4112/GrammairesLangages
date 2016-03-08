@@ -1,7 +1,7 @@
 /*************************************************************************
                            E38  -  Etat de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:13
+    début                : 8 mars 2016 10:43:21
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -27,27 +27,27 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E38::print() const 
+void E38::Print ( ) const 
 {
 	cout << "E38" << endl;
 }
 
-bool E38::transition(Automate & automate, Symbole* s)
+bool E38::Transition ( Automate & automate, Symbole * s )
 {
 	switch(*s)
 	{
 		case VIRGULE:
 		case POINT_VIRGULE:
 		{
-			Symbole * val = automate.popSymbole();
-			Symbole * egal = automate.popSymbole();
-			Symbole * id = automate.popSymbole();
-			Symbole * virgule = automate.popSymbole();
-			Symbole * lidv = automate.popSymbole();
+			Symbole * val = automate.PopSymbole();
+			Symbole * egal = automate.PopSymbole();
+			Symbole * id = automate.PopSymbole();
+			Symbole * virgule = automate.PopSymbole();
+			Symbole * lidv = automate.PopSymbole();
 
 			Symbole * nouveauSymbole;
 			//TODO remplir cette variable pour réduire R7
-			automate.reduction(nouveauSymbole, 5);
+			automate.Reduction(nouveauSymbole, 5);
 			return true;
 		}
 	}
@@ -59,7 +59,7 @@ bool E38::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E38::E38 ( const E38 & unE38 )
-	: Etat(unE38)
+	: Etat ( unE38 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E38>" << endl;
@@ -68,7 +68,7 @@ E38::E38 ( const E38 & unE38 )
 
 
 E38::E38 ( )
-	: Etat()
+	: Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E38>" << endl;

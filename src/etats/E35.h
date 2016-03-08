@@ -1,7 +1,7 @@
 /*************************************************************************
                            E35  -  Etat de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:13
+    début                : 8 mars 2016 10:43:21
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -30,13 +30,13 @@ class E35 : public Etat
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    void print() const;
+    void Print ( ) const;
     // Mode d'emploi :
     //  Ecrit le nom de l'état sur la sortie standard.
     // Contrat :
     //  Aucun
 	
-	bool transition(Automate & automate, Symbole* s);
+	bool Transition ( Automate & automate, Symbole * s );
     // Mode d'emploi :
     //  Appelle l'automate donné en paramètre pour effectuer le décalage
 	//  ou la réduction correspondant au symbole passé en paramètre.

@@ -1,7 +1,7 @@
 /*************************************************************************
                            E22  -  Etat de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:12
+    début                : 8 mars 2016 10:43:21
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -27,12 +27,12 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E22::print() const 
+void E22::Print ( ) const 
 {
 	cout << "E22" << endl;
 }
 
-bool E22::transition(Automate & automate, Symbole* s)
+bool E22::Transition ( Automate & automate, Symbole * s )
 {
 	switch(*s)
 	{
@@ -41,11 +41,11 @@ bool E22::transition(Automate & automate, Symbole* s)
 		case OPA:
 		case OPM:
 		{
-			Symbole * val = automate.popSymbole();
+			Symbole * val = automate.PopSymbole();
 
 			Symbole * nouveauSymbole;
 			//TODO remplir cette variable pour réduire R20
-			automate.reduction(nouveauSymbole, 1);
+			automate.Reduction(nouveauSymbole, 1);
 			return true;
 		}
 	}
@@ -57,7 +57,7 @@ bool E22::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E22::E22 ( const E22 & unE22 )
-	: Etat(unE22)
+	: Etat ( unE22 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E22>" << endl;
@@ -66,7 +66,7 @@ E22::E22 ( const E22 & unE22 )
 
 
 E22::E22 ( )
-	: Etat()
+	: Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E22>" << endl;

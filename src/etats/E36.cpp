@@ -1,7 +1,7 @@
 /*************************************************************************
                            E36  -  Etat de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:13
+    début                : 8 mars 2016 10:43:21
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -27,12 +27,12 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E36::print() const 
+void E36::Print ( ) const 
 {
 	cout << "E36" << endl;
 }
 
-bool E36::transition(Automate & automate, Symbole* s)
+bool E36::Transition ( Automate & automate, Symbole * s )
 {
 	switch(*s)
 	{
@@ -41,13 +41,13 @@ bool E36::transition(Automate & automate, Symbole* s)
 		case OPA:
 		case OPM:
 		{
-			Symbole * fermepar = automate.popSymbole();
-			Symbole * e = automate.popSymbole();
-			Symbole * ouvrepar = automate.popSymbole();
+			Symbole * fermepar = automate.PopSymbole();
+			Symbole * e = automate.PopSymbole();
+			Symbole * ouvrepar = automate.PopSymbole();
 
 			Symbole * nouveauSymbole;
 			//TODO remplir cette variable pour réduire R18
-			automate.reduction(nouveauSymbole, 3);
+			automate.Reduction(nouveauSymbole, 3);
 			return true;
 		}
 	}
@@ -59,7 +59,7 @@ bool E36::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E36::E36 ( const E36 & unE36 )
-	: Etat(unE36)
+	: Etat ( unE36 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E36>" << endl;
@@ -68,7 +68,7 @@ E36::E36 ( const E36 & unE36 )
 
 
 E36::E36 ( )
-	: Etat()
+	: Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E36>" << endl;

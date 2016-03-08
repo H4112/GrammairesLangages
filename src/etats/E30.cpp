@@ -1,7 +1,7 @@
 /*************************************************************************
                            E30  -  Etat de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:13
+    début                : 8 mars 2016 10:43:21
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -28,29 +28,29 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E30::print() const 
+void E30::Print ( ) const 
 {
 	cout << "E30" << endl;
 }
 
-bool E30::transition(Automate & automate, Symbole* s)
+bool E30::Transition ( Automate & automate, Symbole * s )
 {
 	switch(*s)
 	{
 		case POINT_VIRGULE:
 		{
-			Symbole * e = automate.popSymbole();
-			Symbole * affectation = automate.popSymbole();
-			Symbole * id = automate.popSymbole();
+			Symbole * e = automate.PopSymbole();
+			Symbole * affectation = automate.PopSymbole();
+			Symbole * id = automate.PopSymbole();
 
 			Symbole * nouveauSymbole;
 			//TODO remplir cette variable pour réduire R13
-			automate.reduction(nouveauSymbole, 3);
+			automate.Reduction(nouveauSymbole, 3);
 			return true;
 		}
 		case OPA:
 		{
-		automate.decalage(s, new E27);
+			automate.Decalage(s, new E27);
 			return true;
 		}
 	}
@@ -62,7 +62,7 @@ bool E30::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E30::E30 ( const E30 & unE30 )
-	: Etat(unE30)
+	: Etat ( unE30 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E30>" << endl;
@@ -71,7 +71,7 @@ E30::E30 ( const E30 & unE30 )
 
 
 E30::E30 ( )
-	: Etat()
+	: Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E30>" << endl;

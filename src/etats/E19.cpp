@@ -1,7 +1,7 @@
 /*************************************************************************
                            E19  -  Etat de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:12
+    début                : 8 mars 2016 10:43:21
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -27,12 +27,12 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E19::print() const 
+void E19::Print ( ) const 
 {
 	cout << "E19" << endl;
 }
 
-bool E19::transition(Automate & automate, Symbole* s)
+bool E19::Transition ( Automate & automate, Symbole * s )
 {
 	switch(*s)
 	{
@@ -41,11 +41,11 @@ bool E19::transition(Automate & automate, Symbole* s)
 		case OPA:
 		case OPM:
 		{
-			Symbole * f = automate.popSymbole();
+			Symbole * f = automate.PopSymbole();
 
 			Symbole * nouveauSymbole;
 			//TODO remplir cette variable pour réduire R17
-			automate.reduction(nouveauSymbole, 1);
+			automate.Reduction(nouveauSymbole, 1);
 			return true;
 		}
 	}
@@ -57,7 +57,7 @@ bool E19::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E19::E19 ( const E19 & unE19 )
-	: Etat(unE19)
+	: Etat ( unE19 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E19>" << endl;
@@ -66,7 +66,7 @@ E19::E19 ( const E19 & unE19 )
 
 
 E19::E19 ( )
-	: Etat()
+	: Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E19>" << endl;

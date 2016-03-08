@@ -33,7 +33,7 @@ class Etat
 
 public:
 //----------------------------------------------------- Méthodes publiques
-	virtual bool transition(Automate & automate, Symbole* s) = 0;
+	virtual bool Transition ( Automate & automate, Symbole * s ) = 0;
     // Mode d'emploi :
     //  Permet d'effectuer la transition vers l'état suivant.
     // Contrat :

@@ -1,7 +1,7 @@
 /*************************************************************************
                            E28  -  Etat de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:12
+    début                : 8 mars 2016 10:43:21
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -31,33 +31,33 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E28::print() const 
+void E28::Print ( ) const 
 {
 	cout << "E28" << endl;
 }
 
-bool E28::transition(Automate & automate, Symbole* s)
+bool E28::Transition ( Automate & automate, Symbole * s )
 {
 	switch(*s)
 	{
 		case OUVREPAR:
 		{
-		automate.decalage(s, new E20);
+			automate.Decalage(s, new E20);
 			return true;
 		}
 		case ID:
 		{
-		automate.decalage(s, new E21);
+			automate.Decalage(s, new E21);
 			return true;
 		}
 		case VAL:
 		{
-		automate.decalage(s, new E22);
+			automate.Decalage(s, new E22);
 			return true;
 		}
 		case F:
 		{
-		automate.decalage(s, new E35);
+			automate.Decalage(s, new E35);
 			return true;
 		}
 	}
@@ -69,7 +69,7 @@ bool E28::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E28::E28 ( const E28 & unE28 )
-	: Etat(unE28)
+	: Etat ( unE28 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E28>" << endl;
@@ -78,7 +78,7 @@ E28::E28 ( const E28 & unE28 )
 
 
 E28::E28 ( )
-	: Etat()
+	: Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E28>" << endl;

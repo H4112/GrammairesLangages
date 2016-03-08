@@ -1,7 +1,7 @@
 /*************************************************************************
                            E11  -  Etat de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:12
+    début                : 8 mars 2016 10:43:21
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -28,28 +28,28 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E11::print() const 
+void E11::Print ( ) const 
 {
 	cout << "E11" << endl;
 }
 
-bool E11::transition(Automate & automate, Symbole* s)
+bool E11::Transition ( Automate & automate, Symbole * s )
 {
 	switch(*s)
 	{
 		case VIRGULE:
 		{
-		automate.decalage(s, new E24);
+			automate.Decalage(s, new E24);
 			return true;
 		}
 		case POINT_VIRGULE:
 		{
-			Symbole * lid = automate.popSymbole();
-			Symbole * var = automate.popSymbole();
+			Symbole * lid = automate.PopSymbole();
+			Symbole * var = automate.PopSymbole();
 
 			Symbole * nouveauSymbole;
 			//TODO remplir cette variable pour réduire R3
-			automate.reduction(nouveauSymbole, 2);
+			automate.Reduction(nouveauSymbole, 2);
 			return true;
 		}
 	}
@@ -61,7 +61,7 @@ bool E11::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E11::E11 ( const E11 & unE11 )
-	: Etat(unE11)
+	: Etat ( unE11 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E11>" << endl;
@@ -70,7 +70,7 @@ E11::E11 ( const E11 & unE11 )
 
 
 E11::E11 ( )
-	: Etat()
+	: Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E11>" << endl;

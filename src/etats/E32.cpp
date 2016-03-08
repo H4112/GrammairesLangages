@@ -1,7 +1,7 @@
 /*************************************************************************
                            E32  -  Etat de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:13
+    début                : 8 mars 2016 10:43:21
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -28,18 +28,18 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E32::print() const 
+void E32::Print ( ) const 
 {
 	cout << "E32" << endl;
 }
 
-bool E32::transition(Automate & automate, Symbole* s)
+bool E32::Transition ( Automate & automate, Symbole * s )
 {
 	switch(*s)
 	{
 		case EGAL:
 		{
-		automate.decalage(s, new E37);
+			automate.Decalage(s, new E37);
 			return true;
 		}
 	}
@@ -51,7 +51,7 @@ bool E32::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E32::E32 ( const E32 & unE32 )
-	: Etat(unE32)
+	: Etat ( unE32 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E32>" << endl;
@@ -60,7 +60,7 @@ E32::E32 ( const E32 & unE32 )
 
 
 E32::E32 ( )
-	: Etat()
+	: Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E32>" << endl;

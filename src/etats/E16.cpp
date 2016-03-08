@@ -1,7 +1,7 @@
 /*************************************************************************
                            E16  -  Etat de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:12
+    début                : 8 mars 2016 10:43:21
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -27,23 +27,23 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E16::print() const 
+void E16::Print ( ) const 
 {
 	cout << "E16" << endl;
 }
 
-bool E16::transition(Automate & automate, Symbole* s)
+bool E16::Transition ( Automate & automate, Symbole * s )
 {
 	switch(*s)
 	{
 		case POINT_VIRGULE:
 		{
-			Symbole * id = automate.popSymbole();
-			Symbole * lire = automate.popSymbole();
+			Symbole * id = automate.PopSymbole();
+			Symbole * lire = automate.PopSymbole();
 
 			Symbole * nouveauSymbole;
 			//TODO remplir cette variable pour réduire R11
-			automate.reduction(nouveauSymbole, 2);
+			automate.Reduction(nouveauSymbole, 2);
 			return true;
 		}
 	}
@@ -55,7 +55,7 @@ bool E16::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E16::E16 ( const E16 & unE16 )
-	: Etat(unE16)
+	: Etat ( unE16 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E16>" << endl;
@@ -64,7 +64,7 @@ E16::E16 ( const E16 & unE16 )
 
 
 E16::E16 ( )
-	: Etat()
+	: Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E16>" << endl;

@@ -1,7 +1,7 @@
 /*************************************************************************
                            E25  -  Etat de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:12
+    début                : 8 mars 2016 10:43:21
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -28,18 +28,18 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E25::print() const 
+void E25::Print ( ) const 
 {
 	cout << "E25" << endl;
 }
 
-bool E25::transition(Automate & automate, Symbole* s)
+bool E25::Transition ( Automate & automate, Symbole * s )
 {
 	switch(*s)
 	{
 		case ID:
 		{
-		automate.decalage(s, new E32);
+			automate.Decalage(s, new E32);
 			return true;
 		}
 	}
@@ -51,7 +51,7 @@ bool E25::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E25::E25 ( const E25 & unE25 )
-	: Etat(unE25)
+	: Etat ( unE25 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E25>" << endl;
@@ -60,7 +60,7 @@ E25::E25 ( const E25 & unE25 )
 
 
 E25::E25 ( )
-	: Etat()
+	: Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E25>" << endl;

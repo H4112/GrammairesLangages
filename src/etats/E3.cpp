@@ -1,7 +1,7 @@
 /*************************************************************************
                            E3  -  Etat de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:11
+    début                : 8 mars 2016 10:43:20
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -28,18 +28,18 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E3::print() const 
+void E3::Print ( ) const 
 {
 	cout << "E3" << endl;
 }
 
-bool E3::transition(Automate & automate, Symbole* s)
+bool E3::Transition ( Automate & automate, Symbole * s )
 {
 	switch(*s)
 	{
 		case POINT_VIRGULE:
 		{
-		automate.decalage(s, new E10);
+			automate.Decalage(s, new E10);
 			return true;
 		}
 	}
@@ -51,7 +51,7 @@ bool E3::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E3::E3 ( const E3 & unE3 )
-	: Etat(unE3)
+	: Etat ( unE3 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E3>" << endl;
@@ -60,7 +60,7 @@ E3::E3 ( const E3 & unE3 )
 
 
 E3::E3 ( )
-	: Etat()
+	: Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E3>" << endl;

@@ -1,7 +1,7 @@
 /*************************************************************************
                            E5  -  Etat de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:11
+    début                : 8 mars 2016 10:43:20
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -29,23 +29,23 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E5::print() const 
+void E5::Print ( ) const 
 {
 	cout << "E5" << endl;
 }
 
-bool E5::transition(Automate & automate, Symbole* s)
+bool E5::Transition ( Automate & automate, Symbole * s )
 {
 	switch(*s)
 	{
 		case ID:
 		{
-		automate.decalage(s, new E14);
+			automate.Decalage(s, new E14);
 			return true;
 		}
 		case LIDV:
 		{
-		automate.decalage(s, new E13);
+			automate.Decalage(s, new E13);
 			return true;
 		}
 	}
@@ -57,7 +57,7 @@ bool E5::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E5::E5 ( const E5 & unE5 )
-	: Etat(unE5)
+	: Etat ( unE5 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E5>" << endl;
@@ -66,7 +66,7 @@ E5::E5 ( const E5 & unE5 )
 
 
 E5::E5 ( )
-	: Etat()
+	: Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E5>" << endl;

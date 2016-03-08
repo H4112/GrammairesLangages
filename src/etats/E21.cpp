@@ -1,7 +1,7 @@
 /*************************************************************************
                            E21  -  Etat de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:12
+    début                : 8 mars 2016 10:43:21
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -27,12 +27,12 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E21::print() const 
+void E21::Print ( ) const 
 {
 	cout << "E21" << endl;
 }
 
-bool E21::transition(Automate & automate, Symbole* s)
+bool E21::Transition ( Automate & automate, Symbole * s )
 {
 	switch(*s)
 	{
@@ -41,11 +41,11 @@ bool E21::transition(Automate & automate, Symbole* s)
 		case OPA:
 		case OPM:
 		{
-			Symbole * id = automate.popSymbole();
+			Symbole * id = automate.PopSymbole();
 
 			Symbole * nouveauSymbole;
 			//TODO remplir cette variable pour réduire R19
-			automate.reduction(nouveauSymbole, 1);
+			automate.Reduction(nouveauSymbole, 1);
 			return true;
 		}
 	}
@@ -57,7 +57,7 @@ bool E21::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E21::E21 ( const E21 & unE21 )
-	: Etat(unE21)
+	: Etat ( unE21 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E21>" << endl;
@@ -66,7 +66,7 @@ E21::E21 ( const E21 & unE21 )
 
 
 E21::E21 ( )
-	: Etat()
+	: Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E21>" << endl;

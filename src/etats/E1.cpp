@@ -1,7 +1,7 @@
 /*************************************************************************
                            E1  -  Etat de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:11
+    début                : 8 mars 2016 10:43:20
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -31,23 +31,23 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E1::print() const 
+void E1::Print ( ) const 
 {
 	cout << "E1" << endl;
 }
 
-bool E1::transition(Automate & automate, Symbole* s)
+bool E1::Transition ( Automate & automate, Symbole * s )
 {
 	switch(*s)
 	{
 		case VAR:
 		{
-		automate.decalage(s, new E4);
+			automate.Decalage(s, new E4);
 			return true;
 		}
 		case CONST:
 		{
-		automate.decalage(s, new E5);
+			automate.Decalage(s, new E5);
 			return true;
 		}
 		case LIRE:
@@ -58,17 +58,17 @@ bool E1::transition(Automate & automate, Symbole* s)
 
 			Symbole * nouveauSymbole;
 			//TODO remplir cette variable pour réduire R10
-			automate.reduction(nouveauSymbole, 0);
+			automate.Reduction(nouveauSymbole, 0);
 			return true;
 		}
 		case D:
 		{
-		automate.decalage(s, new E3);
+			automate.Decalage(s, new E3);
 			return true;
 		}
 		case PI:
 		{
-		automate.decalage(s, new E2);
+			automate.Decalage(s, new E2);
 			return true;
 		}
 	}
@@ -80,7 +80,7 @@ bool E1::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E1::E1 ( const E1 & unE1 )
-	: Etat(unE1)
+	: Etat ( unE1 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E1>" << endl;
@@ -89,7 +89,7 @@ E1::E1 ( const E1 & unE1 )
 
 
 E1::E1 ( )
-	: Etat()
+	: Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E1>" << endl;

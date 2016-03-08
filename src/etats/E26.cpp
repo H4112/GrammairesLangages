@@ -1,7 +1,7 @@
 /*************************************************************************
                            E26  -  Etat de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:12
+    début                : 8 mars 2016 10:43:21
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -28,18 +28,18 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E26::print() const 
+void E26::Print ( ) const 
 {
 	cout << "E26" << endl;
 }
 
-bool E26::transition(Automate & automate, Symbole* s)
+bool E26::Transition ( Automate & automate, Symbole * s )
 {
 	switch(*s)
 	{
 		case VAL:
 		{
-		automate.decalage(s, new E33);
+			automate.Decalage(s, new E33);
 			return true;
 		}
 	}
@@ -51,7 +51,7 @@ bool E26::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E26::E26 ( const E26 & unE26 )
-	: Etat(unE26)
+	: Etat ( unE26 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E26>" << endl;
@@ -60,7 +60,7 @@ E26::E26 ( const E26 & unE26 )
 
 
 E26::E26 ( )
-	: Etat()
+	: Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E26>" << endl;

@@ -1,7 +1,7 @@
 /*************************************************************************
                            E18  -  Etat de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:12
+    début                : 8 mars 2016 10:43:21
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -28,12 +28,12 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E18::print() const 
+void E18::Print ( ) const 
 {
 	cout << "E18" << endl;
 }
 
-bool E18::transition(Automate & automate, Symbole* s)
+bool E18::Transition ( Automate & automate, Symbole * s )
 {
 	switch(*s)
 	{
@@ -41,16 +41,16 @@ bool E18::transition(Automate & automate, Symbole* s)
 		case FERMEPAR:
 		case OPA:
 		{
-			Symbole * t = automate.popSymbole();
+			Symbole * t = automate.PopSymbole();
 
 			Symbole * nouveauSymbole;
 			//TODO remplir cette variable pour réduire R15
-			automate.reduction(nouveauSymbole, 1);
+			automate.Reduction(nouveauSymbole, 1);
 			return true;
 		}
 		case OPM:
 		{
-		automate.decalage(s, new E28);
+			automate.Decalage(s, new E28);
 			return true;
 		}
 	}
@@ -62,7 +62,7 @@ bool E18::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E18::E18 ( const E18 & unE18 )
-	: Etat(unE18)
+	: Etat ( unE18 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E18>" << endl;
@@ -71,7 +71,7 @@ E18::E18 ( const E18 & unE18 )
 
 
 E18::E18 ( )
-	: Etat()
+	: Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E18>" << endl;

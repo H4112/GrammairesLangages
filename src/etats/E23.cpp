@@ -1,7 +1,7 @@
 /*************************************************************************
                            E23  -  Etat de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:12
+    début                : 8 mars 2016 10:43:21
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -33,43 +33,43 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E23::print() const 
+void E23::Print ( ) const 
 {
 	cout << "E23" << endl;
 }
 
-bool E23::transition(Automate & automate, Symbole* s)
+bool E23::Transition ( Automate & automate, Symbole * s )
 {
 	switch(*s)
 	{
 		case OUVREPAR:
 		{
-		automate.decalage(s, new E20);
+			automate.Decalage(s, new E20);
 			return true;
 		}
 		case ID:
 		{
-		automate.decalage(s, new E21);
+			automate.Decalage(s, new E21);
 			return true;
 		}
 		case VAL:
 		{
-		automate.decalage(s, new E22);
+			automate.Decalage(s, new E22);
 			return true;
 		}
 		case E:
 		{
-		automate.decalage(s, new E30);
+			automate.Decalage(s, new E30);
 			return true;
 		}
 		case T:
 		{
-		automate.decalage(s, new E18);
+			automate.Decalage(s, new E18);
 			return true;
 		}
 		case F:
 		{
-		automate.decalage(s, new E19);
+			automate.Decalage(s, new E19);
 			return true;
 		}
 	}
@@ -81,7 +81,7 @@ bool E23::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E23::E23 ( const E23 & unE23 )
-	: Etat(unE23)
+	: Etat ( unE23 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E23>" << endl;
@@ -90,7 +90,7 @@ E23::E23 ( const E23 & unE23 )
 
 
 E23::E23 ( )
-	: Etat()
+	: Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E23>" << endl;

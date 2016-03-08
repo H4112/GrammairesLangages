@@ -1,7 +1,7 @@
 /*************************************************************************
                            E15  -  Etat de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:12
+    début                : 8 mars 2016 10:43:21
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -27,12 +27,12 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E15::print() const 
+void E15::Print ( ) const 
 {
 	cout << "E15" << endl;
 }
 
-bool E15::transition(Automate & automate, Symbole* s)
+bool E15::Transition ( Automate & automate, Symbole * s )
 {
 	switch(*s)
 	{
@@ -41,13 +41,13 @@ bool E15::transition(Automate & automate, Symbole* s)
 		case ID:
 		case FIN:
 		{
-			Symbole * point_virgule = automate.popSymbole();
-			Symbole * i = automate.popSymbole();
-			Symbole * pi = automate.popSymbole();
+			Symbole * point_virgule = automate.PopSymbole();
+			Symbole * i = automate.PopSymbole();
+			Symbole * pi = automate.PopSymbole();
 
 			Symbole * nouveauSymbole;
 			//TODO remplir cette variable pour réduire R9
-			automate.reduction(nouveauSymbole, 3);
+			automate.Reduction(nouveauSymbole, 3);
 			return true;
 		}
 	}
@@ -59,7 +59,7 @@ bool E15::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E15::E15 ( const E15 & unE15 )
-	: Etat(unE15)
+	: Etat ( unE15 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E15>" << endl;
@@ -68,7 +68,7 @@ E15::E15 ( const E15 & unE15 )
 
 
 E15::E15 ( )
-	: Etat()
+	: Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E15>" << endl;

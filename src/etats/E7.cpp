@@ -1,7 +1,7 @@
 /*************************************************************************
                            E7  -  Etat de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:12
+    début                : 8 mars 2016 10:43:20
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -28,18 +28,18 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E7::print() const 
+void E7::Print ( ) const 
 {
 	cout << "E7" << endl;
 }
 
-bool E7::transition(Automate & automate, Symbole* s)
+bool E7::Transition ( Automate & automate, Symbole * s )
 {
 	switch(*s)
 	{
 		case ID:
 		{
-		automate.decalage(s, new E16);
+			automate.Decalage(s, new E16);
 			return true;
 		}
 	}
@@ -51,7 +51,7 @@ bool E7::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E7::E7 ( const E7 & unE7 )
-	: Etat(unE7)
+	: Etat ( unE7 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E7>" << endl;
@@ -60,7 +60,7 @@ E7::E7 ( const E7 & unE7 )
 
 
 E7::E7 ( )
-	: Etat()
+	: Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E7>" << endl;

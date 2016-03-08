@@ -1,7 +1,7 @@
 /*************************************************************************
                            E27  -  Etat de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:12
+    début                : 8 mars 2016 10:43:21
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -32,38 +32,38 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E27::print() const 
+void E27::Print ( ) const 
 {
 	cout << "E27" << endl;
 }
 
-bool E27::transition(Automate & automate, Symbole* s)
+bool E27::Transition ( Automate & automate, Symbole * s )
 {
 	switch(*s)
 	{
 		case OUVREPAR:
 		{
-		automate.decalage(s, new E20);
+			automate.Decalage(s, new E20);
 			return true;
 		}
 		case ID:
 		{
-		automate.decalage(s, new E21);
+			automate.Decalage(s, new E21);
 			return true;
 		}
 		case VAL:
 		{
-		automate.decalage(s, new E22);
+			automate.Decalage(s, new E22);
 			return true;
 		}
 		case T:
 		{
-		automate.decalage(s, new E34);
+			automate.Decalage(s, new E34);
 			return true;
 		}
 		case F:
 		{
-		automate.decalage(s, new E19);
+			automate.Decalage(s, new E19);
 			return true;
 		}
 	}
@@ -75,7 +75,7 @@ bool E27::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E27::E27 ( const E27 & unE27 )
-	: Etat(unE27)
+	: Etat ( unE27 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E27>" << endl;
@@ -84,7 +84,7 @@ E27::E27 ( const E27 & unE27 )
 
 
 E27::E27 ( )
-	: Etat()
+	: Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E27>" << endl;

@@ -1,7 +1,7 @@
 /*************************************************************************
                            E6  -  Etat de l'analyseur
                              -------------------
-    début                : 8 mars 2016 08:23:12
+    début                : 8 mars 2016 10:43:20
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -28,18 +28,18 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E6::print() const 
+void E6::Print ( ) const 
 {
 	cout << "E6" << endl;
 }
 
-bool E6::transition(Automate & automate, Symbole* s)
+bool E6::Transition ( Automate & automate, Symbole * s )
 {
 	switch(*s)
 	{
 		case POINT_VIRGULE:
 		{
-		automate.decalage(s, new E15);
+			automate.Decalage(s, new E15);
 			return true;
 		}
 	}
@@ -51,7 +51,7 @@ bool E6::transition(Automate & automate, Symbole* s)
 
 //-------------------------------------------- Constructeurs - destructeur
 E6::E6 ( const E6 & unE6 )
-	: Etat(unE6)
+	: Etat ( unE6 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <E6>" << endl;
@@ -60,7 +60,7 @@ E6::E6 ( const E6 & unE6 )
 
 
 E6::E6 ( )
-	: Etat()
+	: Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E6>" << endl;
