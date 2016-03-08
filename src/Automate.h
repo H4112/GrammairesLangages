@@ -20,6 +20,7 @@ class Automate; //Etat utilise Automate, nous devons l'avoir déclaré
 #include "symboles/Symbole.h"
 #include "symboles/Declaration.h"
 #include "etats/Etat.h"
+#include "Lexer.h"
 
 //------------------------------------------------------------- Constantes 
 
@@ -38,7 +39,7 @@ class Automate
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    void reduction ( Symbole * symboleEmpile, int nbDepile );
+    void Reduction ( Symbole * symboleEmpile, int nbDepile );
     // Mode d'emploi :
     //     Dépile nbDepile états de la pile, puis applique la transition
     //     correspondant au symbole passé en paramètre.
@@ -47,13 +48,13 @@ public:
     //     Avoir au moins nbDepile + 1 états dans la pile et passer un
     //     symbole non-nul.
     
-    void decalage ( Symbole * symboleEmpile, Etat * etatEmpile );
+    void Decalage ( Symbole * symboleEmpile, Etat * etatEmpile );
     //Mode d'emploi :
     //    Empile le symbole et l'état indiqué, puis change d'état.
     //Contrat :
     //    Symbole et état non nuls.
     
-    Symbole * popSymbole ( );
+    Symbole * PopSymbole ( );
     //Mode d'emploi :
     //    Renvoie le dernier symbole de la pile et le retire de la pile.
     //    Renvoie NULL si aucun symbole n'est présent.
