@@ -45,7 +45,9 @@ void Automate::Decalage ( Symbole * symboleEmpile, Etat * etatEmpile )
 
 Symbole * Automate::PopSymbole ( )
 {
-	return pileSymboles.pop();
+	Symbole * symbole = pileSymboles.top();
+    pileSymboles.pop();
+    return symbole;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

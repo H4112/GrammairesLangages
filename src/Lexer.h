@@ -43,6 +43,8 @@ public:
     Lexer ( );
     // Interdit
 
+    Lexer ( string nomFichier );
+
     virtual ~Lexer ( );
 
 //------------------------------------------------------------------ PRIVE 
