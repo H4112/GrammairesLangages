@@ -28,7 +28,7 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void Automate::reduction ( Symbole * symboleEmpile, int nbDepile )
+void Automate::Reduction ( Symbole * symboleEmpile, int nbDepile )
 {
 	for ( int i = 0 ; i < nbDepile ; i++ )
     {
@@ -37,14 +37,13 @@ void Automate::reduction ( Symbole * symboleEmpile, int nbDepile )
     pileEtats.top()->Transition(*this, symboleEmpile);
 }
 
-void Automate::decalage ( Symbole * symboleEmpile, Etat * etatEmpile )
+void Automate::Decalage ( Symbole * symboleEmpile, Etat * etatEmpile )
 {
 	pileSymboles.push(symboleEmpile);
     pileEtats.push(etatEmpile);
-    pileEtats.top()->Transition(*this, symboleEmpile);
 }
 
-Symbole * Automate::popSymbole ( )
+Symbole * Automate::PopSymbole ( )
 {
 	return pileSymboles.pop();
 }

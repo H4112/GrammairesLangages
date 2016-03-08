@@ -1,11 +1,11 @@
 /*************************************************************************
-                           Automate  -  Automate de l'analyseur
+                           Lexer  -  Lexer de l'analyseur
                              -------------------
     début                : 1 mars 2016 11:16:42
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
-//---------- Réalisation de la classe <Automate> (fichier Automate.cpp) --
+//---------- Réalisation de la classe <Lexer> (fichier Lexer.cpp) --
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -15,7 +15,7 @@
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "Automate.h"
+#include "Lexer.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -28,55 +28,32 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void Automate::reduction ( Symbole * symboleEmpile, int nbDepile )
-{
-	//TODO
-}
-
-void Automate::decalage ( Symbole * symboleEmpile, Etat * etatEmpile )
-{
-	//TODO
-}
-
-Symbole * Automate::popSymbole ( )
-{
-	return pileSymboles.pop();
-}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Automate::Automate ( const Automate & unAutomate )
-    : pileSymboles ( unAutomate.pileSymboles ),
-      pileEtats ( unAutomate.pileEtats )
+Lexer::Lexer ( const Lexer & unLexer )
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <Automate>" << endl;
+    cout << "Appel au constructeur de copie de <Lexer>" << endl;
 #endif
-} //----- Fin de Automate (constructeur de copie)
+} //----- Fin de Lexer (constructeur de copie)
 
 
-Automate::Automate ( string nomFichier ) : lexer ( nomFichier )
+Lexer::Lexer ( string nomFichier ) : Lexer ( nomFichier )
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <Automate>" << endl;
+    cout << "Appel au constructeur de <Lexer>" << endl;
 #endif
-} //----- Fin de Automate
+} //----- Fin de Lexer
 
 
-Automate::~Automate ( )
+Lexer::~Lexer ( )
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <Automate>" << endl;
+    cout << "Appel au destructeur de <Lexer>" << endl;
 #endif
-} //----- Fin de ~Automate
-
-int main()
-{
-    //TODO c'est pour que ça compile
-	cout << "foo" << endl;
-    return 0;
-}
+} //----- Fin de ~Lexer
 
 
 //------------------------------------------------------------------ PRIVE
