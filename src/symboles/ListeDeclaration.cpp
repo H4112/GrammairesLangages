@@ -27,6 +27,10 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
+list < Declaration * > ListeDeclaration::GetListeDeclarations ( ) 
+{
+	return listeDeclarations;
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -41,7 +45,7 @@ ListeDeclaration::ListeDeclaration ( const ListeDeclaration & unListeDeclaration
 
 
 ListeDeclaration::ListeDeclaration ( ) 
-	: Symbole("RIEN", D, false)
+	: Symbole("", D, false)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <ListeDeclaration>" << endl;
@@ -60,5 +64,9 @@ ListeDeclaration::~ListeDeclaration ( )
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
+void ListeDeclaration::ajouterDeclaration ( Declaration * declaration )
+{
+	listeDeclarations.push_back(declaration);
+}
 
 //------------------------------------------------------- Méthodes privées

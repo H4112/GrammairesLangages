@@ -15,7 +15,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Symbole.h"
-#include <string.h>
+#include <string>
 
 //------------------------------------------------------------- Constantes
 

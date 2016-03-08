@@ -12,6 +12,10 @@
 //--------------------------------------------------- Interfaces utilisées
 #include "Symbole.h"
 
+#include <list>
+
+#include "../Declaration.h"
+
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
@@ -28,6 +32,12 @@ class ListeDeclaration : public Symbole
 
 public:
 //----------------------------------------------------- Méthodes publiques
+	list < Declaration * > GetListeDeclarations ( ) ;
+	// Mode d'emploi :
+	//	Permet d'obtenir la liste des déclarations contenue 
+	//	dans cette ListeDeclaration.
+	// Contrat :
+	//	Aucun
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -42,6 +52,7 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
+	void ajouterDeclaration ( Declaration * declaration );
 
 private:
 //------------------------------------------------------- Méthodes privées
@@ -51,6 +62,7 @@ protected:
 
 private:
 //------------------------------------------------------- Attributs privés
+	list < Declaration * > listeDeclarations;
 
 //---------------------------------------------------------- Classes amies
 

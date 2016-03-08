@@ -11,6 +11,11 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Symbole.h"
+#include "../Declaration.h"
+#include "ListeDeclaration.h"
+
+#include <string>
+#include <map>
 
 //------------------------------------------------------------- Constantes 
 
@@ -28,6 +33,12 @@ class PartieDeclarative : public Symbole
 
 public:
 //----------------------------------------------------- Méthodes publiques
+	bool AjouterDeclarations( ListeDeclaration liste );
+	// Mode d'emploi :
+	//	Ajoute une liste de déclarations à cette partie déclarative.
+	//	Renvoie true si aucun identifiant n'a été dupliqué, sinon false.
+	// Contrat :
+	//	Aucun
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -51,6 +62,7 @@ protected:
 
 private:
 //------------------------------------------------------- Attributs privés
+	map< string, Declaration * > tableDeclarations;
 
 //---------------------------------------------------------- Classes amies
 

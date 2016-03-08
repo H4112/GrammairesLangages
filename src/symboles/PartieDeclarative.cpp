@@ -27,12 +27,33 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
+bool PartieDeclarative::AjouterDeclarations( ListeDeclaration liste )
+{
+	list < Declaration * > listeDeclarations = liste.GetListeDeclarations();
+	
+	for ( Declaration * declaration : listeDeclarations )
+	{
+		if ( tableDeclarations.find(declaration->GetId()) == tableDeclarations.end() )
+		{
+			tableDeclarations[declaration->GetId()] = declaration;
+		}
+		else
+		{
+			//TODO gérer les cas non bloquants avec un warning
+			cerr << "erreur: Double déclaration de " << declaration->GetId() << endl;
+			return false;
+		}
+	}
+	
+	return true;
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
 PartieDeclarative::PartieDeclarative ( const PartieDeclarative & unPartieDeclarative ) 
-	: Symbole(unPartieDeclarative)
+	: Symbole(unPartieDeclarative), 
+		tableDeclarations(unPartieDeclarative.tableDeclarations)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <PartieDeclarative>" << endl;
@@ -41,7 +62,7 @@ PartieDeclarative::PartieDeclarative ( const PartieDeclarative & unPartieDeclara
 
 
 PartieDeclarative::PartieDeclarative ( ) 
-	: Symbole("RIEN", PD, false)
+	: Symbole("", PD, false)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <PartieDeclarative>" << endl;

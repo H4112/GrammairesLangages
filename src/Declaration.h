@@ -10,7 +10,7 @@
 #define DECLARATION_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include <string.h>
+#include <string>
 
 //------------------------------------------------------------- Constantes 
 
