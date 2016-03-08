@@ -27,6 +27,21 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
+bool Declaration::EstUtilise ( )
+{
+	return utilise;
+}
+
+string Declaration::GetId ( )
+{
+	return id;
+}
+
+int Declaration::GetValeur ( )
+{
+	utilise = true;
+	return valeur;
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 

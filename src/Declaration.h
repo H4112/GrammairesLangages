@@ -37,7 +37,33 @@ public:
     // Contrat :
     //	Aucun
 
-
+	bool EstUtilise ( );
+    // Mode d'emploi :
+    //	Indique si la variable a été utilisée (GetValeur() a été appelé
+	//	au moins 1 fois).
+    // Contrat :
+    //	Aucun
+	
+	string GetId ( );
+	// Mode d'emploi :
+	//	Renvoie l'identifiant de cette variable.
+	// Contrat :
+	//	Aucun
+	
+	int GetValeur ( );
+	// Mode d'emploi :
+	//	Renvoie la valeur contenue par cette variable, et la marque comme
+	//	étant utilisée.
+	// Contrat :
+	//	Si la variable n'est pas affectée, le comportement de cette méthode
+	//	est indéfini.
+	
+	virtual bool EstAffecte ( ) = 0;
+	// Mode d'emploi :
+	//	Indique si la variable possède une valeur valide.
+	//	A appeler avant GetValeur().
+	// Contrat :
+	//	Aucun
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -78,6 +104,7 @@ private:
 //------------------------------------------------------- Attributs privés
 	string id;
 	int valeur;
+	bool utilise;
 
 //---------------------------------------------------------- Classes amies
 
