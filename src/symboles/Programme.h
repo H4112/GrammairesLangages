@@ -10,7 +10,11 @@
 #define PROGRAMME_H
 
 //--------------------------------------------------- Interfaces utilisées
+#include <list>
+
 #include "Symbole.h"
+#include "Instruction.h"
+#include "Declaration.h"
 
 //------------------------------------------------------------- Constantes 
 
@@ -28,13 +32,30 @@ class Programme : public Symbole
 
 public:
 //----------------------------------------------------- Méthodes publiques
+    void Executer ( );
+    // Mode d'emploi : exécute le programme
+    // Contrat : aucun
+
+    void AjouterDeclaration ( Declaration * declaration );
+    // Mode d'emploi : ajoute une nouvelle déclaration au programme
+    // Contrat : aucun
+
+    void AjouterInstruction ( Instruction * instruction );
+    // Mode d'emploi : ajoute une nouvelle instruction au programme
+    // Contrat : aucun
 
 //------------------------------------------------- Surcharge d'opérateurs
-
+    friend ostream & operator << ( ostream & out,
+        const Programme & programme );
+    
 //-------------------------------------------- Constructeurs - destructeur
     Programme ( const Programme & unProgramme );
 
     Programme ( ); 
+    // Interdit.
+
+    Programme ( map < string, Declaration * > tableDeclarations,
+        list < Instruction * > listeInstructions );
 
     virtual ~Programme ( );
 
@@ -51,6 +72,8 @@ protected:
 
 private:
 //------------------------------------------------------- Attributs privés
+    map < string, Declaration * > tableDeclarations;
+    list < Instruction * > listeInstructions;
 
 //---------------------------------------------------------- Classes amies
 

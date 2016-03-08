@@ -70,7 +70,7 @@ public:
 //-------------------------------------------- Constructeurs - destructeur
     Symbole ( const Symbole & unSymbole );
 
-    Symbole (string nomTemp, int identTemp, bool terminalTemp);
+    Symbole ( string nomTemp, int identTemp, bool terminalTemp );
 
     virtual ~Symbole ( );
 

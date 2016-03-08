@@ -1,4 +1,4 @@
-COMPFLAGS := -Wall -Wextra -DMAP
+COMPFLAGS := -Wall -Wextra -DMAP -std=c++11
 
 OUTFILE := build/lutin
 

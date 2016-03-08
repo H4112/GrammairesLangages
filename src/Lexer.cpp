@@ -30,18 +30,12 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void Automate::reduction ( Symbole * symboleEmpile, int nbDepile )
 {
-	for ( int i = 0 ; i < nbDepile ; i++ )
-    {
-        pileEtats.pop();
-    }
-    pileEtats.top()->Transition(*this, symboleEmpile);
+	//TODO
 }
 
 void Automate::decalage ( Symbole * symboleEmpile, Etat * etatEmpile )
 {
-	pileSymboles.push(symboleEmpile);
-    pileEtats.push(etatEmpile);
-    pileEtats.top()->Transition(*this, symboleEmpile);
+	//TODO
 }
 
 Symbole * Automate::popSymbole ( )
