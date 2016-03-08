@@ -16,6 +16,7 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "E0.h"
 #include "E1.h"
+#include "../symboles/PartieDeclarative.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -44,10 +45,7 @@ bool E0::Transition ( Automate & automate, Symbole * s )
 		case ID:
 		case FIN:
 		{
-
-			Symbole * nouveauSymbole;
-			//TODO remplir cette variable pour réduire R2
-			automate.Reduction(nouveauSymbole, 0);
+			automate.Reduction(new PartieDeclarative, 0);
 			return true;
 		}
 		case PD:

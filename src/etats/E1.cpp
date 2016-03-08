@@ -19,6 +19,7 @@ using namespace std;
 #include "E5.h"
 #include "E3.h"
 #include "E2.h"
+#include "../symboles/PartieInstructions.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -55,10 +56,7 @@ bool E1::Transition ( Automate & automate, Symbole * s )
 		case ID:
 		case FIN:
 		{
-
-			Symbole * nouveauSymbole;
-			//TODO remplir cette variable pour réduire R10
-			automate.Reduction(nouveauSymbole, 0);
+			automate.Reduction(new PartieInstructions, 0);
 			return true;
 		}
 		case D:

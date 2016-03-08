@@ -27,9 +27,9 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-bool PartieDeclarative::AjouterDeclarations( ListeDeclaration liste )
+bool PartieDeclarative::AjouterDeclarations( ListeDeclaration * liste )
 {
-	list < Declaration * > listeDeclarations = liste.GetListeDeclarations();
+	list < Declaration * > listeDeclarations = liste->GetListeDeclarations();
 	
 	for ( Declaration * declaration : listeDeclarations )
 	{

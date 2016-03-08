@@ -15,6 +15,8 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "E10.h"
+#include "../symboles/PartieDeclarative.h"
+#include "../Declaration.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -43,14 +45,21 @@ bool E10::Transition ( Automate & automate, Symbole * s )
 		case ID:
 		case FIN:
 		{
-			Symbole * point_virgule = automate.PopSymbole();
-			Symbole * d = automate.PopSymbole();
-			Symbole * pd = automate.PopSymbole();
+			//Symbole * point_virgule = 
+			delete automate.PopSymbole();
+			ListeDeclaration * d = automate.PopSymbole();
+			PartieDeclarative * pd = automate.PopSymbole();
 
-			Symbole * nouveauSymbole;
-			//TODO remplir cette variable pour réduire R1
-			automate.Reduction(nouveauSymbole, 3);
-			return true;
+			if( ! pd->AjouterDeclarations(d) )
+			{
+				return false;
+			}
+			else
+			{
+				delete d;
+				automate.Reduction(pd, 3);
+				return true;
+			}
 		}
 	}
 	

@@ -33,7 +33,7 @@ class PartieDeclarative : public Symbole
 
 public:
 //----------------------------------------------------- Méthodes publiques
-	bool AjouterDeclarations( ListeDeclaration liste );
+	bool AjouterDeclarations( ListeDeclaration * liste );
 	// Mode d'emploi :
 	//	Ajoute une liste de déclarations à cette partie déclarative.
 	//	Renvoie true si aucun identifiant n'a été dupliqué, sinon false.
