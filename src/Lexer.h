@@ -1,5 +1,5 @@
 /*************************************************************************
-                           Lexer  -  Lexer de l'analyseur
+                           Lexer  -  Analyseur lexical
                              -------------------
     début                : 1 mars 2016 11:16:42
     copyright            : (C) 2016 par H4112
