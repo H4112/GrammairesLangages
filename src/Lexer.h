@@ -37,9 +37,8 @@ class Lexer
 
 public:
 //----------------------------------------------------- Méthodes publiques
-Symbole* getSymboleSuivant();
-void consommerSymboleSuivant();
-bool fichierOuvert();
+    Symbole* LireSymbole();
+    void ConsommerSymbole();
 
     
 //------------------------------------------------- Surcharge d'opérateurs
@@ -61,15 +60,17 @@ protected:
 
 private:
 //------------------------------------------------------- Méthodes privées
-
+    Symbole * creerSymbole ( string nom, int type );
+    bool lireLigne ( );
 protected:
 //----------------------------------------------------- Attributs protégés
 
 private:
 //------------------------------------------------------- Attributs privés
-ifstream fichier;
-Symbole* symboleCourant;
-string ligneCourante;
+    ifstream fichier;
+    string ligne;
+    string::const_iterator debut;
+    string::const_iterator fin;
 
 //---------------------------------------------------------- Classes amies
 

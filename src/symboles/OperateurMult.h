@@ -34,7 +34,7 @@ public:
 //-------------------------------------------- Constructeurs - destructeur
     OperateurMult ( const OperateurMult & unOperateurMult );
 
-    OperateurMult ( ); 
+    OperateurMult ( string type ); 
 
     virtual ~OperateurMult ( );
 

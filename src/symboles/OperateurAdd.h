@@ -34,7 +34,7 @@ public:
 //-------------------------------------------- Constructeurs - destructeur
     OperateurAdd ( const OperateurAdd & unOperateurAdd );
 
-    OperateurAdd ( ); 
+    OperateurAdd ( string type ); 
 
     virtual ~OperateurAdd ( );
 
@@ -51,7 +51,7 @@ protected:
 
 private:
 //------------------------------------------------------- Attributs privés
-
+	
 //---------------------------------------------------------- Classes amies
 
 //-------------------------------------------------------- Classes privées

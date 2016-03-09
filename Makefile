@@ -1,6 +1,8 @@
-COMPFLAGS := -Wall -Wextra -DMAP -std=c++11
+COMPFLAGS += -I/opt/local/include
+COMPFLAGS += -Wall -Wextra -std=c++11 #-DMAP
 
-LDFLAGS := -lboost_regex
+LDFLAGS += -L/opt/local/lib
+LDFLAGS += -lboost_regex
 
 OUTFILE := build/lutin
 

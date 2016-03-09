@@ -12,24 +12,43 @@
 //-------------------------------------------------------- Include système
 #include <iostream>
 #include <string>
+#include <boost/algorithm/string/trim_all.hpp>
 
 using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Lexer.h"
-using namespace boost;
-
+#include "symboles/Affectation.h"
+#include "symboles/Const.h"
+#include "symboles/Ecrire.h"
+#include "symboles/Egal.h"
+#include "symboles/FermePar.h"
+#include "symboles/Identifiant.h"
+#include "symboles/Lire.h"
+#include "symboles/OperateurAdd.h"
+#include "symboles/OperateurMult.h"
+#include "symboles/OuvrePar.h"
+#include "symboles/PointVirgule.h"
+#include "symboles/Valeur.h"
+#include "symboles/Var.h"
+#include "symboles/Virgule.h"
 //------------------------------------------------------------- Constantes
-const char FIN_INSTRUCTION=';';
-const char SEPARATEUR_INSTRUCTION=',';
-
-pair<boost::regex, int> correspondancesRegex[] = { {boost::regex("(var)"), VAR}, 
-	{boost::regex("(const)"), CONST}, {boost::regex("(ecrire)"), ECRIRE}, 
-	{boost::regex("(lire)"), LIRE}, {boost::regex("(,)"), VIRGULE}, 
-	{boost::regex("(;)"), POINT_VIRGULE},
- {boost::regex("([+-])"), OPA}, {boost::regex("([*/])"), OPM}, 
- {boost::regex("(:=)"), AFFECTATION}, {boost::regex("(=)"), EGAL}, {boost::regex("(\\))"), FERMEPAR}, 
- {boost::regex("(\\()"), OUVREPAR}, {boost::regex("([a-zA-Z][a-zA-Z0-9]*)"), ID}, {boost::regex("([0-9]+)"), VAL} };
+const pair < boost::regex, int > regexSymboles [] = {
+	{ boost::regex("^[\\r\\n\\t ]s*(var)"), VAR }, 
+	{ boost::regex("^\\s*(const)"), CONST },
+	{ boost::regex("^\\s*(ecrire)"), ECRIRE }, 
+	{ boost::regex("^\\s*(lire)"), LIRE },
+	{ boost::regex("^\\s*(,)"), VIRGULE }, 
+	{ boost::regex("^\\s*(;)"), POINT_VIRGULE },
+	{ boost::regex("^\\s*([+-])"), OPA },
+	{ boost::regex("^\\s*([*/])"), OPM },
+	{ boost::regex("^\\s*(:=)"), AFFECTATION },
+	{ boost::regex("^\\s*(=)"), EGAL },
+	{ boost::regex("^\\s*(\\))"), FERMEPAR },
+	{ boost::regex("^\\s*(\\()"), OUVREPAR },
+	{ boost::regex("^[\\r\\n\\t ]*([a-zA-Z][a-zA-Z0-9]*)"), ID },
+	{ boost::regex("^\\s*([0-9]+)"), VAL }
+};
 //---------------------------------------------------- Variables de classe
 
 //----------------------------------------------------------- Types privés
@@ -39,39 +58,30 @@ pair<boost::regex, int> correspondancesRegex[] = { {boost::regex("(var)"), VAR},
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-Symbole* Lexer::getSymboleSuivant()
+Symbole* Lexer::LireSymbole()
 {
-	boost::regex expression("var");
-	getline (fichier, ligneCourante, (char) fichier.eof());
-
-	cout << ligneCourante << endl;
-
-	std::string::const_iterator start, end;
-	start = ligneCourante.begin();
-	end = ligneCourante.end();
-	boost::match_results<std::string::const_iterator> what;
-	boost::match_flag_type flags = boost::match_default;
-	
-	for(pair<boost::regex, int> correspondance : correspondancesRegex){
-		if(regex_search(start, end, what, correspondance.first, flags))
+	if(debut == fin && !lireLigne())
+	{
+		return 0;
+	}
+	boost::smatch occurence;
+	for(pair<boost::regex, int> regexSymbole : regexSymboles){
+		if(boost::regex_search(debut, fin, occurence, regexSymbole.first))
 		{
-			cout << what[0] << endl;
+			cout << "reconnu : " << string(occurence[1].first, occurence[1].second) << endl;
+			debut = occurence[1].second;
+			return creerSymbole(string(occurence[1].first, occurence[1].second), regexSymbole.second);
 		}
 	}
-	
+	cout << "pas de match pour " << string(debut + 1, fin - 1) << endl;
 	return 0;
 }
 
-void Lexer::consommerSymboleSuivant()
+void Lexer::ConsommerSymbole()
 {
 	//TODO
 }
-
-bool fichierOuvert(){
-	//return fichier.is_open()?true:false;
-	return true;
-}
-
+/*
 void replaceAll(std::string& str, const std::string& from, const std::string& to) {
     if(from.empty())
         return;
@@ -99,7 +109,7 @@ string trouverPremierMot(string s){
 	}
 	return result;
 }
-
+*/
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
@@ -111,12 +121,13 @@ Lexer::Lexer ( const Lexer & unLexer )
 } //----- Fin de Lexer (constructeur de copie)
 
 
-Lexer::Lexer ( string nomFichier ) :fichier(nomFichier, ios::in)
+Lexer::Lexer ( string nomFichier ) : fichier ( nomFichier, ios::in )
 {
 	if(!fichier)
 	{
-		throw string( "Erreur à l'ouverture de "+nomFichier+"\n" ); 
+		throw string( "Erreur à l'ouverture de " + nomFichier ); 
 	}
+	lireLigne();
 	
 #ifdef MAP
     cout << "Appel au constructeur de <Lexer>" << endl;
@@ -150,3 +161,58 @@ Lexer::~Lexer ( )
 //----------------------------------------------------- Méthodes protégées
 
 //------------------------------------------------------- Méthodes privées
+Symbole * Lexer::creerSymbole ( string nom, int ident )
+{
+	switch(ident)
+	{
+		case AFFECTATION:
+			return new Affectation();
+		case CONST:
+			return new Const();
+		case VAR:
+			return new Var();
+		case LIRE:
+			return new Lire();
+		case ECRIRE:
+			return new Ecrire();
+		case EGAL:
+			return new Egal();
+		case VIRGULE:
+			return new Virgule();
+		case FERMEPAR:
+			return new FermePar();
+		case OUVREPAR:
+			return new OuvrePar();
+		case ID:
+			return new Identifiant(nom);
+		case OPA:
+			return new OperateurAdd(nom);
+		case OPM:
+			return new OperateurMult(nom);
+		case POINT_VIRGULE:
+			return new PointVirgule();
+		case VAL:
+			return new OperateurAdd(nom);
+	}
+	return 0;
+}
+
+bool Lexer::lireLigne ( )
+{
+	do
+	{
+		if(fichier.eof())
+		{
+			return false;
+		}
+		getline (fichier, ligne, ';');
+		boost::algorithm::trim_all(ligne);
+	}
+	while(ligne.empty());
+	ligne += ';';
+	debut = ligne.cbegin();
+	fin = ligne.cend();
+	cout << "lu : " << ligne << endl;
+	return true;
+}
+

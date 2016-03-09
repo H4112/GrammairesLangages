@@ -1,0 +1,6 @@
+const  A   = 1  ;
+var   b,  c ;
+
+lire b ;
+c := 2*  b +A   ;
+  ecrire  3*( c+1   )   ;

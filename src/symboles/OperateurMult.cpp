@@ -40,8 +40,8 @@ OperateurMult::OperateurMult ( const OperateurMult & unOperateurMult )
 } //----- Fin de OperateurMult (constructeur de copie)
 
 
-OperateurMult::OperateurMult ( ) 
-	: Symbole("nom", OPM, true)
+OperateurMult::OperateurMult ( string type ) 
+	: Symbole ( type, OPM, true )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <OperateurMult>" << endl;

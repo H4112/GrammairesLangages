@@ -40,8 +40,8 @@ OperateurAdd::OperateurAdd ( const OperateurAdd & unOperateurAdd )
 } //----- Fin de OperateurAdd (constructeur de copie)
 
 
-OperateurAdd::OperateurAdd ( ) 
-	: Symbole("nom", OPA, true)
+OperateurAdd::OperateurAdd ( string type ) 
+	: Symbole(type, OPA, true)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <OperateurAdd>" << endl;

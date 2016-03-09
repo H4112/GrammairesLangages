@@ -36,7 +36,7 @@ public:
 
     Valeur ( ); 
 
-    Valeur ( int val );
+    Valeur ( string val );
 
     virtual ~Valeur ( );
 

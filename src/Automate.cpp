@@ -67,6 +67,8 @@ Automate::Automate ( const Automate & unAutomate )
 
 Automate::Automate ( string nomFichier ) : lexer ( nomFichier )
 {
+    while(lexer.LireSymbole() != 0);
+
 #ifdef MAP
     cout << "Appel au constructeur de <Automate>" << endl;
 #endif
@@ -80,10 +82,18 @@ Automate::~Automate ( )
 #endif
 } //----- Fin de ~Automate
 
-int main()
+int main ( int argc, char ** argv )
 {
-    //TODO c'est pour que ça compile
-	cout << "foo" << endl;
+    if(argc < 2)
+    {
+        cout << "Usage: " << argv[0] << " fichier" << endl;
+        return -1;
+    }
+    try {
+        new Automate(argv[1]);
+    } catch ( string msg ) {
+        cerr << "Erreur : " << msg << endl;
+    }
     return 0;
 }
 
