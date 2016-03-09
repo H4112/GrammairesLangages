@@ -1,5 +1,7 @@
 COMPFLAGS := -Wall -Wextra -DMAP -std=c++11
 
+LDFLAGS := -lboost_regex
+
 OUTFILE := build/lutin
 
 CPP = $(shell ls src/*.cpp src/*/*.cpp)
@@ -8,7 +10,7 @@ OBJ = $(subst .cpp,.o,$(CPP))
 $(OUTFILE) : $(OBJ)
 	@echo ">> Linking $@"
 	mkdir -p build
-	g++ -o $@ $^
+	g++ $(LDFLAGS) -o $@ $^
 	
 %.o : %.cpp %.h src/symboles/Symbole.h src/Automate.h src/etats/Etat.h
 	@echo ">> Compiling $@"

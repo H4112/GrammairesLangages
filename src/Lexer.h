@@ -9,7 +9,17 @@
 #if ! defined ( LEXER_H )
 #define LEXER_H
 
+class Lexer; //Etat utilise Lexer, nous devons l'avoir déclaré
+                //avant de l'inclure
+
 //--------------------------------------------------- Interfaces utilisées
+#include <stack>
+#include <map>
+#include <string>
+#include <fstream>
+#include <boost/regex.hpp>
+
+#include "symboles/Symbole.h"
 
 //------------------------------------------------------------- Constantes 
 
@@ -17,6 +27,7 @@
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <Lexer>
+// Permet d'exécuter l'analyseur de fichier
 //
 //------------------------------------------------------------------------ 
 
@@ -26,15 +37,11 @@ class Lexer
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    //void reduction ( Symbole * symboleEmpile, int nbDepile );
-    // Mode d'emploi :
-    //     Dépile nbDepile états de la pile, puis applique la transition
-    //     correspondant au symbole passé en paramètre.
-    //     Cette méthode empile également le symbole.
-    //Contrat :
-    //     Avoir au moins nbDepile + 1 états dans la pile et passer un
-    //     symbole non-nul.
+Symbole* getSymboleSuivant();
+void consommerSymboleSuivant();
+bool fichierOuvert();
 
+    
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
@@ -60,6 +67,9 @@ protected:
 
 private:
 //------------------------------------------------------- Attributs privés
+ifstream fichier;
+Symbole* symboleCourant;
+string ligneCourante;
 
 //---------------------------------------------------------- Classes amies
 
