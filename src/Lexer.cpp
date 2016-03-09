@@ -60,6 +60,10 @@ const pair < boost::regex, int > regexSymboles [] = {
 //----------------------------------------------------- Méthodes publiques
 Symbole* Lexer::LireSymbole()
 {
+	if(symboleCourant != 0)
+	{
+		return symboleCourant;
+	}
 	if(debut == fin && !lireLigne())
 	{
 		return 0;
@@ -68,9 +72,10 @@ Symbole* Lexer::LireSymbole()
 	for(pair<boost::regex, int> regexSymbole : regexSymboles){
 		if(boost::regex_search(debut, fin, occurence, regexSymbole.first))
 		{
-			cout << "reconnu : " << string(occurence[1].first, occurence[1].second) << endl;
+			//cout << "reconnu : " << string(occurence[1].first, occurence[1].second) << endl;
 			debut = occurence[1].second;
-			return creerSymbole(string(occurence[1].first, occurence[1].second), regexSymbole.second);
+			symboleCourant = creerSymbole(string(occurence[1].first, occurence[1].second), regexSymbole.second);
+			return symboleCourant;
 		}
 	}
 	cout << "pas de match pour " << string(debut + 1, fin - 1) << endl;
@@ -79,7 +84,7 @@ Symbole* Lexer::LireSymbole()
 
 void Lexer::ConsommerSymbole()
 {
-	//TODO
+	symboleCourant = 0;
 }
 /*
 void replaceAll(std::string& str, const std::string& from, const std::string& to) {
@@ -212,7 +217,7 @@ bool Lexer::lireLigne ( )
 	ligne += ';';
 	debut = ligne.cbegin();
 	fin = ligne.cend();
-	cout << "lu : " << ligne << endl;
+	//cout << "lu : " << ligne << endl;
 	return true;
 }
 

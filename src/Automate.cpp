@@ -67,7 +67,14 @@ Automate::Automate ( const Automate & unAutomate )
 
 Automate::Automate ( string nomFichier ) : lexer ( nomFichier )
 {
-    while(lexer.LireSymbole() != 0);
+    Symbole *s;
+    do
+    {
+        s = lexer.LireSymbole();
+        lexer.ConsommerSymbole();
+        if(s!=0)
+            cout << s->GetNom() << endl;
+    } while(s!=0);
 
 #ifdef MAP
     cout << "Appel au constructeur de <Automate>" << endl;

@@ -28,12 +28,12 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-string Symbole::getNom()
+string Symbole::GetNom()
 {
 	return nom;
 }
 
-bool Symbole::estTerminal()
+bool Symbole::EstTerminal()
 {
 	return terminal;
 }

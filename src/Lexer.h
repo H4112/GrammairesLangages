@@ -72,6 +72,8 @@ private:
     string::const_iterator debut;
     string::const_iterator fin;
 
+    Symbole *symboleCourant;
+
 //---------------------------------------------------------- Classes amies
 
 //-------------------------------------------------------- Classes privées

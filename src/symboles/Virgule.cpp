@@ -41,7 +41,7 @@ Virgule::Virgule ( const Virgule & unVirgule )
 
 
 Virgule::Virgule ( ) 
-	: Symbole("METTEZ UNE VIRGULE ICI", VIRGULE, true)
+	: Symbole(",", VIRGULE, true)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Virgule>" << endl;

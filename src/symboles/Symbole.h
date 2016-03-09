@@ -52,13 +52,13 @@ class Symbole
 
 public:
 //----------------------------------------------------- Méthodes publiques
-	string getNom();
+	string GetNom();
 	//Mode d'emploi :
 	//	Permet d'obtenir un nom affichable pour le symbole.
 	//Contrat :
 	//	Aucun
 	
-	bool estTerminal();
+	bool EstTerminal();
 	//Mode d'emploi :
 	//	Vaut true si le symbole est terminal, sinon false.
 	//Contrat :
