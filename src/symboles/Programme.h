@@ -50,6 +50,8 @@ public:
         list < Instruction * > listeInstructions );
 
     virtual ~Programme ( );
+    
+    bool VerificationStatique();
 
 //------------------------------------------------------------------ PRIVE 
 
