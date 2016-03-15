@@ -1,59 +1,56 @@
 /*************************************************************************
-                           E21  -  Etat de l'analyseur
+                           ExpressionIdentifiant  -  description
                              -------------------
-    début                : 8 mars 2016 10:43:21
+    début                : 15/03/2016 12:01:49
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
-//---------- Interface de la classe <E21> (fichier E21.h) ------
-#if ! defined ( E21_H )
-#define E21_H
+//---------- Interface de la classe <ExpressionIdentifiant> (fichier ExpressionIdentifiant.h) ------
+#if ! defined ( EXPRESSIONIDENTIFIANT_H )
+#define EXPRESSIONIDENTIFIANT_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include "../symboles/Symbole.h"
-#include "../Automate.h"
-#include "Etat.h"
-#include "../symboles/Identifiant.h"
-#include "../ExpressionIdentifiant.h"
-
+#include "symboles/Expression.h"
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <E21>
-// Définit l'état E21 de l'automate et ses transitions.
+// Rôle de la classe <ExpressionIdentifiant>
+//
 //
 //------------------------------------------------------------------------ 
 
-class E21 : public Etat
+class ExpressionIdentifiant : public Expression
 {
 //----------------------------------------------------------------- PUBLIC
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    void Print ( ) const;
-    // Mode d'emploi :
-    //  Ecrit le nom de l'état sur la sortie standard.
-    // Contrat :
-    //  Aucun
-	
-	bool Transition ( Automate & automate, Symbole * s );
-    // Mode d'emploi :
-    //  Appelle l'automate donné en paramètre pour effectuer le décalage
-	//  ou la réduction correspondant au symbole passé en paramètre.
-    // Contrat :
-    //  Aucun
+    int Evaluer( map < string, Declaration * > & tableDeclarations );
+    
+    void Simplifier( map < string, Declaration * > & tableDeclarations );
 
 //------------------------------------------------- Surcharge d'opérateurs
-    
+
 
 //-------------------------------------------- Constructeurs - destructeur
-    E21 ( const E21 & unE21 );
+    ExpressionIdentifiant ( const ExpressionIdentifiant & unExpressionIdentifiant );
+    // Mode d'emploi (constructeur de copie) :
+    //
+    // Contrat :
+    //
 
-    E21 ( ); 
+    ExpressionIdentifiant ( );
+    // Interdit
 
-    virtual ~E21 ( );
+    ExpressionIdentifiant ( string ident );
+
+    virtual ~ExpressionIdentifiant ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
 //------------------------------------------------------------------ PRIVE 
 
@@ -62,7 +59,7 @@ protected:
 
 private:
 //------------------------------------------------------- Méthodes privées
-
+    string id;
 protected:
 //----------------------------------------------------- Attributs protégés
 
@@ -77,6 +74,6 @@ private:
 
 };
 
-//----------------------------------------- Types dépendants de <E21>
+//----------------------------------------- Types dépendants de <ExpressionIdentifiant>
 
-#endif // E21_H
+#endif // EXPRESSIONIDENTIFIANT_H

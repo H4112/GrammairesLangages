@@ -41,11 +41,12 @@ bool E21::Transition ( Automate & automate, Symbole * s )
 		case OPA:
 		case OPM:
 		{
-			Symbole * id = automate.PopSymbole();
+			Identifiant * id = (Identifiant *) automate.PopSymbole();
 
-			Symbole * nouveauSymbole;
-			//TODO remplir cette variable pour réduire R19
-			automate.Reduction(nouveauSymbole, 1);
+			ExpressionIdentifiant * exprId = new ExpressionIdentifiant(*id);
+			delete id;
+			//réduire R19
+			automate.Reduction(exprId, 1);
 			return true;
 		}
 	}

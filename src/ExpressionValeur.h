@@ -1,59 +1,57 @@
 /*************************************************************************
-                           E21  -  Etat de l'analyseur
+                           ExpressionValeur  -  description
                              -------------------
-    début                : 8 mars 2016 10:43:21
+    début                : 15/03/2016 11:56:06
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
-//---------- Interface de la classe <E21> (fichier E21.h) ------
-#if ! defined ( E21_H )
-#define E21_H
+//---------- Interface de la classe <ExpressionValeur> (fichier ExpressionValeur.h) ------
+#if ! defined ( EXPRESSIONVALEUR_H )
+#define EXPRESSIONVALEUR_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include "../symboles/Symbole.h"
-#include "../Automate.h"
-#include "Etat.h"
-#include "../symboles/Identifiant.h"
-#include "../ExpressionIdentifiant.h"
-
+#include "symboles/Expression.h"
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <E21>
-// Définit l'état E21 de l'automate et ses transitions.
+// Rôle de la classe <ExpressionValeur>
+//
 //
 //------------------------------------------------------------------------ 
 
-class E21 : public Etat
+class ExpressionValeur : public Expression
 {
 //----------------------------------------------------------------- PUBLIC
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    void Print ( ) const;
-    // Mode d'emploi :
-    //  Ecrit le nom de l'état sur la sortie standard.
-    // Contrat :
-    //  Aucun
-	
-	bool Transition ( Automate & automate, Symbole * s );
-    // Mode d'emploi :
-    //  Appelle l'automate donné en paramètre pour effectuer le décalage
-	//  ou la réduction correspondant au symbole passé en paramètre.
-    // Contrat :
-    //  Aucun
+    int Evaluer( map < string, Declaration * > & tableDeclarations );
+    
+    void Simplifier( map < string, Declaration * > & tableDeclarations );
+
 
 //------------------------------------------------- Surcharge d'opérateurs
-    
+
 
 //-------------------------------------------- Constructeurs - destructeur
-    E21 ( const E21 & unE21 );
+    ExpressionValeur ( const ExpressionValeur & unExpressionValeur );
+    // Mode d'emploi (constructeur de copie) :
+    //
+    // Contrat :
+    //
 
-    E21 ( ); 
+    ExpressionValeur ( );
+    // Interdit
 
-    virtual ~E21 ( );
+    ExpressionValeur ( int val );
+
+    virtual ~ExpressionValeur ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
 //------------------------------------------------------------------ PRIVE 
 
@@ -68,7 +66,7 @@ protected:
 
 private:
 //------------------------------------------------------- Attributs privés
-
+    int valeur;
 //---------------------------------------------------------- Classes amies
 
 //-------------------------------------------------------- Classes privées
@@ -77,6 +75,6 @@ private:
 
 };
 
-//----------------------------------------- Types dépendants de <E21>
+//----------------------------------------- Types dépendants de <ExpressionValeur>
 
-#endif // E21_H
+#endif // EXPRESSIONVALEUR_H

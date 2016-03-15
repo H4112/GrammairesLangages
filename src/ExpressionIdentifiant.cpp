@@ -1,11 +1,11 @@
 /*************************************************************************
-                           E22  -  Etat de l'analyseur
+                           ExpressionIdentifiant  -  description
                              -------------------
-    début                : 8 mars 2016 10:43:21
+    début                : 15/03/2016 12:01:49
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
-//---------- Réalisation de la classe <E22> (fichier E22.cpp) --
+//---- Réalisation de la classe <ExpressionIdentifiant> (fichier ExpressionIdentifiant.cpp) --
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -14,7 +14,7 @@
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "E22.h"
+#include "ExpressionIdentifiant.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -27,60 +27,48 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E22::Print ( ) const 
+int ExpressionIdentifiant::Evaluer( map < string, Declaration * > & tableDeclarations )
 {
-	cout << "E22" << endl;
+	return tableDeclarations[id]->GetValeur();
 }
 
-bool E22::Transition ( Automate & automate, Symbole * s )
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+void ExpressionIdentifiant::Simplifier( map < string, Declaration * > & tableDeclarations )
 {
-	switch(*s)
-	{
-		case POINT_VIRGULE:
-		case FERMEPAR:
-		case OPA:
-		case OPM:
-		{
-			Valeur * val = (Valeur *) automate.PopSymbole();
 
-			ExpressionValeur * exprVal = new ExpressionValeur(*val);
-			delete val;
-			//réduire R20
-			automate.Reduction(exprVal, 1);
-			return true;
-		}
-	}
-	
-	return false;
 }
+#pragma GCC diagnostic pop
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E22::E22 ( const E22 & unE22 )
-	: Etat ( unE22 )
+ExpressionIdentifiant::ExpressionIdentifiant ( const ExpressionIdentifiant & unExpressionIdentifiant )
+	: Expression ( unExpressionIdentifiant )
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <E22>" << endl;
+    cout << "Appel au constructeur de copie de <ExpressionIdentifiant>" << endl;
 #endif
-} //----- Fin de E22 (constructeur de copie)
+} //----- Fin de ExpressionIdentifiant (constructeur de copie)
 
 
-E22::E22 ( )
-	: Etat ( )
+ExpressionIdentifiant::ExpressionIdentifiant ( string ident )
+	: Expression (EXPR_ID ), id(ident)
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <E22>" << endl;
+    cout << "Appel au constructeur de <ExpressionIdentifiant>" << endl;
 #endif
-} //----- Fin de E22
+} //----- Fin de ExpressionIdentifiant
 
 
-E22::~E22 ( )
+ExpressionIdentifiant::~ExpressionIdentifiant ( )
+// Algorithme :
+//
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <E22>" << endl;
+    cout << "Appel au destructeur de <ExpressionIdentifiant>" << endl;
 #endif
-} //----- Fin de ~E22
+} //----- Fin de ~ExpressionIdentifiant
 
 
 //------------------------------------------------------------------ PRIVE

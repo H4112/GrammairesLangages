@@ -29,7 +29,7 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void Affectation::Executer( map < string, Declaration * > & tableDeclarations )
 {
-	((Variable*)tableDeclarations[nomVariable])->Affecter(expression->Evaluer(tableDeclarations));
+	((Variable*)tableDeclarations[nomVariable])->AffecterValeur(expression->Evaluer(tableDeclarations));
 }
 
 void Affectation::Simplifier( map < string, Declaration * > & tableDeclarations )

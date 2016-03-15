@@ -13,7 +13,8 @@
 #include "../symboles/Symbole.h"
 #include "../Automate.h"
 #include "Etat.h"
-
+#include "../symboles/Valeur.h"
+#include "../ExpressionValeur.h"
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
