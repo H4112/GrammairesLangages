@@ -16,6 +16,9 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "E12.h"
 
+#include "../symboles/ListeIdentifiants.h"
+#include "../symboles/Identifiant.h"
+
 //------------------------------------------------------------- Constantes
 
 //---------------------------------------------------- Variables de classe
@@ -39,11 +42,15 @@ bool E12::Transition ( Automate & automate, Symbole * s )
 		case VIRGULE:
 		case POINT_VIRGULE:
 		{
-			Symbole * id = automate.PopSymbole();
+			Identifiant * id = (Identifiant *) automate.PopSymbole();
 
-			Symbole * nouveauSymbole;
-			//TODO remplir cette variable pour réduire R6
-			automate.Reduction(nouveauSymbole, 1);
+			ListeIdentifiants * lid = new ListeIdentifiants();
+			lid->AjouterVariable(id);
+			
+			delete id;
+			
+			//réduire R6
+			automate.Reduction(lid, 1);
 			return true;
 		}
 	}
