@@ -43,9 +43,8 @@ bool E19::Transition ( Automate & automate, Symbole * s )
 		{
 			Symbole * f = automate.PopSymbole();
 
-			Symbole * nouveauSymbole;
-			//TODO remplir cette variable pour réduire R17
-			automate.Reduction(nouveauSymbole, 1);
+			//réduire R17
+			automate.Reduction(f, 1);
 			return true;
 		}
 	}

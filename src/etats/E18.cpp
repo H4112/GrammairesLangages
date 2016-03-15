@@ -43,9 +43,8 @@ bool E18::Transition ( Automate & automate, Symbole * s )
 		{
 			Symbole * t = automate.PopSymbole();
 
-			Symbole * nouveauSymbole;
-			//TODO remplir cette variable pour réduire R15
-			automate.Reduction(nouveauSymbole, 1);
+			//réduire R15
+			automate.Reduction(t, 1);
 			return true;
 		}
 		case OPM:

@@ -15,7 +15,6 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "E20.h"
-#include "E20.h"
 #include "E21.h"
 #include "E22.h"
 #include "E29.h"
