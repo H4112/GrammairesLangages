@@ -1,46 +1,61 @@
 /*************************************************************************
-                           ListeIdentifiants  -  Symbole de l'analyseur
+                  Variable  -  Déclaration d'une Variable
                              -------------------
-    début                : 8 mars 2016 08:23:14
+    début                : 8 mars 2016 11:22:14
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
-//---------- Interface de la classe <ListeIdentifiants> (fichier ListeIdentifiants.h) ------
-#if ! defined ( LISTEIDENTIFIANTS_H )
-#define LISTEIDENTIFIANTS_H
+//---------- Interface de la classe <Variable> (fichier Variable.h) ------
+#if ! defined ( VARIABLE_H )
+#define VARIABLE_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include "Identifiant.h"
-#include "ListeDeclaration.h"
-#include "../Variable.h"
-
-//------------------------------------------------------------- Constantes 
+#include <string>
+#include "Declaration.h"
+//------------------------------------------------------------- Variables 
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <ListeIdentifiants>
-// Définit le symbole ListeIdentifiants manipulé par l'automate.
+// Rôle de la classe <Variable>
+//	Permet de décrire une variable, avec un identifiant et une valeur.
 //
 //------------------------------------------------------------------------ 
 
-class ListeIdentifiants : public ListeDeclaration
+class Variable : public Declaration
 {
 //----------------------------------------------------------------- PUBLIC
 
 public:
 //----------------------------------------------------- Méthodes publiques
-	void AjouterVariable ( Identifiant * id );
-	// Mode d'emploi : crée une nouvelle variable et l'ajoute à la liste.
+    bool EstAffectable ( ) const;
+    // Mode d'emploi :
+    //     Renvoie toujours vrai.
+
+    bool EstAffecte ( ) const;
+    // Mode d'emploi :
+    //     Renvoie vrai si une valeur a été affectée à la variable.
+	
+	void AffecterValeur ( int valeur );
+	// Mode d'emploi :
+	//		Donne une nouvelle valeur à cette variable, et la marque
+	//		comme affectée.
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-    ListeIdentifiants ( const ListeIdentifiants & unListeIdentifiants );
+    Variable ( const Variable & uneVariable );
 
-    ListeIdentifiants ( ); 
+    Variable ( );
+    // Interdit
 
-    virtual ~ListeIdentifiants ( );
+    Variable ( string id );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
+    virtual ~Variable ( );
 
 //------------------------------------------------------------------ PRIVE 
 
@@ -55,7 +70,8 @@ protected:
 
 private:
 //------------------------------------------------------- Attributs privés
-	list<Variable> listeConstantes;
+	bool affecte;
+
 //---------------------------------------------------------- Classes amies
 
 //-------------------------------------------------------- Classes privées
@@ -64,6 +80,6 @@ private:
 
 };
 
-//----------------------------------------- Types dépendants de <ListeIdentifiants>
+//----------------------------------------- Types dépendants de <Variable>
 
-#endif // LISTEIDENTIFIANTS_H
+#endif // VARIABLE_H

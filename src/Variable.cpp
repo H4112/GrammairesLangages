@@ -1,22 +1,24 @@
 /*************************************************************************
-                           ListeIdentifiants  -  Symbole de l'analyseur
+                           Variable  -  Déclaration d'une variable
                              -------------------
-    début                : 8 mars 2016 08:23:14
+    début                : 8 mars 2016 11:32:14
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
-//---------- Réalisation de la classe <ListeIdentifiants> (fichier ListeIdentifiants.cpp) --
+//---------- Réalisation de la classe <Variable> (fichier Variable.h) --
 
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
 #include <iostream>
+#include <string>
+
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "ListeIdentifiants.h"
+#include "Variable.h"
 
-//------------------------------------------------------------- Constantes
+//------------------------------------------------------------- Variables
 
 //---------------------------------------------------- Variables de classe
 
@@ -27,39 +29,48 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void ListeIdentifiants::AjouterVariable ( Identifiant * id )
+bool Variable::EstAffectable ( ) const
 {
-	ajouterDeclaration(new Variable(*id));
-    delete id;
+	return true;
+}
+
+bool Variable::EstAffecte ( ) const
+{
+	return affecte;
+}
+
+void Variable::AffecterValeur ( int newValeur )
+{
+	valeur = newValeur;
+	affecte = true;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-ListeIdentifiants::ListeIdentifiants ( const ListeIdentifiants & uneListeIdentifiants ) 
-	: ListeDeclaration(uneListeIdentifiants)
+Variable::Variable ( const Variable & uneVariable )
+	: Declaration(uneVariable), affecte(uneVariable.affecte)
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <ListeIdentifiants>" << endl;
+    cout << "Appel au constructeur de copie de <Variable>" << endl;
 #endif
-} //----- Fin de ListeIdentifiants (constructeur de copie)
+} //----- Fin de Variable (constructeur de copie)
 
 
-ListeIdentifiants::ListeIdentifiants ( ) 
-	: ListeDeclaration( )
+Variable::Variable ( string id ) : Declaration(id, 0), affecte(false)
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <ListeIdentifiants>" << endl;
+    cout << "Appel au constructeur de <Variable>" << endl;
 #endif
-} //----- Fin de ListeIdentifiants
+} //----- Fin de Variable
 
 
-ListeIdentifiants::~ListeIdentifiants ( )
+Variable::~Variable ( )
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <ListeIdentifiants>" << endl;
+    cout << "Appel au destructeur de <Variable>" << endl;
 #endif
-} //----- Fin de ~ListeIdentifiants
+} //----- Fin de ~Variable
 
 
 //------------------------------------------------------------------ PRIVE

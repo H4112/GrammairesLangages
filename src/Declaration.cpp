@@ -65,7 +65,7 @@ ostream & operator << ( ostream & out, const Declaration & declaration )
 
 //-------------------------------------------- Constructeurs - destructeur
 Declaration::Declaration ( string unId, int uneValeur )
-	: id ( unId ), valeur ( uneValeur )
+	: valeur ( uneValeur ), id ( unId )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Declaration>" << endl;
@@ -73,7 +73,7 @@ Declaration::Declaration ( string unId, int uneValeur )
 } //----- Fin de Declaration
 
 Declaration::Declaration ( const Declaration & uneDeclaration )
-	: id ( uneDeclaration.id ), valeur ( uneDeclaration.valeur )
+	: valeur ( uneDeclaration.valeur ), id ( uneDeclaration.id )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Declaration>" << endl;

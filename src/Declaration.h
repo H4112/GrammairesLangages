@@ -108,11 +108,11 @@ private:
 
 protected:
 //----------------------------------------------------- Attributs protégés
+	int valeur;
 
 private:
 //------------------------------------------------------- Attributs privés
 	string id;
-	int valeur;
 	bool utilise;
 
 //---------------------------------------------------------- Classes amies

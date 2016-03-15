@@ -17,6 +17,8 @@ using namespace std;
 #include "E11.h"
 #include "E24.h"
 
+#include "../symboles/ListeDeclaration.h"
+
 //------------------------------------------------------------- Constantes
 
 //---------------------------------------------------- Variables de classe
@@ -44,12 +46,12 @@ bool E11::Transition ( Automate & automate, Symbole * s )
 		}
 		case POINT_VIRGULE:
 		{
-			Symbole * lid = automate.PopSymbole();
-			Symbole * var = automate.PopSymbole();
+			ListeDeclaration * lid = (ListeDeclaration *) automate.PopSymbole();
+			//Symbole * var = 
+			delete automate.PopSymbole();
 
-			Symbole * nouveauSymbole;
-			//TODO remplir cette variable pour réduire R3
-			automate.Reduction(nouveauSymbole, 2);
+			//réduire R3
+			automate.Reduction(lid, 2);
 			return true;
 		}
 	}
