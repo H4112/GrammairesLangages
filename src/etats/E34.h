@@ -12,6 +12,11 @@
 //--------------------------------------------------- Interfaces utilisées
 #include "../symboles/Symbole.h"
 #include "../Automate.h"
+#include "../symboles/Expression.h"
+#include "../symboles/OperateurAdd.h"
+#include "../ExpressionBinaire.h"
+#include "../ExpressionAddition.h"
+#include "../ExpressionSoustraction.h"
 #include "Etat.h"
 
 //------------------------------------------------------------- Constantes 

@@ -1,59 +1,57 @@
 /*************************************************************************
-                           E33  -  Etat de l'analyseur
+                           Affectation  -  Instruction
                              -------------------
-    début                : 8 mars 2016 10:43:21
+    début                : 15/03/2016 11:22:07
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
-//---------- Interface de la classe <E33> (fichier E33.h) ------
-#if ! defined ( E33_H )
-#define E33_H
+//---------- Interface de la classe <Affectation> (fichier Affectation.h) ------
+#if ! defined ( AFFECTATION_H )
+#define AFFECTATION_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include "../symboles/Symbole.h"
-#include "../Automate.h"
-#include "Etat.h"
-#include "../symboles/Valeur.h"
-#include "../symboles/Identifiant.h"
-#include "../symboles/ListeIdentifiantsValeurs.h"
+#include "symboles/Instruction.h"
+#include "symboles/Expression.h"
+#include "Variable.h"
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <E33>
-// Définit l'état E33 de l'automate et ses transitions.
+// Rôle de la classe <Affectation>
+//
 //
 //------------------------------------------------------------------------ 
 
-class E33 : public Etat
+class Affectation : public Instruction
 {
 //----------------------------------------------------------------- PUBLIC
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    void Print ( ) const;
-    // Mode d'emploi :
-    //  Ecrit le nom de l'état sur la sortie standard.
-    // Contrat :
-    //  Aucun
-	
-	bool Transition ( Automate & automate, Symbole * s );
-    // Mode d'emploi :
-    //  Appelle l'automate donné en paramètre pour effectuer le décalage
-	//  ou la réduction correspondant au symbole passé en paramètre.
-    // Contrat :
-    //  Aucun
+    void Executer( map < string, Declaration * > & tableDeclarations );
+
+    void Simplifier( map < string, Declaration * > & tableDeclarations );
 
 //------------------------------------------------- Surcharge d'opérateurs
-    
 
 //-------------------------------------------- Constructeurs - destructeur
-    E33 ( const E33 & unE33 );
+    Affectation ( const Affectation & unAffectation );
+    // Mode d'emploi (constructeur de copie) :
+    //
+    // Contrat :
+    //
 
-    E33 ( ); 
+    Affectation ( );
+    // Interdit
 
-    virtual ~E33 ( );
+    Affectation ( string nomVar, Expression * expr );
+
+    virtual ~Affectation ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
 //------------------------------------------------------------------ PRIVE 
 
@@ -68,7 +66,8 @@ protected:
 
 private:
 //------------------------------------------------------- Attributs privés
-
+    string nomVariable;
+    Expression * expression;
 //---------------------------------------------------------- Classes amies
 
 //-------------------------------------------------------- Classes privées
@@ -77,6 +76,6 @@ private:
 
 };
 
-//----------------------------------------- Types dépendants de <E33>
+//----------------------------------------- Types dépendants de <Affectation>
 
-#endif // E33_H
+#endif // AFFECTATION_H

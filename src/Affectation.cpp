@@ -1,11 +1,11 @@
 /*************************************************************************
-                           Affectation  -  Symbole de l'analyseur
+                           Affectation  -  Instruction
                              -------------------
-    début                : 8 mars 2016 08:23:13
+    début                : 15/03/2016 11:22:07
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
-//---------- Réalisation de la classe <Affectation> (fichier Affectation.cpp) --
+//---- Réalisation de la classe <Affectation> (fichier Affectation.cpp) --
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -27,12 +27,20 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
+void Affectation::Executer( map < string, Declaration * > & tableDeclarations )
+{
+	((Variable*)tableDeclarations[nomVariable])->Affecter(expression->Evaluer(tableDeclarations));
+}
 
+void Affectation::Simplifier( map < string, Declaration * > & tableDeclarations )
+{
+	expression->Simplifier(tableDeclarations);
+}
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Affectation::Affectation ( const Affectation & unAffectation ) 
-	: Symbole(unAffectation)
+Affectation::Affectation ( const Affectation & unAffectation )
+	: Instruction ( unAffectation )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Affectation>" << endl;
@@ -40,8 +48,8 @@ Affectation::Affectation ( const Affectation & unAffectation )
 } //----- Fin de Affectation (constructeur de copie)
 
 
-Affectation::Affectation ( ) 
-	: Symbole(":=", AFFECTATION, true)
+Affectation::Affectation ( string nomVar, Expression * expr )
+	: Instruction ( ), nomVariable(nomVar), expression(expr)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Affectation>" << endl;
@@ -50,6 +58,8 @@ Affectation::Affectation ( )
 
 
 Affectation::~Affectation ( )
+// Algorithme :
+//
 {
 #ifdef MAP
     cout << "Appel au destructeur de <Affectation>" << endl;

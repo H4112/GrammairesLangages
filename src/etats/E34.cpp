@@ -41,13 +41,22 @@ bool E34::Transition ( Automate & automate, Symbole * s )
 		case FERMEPAR:
 		case OPA:
 		{
-			Symbole * t = automate.PopSymbole();
-			Symbole * opa = automate.PopSymbole();
-			Symbole * e = automate.PopSymbole();
+			Expression * t = (Expression *) automate.PopSymbole();
+			OperateurAdd * opa = (OperateurAdd *) automate.PopSymbole();
+			Expression * e = (Expression *) automate.PopSymbole();
 
-			Symbole * nouveauSymbole;
-			//TODO remplir cette variable pour réduire R14
-			automate.Reduction(nouveauSymbole, 3);
+			ExpressionBinaire * eb;
+			if(opa->GetNom() == "+")
+			{
+				eb = new ExpressionAddition(e,t);
+			}
+			else
+			{
+				eb = new ExpressionSoustraction(e,t);
+			}
+			delete opa;
+			//réduire R14
+			automate.Reduction(eb, 3);
 			return true;
 		}
 		case OPM:

@@ -39,13 +39,15 @@ bool E30::Transition ( Automate & automate, Symbole * s )
 	{
 		case POINT_VIRGULE:
 		{
-			Symbole * e = automate.PopSymbole();
-			Symbole * affectation = automate.PopSymbole();
-			Symbole * id = automate.PopSymbole();
+			Expression * e = (Expression *) automate.PopSymbole();
+			//Symbole * affectation = 
+			delete automate.PopSymbole();
+			Identifiant * id = (Identifiant *) automate.PopSymbole();
 
-			Symbole * nouveauSymbole;
-			//TODO remplir cette variable pour réduire R13
-			automate.Reduction(nouveauSymbole, 3);
+			Instruction * i = new Affectation(*id,e);
+			delete id;
+			//réduire R13
+			automate.Reduction(i, 3);
 			return true;
 		}
 		case OPA:

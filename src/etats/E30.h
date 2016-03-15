@@ -13,7 +13,9 @@
 #include "../symboles/Symbole.h"
 #include "../Automate.h"
 #include "Etat.h"
-
+#include "../symboles/Expression.h"
+#include "../symboles/Identifiant.h"
+#include "../Affectation.h"
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 

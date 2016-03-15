@@ -1,13 +1,13 @@
 /*************************************************************************
-                           Affectation  -  Symbole de l'analyseur
+                           Affecter  -  Symbole de l'analyseur
                              -------------------
     début                : 8 mars 2016 08:23:13
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
-//---------- Interface de la classe <Affectation> (fichier Affectation.h) ------
-#if ! defined ( AFFECTATION_H )
-#define AFFECTATION_H
+//---------- Interface de la classe <Affecter> (fichier Affecter.h) ------
+#if ! defined ( AFFECTER_H )
+#define AFFECTER_H
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Symbole.h"
@@ -17,12 +17,12 @@
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <Affectation>
-// Définit le symbole Affectation manipulé par l'automate.
+// Rôle de la classe <Affecter>
+// Définit le symbole Affecter manipulé par l'automate.
 //
 //------------------------------------------------------------------------ 
 
-class Affectation : public Symbole
+class Affecter : public Symbole
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -32,11 +32,11 @@ public:
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-    Affectation ( const Affectation & unAffectation );
+    Affecter ( const Affecter & unAffecter );
 
-    Affectation ( ); 
+    Affecter ( ); 
 
-    virtual ~Affectation ( );
+    virtual ~Affecter ( );
 
 //------------------------------------------------------------------ PRIVE 
 
@@ -60,6 +60,6 @@ private:
 
 };
 
-//----------------------------------------- Types dépendants de <Affectation>
+//----------------------------------------- Types dépendants de <Affecter>
 
-#endif // AFFECTATION_H
+#endif // AFFECTER_H

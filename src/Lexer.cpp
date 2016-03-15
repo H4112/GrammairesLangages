@@ -18,7 +18,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Lexer.h"
-#include "symboles/Affectation.h"
+#include "symboles/Affecter.h"
 #include "symboles/Const.h"
 #include "symboles/Ecrire.h"
 #include "symboles/Egal.h"
@@ -173,7 +173,7 @@ Symbole * Lexer::creerSymbole ( string nom, int ident )
 	switch(ident)
 	{
 		case AFFECTATION:
-			return new Affectation();
+			return new Affecter();
 		case CONST:
 			return new Const();
 		case VAR:
