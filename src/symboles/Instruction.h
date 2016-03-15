@@ -15,6 +15,9 @@
 #include "../Declaration.h"
 
 //------------------------------------------------------------- Constantes 
+const int INSTR_AFF = 0;
+const int INSTR_LIRE = 1;
+const int INSTR_ECRIRE = 2;
 
 //------------------------------------------------------------------ Types 
 
@@ -36,12 +39,16 @@ public:
     virtual void Simplifier( map < string, Declaration * > & tableDeclarations ) = 0;
     // Mode d'emploi : simplifie l'instruction en propageant les
     //     constantes, supprimant les éléments neutres, etc.
+	
+	int GetType ( );
+	// Mode d'emploi :
+	//	Permet de connaître le type de l'instruction
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
     Instruction ( const Instruction & unInstruction );
 
-    Instruction ( ); 
+    Instruction ( int type ); 
 
     virtual ~Instruction ( );
 
@@ -58,6 +65,7 @@ protected:
 
 private:
 //------------------------------------------------------- Attributs privés
+	int typeInstruction;
 
 //---------------------------------------------------------- Classes amies
 

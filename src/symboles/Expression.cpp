@@ -27,6 +27,10 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
+int Expression::GetType ( )
+{
+	return typeExpression;
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 

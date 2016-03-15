@@ -16,6 +16,7 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "Lecture.h"
 #include "Variable.h"
+#include "symboles/Instruction.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -62,7 +63,7 @@ Lecture::Lecture ( const Lecture & unLecture )
 
 
 Lecture::Lecture ( string nom )
-	: Instruction ( ), nomVariable ( nom )
+	: Instruction ( INSTR_LIRE ), nomVariable ( nom )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Lecture>" << endl;

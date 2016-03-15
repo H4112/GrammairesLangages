@@ -15,6 +15,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Affectation.h"
+#include "symboles/Instruction.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -49,7 +50,7 @@ Affectation::Affectation ( const Affectation & unAffectation )
 
 
 Affectation::Affectation ( string nomVar, Expression * expr )
-	: Instruction ( ), nomVariable(nomVar), expression(expr)
+	: Instruction ( INSTR_AFF ), nomVariable(nomVar), expression(expr)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Affectation>" << endl;

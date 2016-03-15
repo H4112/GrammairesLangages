@@ -27,6 +27,10 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
+int Instruction::GetType ( )
+{
+	return typeInstruction;
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -40,8 +44,8 @@ Instruction::Instruction ( const Instruction & unInstruction )
 } //----- Fin de Instruction (constructeur de copie)
 
 
-Instruction::Instruction ( ) 
-	: Symbole("", I, false)
+Instruction::Instruction ( int type ) 
+	: Symbole( "", I, false ), typeInstruction ( type )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Instruction>" << endl;

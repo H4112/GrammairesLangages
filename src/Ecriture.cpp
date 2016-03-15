@@ -15,6 +15,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Ecriture.h"
+#include "symboles/Instruction.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -54,7 +55,7 @@ Ecriture::Ecriture ( const Ecriture & unEcriture )
 
 
 Ecriture::Ecriture ( Expression * expr )
-	: Instruction ( ), expression ( expr )
+	: Instruction ( INSTR_ECRIRE ), expression ( expr )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Ecriture>" << endl;
