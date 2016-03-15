@@ -52,6 +52,13 @@ public:
     virtual ~Programme ( );
     
     bool VerificationStatique();
+    /* Vérifier que:
+        — Une variable est utilisée (en partie droite d’une affectation ou dans une opération d’écriture) sans avoir
+        jamais été affectée.
+        — Une variable a été déclarée et jamais affectée ou utilisée.
+        — Une variable n’a pas été déclarée.
+        — Une constante ne peut être modifiée.
+    */
 
 //------------------------------------------------------------------ PRIVE 
 
