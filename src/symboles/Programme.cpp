@@ -51,7 +51,7 @@ ostream & operator << ( ostream & out, const Programme & programme )
     return out;
 }
 
-Programme:VerificationStatique(){
+bool Programme:VerificationStatique(){
     /*
     1 — Une variable est utilisée (en partie droite d’une affectation ou dans une opération d’écriture) sans avoir
     	jamais été affectée.
@@ -98,6 +98,7 @@ Programme:VerificationStatique(){
 			verificationStatiqueCorrecte = false;
 		}
 	}
+	return verificationStatiqueCorrecte;
 }
 
 //-------------------------------------------- Constructeurs - destructeur
