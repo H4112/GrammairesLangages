@@ -27,12 +27,21 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
+list < Instruction * > PartieInstructions::GetInstructions ( )
+{
+	return listeInstructions;
+}
+
+void PartieInstructions::AjouterInstruction ( Instruction * instruction )
+{
+	listeInstructions.push_back(instruction);
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-PartieInstructions::PartieInstructions ( const PartieInstructions & unPartieInstructions ) 
-	: Symbole(unPartieInstructions)
+PartieInstructions::PartieInstructions ( const PartieInstructions & unePartieInstructions ) 
+	: Symbole(unePartieInstructions)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <PartieInstructions>" << endl;
@@ -41,7 +50,7 @@ PartieInstructions::PartieInstructions ( const PartieInstructions & unPartieInst
 
 
 PartieInstructions::PartieInstructions ( ) 
-	: Symbole("RIEN", PI, false)
+	: Symbole("", PI, false)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <PartieInstructions>" << endl;

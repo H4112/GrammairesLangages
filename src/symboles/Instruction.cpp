@@ -27,15 +27,6 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void Instruction::Executer( map < string, Declaration * > tableDeclarations )
-{
-	//TODO
-}
-
-void Instruction::Simplifier( map < string, Declaration * > tableDeclarations )
-{
-	//TODO
-}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -50,7 +41,7 @@ Instruction::Instruction ( const Instruction & unInstruction )
 
 
 Instruction::Instruction ( ) 
-	: Symbole("RIEN", I, false)
+	: Symbole("", I, false)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Instruction>" << endl;

@@ -1,23 +1,21 @@
 /*************************************************************************
-                           E15  -  Etat de l'analyseur
+                           Lecture  -  Instruction de lecture
                              -------------------
-    début                : 8 mars 2016 10:43:21
+    début                : 15/03/2016
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
-//---------- Réalisation de la classe <E15> (fichier E15.cpp) --
+//---------- Réalisation de la classe <Lecture> (fichier Lecture.cpp) --
 
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
-#include <iostream>
 using namespace std;
+#include <iostream>
 
 //------------------------------------------------------ Include personnel
-#include "E15.h"
-
-#include "../symboles/Instruction.h"
-#include "../symboles/PartieInstructions.h"
+#include "Lecture.h"
+#include "Variable.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -30,62 +28,54 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E15::Print ( ) const 
+void Lecture::Executer( map < string, Declaration * > & tableDeclarations )
 {
-	cout << "E15" << endl;
-}
-
-bool E15::Transition ( Automate & automate, Symbole * s )
-{
-	switch(*s)
-	{
-		case LIRE:
-		case ECRIRE:
-		case ID:
-		case FIN:
-		{
-			//Symbole * point_virgule = 
-			delete automate.PopSymbole();
-			Instruction * i = (Instruction *) automate.PopSymbole();
-			PartieInstructions * pi = (PartieInstructions *) automate.PopSymbole();
-
-			pi->AjouterInstruction(i);
-			//réduire R9
-			automate.Reduction(pi, 3);
-			return true;
-		}
-	}
+	int nb;
+	cin >> nb;
 	
-	return false;
+	//on devrait avoir vérifié que la déclaration est bien une variable
+	//et non une constante au niveau de l'analyse statique
+	Variable * variable = (Variable *) tableDeclarations[nomVariable];
+	variable->AffecterValeur(nb);
 }
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+void Lecture::Simplifier( map < string, Declaration * > & tableDeclarations )
+{
+	//rien à faire
+}
+#pragma GCC diagnostic pop
+
 
 //------------------------------------------------- Surcharge d'opérateurs
 
+
 //-------------------------------------------- Constructeurs - destructeur
-E15::E15 ( const E15 & unE15 )
-	: Etat ( unE15 )
+Lecture::Lecture ( const Lecture & unLecture )
+	: Instruction ( unLecture ), nomVariable ( unLecture.nomVariable )
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <E15>" << endl;
+    cout << "Appel au constructeur de copie de <Lecture>" << endl;
 #endif
-} //----- Fin de E15 (constructeur de copie)
+} //----- Fin de Lecture (constructeur de copie)
 
 
-E15::E15 ( )
-	: Etat ( )
+Lecture::Lecture ( string nom )
+	: Instruction ( ), nomVariable ( nom )
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <E15>" << endl;
+    cout << "Appel au constructeur de <Lecture>" << endl;
 #endif
-} //----- Fin de E15
+} //----- Fin de Lecture
 
 
-E15::~E15 ( )
+Lecture::~Lecture ( )
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <E15>" << endl;
+    cout << "Appel au destructeur de <Lecture>" << endl;
 #endif
-} //----- Fin de ~E15
+} //----- Fin de ~Lecture
 
 
 //------------------------------------------------------------------ PRIVE

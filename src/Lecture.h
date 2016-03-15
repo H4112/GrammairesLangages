@@ -1,51 +1,60 @@
 /*************************************************************************
-                           PartieInstructions  -  Symbole de l'analyseur
+                           Lecture  -  Instruction de lecture
                              -------------------
-    début                : 8 mars 2016 08:23:14
+    début                : 15/03/2016
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
-//---------- Interface de la classe <PartieInstructions> (fichier PartieInstructions.h) ------
-#if ! defined ( PARTIEINSTRUCTIONS_H )
-#define PARTIEINSTRUCTIONS_H
+//---------- Interface de la classe <Lecture> (fichier Lecture.h) ------
+#if ! defined ( LECTURE_H )
+#define LECTURE_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include "Symbole.h"
-#include "Instruction.h"
-#include <list>
+#include "symboles/Instruction.h"
+#include "Declaration.h"
+#include <map>
 
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <PartieInstructions>
-// Définit le symbole PartieInstructions manipulé par l'automate.
+// Rôle de la classe <Lecture>
+//	Instruction demandant à l'utilisateur de saisir un nombre,
+//	puis affectant ce nombre à la variable donnée en paramètre.
 //
 //------------------------------------------------------------------------ 
 
-class PartieInstructions : public Symbole
+class Lecture : public Instruction
 {
 //----------------------------------------------------------------- PUBLIC
 
 public:
 //----------------------------------------------------- Méthodes publiques
-	list < Instruction * > GetInstructions ( );
-	// Mode d'emploi :
-	//	Renvoie les instructions de cette liste.
+    void Executer( map < string, Declaration * > & tableDeclarations );
+    // Mode d'emploi : 
+	//	Demande un nombre à l'utilisateur, puis l'affecte à la variable
+	//	dont le nom a été passé au constructeur.
 	
-	void AjouterInstruction ( Instruction * instruction );
-	//Mode d'emploi :
-	//	Ajoute une instruction à la liste.
+    void Simplifier( map < string, Declaration * > & tableDeclarations );
+    // Mode d'emploi : 
+	//	Ne fait rien.
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-    PartieInstructions ( const PartieInstructions & unePartieInstructions );
+    Lecture ( const Lecture & unLecture );
 
-    PartieInstructions ( ); 
+    Lecture ( );
+	// Interdit
+	
+	Lecture ( string nom );
+	// Mode d'emploi :
+	//	Construit une instruction de lecture d'un nombre, pour ensuite
+	//	mettre le résultat dans la variable dont le nom est passé
+	//	en paramètre.
 
-    virtual ~PartieInstructions ( );
+    virtual ~Lecture ( );
 
 //------------------------------------------------------------------ PRIVE 
 
@@ -54,13 +63,13 @@ protected:
 
 private:
 //------------------------------------------------------- Méthodes privées
+	string nomVariable;
 
 protected:
 //----------------------------------------------------- Attributs protégés
 
 private:
 //------------------------------------------------------- Attributs privés
-	list < Instruction * > listeInstructions;
 
 //---------------------------------------------------------- Classes amies
 
@@ -70,6 +79,6 @@ private:
 
 };
 
-//----------------------------------------- Types dépendants de <PartieInstructions>
+//----------------------------------------- Types dépendants de <Lecture>
 
-#endif // PARTIEINSTRUCTIONS_H
+#endif // LECTURE_H

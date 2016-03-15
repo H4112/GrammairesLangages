@@ -16,6 +16,9 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "E16.h"
 
+#include "../symboles/Identifiant.h"
+#include "../Lecture.h"
+
 //------------------------------------------------------------- Constantes
 
 //---------------------------------------------------- Variables de classe
@@ -38,12 +41,15 @@ bool E16::Transition ( Automate & automate, Symbole * s )
 	{
 		case POINT_VIRGULE:
 		{
-			Symbole * id = automate.PopSymbole();
-			Symbole * lire = automate.PopSymbole();
+			Identifiant * id = (Identifiant *) automate.PopSymbole();
+			//Symbole * lire = 
+			delete automate.PopSymbole();
 
-			Symbole * nouveauSymbole;
-			//TODO remplir cette variable pour réduire R11
-			automate.Reduction(nouveauSymbole, 2);
+			Lecture * lecture = new Lecture(*id);
+			delete id;
+			
+			//réduire R11
+			automate.Reduction(lecture, 2);
 			return true;
 		}
 	}

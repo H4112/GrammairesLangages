@@ -30,10 +30,10 @@ class Instruction : public Symbole
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    void Executer( map < string, Declaration * > tableDeclarations );
+    virtual void Executer( map < string, Declaration * > & tableDeclarations ) = 0;
     // Mode d'emploi : exécute l'instruction et met à jour les variables
     //     si nécessaire.
-    void Simplifier( map < string, Declaration * > tableDeclarations );
+    virtual void Simplifier( map < string, Declaration * > & tableDeclarations ) = 0;
     // Mode d'emploi : simplifie l'instruction en propageant les
     //     constantes, supprimant les éléments neutres, etc.
 //------------------------------------------------- Surcharge d'opérateurs
