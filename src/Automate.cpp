@@ -16,6 +16,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Automate.h"
+#include "etats/E0.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -67,15 +68,7 @@ Automate::Automate ( const Automate & unAutomate )
 
 Automate::Automate ( string nomFichier ) : lexer ( nomFichier )
 {
-    Symbole *s;
-    do
-    {
-        s = lexer.LireSymbole();
-        lexer.ConsommerSymbole();
-        if(s!=0)
-            cout << s->GetNom() << endl;
-    } while(s!=0);
-
+    pileEtats.push(new E0());
 #ifdef MAP
     cout << "Appel au constructeur de <Automate>" << endl;
 #endif

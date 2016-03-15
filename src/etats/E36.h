@@ -11,6 +11,8 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "../symboles/Symbole.h"
+#include "../symboles/Expression.h"
+#include "../Parentheses.h"
 #include "../Automate.h"
 #include "Etat.h"
 

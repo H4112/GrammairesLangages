@@ -9,9 +9,8 @@
 #ifndef ETAT_H
 #define ETAT_H
 
-class Etat; //Automate a besoin d'Etat, il faut l'avoir déclaré
-
 //--------------------------------------------------- Interfaces utilisées
+class Etat;
 #include "../Automate.h"
 #include "../symboles/Symbole.h"
 

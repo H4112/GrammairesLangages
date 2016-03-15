@@ -1,62 +1,52 @@
 /*************************************************************************
-                           E35  -  Etat de l'analyseur
+                           Parentheses  -  description
                              -------------------
-    début                : 8 mars 2016 10:43:21
+    début                : 15/03/2016 09:29:28
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
-//---------- Interface de la classe <E35> (fichier E35.h) ------
-#if ! defined ( E35_H )
-#define E35_H
+//---------- Interface de la classe <Parentheses> (fichier Parentheses.h) ------
+#if ! defined ( PARENTHESES_H )
+#define PARENTHESES_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include "../symboles/Symbole.h"
-#include "../symboles/Expression.h"
-#include "../ExpressionBinaire.h"
-#include "../ExpressionMultiplication.h"
-#include "../ExpressionDivision.h"
-#include "../Automate.h"
-#include "../symboles/OperateurMult.h"
-#include "Etat.h"
-
+#include "symboles/Expression.h"
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <E35>
-// Définit l'état E35 de l'automate et ses transitions.
+// Rôle de la classe <Parentheses>
+//
 //
 //------------------------------------------------------------------------ 
 
-class E35 : public Etat
+class Parentheses : public Expression
 {
 //----------------------------------------------------------------- PUBLIC
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    void Print ( ) const;
+    // type Méthode ( liste de paramètres );
     // Mode d'emploi :
-    //  Ecrit le nom de l'état sur la sortie standard.
+    //
     // Contrat :
-    //  Aucun
-	
-	bool Transition ( Automate & automate, Symbole * s );
-    // Mode d'emploi :
-    //  Appelle l'automate donné en paramètre pour effectuer le décalage
-	//  ou la réduction correspondant au symbole passé en paramètre.
-    // Contrat :
-    //  Aucun
+    //
+
 
 //------------------------------------------------- Surcharge d'opérateurs
-    
 
 //-------------------------------------------- Constructeurs - destructeur
-    E35 ( const E35 & unE35 );
+    Parentheses ( const Parentheses & unParentheses );
+    // Mode d'emploi (constructeur de copie)
 
-    E35 ( ); 
+    Parentheses ( );
+    // Interdit
 
-    virtual ~E35 ( );
+    Parentheses ( Expression * exp );
+
+    virtual ~Parentheses ( );
+    // Mode d'emploi
 
 //------------------------------------------------------------------ PRIVE 
 
@@ -65,7 +55,7 @@ protected:
 
 private:
 //------------------------------------------------------- Méthodes privées
-
+    Expression * expression;
 protected:
 //----------------------------------------------------- Attributs protégés
 
@@ -80,6 +70,6 @@ private:
 
 };
 
-//----------------------------------------- Types dépendants de <E35>
+//----------------------------------------- Types dépendants de <Parentheses>
 
-#endif // E35_H
+#endif // PARENTHESES_H

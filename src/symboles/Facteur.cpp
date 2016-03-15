@@ -41,7 +41,7 @@ Facteur::Facteur ( const Facteur & unFacteur )
 
 
 Facteur::Facteur ( ) 
-	: Symbole("RIEN", F, false)
+	: Symbole("", F, false)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Facteur>" << endl;

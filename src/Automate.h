@@ -9,16 +9,14 @@
 #if ! defined ( AUTOMATE_H )
 #define AUTOMATE_H
 
-class Automate; //Etat utilise Automate, nous devons l'avoir déclaré
-                //avant de l'inclure
-
 //--------------------------------------------------- Interfaces utilisées
 #include <stack>
 #include <map>
 #include <string>
 
-#include "symboles/Symbole.h"
+class Automate;
 #include "etats/Etat.h"
+#include "symboles/Symbole.h"
 #include "Lexer.h"
 
 //------------------------------------------------------------- Constantes 

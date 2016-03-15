@@ -41,13 +41,15 @@ bool E36::Transition ( Automate & automate, Symbole * s )
 		case OPA:
 		case OPM:
 		{
-			Symbole * fermepar = automate.PopSymbole();
-			Symbole * e = automate.PopSymbole();
-			Symbole * ouvrepar = automate.PopSymbole();
+			//Symbole * fermepar = 
+			delete automate.PopSymbole();
+			Expression * e = (Expression *) automate.PopSymbole();
+			//Symbole * ouvrepar = 
+			delete automate.PopSymbole();
 
-			Symbole * nouveauSymbole;
-			//TODO remplir cette variable pour réduire R18
-			automate.Reduction(nouveauSymbole, 3);
+			Parentheses * p = new Parentheses(e);
+			//réduire R18
+			automate.Reduction(p, 3);
 			return true;
 		}
 	}

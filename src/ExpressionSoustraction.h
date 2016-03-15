@@ -1,62 +1,59 @@
 /*************************************************************************
-                           E35  -  Etat de l'analyseur
+                           ExpressionSoustraction  -  description
                              -------------------
-    début                : 8 mars 2016 10:43:21
+    début                : 15/03/2016 10:04:16
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
-//---------- Interface de la classe <E35> (fichier E35.h) ------
-#if ! defined ( E35_H )
-#define E35_H
+//---------- Interface de la classe <ExpressionSoustraction> (fichier ExpressionSoustraction.h) ------
+#if ! defined ( EXPRESSIONSOUSTRACTION_H )
+#define EXPRESSIONSOUSTRACTION_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include "../symboles/Symbole.h"
-#include "../symboles/Expression.h"
-#include "../ExpressionBinaire.h"
-#include "../ExpressionMultiplication.h"
-#include "../ExpressionDivision.h"
-#include "../Automate.h"
-#include "../symboles/OperateurMult.h"
-#include "Etat.h"
-
+#include "ExpressionBinaire.h"
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <E35>
-// Définit l'état E35 de l'automate et ses transitions.
+// Rôle de la classe <ExpressionSoustraction>
+//
 //
 //------------------------------------------------------------------------ 
 
-class E35 : public Etat
+class ExpressionSoustraction : public ExpressionBinaire
 {
 //----------------------------------------------------------------- PUBLIC
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    void Print ( ) const;
+    // type Méthode ( liste de paramètres );
     // Mode d'emploi :
-    //  Ecrit le nom de l'état sur la sortie standard.
+    //
     // Contrat :
-    //  Aucun
-	
-	bool Transition ( Automate & automate, Symbole * s );
-    // Mode d'emploi :
-    //  Appelle l'automate donné en paramètre pour effectuer le décalage
-	//  ou la réduction correspondant au symbole passé en paramètre.
-    // Contrat :
-    //  Aucun
+    //
+
 
 //------------------------------------------------- Surcharge d'opérateurs
-    
+
 
 //-------------------------------------------- Constructeurs - destructeur
-    E35 ( const E35 & unE35 );
+    ExpressionSoustraction ( const ExpressionSoustraction & unExpressionSoustraction );
+    // Mode d'emploi (constructeur de copie) :
+    //
+    // Contrat :
+    //
 
-    E35 ( ); 
+    ExpressionSoustraction ( );
+    // Interdit
 
-    virtual ~E35 ( );
+    ExpressionSoustraction ( Expression * gauche, Expression * droite );
+
+    virtual ~ExpressionSoustraction ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
 //------------------------------------------------------------------ PRIVE 
 
@@ -80,6 +77,6 @@ private:
 
 };
 
-//----------------------------------------- Types dépendants de <E35>
+//----------------------------------------- Types dépendants de <ExpressionSoustraction>
 
-#endif // E35_H
+#endif // EXPRESSIONSOUSTRACTION_H

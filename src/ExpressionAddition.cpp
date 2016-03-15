@@ -1,11 +1,11 @@
 /*************************************************************************
-                           E35  -  Etat de l'analyseur
+                           ExpressionAddition  -  description
                              -------------------
-    début                : 8 mars 2016 10:43:21
+    début                : 15/03/2016 09:59:21
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
-//---------- Réalisation de la classe <E35> (fichier E35.cpp) --
+//---- Réalisation de la classe <ExpressionAddition> (fichier ExpressionAddition.cpp) --
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -14,7 +14,7 @@
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "E35.h"
+#include "ExpressionAddition.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -27,68 +27,42 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E35::Print ( ) const 
-{
-	cout << "E35" << endl;
-}
+// type ExpressionAddition::Méthode ( liste de paramètres )
+// Algorithme :
+//
+//{
+//} //----- Fin de Méthode
 
-bool E35::Transition ( Automate & automate, Symbole * s )
-{
-	switch(*s)
-	{
-		case POINT_VIRGULE:
-		case FERMEPAR:
-		case OPA:
-		case OPM:
-		{
-			Expression * f = (Expression *) automate.PopSymbole();
-			OperateurMult * opm = (OperateurMult *) automate.PopSymbole();
-			Expression * t = (Expression *) automate.PopSymbole();
-			ExpressionBinaire * eb;
-			if(opm->GetNom() == "*")
-			{
-				eb = new ExpressionMultiplication(t, f);
-			}
-			else
-			{
-				eb = new ExpressionDivision(t, f);
-			}
-			//réduire R16
-			automate.Reduction(eb, 3);
-			return true;
-		}
-	}
-	
-	return false;
-}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E35::E35 ( const E35 & unE35 )
-	: Etat ( unE35 )
+ExpressionAddition::ExpressionAddition ( const ExpressionAddition & unExpressionAddition )
+	: ExpressionBinaire ( unExpressionAddition )
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <E35>" << endl;
+    cout << "Appel au constructeur de copie de <ExpressionAddition>" << endl;
 #endif
-} //----- Fin de E35 (constructeur de copie)
+} //----- Fin de ExpressionAddition (constructeur de copie)
 
 
-E35::E35 ( )
-	: Etat ( )
+ExpressionAddition::ExpressionAddition ( Expression * gauche, Expression * droite )
+	: ExpressionBinaire ( gauche, droite )
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <E35>" << endl;
+    cout << "Appel au constructeur de <ExpressionAddition>" << endl;
 #endif
-} //----- Fin de E35
+} //----- Fin de ExpressionAddition
 
 
-E35::~E35 ( )
+ExpressionAddition::~ExpressionAddition ( )
+// Algorithme :
+//
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <E35>" << endl;
+    cout << "Appel au destructeur de <ExpressionAddition>" << endl;
 #endif
-} //----- Fin de ~E35
+} //----- Fin de ~ExpressionAddition
 
 
 //------------------------------------------------------------------ PRIVE

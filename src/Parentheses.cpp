@@ -1,20 +1,20 @@
 /*************************************************************************
-                           E35  -  Etat de l'analyseur
+                           Parentheses  -  description
                              -------------------
-    début                : 8 mars 2016 10:43:21
+    début                : 15/03/2016 09:29:28
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
-//---------- Réalisation de la classe <E35> (fichier E35.cpp) --
+//---- Réalisation de la classe <Parentheses> (fichier Parentheses.cpp) --
 
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
-#include <iostream>
 using namespace std;
+#include <iostream>
 
 //------------------------------------------------------ Include personnel
-#include "E35.h"
+#include "Parentheses.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -27,68 +27,42 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E35::Print ( ) const 
-{
-	cout << "E35" << endl;
-}
+// type Parentheses::Méthode ( liste de paramètres )
+// Algorithme :
+//
+//{
+//} //----- Fin de Méthode
 
-bool E35::Transition ( Automate & automate, Symbole * s )
-{
-	switch(*s)
-	{
-		case POINT_VIRGULE:
-		case FERMEPAR:
-		case OPA:
-		case OPM:
-		{
-			Expression * f = (Expression *) automate.PopSymbole();
-			OperateurMult * opm = (OperateurMult *) automate.PopSymbole();
-			Expression * t = (Expression *) automate.PopSymbole();
-			ExpressionBinaire * eb;
-			if(opm->GetNom() == "*")
-			{
-				eb = new ExpressionMultiplication(t, f);
-			}
-			else
-			{
-				eb = new ExpressionDivision(t, f);
-			}
-			//réduire R16
-			automate.Reduction(eb, 3);
-			return true;
-		}
-	}
-	
-	return false;
-}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E35::E35 ( const E35 & unE35 )
-	: Etat ( unE35 )
+Parentheses::Parentheses ( const Parentheses & unParentheses )
+	: Expression(unParentheses), expression(unParentheses.expression)
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <E35>" << endl;
+    cout << "Appel au constructeur de copie de <Parentheses>" << endl;
 #endif
-} //----- Fin de E35 (constructeur de copie)
+} //----- Fin de Parentheses (constructeur de copie)
 
 
-E35::E35 ( )
-	: Etat ( )
+Parentheses::Parentheses ( Expression * exp )
+	: expression(exp)
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <E35>" << endl;
+    cout << "Appel au constructeur de <Parentheses>" << endl;
 #endif
-} //----- Fin de E35
+} //----- Fin de Parentheses
 
 
-E35::~E35 ( )
+Parentheses::~Parentheses ( )
+// Algorithme :
+//
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <E35>" << endl;
+    cout << "Appel au destructeur de <Parentheses>" << endl;
 #endif
-} //----- Fin de ~E35
+} //----- Fin de ~Parentheses
 
 
 //------------------------------------------------------------------ PRIVE

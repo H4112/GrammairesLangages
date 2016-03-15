@@ -10,9 +10,9 @@
 #define E0_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include "../symboles/Symbole.h"
 #include "../Automate.h"
 #include "Etat.h"
+#include "../symboles/Symbole.h"
 
 //------------------------------------------------------------- Constantes 
 

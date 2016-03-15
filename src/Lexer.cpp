@@ -32,6 +32,7 @@ using namespace std;
 #include "symboles/Valeur.h"
 #include "symboles/Var.h"
 #include "symboles/Virgule.h"
+#include "symboles/Fin.h"
 //------------------------------------------------------------- Constantes
 const pair < boost::regex, int > regexSymboles [] = {
 	{ boost::regex("^[\\r\\n\\t ]s*(var)"), VAR }, 
@@ -66,7 +67,7 @@ Symbole* Lexer::LireSymbole()
 	}
 	if(debut == fin && !lireLigne())
 	{
-		return 0;
+		return new Fin();
 	}
 	boost::smatch occurence;
 	for(pair<boost::regex, int> regexSymbole : regexSymboles){
@@ -84,6 +85,7 @@ Symbole* Lexer::LireSymbole()
 
 void Lexer::ConsommerSymbole()
 {
+	delete symboleCourant;
 	symboleCourant = 0;
 }
 /*
