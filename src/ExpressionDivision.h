@@ -11,13 +11,14 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "ExpressionBinaire.h"
+
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <ExpressionDivision>
-//
+// Réalise la division (tronquée à l'entier inférieur) des deux paramètres.
 //
 //------------------------------------------------------------------------ 
 
@@ -27,12 +28,9 @@ class ExpressionDivision : public ExpressionBinaire
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste de paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
+    int Evaluer( map < string, Declaration * > & tableDeclarations );
+	
+	void Simplifier( map < string, Declaration * > & tableDeclarations );
 
 //------------------------------------------------- Surcharge d'opérateurs
     ExpressionDivision & operator = ( const ExpressionDivision & unExpressionDivision );

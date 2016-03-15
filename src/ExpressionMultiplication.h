@@ -11,13 +11,14 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "ExpressionBinaire.h"
+
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <ExpressionMultiplication>
-//
+// Réalise la multiplication des 2 termes passés en paramètre
 //
 //------------------------------------------------------------------------ 
 
@@ -27,13 +28,10 @@ class ExpressionMultiplication : public ExpressionBinaire
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste de paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-
+    int Evaluer( map < string, Declaration * > & tableDeclarations );
+	
+	void Simplifier( map < string, Declaration * > & tableDeclarations );
+	
 //------------------------------------------------- Surcharge d'opérateurs
 
 

@@ -1,11 +1,11 @@
 /*************************************************************************
-                           ExpressionBinaire  -  Expression arithmétique
+                           Ecriture  -  Instruction d'écriture
                              -------------------
-    début                : 8 mars 2016 08:23:14
+    début                : 15/03/2016
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
-//---------- Réalisation de la classe <ExpressionBinaire> (fichier ExpressionBinaire.cpp) --
+//---------- Réalisation de la classe <Ecriture> (fichier Ecriture.cpp) --
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -14,7 +14,7 @@
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "ExpressionBinaire.h"
+#include "Ecriture.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -27,35 +27,47 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
+void Ecriture::Executer( map < string, Declaration * > & tableDeclarations )
+{
+	int result = expression->Evaluer(tableDeclarations);
+	
+	cout << result << endl;
+}
+
+void Ecriture::Simplifier( map < string, Declaration * > & tableDeclarations )
+{
+	expression->Simplifier(tableDeclarations);
+}
+
 
 //------------------------------------------------- Surcharge d'opérateurs
 
+
 //-------------------------------------------- Constructeurs - destructeur
-ExpressionBinaire::ExpressionBinaire ( const ExpressionBinaire & uneExpressionBinaire ) 
-	: Expression(uneExpressionBinaire), expGauche(uneExpressionBinaire.expGauche),
-	  expDroite(uneExpressionBinaire.expDroite)
+Ecriture::Ecriture ( const Ecriture & unEcriture )
+	: Instruction ( unEcriture ), expression ( unEcriture.expression )
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <ExpressionBinaire>" << endl;
+    cout << "Appel au constructeur de copie de <Ecriture>" << endl;
 #endif
-} //----- Fin de ExpressionBinaire (constructeur de copie)
+} //----- Fin de Ecriture (constructeur de copie)
 
 
-ExpressionBinaire::ExpressionBinaire ( Expression * gauche, Expression * droite, int type ) 
-	: Expression( type ), expGauche(gauche), expDroite(droite)
+Ecriture::Ecriture ( Expression * expr )
+	: Instruction ( ), expression ( expr )
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <ExpressionBinaire>" << endl;
+    cout << "Appel au constructeur de <Ecriture>" << endl;
 #endif
-} //----- Fin de ExpressionBinaire
+} //----- Fin de Ecriture
 
 
-ExpressionBinaire::~ExpressionBinaire ( )
+Ecriture::~Ecriture ( )
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <ExpressionBinaire>" << endl;
+    cout << "Appel au destructeur de <Ecriture>" << endl;
 #endif
-} //----- Fin de ~ExpressionBinaire
+} //----- Fin de ~Ecriture
 
 
 //------------------------------------------------------------------ PRIVE

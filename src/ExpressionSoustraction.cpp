@@ -15,6 +15,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "ExpressionSoustraction.h"
+#include "symboles/Expression.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -27,11 +28,16 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type ExpressionSoustraction::Méthode ( liste de paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
+int ExpressionSoustraction::Evaluer( map < string, Declaration * > & tableDeclarations )
+{
+	return expGauche->Evaluer(tableDeclarations) 
+		 - expDroite->Evaluer(tableDeclarations);
+}
+
+void ExpressionSoustraction::Simplifier( map < string, Declaration * > & tableDeclarations )
+{
+	//TODO
+}
 
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -48,7 +54,7 @@ ExpressionSoustraction::ExpressionSoustraction ( const ExpressionSoustraction & 
 
 
 ExpressionSoustraction::ExpressionSoustraction ( Expression * gauche, Expression * droite )
-	 : ExpressionBinaire ( gauche, droite )
+	 : ExpressionBinaire ( gauche, droite, EXPR_SOUS )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <ExpressionSoustraction>" << endl;

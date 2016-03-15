@@ -11,13 +11,14 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "ExpressionBinaire.h"
+
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <ExpressionAddition>
-//
+// Réalise l'addition des deux termes passés en paramètre.
 //
 //------------------------------------------------------------------------ 
 
@@ -27,11 +28,9 @@ class ExpressionAddition : public ExpressionBinaire
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste de paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    int Evaluer( map < string, Declaration * > & tableDeclarations );
+	
+	void Simplifier( map < string, Declaration * > & tableDeclarations );
 
 
 //------------------------------------------------- Surcharge d'opérateurs

@@ -1,57 +1,57 @@
 /*************************************************************************
-                           ExpressionSoustraction  -  description
+                           Ecriture  -  Instruction d'écriture
                              -------------------
-    début                : 15/03/2016 10:04:16
+    début                : 15/03/2016
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
-//---------- Interface de la classe <ExpressionSoustraction> (fichier ExpressionSoustraction.h) ------
-#if ! defined ( EXPRESSIONSOUSTRACTION_H )
-#define EXPRESSIONSOUSTRACTION_H
+//---------- Interface de la classe <Ecriture> (fichier Ecriture.h) ------
+#if ! defined ( ECRITURE_H )
+#define ECRITURE_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include "ExpressionBinaire.h"
+#include "symboles/Instruction.h"
+#include "symboles/Expression.h"
+#include <map>
 
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <ExpressionSoustraction>
-//
+// Rôle de la classe <Ecriture>
+//	Instruction écrivant la valeur d'une expression sur la sortie standard.
 //
 //------------------------------------------------------------------------ 
 
-class ExpressionSoustraction : public ExpressionBinaire
+class Ecriture : public Instruction
 {
 //----------------------------------------------------------------- PUBLIC
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    int Evaluer( map < string, Declaration * > & tableDeclarations );
+    void Executer( map < string, Declaration * > & tableDeclarations );
+    // Mode d'emploi : 
+	//	Affiche la valeur de l'expression sur la sortie standard.
 	
-	void Simplifier( map < string, Declaration * > & tableDeclarations );
+    void Simplifier( map < string, Declaration * > & tableDeclarations );
+    // Mode d'emploi : 
+	//	Simplifie l'expression associée à l'instruction d'écriture.
 
 //------------------------------------------------- Surcharge d'opérateurs
 
-
 //-------------------------------------------- Constructeurs - destructeur
-    ExpressionSoustraction ( const ExpressionSoustraction & unExpressionSoustraction );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
+    Ecriture ( const Ecriture & unEcriture );
 
-    ExpressionSoustraction ( );
-    // Interdit
+    Ecriture ( );
+	// Interdit
+	
+	Ecriture ( Expression * expr );
+	// Mode d'emploi :
+	//	Construit une instruction d'écriture d'une expression, qui affiche
+	//	la valeur de l'expression sur la sortie standard.
 
-    ExpressionSoustraction ( Expression * gauche, Expression * droite );
-
-    virtual ~ExpressionSoustraction ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    virtual ~Ecriture ( );
 
 //------------------------------------------------------------------ PRIVE 
 
@@ -60,6 +60,7 @@ protected:
 
 private:
 //------------------------------------------------------- Méthodes privées
+	Expression * expression;
 
 protected:
 //----------------------------------------------------- Attributs protégés
@@ -75,6 +76,6 @@ private:
 
 };
 
-//----------------------------------------- Types dépendants de <ExpressionSoustraction>
+//----------------------------------------- Types dépendants de <Ecriture>
 
-#endif // EXPRESSIONSOUSTRACTION_H
+#endif // ECRITURE_H

@@ -27,11 +27,15 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type Parentheses::Méthode ( liste de paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
+int Parentheses::Evaluer( map < string, Declaration * > & tableDeclarations )
+{
+	return expression->Evaluer(tableDeclarations);
+}
+
+void Parentheses::Simplifier( map < string, Declaration * > & tableDeclarations )
+{
+	return expression->Simplifier(tableDeclarations);
+}
 
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -47,7 +51,7 @@ Parentheses::Parentheses ( const Parentheses & unParentheses )
 
 
 Parentheses::Parentheses ( Expression * exp )
-	: expression(exp)
+	: Expression ( EXPR_PAR ), expression( exp )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Parentheses>" << endl;

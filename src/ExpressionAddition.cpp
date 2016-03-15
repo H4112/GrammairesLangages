@@ -15,6 +15,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "ExpressionAddition.h"
+#include "symboles/Expression.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -27,11 +28,16 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type ExpressionAddition::Méthode ( liste de paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
+int ExpressionAddition::Evaluer( map < string, Declaration * > & tableDeclarations )
+{
+	return expGauche->Evaluer(tableDeclarations) 
+		 + expDroite->Evaluer(tableDeclarations);
+}
+
+void ExpressionAddition::Simplifier( map < string, Declaration * > & tableDeclarations )
+{
+	//TODO
+}
 
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -47,7 +53,7 @@ ExpressionAddition::ExpressionAddition ( const ExpressionAddition & unExpression
 
 
 ExpressionAddition::ExpressionAddition ( Expression * gauche, Expression * droite )
-	: ExpressionBinaire ( gauche, droite )
+	: ExpressionBinaire ( gauche, droite, EXPR_ADD )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <ExpressionAddition>" << endl;

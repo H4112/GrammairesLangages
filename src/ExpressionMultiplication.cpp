@@ -14,6 +14,7 @@
 using namespace std;
 //------------------------------------------------------ Include personnel
 #include "ExpressionMultiplication.h"
+#include "symboles/Expression.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -23,14 +24,16 @@ using namespace std;
 
 
 //----------------------------------------------------------------- PUBLIC
-//-------------------------------------------------------- Fonctions amies
+int ExpressionMultiplication::Evaluer( map < string, Declaration * > & tableDeclarations )
+{
+	return expGauche->Evaluer(tableDeclarations) 
+		 * expDroite->Evaluer(tableDeclarations);
+}
 
-//----------------------------------------------------- Méthodes publiques
-// type ExpressionMultiplication::Méthode ( liste de paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
+void ExpressionMultiplication::Simplifier( map < string, Declaration * > & tableDeclarations )
+{
+	//TODO
+}
 
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -46,7 +49,7 @@ ExpressionMultiplication::ExpressionMultiplication ( const ExpressionMultiplicat
 
 
 ExpressionMultiplication::ExpressionMultiplication ( Expression * gauche, Expression * droite )
-	:	ExpressionBinaire ( gauche, droite )
+	:	ExpressionBinaire ( gauche, droite, EXPR_MULT )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <ExpressionMultiplication>" << endl;

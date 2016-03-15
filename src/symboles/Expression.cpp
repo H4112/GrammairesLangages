@@ -32,7 +32,7 @@ using namespace std;
 
 //-------------------------------------------- Constructeurs - destructeur
 Expression::Expression ( const Expression & unExpression ) 
-	: Symbole(unExpression)
+	: Symbole(unExpression), typeExpression ( unExpression.typeExpression )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Expression>" << endl;
@@ -40,8 +40,8 @@ Expression::Expression ( const Expression & unExpression )
 } //----- Fin de Expression (constructeur de copie)
 
 
-Expression::Expression ( ) 
-	: Symbole("RIEN", E, false)
+Expression::Expression ( int type ) 
+	: Symbole("", E, false), typeExpression ( type )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Expression>" << endl;

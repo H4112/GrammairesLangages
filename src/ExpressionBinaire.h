@@ -37,7 +37,7 @@ public:
     ExpressionBinaire ( );
     //Interdit
 
-    ExpressionBinaire ( Expression * gauche, Expression * droite ); 
+    ExpressionBinaire ( Expression * gauche, Expression * droite, int type ); 
 
     virtual ~ExpressionBinaire ( );
 
@@ -48,10 +48,11 @@ protected:
 
 private:
 //------------------------------------------------------- Méthodes privées
-	Expression * expGauche;
-	Expression * expDroite;
+
 protected:
 //----------------------------------------------------- Attributs protégés
+	Expression * expGauche;
+	Expression * expDroite;
 
 private:
 //------------------------------------------------------- Attributs privés

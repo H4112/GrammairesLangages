@@ -27,11 +27,9 @@ class Parentheses : public Expression
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste de paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    int Evaluer( map < string, Declaration * > & tableDeclarations );
+	
+	void Simplifier( map < string, Declaration * > & tableDeclarations );
 
 
 //------------------------------------------------- Surcharge d'opérateurs

@@ -16,6 +16,8 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "E17.h"
 #include "E27.h"
+#include "../Ecriture.h"
+#include "../symboles/Expression.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -39,12 +41,13 @@ bool E17::Transition ( Automate & automate, Symbole * s )
 	{
 		case POINT_VIRGULE:
 		{
-			Symbole * e = automate.PopSymbole();
-			Symbole * ecrire = automate.PopSymbole();
+			Expression * e = (Expression *) automate.PopSymbole();
+			//Symbole * ecrire = 
+			delete automate.PopSymbole();
 
-			Symbole * nouveauSymbole;
-			//TODO remplir cette variable pour réduire R12
-			automate.Reduction(nouveauSymbole, 2);
+			Ecriture * ecriture = new Ecriture(e);
+			//réduire R12
+			automate.Reduction(ecriture, 2);
 			return true;
 		}
 		case OPA:

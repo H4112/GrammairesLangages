@@ -15,6 +15,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "ExpressionDivision.h"
+#include "symboles/Expression.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -27,12 +28,16 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type ExpressionDivision::Méthode ( liste de paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
+int ExpressionDivision::Evaluer( map < string, Declaration * > & tableDeclarations )
+{
+	return expGauche->Evaluer(tableDeclarations) 
+		 / expDroite->Evaluer(tableDeclarations);
+}
 
+void ExpressionDivision::Simplifier( map < string, Declaration * > & tableDeclarations )
+{
+	//TODO
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -47,7 +52,7 @@ ExpressionDivision::ExpressionDivision ( const ExpressionDivision & unExpression
 
 
 ExpressionDivision::ExpressionDivision ( Expression * gauche, Expression * droite )
-	: ExpressionBinaire ( gauche, droite )
+	: ExpressionBinaire ( gauche, droite, EXPR_DIV )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <ExpressionDivision>" << endl;
