@@ -48,6 +48,9 @@ bool E0::Transition ( Automate & automate, Symbole * s )
 			automate.Reduction(new PartieDeclarative, 0);
 			return true;
 		}
+		case PROG:
+			//acceptation : ne rien faire
+			return true;
 		case PD:
 		{
 			automate.Decalage(s, new E1);

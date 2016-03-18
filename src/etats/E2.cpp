@@ -20,6 +20,11 @@ using namespace std;
 #include "E9.h"
 #include "E6.h"
 
+#include "../symboles/Programme.h"
+#include "../symboles/PartieDeclarative.h"
+#include "../symboles/PartieInstructions.h"
+
+
 //------------------------------------------------------------- Constantes
 
 //---------------------------------------------------- Variables de classe
@@ -57,7 +62,17 @@ bool E2::Transition ( Automate & automate, Symbole * s )
 		}
 		case FIN:
 		{
-			//TODO A
+			PartieInstructions * pi = (PartieInstructions *) automate.PopSymbole();
+			PartieDeclarative * pd = (PartieDeclarative *) automate.PopSymbole();
+			
+			Programme * prog = new Programme(pd->GetDeclarations(), pi->GetInstructions());
+			
+			delete pi;
+			delete pd;
+			
+			//réduire R0
+			automate.Reduction(prog, 2);
+			
 			return true;
 		}
 		case I:

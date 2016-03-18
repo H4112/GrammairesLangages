@@ -48,6 +48,11 @@ bool PartieDeclarative::AjouterDeclarations( ListeDeclaration * liste )
 	return true;
 }
 
+map< string, Declaration * > PartieDeclarative::GetDeclarations ( )
+{
+	return tableDeclarations;
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur

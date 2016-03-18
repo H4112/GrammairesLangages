@@ -39,6 +39,13 @@ public:
 	//	Renvoie true si aucun identifiant n'a été dupliqué, sinon false.
 	// Contrat :
 	//	Aucun
+	
+	map< string, Declaration * > GetDeclarations ( );
+	// Mode d'emploi :
+	//	Permet d'obtenir la table des déclarations ajoutées à cette
+	//	partie déclarative.
+	// Contrat :
+	//	Aucuns
 
 //------------------------------------------------- Surcharge d'opérateurs
 
