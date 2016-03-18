@@ -47,8 +47,6 @@ bool E12::Transition ( Automate & automate, Symbole * s )
 			ListeIdentifiants * lid = new ListeIdentifiants();
 			lid->AjouterVariable(id);
 			
-			delete id;
-			
 			//réduire R6
 			automate.Reduction(lid, 1);
 			return true;

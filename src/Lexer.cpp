@@ -35,7 +35,7 @@ using namespace std;
 #include "symboles/Fin.h"
 //------------------------------------------------------------- Constantes
 const pair < boost::regex, int > regexSymboles [] = {
-	{ boost::regex("^[\\r\\n\\t ]s*(var)"), VAR }, 
+	{ boost::regex("^\\s*(var)"), VAR }, 
 	{ boost::regex("^\\s*(const)"), CONST },
 	{ boost::regex("^\\s*(ecrire)"), ECRIRE }, 
 	{ boost::regex("^\\s*(lire)"), LIRE },
@@ -59,7 +59,7 @@ const pair < boost::regex, int > regexSymboles [] = {
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-Symbole* Lexer::LireSymbole()
+Symbole * Lexer::LireSymbole()
 {
 	if(symboleCourant != 0)
 	{
@@ -73,7 +73,7 @@ Symbole* Lexer::LireSymbole()
 	for(pair<boost::regex, int> regexSymbole : regexSymboles){
 		if(boost::regex_search(debut, fin, occurence, regexSymbole.first))
 		{
-			//cout << "reconnu : " << string(occurence[1].first, occurence[1].second) << endl;
+			//cerr << "reconnu : " << string(occurence[1].first, occurence[1].second) << endl;
 			debut = occurence[1].second;
 			symboleCourant = creerSymbole(string(occurence[1].first, occurence[1].second), regexSymbole.second);
 			return symboleCourant;
@@ -85,7 +85,8 @@ Symbole* Lexer::LireSymbole()
 
 void Lexer::ConsommerSymbole()
 {
-	delete symboleCourant;
+	// Commenté sinon ça plante... car le symbole est stocké ailleurs
+	//delete symboleCourant;
 	symboleCourant = 0;
 }
 /*
@@ -135,6 +136,7 @@ Lexer::Lexer ( string nomFichier ) : fichier ( nomFichier, ios::in )
 		throw string( "Erreur à l'ouverture de " + nomFichier ); 
 	}
 	lireLigne();
+	symboleCourant = 0;
 	
 #ifdef MAP
     cout << "Appel au constructeur de <Lexer>" << endl;
@@ -199,7 +201,7 @@ Symbole * Lexer::creerSymbole ( string nom, int ident )
 		case POINT_VIRGULE:
 			return new PointVirgule();
 		case VAL:
-			return new OperateurAdd(nom);
+			return new Valeur(nom);
 	}
 	return 0;
 }

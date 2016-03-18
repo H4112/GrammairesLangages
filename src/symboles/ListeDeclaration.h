@@ -45,6 +45,7 @@ public:
     ListeDeclaration ( const ListeDeclaration & unListeDeclaration );
 
     ListeDeclaration ( );
+    ListeDeclaration ( int type );
 
     virtual ~ListeDeclaration ( );
 

@@ -46,8 +46,6 @@ bool E33::Transition ( Automate & automate, Symbole * s )
 			
 			ListeIdentifiantsValeurs * lidv = new ListeIdentifiantsValeurs();
 			lidv->AjouterConstante(id,val);
-			delete id;
-			delete val;
 			//réduire R8
 			automate.Reduction(lidv, 3);
 			return true;

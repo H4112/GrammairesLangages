@@ -46,12 +46,14 @@ bool E13::Transition ( Automate & automate, Symbole * s )
 		}
 		case POINT_VIRGULE:
 		{
-			ListeDeclaration * lidv = (ListeDeclaration *) automate.PopSymbole();
+			ListeIdentifiantsValeurs * lidv = (ListeIdentifiantsValeurs *) automate.PopSymbole();
+			ListeDeclaration * d = new ListeDeclaration(*lidv);
+			delete lidv;
 			//Symbole * constante = 
 			delete automate.PopSymbole();
 
 			//réduire R4
-			automate.Reduction(lidv, 2);
+			automate.Reduction(d, 2);
 			return true;
 		}
 	}

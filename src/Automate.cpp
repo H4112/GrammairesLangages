@@ -45,7 +45,10 @@ void Automate::Decalage ( Symbole * symboleEmpile, Etat * etatEmpile )
 {
 	pileSymboles.push(symboleEmpile);
     pileEtats.push(etatEmpile);
-	lexer.ConsommerSymbole();
+	if(symboleEmpile->EstTerminal())
+	{
+		lexer.ConsommerSymbole();
+	}
 }
 
 Symbole * Automate::PopSymbole ( )
@@ -70,7 +73,10 @@ bool Automate::Executer ( )
 				((int)*pileSymboles.top()) != PROG)
 	{
 		//exécuter la transition
-		if(!pileEtats.top()->Transition(*this, lexer.LireSymbole()))
+		Symbole *s = lexer.LireSymbole();
+		cerr << "##" << *s << "(" << s->GetNom() << ") ";
+		pileEtats.top()->Print();
+		if(!pileEtats.top()->Transition(*this, s))
 		{
 			//une transition a échoué, supprimer tous les symboles/états de l'automate
 			//et renvoyer false
@@ -83,8 +89,10 @@ bool Automate::Executer ( )
 			
 			return false;
 		}
+		cerr << " -> ";
+		pileEtats.top()->Print();
 	}
-	
+	cerr << "###" << pileSymboles.size() << endl;
 	//si nous sommes arrivés ici, tout s'est bien passé.
 	//nous pourrons récupérer le programme au sommet de la pile de symboles.
 	return true;
@@ -119,6 +127,7 @@ Automate::~Automate ( )
 #endif
 } //----- Fin de ~Automate
 
+
 int main ( int argc, char ** argv )
 {
     if(argc < 2)
@@ -127,7 +136,8 @@ int main ( int argc, char ** argv )
         return -1;
     }
     try {
-        new Automate(argv[1]);
+        Automate a(argv[1]);
+        a.Executer();
     } catch ( string msg ) {
         cerr << "Erreur : " << msg << endl;
     }

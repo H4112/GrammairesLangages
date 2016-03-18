@@ -1,5 +1,5 @@
 COMPFLAGS += -I/opt/local/include
-COMPFLAGS += -Wall -Wextra -std=c++11 #-DMAP
+COMPFLAGS += -Wall -Wextra -std=c++11 -g #-DMAP
 
 LDFLAGS += -L/opt/local/lib
 LDFLAGS += -lboost_regex

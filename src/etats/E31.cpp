@@ -44,7 +44,6 @@ bool E31::Transition ( Automate & automate, Symbole * s )
 			delete automate.PopSymbole();
 			ListeIdentifiants * lid = (ListeIdentifiants *) automate.PopSymbole();
 			lid->AjouterVariable(id);
-			delete id;
 
 			//réduire R5
 			automate.Reduction(lid, 3);

@@ -11,8 +11,10 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "../symboles/Symbole.h"
+#include "../symboles/ListeIdentifiantsValeurs.h"
 #include "../Automate.h"
 #include "Etat.h"
+
 
 //------------------------------------------------------------- Constantes 
 

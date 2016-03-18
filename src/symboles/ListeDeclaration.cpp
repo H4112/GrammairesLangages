@@ -36,22 +36,20 @@ list < Declaration * > ListeDeclaration::GetListeDeclarations ( )
 
 //-------------------------------------------- Constructeurs - destructeur
 ListeDeclaration::ListeDeclaration ( const ListeDeclaration & unListeDeclaration ) 
-	: Symbole(unListeDeclaration)
+	: Symbole("",D,false), listeDeclarations(unListeDeclaration.listeDeclarations)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <ListeDeclaration>" << endl;
 #endif
 } //----- Fin de ListeDeclaration (constructeur de copie)
 
-
-ListeDeclaration::ListeDeclaration ( ) 
-	: Symbole("", D, false)
+ListeDeclaration::ListeDeclaration ( int type ) 
+    : Symbole("", type, false)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <ListeDeclaration>" << endl;
 #endif
 } //----- Fin de ListeDeclaration
-
 
 ListeDeclaration::~ListeDeclaration ( )
 {

@@ -46,7 +46,7 @@ ListeIdentifiants::ListeIdentifiants ( const ListeIdentifiants & uneListeIdentif
 
 
 ListeIdentifiants::ListeIdentifiants ( ) 
-	: ListeDeclaration( )
+	: ListeDeclaration( LID )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <ListeIdentifiants>" << endl;
