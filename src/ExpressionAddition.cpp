@@ -40,9 +40,7 @@ Expression * ExpressionAddition::Simplifier( map < string, Declaration * > & tab
     if(expGauche->GetType() == EXPR_VAL && expDroite->GetType() == EXPR_VAL)
     {
         int gauche = ((ExpressionValeur *)expGauche)->GetValeur();
-        delete expGauche;
         int droite = ((ExpressionValeur *)expDroite)->GetValeur();
-        delete expDroite;
         return new ExpressionValeur(gauche + droite);
     }
     else
