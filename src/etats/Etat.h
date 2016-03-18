@@ -32,6 +32,12 @@ class Etat
 
 public:
 //----------------------------------------------------- Méthodes publiques
+	virtual void Print ( ) const = 0;
+    // Mode d'emploi :
+    //  Ecrit le nom de l'état sur la sortie standard.
+    // Contrat :
+    //  Aucun
+	
 	virtual bool Transition ( Automate & automate, Symbole * s ) = 0;
     // Mode d'emploi :
     //  Permet d'effectuer la transition vers l'état suivant.

@@ -18,6 +18,8 @@ using namespace std;
 #include "Automate.h"
 #include "etats/E0.h"
 
+#include "symboles/Symbole.h"
+
 //------------------------------------------------------------- Constantes
 
 //---------------------------------------------------- Variables de classe
@@ -43,6 +45,7 @@ void Automate::Decalage ( Symbole * symboleEmpile, Etat * etatEmpile )
 {
 	pileSymboles.push(symboleEmpile);
     pileEtats.push(etatEmpile);
+	lexer.ConsommerSymbole();
 }
 
 Symbole * Automate::PopSymbole ( )
@@ -50,6 +53,41 @@ Symbole * Automate::PopSymbole ( )
 	Symbole * symbole = pileSymboles.top();
     pileSymboles.pop();
     return symbole;
+}
+
+bool Automate::Executer ( )
+{
+	//s'assurer que les piles d'états et de symboles sont vides
+	viderPiles();
+
+	//initialiser la pile d'états avec E0
+	E0 * initialState = new E0();
+	pileEtats.push(initialState);
+	
+	//tant que l'état final n'a pas été atteint
+	//(PROG est au sommet de la pile des symboles et E0 de la pile des états)
+	while(pileEtats.top() != initialState || pileSymboles.empty() ||
+				((int)*pileSymboles.top()) != PROG)
+	{
+		//exécuter la transition
+		if(!pileEtats.top()->Transition(*this, lexer.LireSymbole()))
+		{
+			//une transition a échoué, supprimer tous les symboles/états de l'automate
+			//et renvoyer false
+			
+			cout << "Error while applying transition " << (int)(*lexer.LireSymbole())
+			     << " to state ";
+			pileEtats.top()->Print();
+			
+			viderPiles();
+			
+			return false;
+		}
+	}
+	
+	//si nous sommes arrivés ici, tout s'est bien passé.
+	//nous pourrons récupérer le programme au sommet de la pile de symboles.
+	return true;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -68,7 +106,6 @@ Automate::Automate ( const Automate & unAutomate )
 
 Automate::Automate ( string nomFichier ) : lexer ( nomFichier )
 {
-    pileEtats.push(new E0());
 #ifdef MAP
     cout << "Appel au constructeur de <Automate>" << endl;
 #endif
@@ -103,3 +140,17 @@ int main ( int argc, char ** argv )
 //----------------------------------------------------- Méthodes protégées
 
 //------------------------------------------------------- Méthodes privées
+void Automate::viderPiles()
+{
+	while(!pileSymboles.empty())
+	{
+		delete pileSymboles.top();
+		pileSymboles.pop();
+	}
+	
+	while(!pileEtats.empty())
+	{
+		delete pileEtats.top();
+		pileEtats.pop();
+	}
+}

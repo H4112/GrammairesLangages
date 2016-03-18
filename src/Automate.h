@@ -57,6 +57,14 @@ public:
     //    Renvoie NULL si aucun symbole n'est présent.
     //Contrat :
     //    Aucun.
+	
+	bool Executer ( );
+	//Mode d'emploi :
+	//    Exécute entièrement l'automate jusqu'à l'acceptation du fichier
+	//    (dans lequel cas Executer renvoie true) ou jusqu'à la rencontre
+	//    d'une erreur de syntaxe (Executer renvoie false).
+	//Contrat :
+	//    Aucun
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -77,6 +85,11 @@ protected:
 
 private:
 //------------------------------------------------------- Méthodes privées
+	void viderPiles();
+	//Mode d'emploi :
+	//    Permet de vider les piles et de détruire tous les symboles et états.
+	//Contrat :
+	//    Aucun
 
 protected:
 //----------------------------------------------------- Attributs protégés
