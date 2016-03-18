@@ -55,6 +55,8 @@ ExpressionBinaire::~ExpressionBinaire ( )
 #ifdef MAP
     cout << "Appel au destructeur de <ExpressionBinaire>" << endl;
 #endif
+    delete expGauche;
+    delete expDroite;
 } //----- Fin de ~ExpressionBinaire
 
 

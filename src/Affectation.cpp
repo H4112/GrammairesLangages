@@ -35,7 +35,12 @@ void Affectation::Executer( map < string, Declaration * > & tableDeclarations )
 
 void Affectation::Simplifier( map < string, Declaration * > & tableDeclarations )
 {
-	expression->Simplifier(tableDeclarations);
+    Expression * expr = expression->Simplifier(tableDeclarations);
+    if(expr != expression)
+    {
+        delete expression;
+        expr = expression;
+    }
 }
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -65,6 +70,7 @@ Affectation::~Affectation ( )
 #ifdef MAP
     cout << "Appel au destructeur de <Affectation>" << endl;
 #endif
+    delete expression;
 } //----- Fin de ~Affectation
 
 

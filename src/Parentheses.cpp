@@ -66,6 +66,7 @@ Parentheses::~Parentheses ( )
 #ifdef MAP
     cout << "Appel au destructeur de <Parentheses>" << endl;
 #endif
+    delete expression;
 } //----- Fin de ~Parentheses
 
 

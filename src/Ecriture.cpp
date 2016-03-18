@@ -31,13 +31,17 @@ using namespace std;
 void Ecriture::Executer( map < string, Declaration * > & tableDeclarations )
 {
 	int result = expression->Evaluer(tableDeclarations);
-	
 	cout << result << endl;
 }
 
 void Ecriture::Simplifier( map < string, Declaration * > & tableDeclarations )
 {
-	expression->Simplifier(tableDeclarations);
+	Expression * expr = expression->Simplifier(tableDeclarations);
+    if(expr != expression)
+    {
+        delete expression;
+        expr = expression;
+    }
 }
 
 
@@ -68,6 +72,7 @@ Ecriture::~Ecriture ( )
 #ifdef MAP
     cout << "Appel au destructeur de <Ecriture>" << endl;
 #endif
+    delete expression;
 } //----- Fin de ~Ecriture
 
 
