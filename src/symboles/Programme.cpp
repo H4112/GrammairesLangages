@@ -51,7 +51,8 @@ ostream & operator << ( ostream & out, const Programme & programme )
     return out;
 }
 
-bool Programme:VerificationStatique(){
+bool Programme::VerificationStatique ( )
+{
     /*
     1 — Une variable est utilisée (en partie droite d’une affectation ou dans une opération d’écriture) sans avoir
     	jamais été affectée.
@@ -60,7 +61,7 @@ bool Programme:VerificationStatique(){
     4 — Une constante ne peut être modifiée.
     */
     bool verificationStatiqueCorrecte = true;
-
+    /*
 	for(list<Symbole>::iterator instruction=listeInstructions.begin(); instruction != listeInstructions.end(); ++instruction){
 		
 		map<string, Declaration *>::iterator declaration = tableDeclarations.find( instruction->getId() );
@@ -98,6 +99,7 @@ bool Programme:VerificationStatique(){
 			verificationStatiqueCorrecte = false;
 		}
 	}
+	*/
 	return verificationStatiqueCorrecte;
 }
 

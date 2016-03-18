@@ -34,9 +34,17 @@ int ExpressionIdentifiant::Evaluer( map < string, Declaration * > & tableDeclara
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
-void ExpressionIdentifiant::Simplifier( map < string, Declaration * > & tableDeclarations )
+Expression * ExpressionIdentifiant::Simplifier( map < string, Declaration * > & tableDeclarations )
 {
-
+    // Si c'est une constante, la remplacer par sa valeur
+    if(!tableDeclarations[id]->EstAffectable())
+    {
+        return new ExpressionValeur(tableDeclarations[id]->GetValeur());
+    }
+    else
+    {
+        return this;
+    }
 }
 #pragma GCC diagnostic pop
 

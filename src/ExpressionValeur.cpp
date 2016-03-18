@@ -34,11 +34,16 @@ int ExpressionValeur::Evaluer( map < string, Declaration * > & tableDeclarations
 	return valeur;
 }
     
-void ExpressionValeur::Simplifier( map < string, Declaration * > & tableDeclarations )
+Expression * ExpressionValeur::Simplifier( map < string, Declaration * > & tableDeclarations )
 {
-
+    return this;
 }
 #pragma GCC diagnostic pop
+
+int ExpressionValeur::GetValeur ( )
+{
+    return valeur;
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 

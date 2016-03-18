@@ -30,9 +30,21 @@ int ExpressionMultiplication::Evaluer( map < string, Declaration * > & tableDecl
 		 * expDroite->Evaluer(tableDeclarations);
 }
 
-void ExpressionMultiplication::Simplifier( map < string, Declaration * > & tableDeclarations )
+Expression * ExpressionMultiplication::Simplifier( map < string, Declaration * > & tableDeclarations )
 {
-	//TODO
+    ExpressionBinaire::simplifierGaucheDroite(tableDeclarations);
+    if(expGauche->GetType() == EXPR_VAL && expDroite->GetType() == EXPR_VAL)
+    {
+        int gauche = ((ExpressionValeur *)expGauche)->GetValeur();
+        delete expGauche;
+        int droite = ((ExpressionValeur *)expDroite)->GetValeur();
+        delete expDroite;
+        return new ExpressionValeur(gauche * droite);
+    }
+    else
+    {
+        return this;
+    }
 }
 
 

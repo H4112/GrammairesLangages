@@ -28,7 +28,7 @@ class ExpressionBinaire : public Expression
 
 public:
 //----------------------------------------------------- Méthodes publiques
-
+    
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
@@ -45,7 +45,7 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-
+    void simplifierGaucheDroite ( map < string, Declaration * > & tableDeclarations );
 private:
 //------------------------------------------------------- Méthodes privées
 

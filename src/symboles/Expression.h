@@ -40,9 +40,10 @@ public:
 	virtual int Evaluer( map < string, Declaration * > & tableDeclarations ) = 0;
     // Mode d'emploi : 
 	//	Calcule la valeur de l'expression.
-    virtual void Simplifier( map < string, Declaration * > & tableDeclarations ) = 0;
+    virtual Expression * Simplifier( map < string, Declaration * > & tableDeclarations ) = 0;
     // Mode d'emploi : simplifie l'instruction en propageant les
     //     constantes, supprimant les éléments neutres, etc.
+    //     Retourne l'expression simplifiée.
 	
 	int GetType ( );
 	// Mode d'emploi :

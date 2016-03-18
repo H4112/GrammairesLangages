@@ -11,7 +11,7 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "ExpressionBinaire.h"
-
+#include "ExpressionValeur.h"
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
@@ -30,7 +30,7 @@ public:
 //----------------------------------------------------- Méthodes publiques
     int Evaluer( map < string, Declaration * > & tableDeclarations );
 	
-	void Simplifier( map < string, Declaration * > & tableDeclarations );
+	Expression * Simplifier( map < string, Declaration * > & tableDeclarations );
 
 //------------------------------------------------- Surcharge d'opérateurs
 

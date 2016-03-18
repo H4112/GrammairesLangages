@@ -61,5 +61,19 @@ ExpressionBinaire::~ExpressionBinaire ( )
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-
+void ExpressionBinaire::simplifierGaucheDroite ( map < string, Declaration * > & tableDeclarations )
+{
+    Expression * gauche = expGauche->Simplifier(tableDeclarations);
+    if(gauche != expGauche)
+    {
+        delete expGauche;
+        expGauche = gauche;
+    }
+    Expression * droite = expDroite->Simplifier(tableDeclarations);
+    if(droite != expDroite)
+    {
+        delete expDroite;
+        expDroite = droite;
+    }
+}
 //------------------------------------------------------- Méthodes privées

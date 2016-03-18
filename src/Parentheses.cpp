@@ -32,7 +32,7 @@ int Parentheses::Evaluer( map < string, Declaration * > & tableDeclarations )
 	return expression->Evaluer(tableDeclarations);
 }
 
-void Parentheses::Simplifier( map < string, Declaration * > & tableDeclarations )
+Expression * Parentheses::Simplifier( map < string, Declaration * > & tableDeclarations )
 {
 	return expression->Simplifier(tableDeclarations);
 }
