@@ -76,6 +76,14 @@ bool Automate::Executer ( )
 	{
 		//exécuter la transition
 		Symbole *s = lexer.LireSymbole();
+		if(s == NULL)
+		{
+			//erreur de reconnaissance du symbole
+			viderPiles();
+			
+			return false;
+		}
+
 #ifdef AUTOMAP
 		cerr << "##" << *s << "(" << s->GetNom() << ") ";
 		pileEtats.top()->Print();
