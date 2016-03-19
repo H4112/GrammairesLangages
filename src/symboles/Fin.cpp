@@ -41,7 +41,7 @@ Fin::Fin ( const Fin & unFin )
 
 
 Fin::Fin ( ) 
-	: Symbole("RIEN", FIN, true)
+	: Symbole("", FIN, true)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Fin>" << endl;

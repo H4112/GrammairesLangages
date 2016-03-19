@@ -44,6 +44,7 @@ bool E21::Transition ( Automate & automate, Symbole * s )
 			Identifiant * id = (Identifiant *) automate.PopSymbole();
 
 			ExpressionIdentifiant * exprId = new ExpressionIdentifiant(*id);
+			exprId->SetIdent(F);
 			delete id;
 			//réduire R19
 			automate.Reduction(exprId, 1);

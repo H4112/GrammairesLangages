@@ -54,6 +54,7 @@ bool E34::Transition ( Automate & automate, Symbole * s )
 			{
 				eb = new ExpressionSoustraction(e,t);
 			}
+			eb->SetIdent(E);
 			delete opa;
 			//réduire R14
 			automate.Reduction(eb, 3);

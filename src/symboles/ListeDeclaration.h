@@ -38,14 +38,17 @@ public:
 	//	dans cette ListeDeclaration.
 	// Contrat :
 	//	Aucun
+	
+	void SetIdent ( int id );
+    // Mode d'emploi :
+    //  Permet de changer le type de Symbole
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
     ListeDeclaration ( const ListeDeclaration & unListeDeclaration );
 
-    ListeDeclaration ( );
-    ListeDeclaration ( int type );
+    ListeDeclaration ( int id );
 
     virtual ~ListeDeclaration ( );
 

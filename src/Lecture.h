@@ -41,7 +41,8 @@ public:
 	//	Ne fait rien.
 
 //------------------------------------------------- Surcharge d'opérateurs
-
+    friend ostream & operator << ( ostream & out,
+        const Lecture & lecture );
 //-------------------------------------------- Constructeurs - destructeur
     Lecture ( const Lecture & unLecture );
 

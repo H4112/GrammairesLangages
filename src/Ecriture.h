@@ -39,7 +39,8 @@ public:
 	//	Simplifie l'expression associée à l'instruction d'écriture.
 
 //------------------------------------------------- Surcharge d'opérateurs
-
+    friend ostream & operator << ( ostream & out,
+        const Ecriture & ecriture );
 //-------------------------------------------- Constructeurs - destructeur
     Ecriture ( const Ecriture & unEcriture );
 

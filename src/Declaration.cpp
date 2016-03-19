@@ -59,7 +59,6 @@ ostream & operator << ( ostream & out, const Declaration & declaration )
     {
         out << "const " << declaration.GetId() << " = " << declaration.GetValeur();
     }
-    out << ";" << endl;
     return out;
 }
 

@@ -49,7 +49,8 @@ bool E0::Transition ( Automate & automate, Symbole * s )
 			return true;
 		}
 		case PROG:
-			//acceptation : ne rien faire
+			//acceptation : empiler PROG
+			automate.Decalage(s, 0);
 			return true;
 		case PD:
 		{

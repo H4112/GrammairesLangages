@@ -44,7 +44,10 @@ void Automate::Reduction ( Symbole * symboleEmpile, int nbDepile )
 void Automate::Decalage ( Symbole * symboleEmpile, Etat * etatEmpile )
 {
 	pileSymboles.push(symboleEmpile);
-    pileEtats.push(etatEmpile);
+	if(etatEmpile != 0)
+	{
+    	pileEtats.push(etatEmpile);
+	}
 	if(symboleEmpile->EstTerminal())
 	{
 		lexer.ConsommerSymbole();
@@ -69,13 +72,12 @@ bool Automate::Executer ( )
 	
 	//tant que l'état final n'a pas été atteint
 	//(PROG est au sommet de la pile des symboles et E0 de la pile des états)
-	while(pileEtats.top() != initialState || pileSymboles.empty() ||
-				((int)*pileSymboles.top()) != PROG)
+	do
 	{
 		//exécuter la transition
 		Symbole *s = lexer.LireSymbole();
-		cerr << "##" << *s << "(" << s->GetNom() << ") ";
-		pileEtats.top()->Print();
+		//cerr << "##" << *s << "(" << s->GetNom() << ") ";
+		//pileEtats.top()->Print();
 		if(!pileEtats.top()->Transition(*this, s))
 		{
 			//une transition a échoué, supprimer tous les symboles/états de l'automate
@@ -89,12 +91,14 @@ bool Automate::Executer ( )
 			
 			return false;
 		}
-		cerr << " -> ";
-		pileEtats.top()->Print();
-	}
-	cerr << "###" << pileSymboles.size() << endl;
+		//cerr << " -> ";
+		//pileEtats.top()->Print();
+		//cerr << "###" << (int)*(pileSymboles.top()) << endl;
+	} while(pileSymboles.empty() || (int)*(pileSymboles.top()) != PROG);
+	//cerr << "###" << pileSymboles.size() << endl;
 	//si nous sommes arrivés ici, tout s'est bien passé.
 	//nous pourrons récupérer le programme au sommet de la pile de symboles.
+	cout << *((Programme *)(pileSymboles.top()));
 	return true;
 }
 
@@ -160,6 +164,7 @@ void Automate::viderPiles()
 	
 	while(!pileEtats.empty())
 	{
+		//pileEtats.top()->Print();
 		delete pileEtats.top();
 		pileEtats.pop();
 	}

@@ -32,19 +32,31 @@ list < Declaration * > ListeDeclaration::GetListeDeclarations ( )
 	return listeDeclarations;
 }
 
+void ListeDeclaration::SetIdent ( int id )
+{
+	if(id == D)
+	{
+		ident = id;
+	}
+	else
+	{
+		cerr << "Type incorrect " << id << endl;
+	}
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
 ListeDeclaration::ListeDeclaration ( const ListeDeclaration & unListeDeclaration ) 
-	: Symbole("",D,false), listeDeclarations(unListeDeclaration.listeDeclarations)
+	: Symbole(unListeDeclaration), listeDeclarations(unListeDeclaration.listeDeclarations)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <ListeDeclaration>" << endl;
 #endif
 } //----- Fin de ListeDeclaration (constructeur de copie)
 
-ListeDeclaration::ListeDeclaration ( int type ) 
-    : Symbole("", type, false)
+ListeDeclaration::ListeDeclaration ( int id ) 
+	: Symbole("", id, false)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <ListeDeclaration>" << endl;

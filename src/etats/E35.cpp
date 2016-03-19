@@ -53,6 +53,7 @@ bool E35::Transition ( Automate & automate, Symbole * s )
 			{
 				eb = new ExpressionDivision(t, f);
 			}
+			eb->SetIdent(T);
 			delete opm;
 			//réduire R16
 			automate.Reduction(eb, 3);

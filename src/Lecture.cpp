@@ -50,8 +50,11 @@ void Lecture::Simplifier( map < string, Declaration * > & tableDeclarations )
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-
-
+ostream & operator << ( ostream & out, const Lecture & lecture )
+{
+	out << "lire " << lecture.nomVariable;
+	return out;
+}
 //-------------------------------------------- Constructeurs - destructeur
 Lecture::Lecture ( const Lecture & unLecture )
 	: Instruction ( unLecture ), nomVariable ( unLecture.nomVariable )

@@ -17,6 +17,7 @@
 class Automate;
 #include "etats/Etat.h"
 #include "symboles/Symbole.h"
+#include "symboles/Programme.h"
 #include "Lexer.h"
 
 //------------------------------------------------------------- Constantes 

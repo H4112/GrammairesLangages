@@ -40,11 +40,12 @@ public:
     // Mode d'emploi : simplifie l'instruction en propageant les
     //     constantes, supprimant les éléments neutres, etc.
 	
-	int GetType ( );
+	int GetType ( ) const;
 	// Mode d'emploi :
 	//	Permet de connaître le type de l'instruction
 //------------------------------------------------- Surcharge d'opérateurs
-
+    friend ostream & operator << ( ostream & out,
+        const Instruction & instruction );
 //-------------------------------------------- Constructeurs - destructeur
     Instruction ( const Instruction & unInstruction );
 

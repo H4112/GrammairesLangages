@@ -42,11 +42,11 @@ ostream & operator << ( ostream & out, const Programme & programme )
 {
     for ( auto & declaration : programme.tableDeclarations )
     {
-        out << *(declaration.second) << endl;
+        out << *(declaration.second) << ";" << endl;
     }
     for ( Instruction * instruction : programme.listeInstructions )
     {
-        out << *instruction << endl;
+        out << *instruction << ";" << endl;
     }
     return out;
 }

@@ -15,7 +15,9 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Instruction.h"
-
+#include "../Affectation.h"
+#include "../Lecture.h"
+#include "../Ecriture.h"
 //------------------------------------------------------------- Constantes
 
 //---------------------------------------------------- Variables de classe
@@ -27,13 +29,28 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-int Instruction::GetType ( )
+int Instruction::GetType ( ) const
 {
 	return typeInstruction;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
-
+ostream & operator << ( ostream & out, const Instruction & instruction )
+{
+    switch(instruction.GetType())
+    {
+        case INSTR_AFF:
+            out << (const Affectation &)instruction;
+            break;
+        case INSTR_LIRE:
+            out << (const Lecture &)instruction;
+            break;
+        case INSTR_ECRIRE:
+            out << (const Ecriture &)instruction;
+            break;
+    }
+    return out;
+}
 //-------------------------------------------- Constructeurs - destructeur
 Instruction::Instruction ( const Instruction & unInstruction ) 
 	: Symbole(unInstruction)

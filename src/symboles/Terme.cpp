@@ -41,7 +41,7 @@ Terme::Terme ( const Terme & unTerme )
 
 
 Terme::Terme ( ) 
-	: Symbole("RIEN", T, false)
+	: Symbole("", T, false)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Terme>" << endl;

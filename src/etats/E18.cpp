@@ -41,8 +41,8 @@ bool E18::Transition ( Automate & automate, Symbole * s )
 		case FERMEPAR:
 		case OPA:
 		{
-			Symbole * t = automate.PopSymbole();
-
+			Expression * t = (Expression *)automate.PopSymbole();
+			t->SetIdent(E);
 			//réduire R15
 			automate.Reduction(t, 1);
 			return true;

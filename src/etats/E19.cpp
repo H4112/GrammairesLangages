@@ -41,8 +41,8 @@ bool E19::Transition ( Automate & automate, Symbole * s )
 		case OPA:
 		case OPM:
 		{
-			Symbole * f = automate.PopSymbole();
-
+			Expression * f = (Expression *)automate.PopSymbole();
+			f->SetIdent(T);
 			//réduire R17
 			automate.Reduction(f, 1);
 			return true;

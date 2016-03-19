@@ -88,12 +88,11 @@ private:
 
 protected:
 //----------------------------------------------------- Attributs protégés
-
+	int ident;
 private:
 //------------------------------------------------------- Attributs privés
-string nom;
-bool terminal;
-int ident;
+	string nom;
+	bool terminal;
 
 //---------------------------------------------------------- Classes amies
 

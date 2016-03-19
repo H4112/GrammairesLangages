@@ -44,13 +44,17 @@ public:
     // Mode d'emploi : simplifie l'instruction en propageant les
     //     constantes, supprimant les éléments neutres, etc.
     //     Retourne l'expression simplifiée.
+    void SetIdent ( int id );
+    // Mode d'emploi :
+    //  Permet de changer le type de Symbole
 	
 	int GetType ( );
 	// Mode d'emploi :
 	//	Permet de connaître le type de l'expression
 
 //------------------------------------------------- Surcharge d'opérateurs
-
+friend ostream & operator << ( ostream & out,
+        const Expression & expression );
 //-------------------------------------------- Constructeurs - destructeur
     Expression ( const Expression & unExpression );
 

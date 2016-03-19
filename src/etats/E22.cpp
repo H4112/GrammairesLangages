@@ -44,6 +44,7 @@ bool E22::Transition ( Automate & automate, Symbole * s )
 			Valeur * val = (Valeur *) automate.PopSymbole();
 
 			ExpressionValeur * exprVal = new ExpressionValeur(*val);
+			exprVal->SetIdent(F);
 			delete val;
 			//réduire R20
 			automate.Reduction(exprVal, 1);

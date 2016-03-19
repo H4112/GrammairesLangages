@@ -25,11 +25,27 @@ using namespace std;
 
 //----------------------------------------------------------------- PUBLIC
 //-------------------------------------------------------- Fonctions amies
-
+ostream & operator << ( ostream & out,
+        const Expression & expression )
+{
+    return out;
+}
 //----------------------------------------------------- Méthodes publiques
 int Expression::GetType ( )
 {
 	return typeExpression;
+}
+
+void Expression::SetIdent ( int id )
+{
+    if(id == E || id == T || id == F)
+    {
+        ident = id;
+    }
+    else
+    {
+        cerr << "Type incorrect " << id << endl;
+    }
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

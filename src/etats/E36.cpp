@@ -48,6 +48,7 @@ bool E36::Transition ( Automate & automate, Symbole * s )
 			delete automate.PopSymbole();
 
 			Parentheses * p = new Parentheses(e);
+			p->SetIdent(F);
 			//réduire R18
 			automate.Reduction(p, 3);
 			return true;
