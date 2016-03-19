@@ -36,20 +36,20 @@ using namespace std;
 #include "symboles/Fin.h"
 //------------------------------------------------------------- Constantes
 const pair < boost::regex, int > regexSymboles [] = {
-	{ boost::regex("^(var)\\s"), VAR }, 
-	{ boost::regex("^(const)\\s"), CONST },
-	{ boost::regex("^(ecrire)\\s"), ECRIRE }, 
-	{ boost::regex("^(lire)\\s"), LIRE },
-	{ boost::regex("^(,)"), VIRGULE }, 
-	{ boost::regex("^(;)"), POINT_VIRGULE },
-	{ boost::regex("^([+-])"), OPA },
-	{ boost::regex("^([*/])"), OPM },
-	{ boost::regex("^(:=)"), AFFECTATION },
-	{ boost::regex("^(=)"), EGAL },
-	{ boost::regex("^(\\))"), FERMEPAR },
-	{ boost::regex("^(\\()"), OUVREPAR },
-	{ boost::regex("^([a-zA-Z][a-zA-Z0-9]*)"), ID },
-	{ boost::regex("^([0-9]+)"), VAL }
+	{ boost::regex("^\\s*(var)\\s"), VAR }, 
+	{ boost::regex("^\\s*(const)\\s"), CONST },
+	{ boost::regex("^\\s*(ecrire)\\s"), ECRIRE }, 
+	{ boost::regex("^\\s*(lire)\\s"), LIRE },
+	{ boost::regex("^\\s*(,)"), VIRGULE }, 
+	{ boost::regex("^\\s*(;)"), POINT_VIRGULE },
+	{ boost::regex("^\\s*([+-])"), OPA },
+	{ boost::regex("^\\s*([*/])"), OPM },
+	{ boost::regex("^\\s*(:=)"), AFFECTATION },
+	{ boost::regex("^\\s*(=)"), EGAL },
+	{ boost::regex("^\\s*(\\))"), FERMEPAR },
+	{ boost::regex("^\\s*(\\()"), OUVREPAR },
+	{ boost::regex("^\\s*([a-zA-Z][a-zA-Z0-9]*)"), ID },
+	{ boost::regex("^\\s*([0-9]+)"), VAL }
 };
 //---------------------------------------------------- Variables de classe
 
@@ -82,7 +82,7 @@ Symbole * Lexer::LireSymbole()
 #ifdef AUTOMAP
 			cerr << "lexer: reconnu : " << string(occurence[1].first, occurence[1].second) << endl;
 #endif
-			debut = occurence[1].second;
+			debut = occurence[0].second;
 			symboleCourant = creerSymbole(string(occurence[1].first, occurence[1].second), regexSymbole.second);
 			return symboleCourant;
 		}
