@@ -74,6 +74,9 @@ private:
 
     Symbole *symboleCourant;
 
+    int numLigne;
+    int numChar;
+
 //---------------------------------------------------------- Classes amies
 
 //-------------------------------------------------------- Classes privées

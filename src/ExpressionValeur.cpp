@@ -38,6 +38,11 @@ Expression * ExpressionValeur::Simplifier( map < string, Declaration * > & table
 {
     return this;
 }
+
+bool ExpressionValeur::Verifier ( map < string, Declaration * > & tableDeclarations )
+{
+    return true;
+}
 #pragma GCC diagnostic pop
 
 int ExpressionValeur::GetValeur ( )
@@ -48,11 +53,6 @@ int ExpressionValeur::GetValeur ( )
 void ExpressionValeur::Afficher ( ostream & out ) const
 {
 	out << valeur;
-}
-
-bool ExpressionValeur::Verifier ( map < string, Declaration * > & tableDeclarations )
-{
-    return true;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

@@ -66,28 +66,34 @@ Symbole * Lexer::LireSymbole()
 	{
 		return symboleCourant;
 	}
-	if(debut == fin && !lireLigne())
+	// Boucle infinie pour skipper les caractères invalides
+	for(;;)
 	{
-		return new Fin();
-	}
-	boost::smatch occurence;
-
-#ifdef AUTOMAP
-	cerr << "lexer: cherche match dans " << string(debut, fin) << endl;
-#endif
-
-	for(pair<boost::regex, int> regexSymbole : regexSymboles){
-		if(boost::regex_search(debut, fin, occurence, regexSymbole.first))
+		if(debut == fin && !lireLigne())
 		{
-#ifdef AUTOMAP
-			cerr << "lexer: reconnu : " << string(occurence[1].first, occurence[1].second) << endl;
-#endif
-			debut = occurence[0].second;
-			symboleCourant = creerSymbole(string(occurence[1].first, occurence[1].second), regexSymbole.second);
-			return symboleCourant;
+			return new Fin();
 		}
+		boost::smatch occurence;
+
+#ifdef AUTOMAP
+		cerr << "lexer: cherche match dans " << string(debut, fin) << endl;
+#endif
+
+		for(pair<boost::regex, int> regexSymbole : regexSymboles){
+			if(boost::regex_search(debut, fin, occurence, regexSymbole.first))
+			{
+#ifdef AUTOMAP
+				cerr << "lexer: reconnu : " << string(occurence[1].first, occurence[1].second) << endl;
+#endif
+				numChar += occurence[0].second - debut;
+				debut = occurence[0].second;
+				symboleCourant = creerSymbole(string(occurence[1].first, occurence[1].second), regexSymbole.second);
+				return symboleCourant;
+			}
+		}
+		cerr << "Caractère non reconnu : \"" << *debut << "\" (ligne " << numLigne << ":" << numChar << ")" << endl;
+		debut++;
 	}
-	cerr << "lexer: pas de match pour " << string(debut, fin) << endl;
 	return 0;
 }
 
@@ -97,35 +103,7 @@ void Lexer::ConsommerSymbole()
 	//delete symboleCourant;
 	symboleCourant = 0;
 }
-/*
-void replaceAll(std::string& str, const std::string& from, const std::string& to) {
-    if(from.empty())
-        return;
-    size_t start_pos = 0;
-    while((start_pos = str.find(from, start_pos)) != std::string::npos) {
-        str.replace(start_pos, from.length(), to);
-        start_pos += to.length(); // In case 'to' contains 'from', like replacing 'x' with 'yx'
-    }
-}
 
-string supprimerDoublonsChar(string s, char c){
-		s.erase(unique(s.begin(), s.end(),
-      [](char a, char b) { return a == ' ' && b == ' '; } ), s.end() ); 
-      return s;
-}
-
-string trouverPremierMot(string s){
-	string result="";
-	for(unsigned int i = 0; i<s.length(); i++) {
-		char c = s[i];
-		if(c == ' '){
-			break;
-		}
-		result.push_back(c);
-	}
-	return result;
-}
-*/
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
@@ -137,15 +115,14 @@ Lexer::Lexer ( const Lexer & unLexer )
 } //----- Fin de Lexer (constructeur de copie)
 
 
-Lexer::Lexer ( string nomFichier ) : fichier ( nomFichier, ios::in )
+Lexer::Lexer ( string nomFichier ) : fichier ( nomFichier, ios::in ), symboleCourant ( 0 ),
+	numLigne ( 0 )
 {
 	if(!fichier)
 	{
 		throw string( "Erreur a l'ouverture du fichier \"" + nomFichier + "\"." ); 
 	}
 	lireLigne();
-	symboleCourant = 0;
-	
 #ifdef MAP
     cout << "Appel au constructeur de <Lexer>" << endl;
 #endif
@@ -158,20 +135,6 @@ Lexer::~Lexer ( )
     cout << "Appel au destructeur de <Lexer>" << endl;
 #endif
 } //----- Fin de ~Lexer
-
-/*int main(){
-
-	try 
-	{ 
-		Lexer l("test.txt");
-		l.getSymboleSuivant();
-	} 
-	catch ( const std::string & Msg ) 
-	{ 
-		std::cerr << Msg; 
-	}
-	return 0;
-}*/
 
 //------------------------------------------------------------------ PRIVE
 
@@ -222,17 +185,20 @@ bool Lexer::lireLigne ( )
 		{
 			return false;
 		}
-		getline (fichier, ligne, ';');
+		getline (fichier, ligne);
+
 		boost::algorithm::replace_all(ligne, "\n", " ");
 		boost::algorithm::replace_all(ligne, "\r", " ");
 		boost::algorithm::replace_all(ligne, "\t", " ");
 
 		boost::algorithm::trim_all(ligne);
+		numLigne++;
 	}
 	while(ligne.empty());
-	ligne += ';';
+	//ligne += ';';
 	debut = ligne.cbegin();
 	fin = ligne.cend();
+	numChar = 1;
 	//cout << "lu : " << ligne << endl;
 	return true;
 }

@@ -88,7 +88,7 @@ Programme * Automate::Executer ( )
 
 #ifdef AUTOMAP
 		cerr << "##" << *s << "(" << s->GetNom() << ") ";
-		pileEtats.top()->Print();
+		pileEtats.top()->Afficher();
 #endif
 		if(!pileEtats.top()->Transition(*this, s))
 		{
@@ -97,7 +97,7 @@ Programme * Automate::Executer ( )
 #ifdef AUTOMAP
 			cout << "Error while applying transition " << (int)(*lexer.LireSymbole())
 			     << " to state ";
-			pileEtats.top()->Print();
+			pileEtats.top()->Afficher();
 #endif
 			viderPiles();
 			
@@ -105,8 +105,8 @@ Programme * Automate::Executer ( )
 		}
 #ifdef AUTOMAP
 		cerr << " -> ";
-		pileEtats.top()->Print();
-		cerr << "###" << (int)*(pileSymboles.top()) << endl;
+		pileEtats.top()->Afficher();
+		//cerr << "###" << (int)*(pileSymboles.top()) << endl;
 #endif
 	} while(pileSymboles.empty() || (int)*(pileSymboles.top()) != PROG);
 #ifdef AUTOMAP
