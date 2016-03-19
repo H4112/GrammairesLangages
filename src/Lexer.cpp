@@ -141,7 +141,7 @@ Lexer::Lexer ( string nomFichier ) : fichier ( nomFichier, ios::in )
 {
 	if(!fichier)
 	{
-		throw string( "Erreur à l'ouverture de " + nomFichier ); 
+		throw string( "Erreur a l'ouverture du fichier " + nomFichier ); 
 	}
 	lireLigne();
 	symboleCourant = 0;

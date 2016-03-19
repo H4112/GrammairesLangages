@@ -112,7 +112,6 @@ bool Automate::Executer ( )
 #endif
 	//si nous sommes arrivés ici, tout s'est bien passé.
 	//nous pourrons récupérer le programme au sommet de la pile de symboles.
-	cout << *((Programme *)(pileSymboles.top()));
 	return true;
 }
 
@@ -150,14 +149,21 @@ int main ( int argc, char ** argv )
 {
     if(argc < 2)
     {
-        cout << "Usage: " << argv[0] << " fichier" << endl;
-        return -1;
+        cerr << "Erreur, veuillez specifier des arguments" << endl;
+  		cerr << "Utilisation :" << endl;
+    	cerr << argv[0] << " [-p] [-a] [-e] [-o] source.lt" << endl;
+      	cerr << "[-p] affiche le code source reconnu" << endl;
+		cerr << "[-a] analyse le programme de maniere statique" << endl;
+        cerr << "[-e] execute interactivement le programme" << endl;
+        cerr << "[-o] optimise les expressions et instructions" << endl;
+        return 1;
     }
     try {
         Automate a(argv[1]);
         a.Executer();
     } catch ( string msg ) {
-        cerr << "Erreur : " << msg << endl;
+        cerr << msg << endl;
+        return 1;
     }
     return 0;
 }
