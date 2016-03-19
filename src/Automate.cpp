@@ -18,6 +18,8 @@ using namespace std;
 #include "Automate.h"
 #include "etats/E0.h"
 
+#include "symboles/Programme.h"
+
 #include "symboles/Symbole.h"
 
 //------------------------------------------------------------- Constantes
@@ -115,6 +117,22 @@ bool Automate::Executer ( )
 	return true;
 }
 
+Programme * Automate::GetProgramme ( )
+{
+	if(pileSymboles.empty())
+	{
+		return NULL;
+	}
+
+	Symbole * symbole = pileSymboles.top();
+	if(*symbole != PROG)
+	{
+		return NULL;
+	}
+
+	return (Programme *) pileSymboles.top();
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
@@ -144,27 +162,99 @@ Automate::~Automate ( )
 #endif
 } //----- Fin de ~Automate
 
+void afficher_aide( char * nom_executable )
+{
+	cerr << "Utilisation :" << endl;
+    	cerr << nom_executable << " [-p] [-a] [-e] [-o] source.lt" << endl;
+      	cerr << "[-p] affiche le code source reconnu" << endl;
+	cerr << "[-a] analyse le programme de maniere statique" << endl;
+        cerr << "[-e] execute interactivement le programme" << endl;
+        cerr << "[-o] optimise les expressions et instructions" << endl;
+}
 
 int main ( int argc, char ** argv )
 {
     if(argc < 2)
     {
         cerr << "Erreur, veuillez specifier des arguments" << endl;
-  		cerr << "Utilisation :" << endl;
-    	cerr << argv[0] << " [-p] [-a] [-e] [-o] source.lt" << endl;
-      	cerr << "[-p] affiche le code source reconnu" << endl;
-		cerr << "[-a] analyse le programme de maniere statique" << endl;
-        cerr << "[-e] execute interactivement le programme" << endl;
-        cerr << "[-o] optimise les expressions et instructions" << endl;
+  	afficher_aide(argv[0]);
         return 1;
     }
-    try {
-        Automate a(argv[1]);
-        a.Executer();
-    } catch ( string msg ) {
-        cerr << msg << endl;
-        return 1;
-    }
+
+	bool afficher = false;
+	bool analyser = false;
+	bool executer = false;
+	bool optimiser = false;
+	for(int arg = 1; arg < argc - 1; arg++)
+	{
+		char * param = argv[arg];
+
+		//le paramètre doit commencer par un tiret, et posséder
+		//au moins 1 caractère après le tiret
+		if(param[0] != '-' || !param[1])
+		{
+			cerr << "Erreur, argument invalide : " << param << endl;
+			afficher_aide(argv[0]);
+			return 1;
+		}
+		for(int i = 1; param[i]; i++)
+		{
+			switch(param[i])
+			{
+				case 'p':
+					afficher = true;
+					break;
+				case 'a':
+					analyser = true;
+					break;
+				case 'e':
+					executer = true;
+					break;
+				case 'o':
+					optimiser = true;
+					break;
+				default:
+					cerr << "Erreur, option invalide : -" << param[i] << endl;
+					afficher_aide(argv[0]);
+					return 1;
+			}
+		}
+	}
+
+	try {
+		Automate a(argv[argc-1]);
+		if(a.Executer())
+		{
+			Programme * prog = a.GetProgramme();	
+	
+			if(analyser)
+			{
+				if(!prog->VerificationStatique())
+				{
+					return 1;
+				}
+			}
+			if(optimiser)
+			{
+				cerr << "Optimisation non implementee." << endl;
+			}
+			if(afficher)
+			{
+				cout << *prog << endl;
+			}
+			if(executer)
+			{
+				prog->Executer();
+			}
+		}
+		else
+		{
+			return 1;
+		}
+	} catch(string msg) {
+		cerr << msg << endl;
+		return 1;
+	}
     return 0;
 }
 
