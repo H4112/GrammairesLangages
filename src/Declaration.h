@@ -50,13 +50,9 @@ public:
 	// Contrat :
 	//	Aucun
 	
-	int UtiliserValeur ( );
+	void Utiliser ( );
 	// Mode d'emploi :
-	//	Renvoie la valeur contenue par cette variable, et la marque comme
-	//	étant utilisée.
-	// Contrat :
-	//	Si la variable n'est pas affectée, le comportement de cette méthode
-	//	est indéfini.
+	//	Passe utilise à true
 
     int GetValeur ( ) const;
     // Mode d'emploi :

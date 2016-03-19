@@ -27,7 +27,7 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E21::Print ( ) const 
+void E21::Afficher ( ) const 
 {
 	cout << "E21" << endl;
 }

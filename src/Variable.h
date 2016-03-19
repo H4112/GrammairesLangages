@@ -36,10 +36,13 @@ public:
     // Mode d'emploi :
     //     Renvoie vrai si une valeur a été affectée à la variable.
 	
-	void AffecterValeur ( int valeur );
+	void Affecter ( );
 	// Mode d'emploi :
-	//		Donne une nouvelle valeur à cette variable, et la marque
-	//		comme affectée.
+	//		Passe affecte à true
+
+    void SetValeur ( int val );
+    // Mode d'emploi : 
+    //      affecte une nouvelle valeur
 
 //------------------------------------------------- Surcharge d'opérateurs
 

@@ -27,7 +27,10 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-
+bool ExpressionBinaire::Verifier ( map < string, Declaration * > & tableDeclarations )
+{
+    return expGauche->Verifier(tableDeclarations) && expDroite->Verifier(tableDeclarations);
+}
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur

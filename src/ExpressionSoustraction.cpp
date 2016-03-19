@@ -49,7 +49,7 @@ Expression * ExpressionSoustraction::Simplifier( map < string, Declaration * > &
     }
 }
 
-void ExpressionSoustraction::Print ( ostream & out ) const
+void ExpressionSoustraction::Afficher ( ostream & out ) const
 {
     out << *expGauche << " - " << *expDroite;
 }

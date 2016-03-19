@@ -48,9 +48,28 @@ Expression * ExpressionIdentifiant::Simplifier( map < string, Declaration * > & 
 }
 #pragma GCC diagnostic pop
 
-void ExpressionIdentifiant::Print ( ostream & out ) const
+void ExpressionIdentifiant::Afficher ( ostream & out ) const
 {
     out << id;
+}
+
+bool ExpressionIdentifiant::Verifier ( map < string, Declaration * > & tableDeclarations )
+{
+    if(tableDeclarations.find(id) == tableDeclarations.end())
+    {
+        cerr << "\"" << id << "\" n'est pas déclaré";
+        return false;
+    }
+    else if(!tableDeclarations[id]->EstAffecte())
+    {
+        cerr << "La variable \"" << id << "\" n'est pas affectée";
+        return false;
+    }
+    else
+    {
+        tableDeclarations[id]->Utiliser();
+        return true;
+    }
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

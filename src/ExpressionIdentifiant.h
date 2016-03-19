@@ -32,7 +32,9 @@ public:
     
     Expression * Simplifier( map < string, Declaration * > & tableDeclarations );
 
-	void Print ( ostream & out ) const;
+	void Afficher ( ostream & out ) const;
+
+    bool Verifier ( map < string, Declaration * > & tableDeclarations );
 
 //------------------------------------------------- Surcharge d'opérateurs
 

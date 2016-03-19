@@ -27,7 +27,7 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E36::Print ( ) const 
+void E36::Afficher ( ) const 
 {
 	cout << "E36" << endl;
 }

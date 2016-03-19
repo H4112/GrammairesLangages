@@ -36,7 +36,7 @@ public:
     // Mode d'emploi : exécute le programme
     // Contrat : aucun
     
-    bool VerificationStatique();
+    bool Verifier();
     /* Vérifier que:
         — Une variable est utilisée (en partie droite d’une affectation ou dans une opération d’écriture) sans avoir
         jamais été affectée.
@@ -44,6 +44,8 @@ public:
         — Une variable n’a pas été déclarée.
         — Une constante ne peut être modifiée.
     */
+
+    void Simplifier();
 
 //------------------------------------------------- Surcharge d'opérateurs
     friend ostream & operator << ( ostream & out,

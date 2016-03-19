@@ -229,14 +229,14 @@ int main ( int argc, char ** argv )
 	
 			if(analyser)
 			{
-				if(!prog->VerificationStatique())
+				if(!prog->Verifier())
 				{
 					return 1;
 				}
 			}
 			if(optimiser)
 			{
-				cerr << "Optimisation non implementee." << endl;
+				prog->Simplifier();
 			}
 			if(afficher)
 			{

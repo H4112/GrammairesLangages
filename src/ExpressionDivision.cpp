@@ -49,7 +49,7 @@ Expression * ExpressionDivision::Simplifier( map < string, Declaration * > & tab
     }
 }
 
-void ExpressionDivision::Print ( ostream & out ) const
+void ExpressionDivision::Afficher ( ostream & out ) const
 {
     out << *expGauche << " / " << *expDroite;
 }

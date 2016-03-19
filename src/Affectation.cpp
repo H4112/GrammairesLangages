@@ -30,7 +30,7 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void Affectation::Executer( map < string, Declaration * > & tableDeclarations )
 {
-	((Variable*)tableDeclarations[nomVariable])->AffecterValeur(expression->Evaluer(tableDeclarations));
+	((Variable*)tableDeclarations[nomVariable])->SetValeur(expression->Evaluer(tableDeclarations));
 }
 
 void Affectation::Simplifier( map < string, Declaration * > & tableDeclarations )
@@ -39,13 +39,37 @@ void Affectation::Simplifier( map < string, Declaration * > & tableDeclarations 
     if(expr != expression)
     {
         delete expression;
-        expr = expression;
+        expression = expr;
     }
 }
 
 void Affectation::Afficher( ostream & out ) const
 {
     out << nomVariable << " := " << *expression;
+}
+
+bool Affectation::Verifier( map < string, Declaration * > & tableDeclarations )
+{
+    if(tableDeclarations.find(nomVariable) == tableDeclarations.end())
+    {
+        cerr << "La variable \"" << nomVariable << "\" n'est pas déclarée.";
+        return false;
+    }
+    else if(!tableDeclarations[nomVariable]->EstAffectable())
+    {
+        cerr << "La constante \"" << nomVariable << "\" ne peut pas être affectée.";
+        return false;
+    }
+    else if(!expression->Verifier(tableDeclarations))
+    {
+        cerr << " dans l'expression \"" << *expression << "\"." << endl;
+        return false;
+    }
+    else
+    {
+        ((Variable *)tableDeclarations[nomVariable])->Affecter();
+        return true;
+    }
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

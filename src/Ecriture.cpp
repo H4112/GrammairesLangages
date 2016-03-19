@@ -49,6 +49,19 @@ void Ecriture::Afficher( ostream & out ) const
     out << "ecrire " << *expression;
 }
 
+bool Ecriture::Verifier( map < string, Declaration * > & tableDeclarations )
+{
+    if(!expression->Verifier(tableDeclarations))
+    {
+        cerr << " dans l'expression \"" << *expression << "\"." << endl;
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur

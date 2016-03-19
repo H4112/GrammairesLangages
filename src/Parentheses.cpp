@@ -37,9 +37,14 @@ Expression * Parentheses::Simplifier( map < string, Declaration * > & tableDecla
 	return expression->Simplifier(tableDeclarations);
 }
 
-void Parentheses::Print ( ostream & out ) const
+void Parentheses::Afficher ( ostream & out ) const
 {
     out << "(" << *expression << ")";
+}
+
+bool Parentheses::Verifier ( map < string, Declaration * > & tableDeclarations )
+{
+    return expression->Verifier(tableDeclarations);
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

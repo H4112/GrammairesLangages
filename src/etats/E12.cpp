@@ -30,7 +30,7 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E12::Print ( ) const 
+void E12::Afficher ( ) const 
 {
 	cout << "E12" << endl;
 }

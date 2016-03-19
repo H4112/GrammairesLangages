@@ -44,6 +44,8 @@ public:
     // Mode d'emploi : simplifie l'instruction en propageant les
     //     constantes, supprimant les éléments neutres, etc.
     //     Retourne l'expression simplifiée.
+    virtual bool Verifier( map < string, Declaration * > & tableDeclarations ) = 0;
+    // Mode d'emploi : vérification statique
     void SetIdent ( int id );
     // Mode d'emploi :
     //  Permet de changer le type de Symbole
@@ -52,7 +54,7 @@ public:
 	// Mode d'emploi :
 	//	Permet de connaître le type de l'expression
 
-	virtual void Print ( ostream & out ) const = 0;
+	virtual void Afficher ( ostream & out ) const = 0;
 	// Mode d'emploi :
 	//	Ecrit expression sur la sortie donnée en paramètre
 

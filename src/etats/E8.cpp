@@ -33,7 +33,7 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E8::Print ( ) const 
+void E8::Afficher ( ) const 
 {
 	cout << "E8" << endl;
 }

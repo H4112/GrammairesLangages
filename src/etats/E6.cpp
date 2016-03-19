@@ -28,7 +28,7 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E6::Print ( ) const 
+void E6::Afficher ( ) const 
 {
 	cout << "E6" << endl;
 }

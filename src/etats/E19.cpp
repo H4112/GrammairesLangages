@@ -27,7 +27,7 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E19::Print ( ) const 
+void E19::Afficher ( ) const 
 {
 	cout << "E19" << endl;
 }

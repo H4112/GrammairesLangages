@@ -37,10 +37,9 @@ string Declaration::GetId ( ) const
 	return id;
 }
 
-int Declaration::UtiliserValeur ( )
+void Declaration::Utiliser ( )
 {
 	utilise = true;
-	return valeur;
 }
 
 int Declaration::GetValeur ( ) const
@@ -64,7 +63,7 @@ ostream & operator << ( ostream & out, const Declaration & declaration )
 
 //-------------------------------------------- Constructeurs - destructeur
 Declaration::Declaration ( string unId, int uneValeur )
-	: valeur ( uneValeur ), id ( unId )
+	: valeur ( uneValeur ), id ( unId ), utilise ( false )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Declaration>" << endl;

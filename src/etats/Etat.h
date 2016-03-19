@@ -32,7 +32,7 @@ class Etat
 
 public:
 //----------------------------------------------------- Méthodes publiques
-	virtual void Print ( ) const = 0;
+	virtual void Afficher ( ) const = 0;
     // Mode d'emploi :
     //  Ecrit le nom de l'état sur la sortie standard.
     // Contrat :

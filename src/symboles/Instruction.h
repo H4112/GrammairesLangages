@@ -41,6 +41,9 @@ public:
     //     constantes, supprimant les éléments neutres, etc.
 	virtual void Afficher( ostream & out ) const = 0;
 
+    virtual bool Verifier( map < string, Declaration * > & tableDeclarations ) = 0;
+    // Mode d'emploi : vérification statique
+
 	int GetType ( ) const;
 	// Mode d'emploi :
 	//	Permet de connaître le type de l'instruction

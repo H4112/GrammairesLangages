@@ -39,10 +39,14 @@ bool Variable::EstAffecte ( ) const
 	return affecte;
 }
 
-void Variable::AffecterValeur ( int newValeur )
+void Variable::Affecter ( )
 {
-	valeur = newValeur;
 	affecte = true;
+}
+
+void Variable::SetValeur ( int val )
+{
+    valeur = val;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

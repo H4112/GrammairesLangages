@@ -29,7 +29,7 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E0::Print ( ) const 
+void E0::Afficher ( ) const 
 {
 	cout << "E0" << endl;
 }

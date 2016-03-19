@@ -28,7 +28,7 @@ class ExpressionBinaire : public Expression
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    
+    bool Verifier ( map < string, Declaration * > & tableDeclarations );
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur

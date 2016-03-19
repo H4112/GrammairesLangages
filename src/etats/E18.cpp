@@ -28,7 +28,7 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E18::Print ( ) const 
+void E18::Afficher ( ) const 
 {
 	cout << "E18" << endl;
 }

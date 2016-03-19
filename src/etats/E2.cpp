@@ -36,7 +36,7 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E2::Print ( ) const 
+void E2::Afficher ( ) const 
 {
 	cout << "E2" << endl;
 }

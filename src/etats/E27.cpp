@@ -32,7 +32,7 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E27::Print ( ) const 
+void E27::Afficher ( ) const 
 {
 	cout << "E27" << endl;
 }

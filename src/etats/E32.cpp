@@ -28,7 +28,7 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E32::Print ( ) const 
+void E32::Afficher ( ) const 
 {
 	cout << "E32" << endl;
 }

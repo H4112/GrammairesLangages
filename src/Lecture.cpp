@@ -37,7 +37,7 @@ void Lecture::Executer( map < string, Declaration * > & tableDeclarations )
 	//on devrait avoir vérifié que la déclaration est bien une variable
 	//et non une constante au niveau de l'analyse statique
 	Variable * variable = (Variable *) tableDeclarations[nomVariable];
-	variable->AffecterValeur(nb);
+	variable->SetValeur(nb);
 }
 
 #pragma GCC diagnostic push
@@ -51,6 +51,25 @@ void Lecture::Simplifier( map < string, Declaration * > & tableDeclarations )
 void Lecture::Afficher( ostream & out ) const
 {
 	out << "lire " << nomVariable;
+}
+
+bool Lecture::Verifier( map < string, Declaration * > & tableDeclarations )
+{
+	if(tableDeclarations.find(nomVariable) == tableDeclarations.end())
+	{
+		cerr << "\"" << nomVariable << "\" non déclaré." << endl;
+		return false;
+	}
+	else if(!tableDeclarations[nomVariable]->EstAffectable())
+	{
+		cerr << "\"" << nomVariable << "\" est une constante et ne peut pas être affectée." << endl;
+		return false;
+	}
+	else
+	{
+		((Variable *)tableDeclarations[nomVariable])->Affecter();
+		return true;
+	}
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

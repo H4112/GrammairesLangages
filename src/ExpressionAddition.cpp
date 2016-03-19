@@ -49,7 +49,7 @@ Expression * ExpressionAddition::Simplifier( map < string, Declaration * > & tab
     }
 }
 
-void ExpressionAddition::Print ( ostream & out ) const
+void ExpressionAddition::Afficher ( ostream & out ) const
 {
     out << *expGauche << " + " << *expDroite;
 }

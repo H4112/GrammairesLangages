@@ -45,9 +45,14 @@ int ExpressionValeur::GetValeur ( )
     return valeur;
 }
 
-void ExpressionValeur::Print ( ostream & out ) const
+void ExpressionValeur::Afficher ( ostream & out ) const
 {
 	out << valeur;
+}
+
+bool ExpressionValeur::Verifier ( map < string, Declaration * > & tableDeclarations )
+{
+    return true;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

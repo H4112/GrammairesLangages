@@ -42,6 +42,8 @@ public:
 
     void Afficher( ostream & out ) const;
 
+    bool Verifier( map < string, Declaration * > & tableDeclarations );
+
 //------------------------------------------------- Surcharge d'opérateurs
     
 //-------------------------------------------- Constructeurs - destructeur

@@ -48,7 +48,7 @@ void Expression::SetIdent ( int id )
 ostream & operator << ( ostream & out,
         const Expression & expression )
 {
-    expression.Print(out);
+    expression.Afficher(out);
 
     return out;
 }

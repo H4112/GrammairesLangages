@@ -32,7 +32,7 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void E20::Print ( ) const 
+void E20::Afficher ( ) const 
 {
 	cout << "E20" << endl;
 }

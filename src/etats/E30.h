@@ -32,7 +32,7 @@ class E30 : public Etat
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    void Print ( ) const;
+    void Afficher ( ) const;
     // Mode d'emploi :
     //  Ecrit le nom de l'état sur la sortie standard.
     // Contrat :

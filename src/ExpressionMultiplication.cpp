@@ -45,7 +45,7 @@ Expression * ExpressionMultiplication::Simplifier( map < string, Declaration * >
     }
 }
 
-void ExpressionMultiplication::Print ( ostream & out ) const
+void ExpressionMultiplication::Afficher ( ostream & out ) const
 {
     out << *expGauche << " * " << *expDroite;
 }
