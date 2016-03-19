@@ -49,6 +49,11 @@ Expression * ExpressionAddition::Simplifier( map < string, Declaration * > & tab
     }
 }
 
+void ExpressionAddition::Print ( ostream & out ) const
+{
+    out << *expGauche << " + " << *expDroite;
+}
+
 
 //------------------------------------------------- Surcharge d'opérateurs
 

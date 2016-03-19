@@ -32,6 +32,8 @@ public:
 	
 	Expression * Simplifier( map < string, Declaration * > & tableDeclarations );
 
+	void Print ( ostream & out ) const;
+
 
 //------------------------------------------------- Surcharge d'opérateurs
 

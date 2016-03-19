@@ -45,6 +45,11 @@ int ExpressionValeur::GetValeur ( )
     return valeur;
 }
 
+void ExpressionValeur::Print ( ostream & out ) const
+{
+	out << valeur;
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur

@@ -52,9 +52,14 @@ public:
 	// Mode d'emploi :
 	//	Permet de connaître le type de l'expression
 
+	virtual void Print ( ostream & out ) const = 0;
+	// Mode d'emploi :
+	//	Ecrit expression sur la sortie donnée en paramètre
+
 //------------------------------------------------- Surcharge d'opérateurs
 friend ostream & operator << ( ostream & out,
         const Expression & expression );
+
 //-------------------------------------------- Constructeurs - destructeur
     Expression ( const Expression & unExpression );
 

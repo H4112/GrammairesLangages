@@ -31,9 +31,10 @@ public:
     int Evaluer( map < string, Declaration * > & tableDeclarations );
 	
 	Expression * Simplifier( map < string, Declaration * > & tableDeclarations );
+
+	void Print ( ostream & out ) const;
 	
 //------------------------------------------------- Surcharge d'opérateurs
-
 
 //-------------------------------------------- Constructeurs - destructeur
     ExpressionMultiplication ( const ExpressionMultiplication & unExpressionMultiplication );

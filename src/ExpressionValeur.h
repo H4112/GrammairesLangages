@@ -33,8 +33,9 @@ public:
 
     int GetValeur ( );
 
-//------------------------------------------------- Surcharge d'opérateurs
+	void Print ( ostream & out ) const;
 
+//------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
     ExpressionValeur ( const ExpressionValeur & unExpressionValeur );

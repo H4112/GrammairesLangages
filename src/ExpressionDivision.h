@@ -32,14 +32,9 @@ public:
 	
 	Expression * Simplifier ( map < string, Declaration * > & tableDeclarations );
 
+	void Print ( ostream & out ) const;
+
 //------------------------------------------------- Surcharge d'opérateurs
-    ExpressionDivision & operator = ( const ExpressionDivision & unExpressionDivision );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-
 //-------------------------------------------- Constructeurs - destructeur
     ExpressionDivision ( const ExpressionDivision & unExpressionDivision );
     // Mode d'emploi (constructeur de copie) :

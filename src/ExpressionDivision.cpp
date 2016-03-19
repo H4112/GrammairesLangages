@@ -49,6 +49,11 @@ Expression * ExpressionDivision::Simplifier( map < string, Declaration * > & tab
     }
 }
 
+void ExpressionDivision::Print ( ostream & out ) const
+{
+    out << *expGauche << " / " << *expDroite;
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur

@@ -32,8 +32,9 @@ public:
 	
 	Expression * Simplifier( map < string, Declaration * > & tableDeclarations );
 
-//------------------------------------------------- Surcharge d'opérateurs
+	void Print ( ostream & out ) const;
 
+//------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
     ExpressionSoustraction ( const ExpressionSoustraction & unExpressionSoustraction );

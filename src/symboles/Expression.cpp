@@ -25,11 +25,7 @@ using namespace std;
 
 //----------------------------------------------------------------- PUBLIC
 //-------------------------------------------------------- Fonctions amies
-ostream & operator << ( ostream & out,
-        const Expression & expression )
-{
-    return out;
-}
+
 //----------------------------------------------------- Méthodes publiques
 int Expression::GetType ( )
 {
@@ -49,6 +45,13 @@ void Expression::SetIdent ( int id )
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
+ostream & operator << ( ostream & out,
+        const Expression & expression )
+{
+    expression.Print(out);
+
+    return out;
+}
 
 //-------------------------------------------- Constructeurs - destructeur
 Expression::Expression ( const Expression & unExpression ) 

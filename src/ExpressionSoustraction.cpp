@@ -49,9 +49,13 @@ Expression * ExpressionSoustraction::Simplifier( map < string, Declaration * > &
     }
 }
 
+void ExpressionSoustraction::Print ( ostream & out ) const
+{
+    out << *expGauche << " - " << *expDroite;
+}
+
 
 //------------------------------------------------- Surcharge d'opérateurs
-
 
 //-------------------------------------------- Constructeurs - destructeur
 ExpressionSoustraction::ExpressionSoustraction ( const ExpressionSoustraction & unExpressionSoustraction )

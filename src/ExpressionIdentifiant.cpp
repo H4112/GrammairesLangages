@@ -48,6 +48,11 @@ Expression * ExpressionIdentifiant::Simplifier( map < string, Declaration * > & 
 }
 #pragma GCC diagnostic pop
 
+void ExpressionIdentifiant::Print ( ostream & out ) const
+{
+    out << id;
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
