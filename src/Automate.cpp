@@ -160,6 +160,7 @@ Automate::~Automate ( )
 #ifdef MAP
     cout << "Appel au destructeur de <Automate>" << endl;
 #endif
+    viderPiles();
 } //----- Fin de ~Automate
 
 void afficher_aide( char * nom_executable )

@@ -71,7 +71,8 @@ Symbole * Lexer::LireSymbole()
 	{
 		if(debut == fin && !lireLigne())
 		{
-			return new Fin();
+			symboleCourant = new Fin();
+			return symboleCourant;
 		}
 		boost::smatch occurence;
 
@@ -134,6 +135,8 @@ Lexer::~Lexer ( )
 #ifdef MAP
     cout << "Appel au destructeur de <Lexer>" << endl;
 #endif
+    delete symboleCourant;
+    fichier.close();
 } //----- Fin de ~Lexer
 
 //------------------------------------------------------------------ PRIVE

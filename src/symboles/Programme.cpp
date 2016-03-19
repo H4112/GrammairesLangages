@@ -115,6 +115,14 @@ Programme::~Programme ( )
 #ifdef MAP
     cout << "Appel au destructeur de <Programme>" << endl;
 #endif
+    for ( auto & declaration : tableDeclarations )
+    {
+        delete declaration.second;
+    }
+    for ( Instruction * instruction : listeInstructions )
+    {
+        delete instruction;
+    }
 } //----- Fin de ~Programme
 
 

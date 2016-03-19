@@ -72,7 +72,7 @@ private:
     string::const_iterator debut;
     string::const_iterator fin;
 
-    Symbole *symboleCourant;
+    Symbole * symboleCourant;
 
     int numLigne;
     int numChar;

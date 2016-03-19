@@ -52,6 +52,17 @@ bool E10::Transition ( Automate & automate, Symbole * s )
 
 			if( ! pd->AjouterDeclarations(d) )
 			{
+				// nettoyer les Declaration
+				for(Declaration * decl : d->GetListeDeclarations())
+				{
+					delete decl;
+				}
+				delete d;
+				for(auto & decl : pd->GetDeclarations())
+				{
+					delete decl.second;
+				}
+				delete pd;
 				return false;
 			}
 			else
