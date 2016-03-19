@@ -39,6 +39,11 @@ bool Variable::EstAffecte ( ) const
 	return affecte;
 }
 
+bool Variable::EstConstante ( ) const
+{
+    return constante;
+}
+
 void Variable::Affecter ( )
 {
 	affecte = true;
@@ -47,6 +52,11 @@ void Variable::Affecter ( )
 void Variable::SetValeur ( int val )
 {
     valeur = val;
+}
+
+void Variable::SetConstante ( bool val )
+{
+    constante = val;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -61,7 +71,7 @@ Variable::Variable ( const Variable & uneVariable )
 } //----- Fin de Variable (constructeur de copie)
 
 
-Variable::Variable ( string id ) : Declaration(id, 0), affecte(false)
+Variable::Variable ( string id ) : Declaration(id, 0), affecte(false), constante(false)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Variable>" << endl;

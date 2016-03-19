@@ -34,7 +34,19 @@ int Parentheses::Evaluer( map < string, Declaration * > & tableDeclarations )
 
 Expression * Parentheses::Simplifier( map < string, Declaration * > & tableDeclarations )
 {
-	return expression->Simplifier(tableDeclarations);
+	Expression * e = expression->Simplifier(tableDeclarations);
+    if(expression != e)
+    {
+        delete expression;
+        expression = e;
+    }
+    if(expression->GetType() == EXPR_VAL)
+    {
+        Expression * expr = expression;
+        expression = 0;
+        return expr;
+    }
+    return this;
 }
 
 void Parentheses::Afficher ( ostream & out ) const
@@ -72,10 +84,10 @@ Parentheses::~Parentheses ( )
 // Algorithme :
 //
 {
+    delete expression;
 #ifdef MAP
     cout << "Appel au destructeur de <Parentheses>" << endl;
 #endif
-    delete expression;
 } //----- Fin de ~Parentheses
 
 

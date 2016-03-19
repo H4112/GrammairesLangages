@@ -43,6 +43,18 @@ Expression * ExpressionAddition::Simplifier( map < string, Declaration * > & tab
         int droite = ((ExpressionValeur *)expDroite)->GetValeur();
         return new ExpressionValeur(gauche + droite);
     }
+    else if(expGauche->GetType() == EXPR_VAL && ((ExpressionValeur *)expGauche)->GetValeur() == 0)
+    {
+        Expression * e = expDroite;
+        expDroite = 0;
+        return e;
+    }
+    else if(expDroite->GetType() == EXPR_VAL && ((ExpressionValeur *)expDroite)->GetValeur() == 0)
+    {
+        Expression * e = expGauche;
+        expGauche = 0;
+        return e;
+    }
     else
     {
         return this;

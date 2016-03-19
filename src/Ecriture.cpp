@@ -40,7 +40,7 @@ void Ecriture::Simplifier( map < string, Declaration * > & tableDeclarations )
     if(expr != expression)
     {
         delete expression;
-        expr = expression;
+        expression = expr;
     }
 }
 

@@ -44,7 +44,7 @@ void Lecture::Executer( map < string, Declaration * > & tableDeclarations )
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 void Lecture::Simplifier( map < string, Declaration * > & tableDeclarations )
 {
-	//rien à faire
+	((Variable *)tableDeclarations[nomVariable])->SetConstante(false);
 }
 #pragma GCC diagnostic pop
 

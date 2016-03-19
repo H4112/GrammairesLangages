@@ -37,7 +37,7 @@ int ExpressionIdentifiant::Evaluer( map < string, Declaration * > & tableDeclara
 Expression * ExpressionIdentifiant::Simplifier( map < string, Declaration * > & tableDeclarations )
 {
     // Si c'est une constante, la remplacer par sa valeur
-    if(!tableDeclarations[id]->EstAffectable())
+    if(!tableDeclarations[id]->EstAffectable() || ((Variable *)tableDeclarations[id])->EstConstante())
     {
         return new ExpressionValeur(tableDeclarations[id]->GetValeur());
     }

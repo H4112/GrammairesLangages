@@ -35,6 +35,10 @@ public:
     bool EstAffecte ( ) const;
     // Mode d'emploi :
     //     Renvoie vrai si une valeur a été affectée à la variable.
+
+    bool EstConstante ( ) const;
+    // Mode d'emploi :
+    //     Renvoie vrai si la variable a une valeur constante (affectée à partir de constantes)
 	
 	void Affecter ( );
 	// Mode d'emploi :
@@ -43,6 +47,10 @@ public:
     void SetValeur ( int val );
     // Mode d'emploi : 
     //      affecte une nouvelle valeur
+
+    void SetConstante ( bool val );
+    // Mode d'emploi :
+    //      marque la variable comme constante ou non pour l'optimisation
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -74,7 +82,7 @@ protected:
 private:
 //------------------------------------------------------- Attributs privés
 	bool affecte;
-
+    bool constante;
 //---------------------------------------------------------- Classes amies
 
 //-------------------------------------------------------- Classes privées

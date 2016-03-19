@@ -12,6 +12,7 @@
 //--------------------------------------------------- Interfaces utilisées
 #include "symboles/Instruction.h"
 #include "symboles/Expression.h"
+#include "ExpressionValeur.h"
 #include "Variable.h"
 //------------------------------------------------------------- Constantes 
 
