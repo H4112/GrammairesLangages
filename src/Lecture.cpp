@@ -48,13 +48,13 @@ void Lecture::Simplifier( map < string, Declaration * > & tableDeclarations )
 }
 #pragma GCC diagnostic pop
 
+void Lecture::Afficher( ostream & out ) const
+{
+	out << "lire " << nomVariable;
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
-ostream & operator << ( ostream & out, const Lecture & lecture )
-{
-	out << "lire " << lecture.nomVariable;
-	return out;
-}
+
 //-------------------------------------------- Constructeurs - destructeur
 Lecture::Lecture ( const Lecture & unLecture )
 	: Instruction ( unLecture ), nomVariable ( unLecture.nomVariable )

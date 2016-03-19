@@ -33,9 +33,10 @@ public:
 
     void Simplifier( map < string, Declaration * > & tableDeclarations );
 
+    void Afficher( ostream & out ) const;
+
 //------------------------------------------------- Surcharge d'opérateurs
-    friend ostream & operator << ( ostream & out,
-        const Affectation & affectation );
+    
 //-------------------------------------------- Constructeurs - destructeur
     Affectation ( const Affectation & unAffectation );
     // Mode d'emploi (constructeur de copie) :

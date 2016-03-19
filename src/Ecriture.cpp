@@ -44,13 +44,12 @@ void Ecriture::Simplifier( map < string, Declaration * > & tableDeclarations )
     }
 }
 
+void Ecriture::Afficher( ostream & out ) const
+{
+    out << "ecrire " << *expression;
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
-ostream & operator << ( ostream & out, const Ecriture & ecriture )
-{
-    out << "ecrire " << *ecriture.expression;
-    return out;
-}
 
 //-------------------------------------------- Constructeurs - destructeur
 Ecriture::Ecriture ( const Ecriture & unEcriture )

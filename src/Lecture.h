@@ -40,9 +40,10 @@ public:
     // Mode d'emploi : 
 	//	Ne fait rien.
 
+    void Afficher( ostream & out ) const;
+
 //------------------------------------------------- Surcharge d'opérateurs
-    friend ostream & operator << ( ostream & out,
-        const Lecture & lecture );
+    
 //-------------------------------------------- Constructeurs - destructeur
     Lecture ( const Lecture & unLecture );
 

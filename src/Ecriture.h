@@ -38,9 +38,10 @@ public:
     // Mode d'emploi : 
 	//	Simplifie l'expression associée à l'instruction d'écriture.
 
+    void Afficher( ostream & out ) const;
+
 //------------------------------------------------- Surcharge d'opérateurs
-    friend ostream & operator << ( ostream & out,
-        const Ecriture & ecriture );
+
 //-------------------------------------------- Constructeurs - destructeur
     Ecriture ( const Ecriture & unEcriture );
 

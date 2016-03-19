@@ -42,12 +42,14 @@ void Affectation::Simplifier( map < string, Declaration * > & tableDeclarations 
         expr = expression;
     }
 }
-//------------------------------------------------- Surcharge d'opérateurs
-ostream & operator << ( ostream & out, const Affectation & affectation )
+
+void Affectation::Afficher( ostream & out ) const
 {
-    out << affectation.nomVariable << " := " << *affectation.expression;
-    return out;
+    out << nomVariable << " := " << *expression;
 }
+
+//------------------------------------------------- Surcharge d'opérateurs
+
 //-------------------------------------------- Constructeurs - destructeur
 Affectation::Affectation ( const Affectation & unAffectation )
 	: Instruction ( unAffectation )

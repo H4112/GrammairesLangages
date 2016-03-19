@@ -37,18 +37,7 @@ int Instruction::GetType ( ) const
 //------------------------------------------------- Surcharge d'opérateurs
 ostream & operator << ( ostream & out, const Instruction & instruction )
 {
-    switch(instruction.GetType())
-    {
-        case INSTR_AFF:
-            out << (const Affectation &)instruction;
-            break;
-        case INSTR_LIRE:
-            out << (const Lecture &)instruction;
-            break;
-        case INSTR_ECRIRE:
-            out << (const Ecriture &)instruction;
-            break;
-    }
+    instruction.Afficher(out);
     return out;
 }
 //-------------------------------------------- Constructeurs - destructeur
