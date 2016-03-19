@@ -76,8 +76,10 @@ bool Automate::Executer ( )
 	{
 		//exécuter la transition
 		Symbole *s = lexer.LireSymbole();
-		//cerr << "##" << *s << "(" << s->GetNom() << ") ";
-		//pileEtats.top()->Print();
+#ifdef AUTOMAP
+		cerr << "##" << *s << "(" << s->GetNom() << ") ";
+		pileEtats.top()->Print();
+#endif
 		if(!pileEtats.top()->Transition(*this, s))
 		{
 			//une transition a échoué, supprimer tous les symboles/états de l'automate
@@ -91,11 +93,15 @@ bool Automate::Executer ( )
 			
 			return false;
 		}
-		//cerr << " -> ";
-		//pileEtats.top()->Print();
-		//cerr << "###" << (int)*(pileSymboles.top()) << endl;
+#ifdef AUTOMAP
+		cerr << " -> ";
+		pileEtats.top()->Print();
+		cerr << "###" << (int)*(pileSymboles.top()) << endl;
+#endif
 	} while(pileSymboles.empty() || (int)*(pileSymboles.top()) != PROG);
-	//cerr << "###" << pileSymboles.size() << endl;
+#ifdef AUTOMAP
+	cerr << "###" << pileSymboles.size() << endl;
+#endif
 	//si nous sommes arrivés ici, tout s'est bien passé.
 	//nous pourrons récupérer le programme au sommet de la pile de symboles.
 	cout << *((Programme *)(pileSymboles.top()));

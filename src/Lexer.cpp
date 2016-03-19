@@ -70,16 +70,23 @@ Symbole * Lexer::LireSymbole()
 		return new Fin();
 	}
 	boost::smatch occurence;
+
+#ifdef AUTOMAP
+	cerr << "lexer: cherche match dans " << string(debut, fin) << endl;
+#endif
+
 	for(pair<boost::regex, int> regexSymbole : regexSymboles){
 		if(boost::regex_search(debut, fin, occurence, regexSymbole.first))
 		{
-			//cerr << "reconnu : " << string(occurence[1].first, occurence[1].second) << endl;
+#ifdef AUTOMAP
+			cerr << "lexer: reconnu : " << string(occurence[1].first, occurence[1].second) << endl;
+#endif
 			debut = occurence[1].second;
 			symboleCourant = creerSymbole(string(occurence[1].first, occurence[1].second), regexSymbole.second);
 			return symboleCourant;
 		}
 	}
-	cout << "pas de match pour " << string(debut + 1, fin - 1) << endl;
+	cerr << "lexer: pas de match pour " << string(debut + 1, fin - 1) << endl;
 	return 0;
 }
 
