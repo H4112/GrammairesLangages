@@ -13,6 +13,7 @@
 #include <iostream>
 #include <string>
 #include <boost/algorithm/string/trim_all.hpp>
+#include <boost/algorithm/string/replace.hpp>
 
 using namespace std;
 
@@ -222,6 +223,10 @@ bool Lexer::lireLigne ( )
 			return false;
 		}
 		getline (fichier, ligne, ';');
+		boost::algorithm::replace_all(ligne, "\n", " ");
+		boost::algorithm::replace_all(ligne, "\r", " ");
+		boost::algorithm::replace_all(ligne, "\t", " ");
+
 		boost::algorithm::trim_all(ligne);
 	}
 	while(ligne.empty());
