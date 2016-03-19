@@ -59,11 +59,11 @@ public:
     //Contrat :
     //    Aucun.
 	
-	bool Executer ( );
+	Programme * Executer ( );
 	//Mode d'emploi :
 	//    Exécute entièrement l'automate jusqu'à l'acceptation du fichier
-	//    (dans lequel cas Executer renvoie true) ou jusqu'à la rencontre
-	//    d'une erreur de syntaxe (Executer renvoie false).
+	//    (dans lequel cas Executer renvoie le symbole Programme) ou jusqu'à la rencontre
+	//    d'une erreur de syntaxe (Executer renvoie NULL/0).
 	//Contrat :
 	//    Aucun
 

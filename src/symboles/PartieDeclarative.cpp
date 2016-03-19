@@ -40,7 +40,7 @@ bool PartieDeclarative::AjouterDeclarations( ListeDeclaration * liste )
 		else
 		{
 			//TODO gérer les cas non bloquants avec un warning
-			cerr << "erreur: Double déclaration de " << declaration->GetId() << endl;
+			cerr << "La variable \"" << declaration->GetId() << "\" est déjà déclarée." << endl;
 			return false;
 		}
 	}

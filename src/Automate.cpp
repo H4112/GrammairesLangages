@@ -11,7 +11,7 @@
 
 //-------------------------------------------------------- Include système
 #include <iostream>
-    
+#include <vector>
 using namespace std;
 
 //------------------------------------------------------ Include personnel
@@ -63,7 +63,7 @@ Symbole * Automate::PopSymbole ( )
     return symbole;
 }
 
-bool Automate::Executer ( )
+Programme * Automate::Executer ( )
 {
 	//s'assurer que les piles d'états et de symboles sont vides
 	viderPiles();
@@ -83,7 +83,7 @@ bool Automate::Executer ( )
 			//erreur de reconnaissance du symbole
 			viderPiles();
 			
-			return false;
+			return NULL;
 		}
 
 #ifdef AUTOMAP
@@ -94,14 +94,14 @@ bool Automate::Executer ( )
 		{
 			//une transition a échoué, supprimer tous les symboles/états de l'automate
 			//et renvoyer false
-			
+#ifdef AUTOMAP
 			cout << "Error while applying transition " << (int)(*lexer.LireSymbole())
 			     << " to state ";
 			pileEtats.top()->Print();
-			
+#endif
 			viderPiles();
 			
-			return false;
+			return NULL;
 		}
 #ifdef AUTOMAP
 		cerr << " -> ";
@@ -114,7 +114,7 @@ bool Automate::Executer ( )
 #endif
 	//si nous sommes arrivés ici, tout s'est bien passé.
 	//nous pourrons récupérer le programme au sommet de la pile de symboles.
-	return true;
+	return (Programme *)pileSymboles.top();
 }
 
 Programme * Automate::GetProgramme ( )
@@ -177,7 +177,7 @@ int main ( int argc, char ** argv )
     if(argc < 2)
     {
         cerr << "Erreur, veuillez specifier des arguments" << endl;
-  	afficher_aide(argv[0]);
+  		afficher_aide(argv[0]);
         return 1;
     }
 
