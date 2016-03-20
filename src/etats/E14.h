@@ -43,6 +43,8 @@ public:
     // Contrat :
     //  Aucun
 
+	Symbole * Recuperation ( );
+
 //------------------------------------------------- Surcharge d'opérateurs
     
 

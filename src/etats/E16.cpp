@@ -19,6 +19,8 @@ using namespace std;
 #include "../symboles/Identifiant.h"
 #include "../Lecture.h"
 
+#include "../symboles/PointVirgule.h"
+
 //------------------------------------------------------------- Constantes
 
 //---------------------------------------------------- Variables de classe
@@ -55,6 +57,11 @@ bool E16::Transition ( Automate & automate, Symbole * s )
 	}
 	
 	return false;
+}
+
+Symbole * E16::Recuperation ( )
+{
+	return new PointVirgule;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

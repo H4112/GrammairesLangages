@@ -16,6 +16,9 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "E33.h"
 
+#include "../symboles/Virgule.h"
+#include "../symboles/PointVirgule.h"
+
 //------------------------------------------------------------- Constantes
 
 //---------------------------------------------------- Variables de classe
@@ -53,6 +56,20 @@ bool E33::Transition ( Automate & automate, Symbole * s )
 	}
 	
 	return false;
+}
+
+Symbole * E33::Recuperation ( Symbole * symb )
+{
+	if(*symb == ID)
+	{
+		//certainement une virgule oubliée
+		return new Virgule;
+	}
+	else
+	{
+		//on considère que nous avons commencé une autre expression
+		return new PointVirgule;
+	}
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

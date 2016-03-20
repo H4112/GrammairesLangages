@@ -17,6 +17,8 @@ using namespace std;
 #include "E32.h"
 #include "E37.h"
 
+#include "../symboles/Egal.h"
+
 //------------------------------------------------------------- Constantes
 
 //---------------------------------------------------- Variables de classe
@@ -45,6 +47,11 @@ bool E32::Transition ( Automate & automate, Symbole * s )
 	}
 	
 	return false;
+}
+
+Symbole * E32::Recuperation ( )
+{
+	return new Egal;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

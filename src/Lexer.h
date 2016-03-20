@@ -40,6 +40,7 @@ public:
     Symbole* LireSymbole();
     void ConsommerSymbole();
 
+    void SetSymboleRecuperation( Symbole * symbole );
     
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -73,6 +74,7 @@ private:
     string::const_iterator fin;
 
     Symbole * symboleCourant;
+    Symbole * symboleRecuperation;
 
     int numLigne;
     int numChar;

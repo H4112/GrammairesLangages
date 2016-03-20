@@ -44,6 +44,24 @@ public:
     // Contrat :
     //  Aucun
 
+	virtual Symbole * Recuperation ( );
+    // Mode d'emploi :
+    //  Renvoie le symbole sur lequel faire la transition pour récupérer d'une erreur.
+    //  Renvoie NULL si l'erreur n'est pas récupérable.
+    // Contrat :
+    //  Avoir auparavant appelé Transition qui a renvoyé false
+
+	virtual Symbole * Recuperation ( Symbole * symb );
+    // Mode d'emploi :
+    //  Renvoie le symbole sur lequel faire la transition,
+    //  à la place du symbole lu passé en paramètre, pour récupérer d'une erreur.
+    //  Appelle également Recuperation().
+    //  Renvoie (null;null) si l'erreur n'est pas simplement récupérable.
+    // Contrat :
+    //  Avoir auparavant appelé Transition qui a renvoyé false
+
+
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 

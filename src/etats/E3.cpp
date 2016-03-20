@@ -16,6 +16,7 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "E3.h"
 #include "E10.h"
+#include "../symboles/PointVirgule.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -45,6 +46,12 @@ bool E3::Transition ( Automate & automate, Symbole * s )
 	}
 	
 	return false;
+
+}
+
+Symbole * E3::Recuperation ( )
+{
+	return new PointVirgule;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

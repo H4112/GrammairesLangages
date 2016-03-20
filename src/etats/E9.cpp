@@ -16,6 +16,7 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "E9.h"
 #include "E23.h"
+#include "../symboles/Affecter.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -45,6 +46,11 @@ bool E9::Transition ( Automate & automate, Symbole * s )
 	}
 	
 	return false;
+}
+
+Symbole * E9::Recuperation ( )
+{
+	return new Affecter;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

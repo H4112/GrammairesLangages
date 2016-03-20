@@ -45,6 +45,8 @@ public:
     // Contrat :
     //  Aucun
 
+	Symbole * Recuperation ( Symbole * symb );
+
 //------------------------------------------------- Surcharge d'opérateurs
     
 

@@ -92,16 +92,29 @@ Programme * Automate::Executer ( )
 #endif
 		if(!pileEtats.top()->Transition(*this, s))
 		{
-			//une transition a échoué, supprimer tous les symboles/états de l'automate
-			//et renvoyer false
+			Symbole * tentativeRecuperation = pileEtats.top()->Recuperation(s);
+			if(tentativeRecuperation == NULL)
+			{
+
+				//une transition a échoué, supprimer tous les symboles/états de l'automate
+				//et renvoyer false
 #ifdef AUTOMAP
-			cout << "Error while applying transition " << (int)(*lexer.LireSymbole())
-			     << " to state ";
-			pileEtats.top()->Afficher();
+				cout << "Error while applying transition " << (int)(*lexer.LireSymbole())
+				     << " to state ";
+				pileEtats.top()->Afficher();
 #endif
-			viderPiles();
-			
-			return NULL;
+				viderPiles();
+		
+				return NULL;
+			}
+			else
+			{
+				cout << "Attention : le symbole " 
+				     << tentativeRecuperation->GetNom() << " a été ajouté" << endl;
+
+				lexer.SetSymboleRecuperation(tentativeRecuperation);
+				pileEtats.top()->Transition(*this, tentativeRecuperation);
+			}
 		}
 #ifdef AUTOMAP
 		cerr << " -> ";

@@ -62,7 +62,11 @@ const pair < boost::regex, int > regexSymboles [] = {
 //----------------------------------------------------- Méthodes publiques
 Symbole * Lexer::LireSymbole()
 {
-	if(symboleCourant != 0)
+	if(symboleRecuperation != 0)
+	{
+		return symboleRecuperation;
+	}
+	else if(symboleCourant != 0)
 	{
 		return symboleCourant;
 	}
@@ -100,9 +104,19 @@ Symbole * Lexer::LireSymbole()
 
 void Lexer::ConsommerSymbole()
 {
-	// Commenté sinon ça plante... car le symbole est stocké ailleurs
-	//delete symboleCourant;
-	symboleCourant = 0;
+	if(symboleRecuperation != 0)
+	{
+		symboleRecuperation = 0;
+	}
+	else
+	{
+		symboleCourant = 0;
+	}
+}
+
+void Lexer::SetSymboleRecuperation ( Symbole * symbole )
+{
+	symboleRecuperation = symbole;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -116,8 +130,8 @@ Lexer::Lexer ( const Lexer & unLexer )
 } //----- Fin de Lexer (constructeur de copie)
 
 
-Lexer::Lexer ( string nomFichier ) : fichier ( nomFichier, ios::in ), symboleCourant ( 0 ),
-	numLigne ( 0 )
+Lexer::Lexer ( string nomFichier ) : fichier ( nomFichier, ios::in ), symboleCourant ( 0 ), 
+	symboleRecuperation ( 0 ), numLigne ( 0 )
 {
 	if(!fichier)
 	{

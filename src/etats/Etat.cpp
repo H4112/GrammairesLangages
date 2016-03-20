@@ -27,7 +27,18 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
+Symbole * Etat::Recuperation ( )
+{
+	return NULL;
+}
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+Symbole * Etat::Recuperation ( Symbole * symb )
+{
+	return Recuperation();
+}
+#pragma GCC diagnostic pop
 
 //------------------------------------------------- Surcharge d'opérateurs
 

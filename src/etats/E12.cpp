@@ -16,6 +16,9 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "E12.h"
 
+#include "../symboles/Virgule.h"
+#include "../symboles/PointVirgule.h"
+
 #include "../symboles/ListeIdentifiants.h"
 #include "../symboles/Identifiant.h"
 
@@ -54,6 +57,20 @@ bool E12::Transition ( Automate & automate, Symbole * s )
 	}
 	
 	return false;
+}
+
+Symbole * E12::Recuperation ( Symbole * symb )
+{
+	if(*symb == ID)
+	{
+		//certainement une virgule oubliée
+		return new Virgule;
+	}
+	else
+	{
+		//on considère que nous avons commencé une autre expression
+		return new PointVirgule;
+	}
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

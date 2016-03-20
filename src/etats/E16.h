@@ -42,6 +42,8 @@ public:
 	//  ou la réduction correspondant au symbole passé en paramètre.
     // Contrat :
     //  Aucun
+	
+	Symbole * Recuperation ( );
 
 //------------------------------------------------- Surcharge d'opérateurs
     

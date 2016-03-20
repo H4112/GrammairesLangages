@@ -17,6 +17,8 @@ using namespace std;
 #include "E14.h"
 #include "E26.h"
 
+#include "../symboles/Egal.h"
+
 //------------------------------------------------------------- Constantes
 
 //---------------------------------------------------- Variables de classe
@@ -45,6 +47,11 @@ bool E14::Transition ( Automate & automate, Symbole * s )
 	}
 	
 	return false;
+}
+
+Symbole * E14::Recuperation ( )
+{
+	return new Egal;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
