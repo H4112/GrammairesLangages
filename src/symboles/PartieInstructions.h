@@ -62,6 +62,8 @@ private:
 //------------------------------------------------------- Attributs privés
 	list < Instruction * > listeInstructions;
 
+	bool listeObtenue;
+
 //---------------------------------------------------------- Classes amies
 
 //-------------------------------------------------------- Classes privées

@@ -68,6 +68,8 @@ private:
 //------------------------------------------------------- Attributs privés
 	list < Declaration * > listeDeclarations;
 
+	bool declarationsObtenues;
+
 //---------------------------------------------------------- Classes amies
 
 //-------------------------------------------------------- Classes privées

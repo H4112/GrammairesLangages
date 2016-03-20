@@ -29,6 +29,7 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 list < Declaration * > ListeDeclaration::GetListeDeclarations ( ) 
 {
+	declarationsObtenues = true;
 	return listeDeclarations;
 }
 
@@ -48,7 +49,8 @@ void ListeDeclaration::SetIdent ( int id )
 
 //-------------------------------------------- Constructeurs - destructeur
 ListeDeclaration::ListeDeclaration ( const ListeDeclaration & unListeDeclaration ) 
-	: Symbole(unListeDeclaration), listeDeclarations(unListeDeclaration.listeDeclarations)
+	: Symbole(unListeDeclaration), listeDeclarations(unListeDeclaration.listeDeclarations),
+		declarationsObtenues(unListeDeclaration.declarationsObtenues)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <ListeDeclaration>" << endl;
@@ -56,7 +58,7 @@ ListeDeclaration::ListeDeclaration ( const ListeDeclaration & unListeDeclaration
 } //----- Fin de ListeDeclaration (constructeur de copie)
 
 ListeDeclaration::ListeDeclaration ( int id ) 
-	: Symbole("", id, false)
+	: Symbole("", id, false), declarationsObtenues ( false )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <ListeDeclaration>" << endl;
@@ -68,6 +70,17 @@ ListeDeclaration::~ListeDeclaration ( )
 #ifdef MAP
     cout << "Appel au destructeur de <ListeDeclaration>" << endl;
 #endif
+	//ListeDeclaration est le conteneur pour les déclarations,
+	//jusqu'à ce que la méthode GetListeDeclarations() soit appelée,
+	//dans lequel cas les pointeurs sont "sortis" du conteneur
+	//et il ne faut donc plus les supprimer.
+	if(!declarationsObtenues)
+	{
+		for(Declaration * decl : listeDeclarations)
+		{
+			delete decl;
+		}
+	}
 } //----- Fin de ~ListeDeclaration
 
 

@@ -57,12 +57,12 @@ bool Affectation::Verifier( map < string, Declaration * > & tableDeclarations )
 {
     if(tableDeclarations.find(nomVariable) == tableDeclarations.end())
     {
-        cerr << "La variable \"" << nomVariable << "\" n'est pas déclarée.";
+        cerr << "La variable \"" << nomVariable << "\" n'est pas déclarée." << endl;
         return false;
     }
     else if(!tableDeclarations[nomVariable]->EstAffectable())
     {
-        cerr << "La constante \"" << nomVariable << "\" ne peut pas être affectée.";
+        cerr << "La constante \"" << nomVariable << "\" ne peut pas être affectée." << endl;
         return false;
     }
     else if(!expression->Verifier(tableDeclarations))

@@ -71,6 +71,8 @@ private:
 //------------------------------------------------------- Attributs privés
 	map< string, Declaration * > tableDeclarations;
 
+	bool tableObtenue;
+
 //---------------------------------------------------------- Classes amies
 
 //-------------------------------------------------------- Classes privées

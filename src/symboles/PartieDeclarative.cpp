@@ -50,6 +50,8 @@ bool PartieDeclarative::AjouterDeclarations( ListeDeclaration * liste )
 
 map< string, Declaration * > PartieDeclarative::GetDeclarations ( )
 {
+	tableObtenue = true;
+
 	return tableDeclarations;
 }
 
@@ -58,7 +60,8 @@ map< string, Declaration * > PartieDeclarative::GetDeclarations ( )
 //-------------------------------------------- Constructeurs - destructeur
 PartieDeclarative::PartieDeclarative ( const PartieDeclarative & unPartieDeclarative ) 
 	: Symbole(unPartieDeclarative), 
-		tableDeclarations(unPartieDeclarative.tableDeclarations)
+		tableDeclarations(unPartieDeclarative.tableDeclarations),
+		tableObtenue ( unPartieDeclarative.tableObtenue )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <PartieDeclarative>" << endl;
@@ -67,7 +70,8 @@ PartieDeclarative::PartieDeclarative ( const PartieDeclarative & unPartieDeclara
 
 
 PartieDeclarative::PartieDeclarative ( ) 
-	: Symbole("", PD, false)
+	: Symbole("", PD, false),
+		tableObtenue ( false )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <PartieDeclarative>" << endl;
@@ -80,6 +84,13 @@ PartieDeclarative::~PartieDeclarative ( )
 #ifdef MAP
     cout << "Appel au destructeur de <PartieDeclarative>" << endl;
 #endif
+	if(!tableObtenue)
+	{
+		for(auto decl : tableDeclarations)
+		{
+			delete decl.second;
+		}
+	}
 } //----- Fin de ~PartieDeclarative
 
 
