@@ -25,3 +25,7 @@ automate.png : automate.uml
 clean:
 	@echo ">> Removing all *.o and build"
 	rm -rfv $(OBJ) build
+
+test : $(OUTFILE)
+	ln -fs ../$(OUTFILE) Tests/lut
+	cd Tests && ./mktest.sh
