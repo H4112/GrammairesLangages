@@ -44,7 +44,7 @@ public:
     //     Les variables/constantes utilisées sont bien déclarées
 
     virtual Expression * Simplifier( map < string, Declaration * > & tableDeclarations ) = 0;
-    // Mode d'emploi : simplifie l'instruction en propageant les
+    // Mode d'emploi : simplifie l'expression en propageant les
     //     constantes, supprimant les éléments neutres, etc.
     //     Retourne l'expression simplifiée.
     // Contrat :
@@ -64,7 +64,7 @@ public:
 
     virtual void Afficher ( ostream & out ) const = 0;
     // Mode d'emploi :
-    //     Ecrit expression sur la sortie donnée en paramètre
+    //     Ecrit l'expression sur la sortie donnée en paramètre
 
 //------------------------------------------------- Surcharge d'opérateurs
     friend ostream & operator << ( ostream & out,

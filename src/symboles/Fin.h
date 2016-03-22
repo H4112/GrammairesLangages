@@ -33,6 +33,7 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
     Fin ( const Fin & unFin );
+    // Interdit
 
     Fin ( ); 
 

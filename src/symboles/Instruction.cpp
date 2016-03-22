@@ -41,15 +41,6 @@ ostream & operator << ( ostream & out, const Instruction & instruction )
     return out;
 }
 //-------------------------------------------- Constructeurs - destructeur
-Instruction::Instruction ( const Instruction & unInstruction ) 
-    : Symbole(unInstruction)
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Instruction>" << endl;
-#endif
-} //----- Fin de Instruction (constructeur de copie)
-
-
 Instruction::Instruction ( int type ) 
     : Symbole( "", I, false ), typeInstruction ( type )
 {

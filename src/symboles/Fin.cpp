@@ -31,17 +31,7 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Fin::Fin ( const Fin & unFin ) 
-    : Symbole(unFin)
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Fin>" << endl;
-#endif
-} //----- Fin de Fin (constructeur de copie)
-
-
-Fin::Fin ( ) 
-    : Symbole("", FIN, true)
+Fin::Fin ( ) : Symbole ( "", FIN, true)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Fin>" << endl;

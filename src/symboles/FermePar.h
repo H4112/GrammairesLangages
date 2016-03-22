@@ -33,6 +33,7 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
     FermePar ( const FermePar & unFermePar );
+    // Interdit
 
     FermePar ( ); 
 

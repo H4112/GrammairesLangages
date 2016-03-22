@@ -30,11 +30,13 @@ public:
 //----------------------------------------------------- Méthodes publiques
 
 //------------------------------------------------- Surcharge d'opérateurs
-    operator string() const { return id; }
+    operator string ( ) const { return id; }
 //-------------------------------------------- Constructeurs - destructeur
     Identifiant ( const Identifiant & unIdentifiant );
+    //Interdit
 
-    Identifiant ( ); 
+    Identifiant ( );
+    // Interdit
 
     Identifiant ( string id ); 
 
