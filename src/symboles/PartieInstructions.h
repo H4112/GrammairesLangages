@@ -1,5 +1,5 @@
 /*************************************************************************
-                           PartieInstructions  -  Symbole de l'analyseur
+                PartieInstructions  -  Symbole de l'analyseur
                              -------------------
     début                : 8 mars 2016 08:23:14
     copyright            : (C) 2016 par H4112
@@ -32,16 +32,17 @@ public:
 //----------------------------------------------------- Méthodes publiques
     list < Instruction * > GetInstructions ( );
     // Mode d'emploi :
-    //    Renvoie les instructions de cette liste.
+    //     Renvoie les instructions de cette liste.
     
     void AjouterInstruction ( Instruction * instruction );
-    //Mode d'emploi :
-    //    Ajoute une instruction à la liste.
+    // Mode d'emploi :
+    //     Ajoute une instruction à la liste.
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
     PartieInstructions ( const PartieInstructions & unePartieInstructions );
+    // Interdit
 
     PartieInstructions ( ); 
 
@@ -61,8 +62,12 @@ protected:
 private:
 //------------------------------------------------------- Attributs privés
     list < Instruction * > listeInstructions;
+    // Liste des instructions identifiées.
 
     bool listeObtenue;
+    // true si GetInstructions a été appelé, false sinon
+    // Permet de savoir si on doit détruire les Instruction ou si le Programme
+    // s'en chargera.
 
 //---------------------------------------------------------- Classes amies
 

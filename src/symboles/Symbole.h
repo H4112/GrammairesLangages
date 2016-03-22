@@ -53,35 +53,35 @@ class Symbole
 public:
 //----------------------------------------------------- Méthodes publiques
     string GetNom();
-    //Mode d'emploi :
-    //    Permet d'obtenir un nom affichable pour le symbole.
-    //Contrat :
-    //    Aucun
+    // Mode d'emploi :
+    //     Permet d'obtenir un nom affichable pour le symbole.
+    // Contrat :
+    //     Aucun
     
     bool EstTerminal();
-    //Mode d'emploi :
-    //    Vaut true si le symbole est terminal, sinon false.
-    //Contrat :
-    //    Aucun
+    // Mode d'emploi :
+    //     Vaut true si le symbole est terminal, sinon false.
+    // Contrat :
+    //     Aucun
 
     void SetPosition ( int numL, int numC );
-    //Mode d'emploi :
-    //    Modifie la position du symbole dans le fichier source.
-    //Contrat :
-    //    La position donnée est cohérente
+    // Mode d'emploi :
+    //     Modifie la position du symbole dans le fichier source.
+    // Contrat :
+    //     La position donnée est cohérente
 
     int GetLigne ( ) ;
-    //Mode d'emploi :
-    //    Renvoie la ligne à laquelle ce symbole a été trouvé.
-    //Contrat :
-    //    SetPosition a été appelée.
+    // Mode d'emploi :
+    //     Renvoie la ligne à laquelle ce symbole a été trouvé.
+    // Contrat :
+    //     SetPosition a été appelée.
 
     int GetChar ( );
-    //Mode d'emploi :
-    //    Renvoie la position dans la ligne à laquelle 
-    //    ce symbole a été trouvé.
-    //Contrat :
-    //    SetPosition a été appelée.
+    // Mode d'emploi :
+    //     Renvoie la position dans la ligne à laquelle 
+    //     ce symbole a été trouvé.
+    // Contrat :
+    //     SetPosition a été appelée.
 
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -93,6 +93,7 @@ public:
     // Interdit
 
     Symbole ( const Symbole & unSymbole );
+    // Interdit
 
     Symbole ( string nomTemp, int identTemp, bool terminalTemp );
 
@@ -109,12 +110,21 @@ private:
 protected:
 //----------------------------------------------------- Attributs protégés
     int ident;
+    // Identifiant du symbole, permettant les comparaisons.
 private:
 //------------------------------------------------------- Attributs privés
     string nom;
+    // Nom du symbole, soit la chaîne de caractères qui a été lue pour reconnaître
+    // ce symbole.
+
     bool terminal;
+    // true si le symbole est terminal, false sinon.
+
     int numLine;
+    // Numéro de la ligne à laquelle le symbole a été lu.
+
     int numChar;
+    // Position dans la ligne à laquelle le symbole a été lu.
 
 //---------------------------------------------------------- Classes amies
 

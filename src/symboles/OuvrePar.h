@@ -33,6 +33,7 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
     OuvrePar ( const OuvrePar & unOuvrePar );
+    // Interdit
 
     OuvrePar ( ); 
 

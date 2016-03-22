@@ -31,17 +31,8 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-OperateurAdd::OperateurAdd ( const OperateurAdd & unOperateurAdd ) 
-    : Symbole(unOperateurAdd)
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <OperateurAdd>" << endl;
-#endif
-} //----- Fin de OperateurAdd (constructeur de copie)
-
-
 OperateurAdd::OperateurAdd ( string type ) 
-    : Symbole(type, OPA, true)
+    : Symbole ( type, OPA, true )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <OperateurAdd>" << endl;

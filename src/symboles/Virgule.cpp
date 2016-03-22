@@ -31,17 +31,7 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Virgule::Virgule ( const Virgule & unVirgule ) 
-    : Symbole(unVirgule)
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Virgule>" << endl;
-#endif
-} //----- Fin de Virgule (constructeur de copie)
-
-
-Virgule::Virgule ( ) 
-    : Symbole(",", VIRGULE, true)
+Virgule::Virgule ( ) : Symbole ( ",", VIRGULE, true )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Virgule>" << endl;

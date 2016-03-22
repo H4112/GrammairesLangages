@@ -33,6 +33,7 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
     Lire ( const Lire & unLire );
+    // Interdit
 
     Lire ( ); 
 

@@ -33,6 +33,7 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
     Virgule ( const Virgule & unVirgule );
+    // Interdit
 
     Virgule ( ); 
 

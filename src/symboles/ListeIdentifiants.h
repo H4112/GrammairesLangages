@@ -31,12 +31,14 @@ class ListeIdentifiants : public ListeDeclaration
 public:
 //----------------------------------------------------- Méthodes publiques
     void AjouterVariable ( Identifiant * id );
-    // Mode d'emploi : crée une nouvelle variable et l'ajoute à la liste.
+    // Mode d'emploi :
+    //     Crée une nouvelle variable et l'ajoute à la liste.
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
     ListeIdentifiants ( const ListeIdentifiants & unListeIdentifiants );
+    // Interdit
 
     ListeIdentifiants ( ); 
 

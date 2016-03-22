@@ -33,6 +33,7 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
     OperateurAdd ( const OperateurAdd & unOperateurAdd );
+    // Interdit
 
     OperateurAdd ( string type ); 
 

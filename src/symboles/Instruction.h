@@ -36,10 +36,10 @@ public:
     virtual void Executer( map < string, Declaration * > & tableDeclarations ) = 0;
     // Mode d'emploi : exécute l'instruction et met à jour les variables
     //     si nécessaire.
-    virtual Expression * Simplifier( map < string, Declaration * > & tableDeclarations ) = 0;
-    // Mode d'emploi : simplifie l'expression en propageant les
+    
+    virtual void Simplifier( map < string, Declaration * > & tableDeclarations ) = 0;
+    // Mode d'emploi : simplifie l'instruction en propageant les
     //     constantes, supprimant les éléments neutres, etc.
-    //     Retourne l'expression simplifiée.
     // Contrat :
     //     Les variables/constantes utilisées sont bien déclarées
 
@@ -54,17 +54,19 @@ public:
     int GetType ( ) const;
     // Mode d'emploi :
     //    Permet de connaître le type de l'instruction
+
 //------------------------------------------------- Surcharge d'opérateurs
     friend ostream & operator << ( ostream & out,
         const Instruction & instruction );
+
 //-------------------------------------------- Constructeurs - destructeur
     Instruction ( const Instruction & unInstruction );
     // Interdit
 
-    Instruction ( int type );
-
     Instruction ( );
     // Interdit
+
+    Instruction ( int type );
 
     virtual ~Instruction ( );
 

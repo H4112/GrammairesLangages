@@ -34,19 +34,20 @@ public:
 //----------------------------------------------------- Méthodes publiques
     list < Declaration * > GetListeDeclarations ( ) ;
     // Mode d'emploi :
-    //    Permet d'obtenir la liste des déclarations contenue 
-    //    dans cette ListeDeclaration.
+    //     Permet d'obtenir la liste des déclarations contenue 
+    //     dans cette ListeDeclaration.
     // Contrat :
-    //    Aucun
+    //     Aucun
     
     void SetIdent ( int id );
     // Mode d'emploi :
-    //  Permet de changer le type de Symbole
+    //     Permet de changer le type de Symbole
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
     ListeDeclaration ( const ListeDeclaration & unListeDeclaration );
+    // Interdit
 
     ListeDeclaration ( int id );
 
@@ -57,6 +58,8 @@ public:
 protected:
 //----------------------------------------------------- Méthodes protégées
     void ajouterDeclaration ( Declaration * declaration );
+    // Mode d'emploi :
+    //     Ajoute une déclaration à la liste.
 
 private:
 //------------------------------------------------------- Méthodes privées
@@ -67,8 +70,12 @@ protected:
 private:
 //------------------------------------------------------- Attributs privés
     list < Declaration * > listeDeclarations;
+    // Liste des déclarations trouvées sur une même ligne.
 
     bool declarationsObtenues;
+    // true si GetDeclarations a été appelé, false sinon
+    // Permet de savoir si on doit détruire les Declaration ou si le Programme
+    // s'en chargera.
 
 //---------------------------------------------------------- Classes amies
 

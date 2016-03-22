@@ -31,17 +31,8 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Lire::Lire ( const Lire & unLire ) 
-    : Symbole(unLire)
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Lire>" << endl;
-#endif
-} //----- Fin de Lire (constructeur de copie)
-
-
 Lire::Lire ( ) 
-    : Symbole("lire", LIRE, true)
+    : Symbole( "lire", LIRE, true )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Lire>" << endl;

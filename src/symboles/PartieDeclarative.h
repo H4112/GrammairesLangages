@@ -1,5 +1,5 @@
 /*************************************************************************
-                           PartieDeclarative  -  Symbole de l'analyseur
+                PartieDeclarative  -  Symbole de l'analyseur
                              -------------------
     début                : 8 mars 2016 08:23:14
     copyright            : (C) 2016 par H4112
@@ -33,14 +33,14 @@ class PartieDeclarative : public Symbole
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    bool AjouterDeclarations( ListeDeclaration * liste );
+    bool AjouterDeclarations ( ListeDeclaration * liste );
     // Mode d'emploi :
     //    Ajoute une liste de déclarations à cette partie déclarative.
     //    Renvoie true si aucun identifiant n'a été dupliqué, sinon false.
     // Contrat :
     //    Aucun
     
-    map< string, Declaration * > GetDeclarations ( );
+    map < string, Declaration * > GetDeclarations ( );
     // Mode d'emploi :
     //    Permet d'obtenir la table des déclarations ajoutées à cette
     //    partie déclarative.
@@ -51,6 +51,7 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
     PartieDeclarative ( const PartieDeclarative & unPartieDeclarative );
+    // Interdit
 
     PartieDeclarative ( ); 
 
@@ -70,8 +71,13 @@ protected:
 private:
 //------------------------------------------------------- Attributs privés
     map< string, Declaration * > tableDeclarations;
+    // Table des déclarations contenant l'union de toutes les listes de déclaration
+    // identifiées dans la partie déclarative.
 
     bool tableObtenue;
+    // true si GetDeclarations a été appelé, false sinon
+    // Permet de savoir si on doit détruire les Declaration ou si le Programme
+    // s'en chargera.
 
 //---------------------------------------------------------- Classes amies
 

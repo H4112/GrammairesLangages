@@ -33,6 +33,7 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
     Var ( const Var & unVar );
+    // Interdit
 
     Var ( ); 
 

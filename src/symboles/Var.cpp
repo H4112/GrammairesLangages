@@ -31,17 +31,8 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Var::Var ( const Var & unVar ) 
-    : Symbole(unVar)
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Var>" << endl;
-#endif
-} //----- Fin de Var (constructeur de copie)
-
-
 Var::Var ( ) 
-    : Symbole("var", VAR, true)
+    : Symbole ( "var", VAR, true )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Var>" << endl;

@@ -1,5 +1,5 @@
 /*************************************************************************
-                           PointVirgule  -  Symbole de l'analyseur
+                      PointVirgule  -  Symbole de l'analyseur
                              -------------------
     début                : 8 mars 2016 08:23:13
     copyright            : (C) 2016 par H4112
@@ -31,17 +31,8 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-PointVirgule::PointVirgule ( const PointVirgule & unPointVirgule ) 
-    : Symbole(unPointVirgule)
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <PointVirgule>" << endl;
-#endif
-} //----- Fin de PointVirgule (constructeur de copie)
-
-
 PointVirgule::PointVirgule ( ) 
-    : Symbole(";", POINT_VIRGULE, true)
+    : Symbole ( ";", POINT_VIRGULE, true )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <PointVirgule>" << endl;

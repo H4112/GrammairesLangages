@@ -27,7 +27,7 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-bool PartieDeclarative::AjouterDeclarations( ListeDeclaration * liste )
+bool PartieDeclarative::AjouterDeclarations ( ListeDeclaration * liste )
 {
     list < Declaration * > listeDeclarations = liste->GetListeDeclarations();
     
@@ -44,34 +44,20 @@ bool PartieDeclarative::AjouterDeclarations( ListeDeclaration * liste )
             return false;
         }
     }
-    
     return true;
 }
 
-map< string, Declaration * > PartieDeclarative::GetDeclarations ( )
+map < string, Declaration * > PartieDeclarative::GetDeclarations ( )
 {
     tableObtenue = true;
-
     return tableDeclarations;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-PartieDeclarative::PartieDeclarative ( const PartieDeclarative & unPartieDeclarative ) 
-    : Symbole(unPartieDeclarative), 
-        tableDeclarations(unPartieDeclarative.tableDeclarations),
-        tableObtenue ( unPartieDeclarative.tableObtenue )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <PartieDeclarative>" << endl;
-#endif
-} //----- Fin de PartieDeclarative (constructeur de copie)
-
-
 PartieDeclarative::PartieDeclarative ( ) 
-    : Symbole("", PD, false),
-        tableObtenue ( false )
+    : Symbole ( "", PD, false ), tableObtenue ( false )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <PartieDeclarative>" << endl;

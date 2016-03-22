@@ -31,10 +31,13 @@ public:
 
 //------------------------------------------------- Surcharge d'opérateurs
     operator int() const { return valeur; }
+
 //-------------------------------------------- Constructeurs - destructeur
     Valeur ( const Valeur & unValeur );
+    // Interdit
 
-    Valeur ( ); 
+    Valeur ( );
+    // Interdit
 
     Valeur ( string val );
 

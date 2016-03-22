@@ -33,6 +33,7 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
     OperateurMult ( const OperateurMult & unOperateurMult );
+    // Interdit
 
     OperateurMult ( string type ); 
 

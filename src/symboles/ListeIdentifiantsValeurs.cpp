@@ -36,15 +36,6 @@ void ListeIdentifiantsValeurs::AjouterConstante ( Identifiant * id, Valeur * val
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-ListeIdentifiantsValeurs::ListeIdentifiantsValeurs ( const ListeIdentifiantsValeurs & uneListeIdentifiantsValeurs ) 
-    : ListeDeclaration ( uneListeIdentifiantsValeurs )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <ListeIdentifiantsValeurs>" << endl;
-#endif
-} //----- Fin de ListeIdentifiantsValeurs (constructeur de copie)
-
-
 ListeIdentifiantsValeurs::ListeIdentifiantsValeurs ( ) 
     : ListeDeclaration ( LIDV )
 {

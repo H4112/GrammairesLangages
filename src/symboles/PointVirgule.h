@@ -1,5 +1,5 @@
 /*************************************************************************
-                           PointVirgule  -  Symbole de l'analyseur
+                      PointVirgule  -  Symbole de l'analyseur
                              -------------------
     début                : 8 mars 2016 08:23:13
     copyright            : (C) 2016 par H4112
@@ -33,6 +33,7 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
     PointVirgule ( const PointVirgule & unPointVirgule );
+    // Interdit
 
     PointVirgule ( ); 
 

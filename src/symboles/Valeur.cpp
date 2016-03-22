@@ -31,17 +31,8 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Valeur::Valeur ( const Valeur & unValeur ) 
-    : Symbole(unValeur)
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Valeur>" << endl;
-#endif
-} //----- Fin de Valeur (constructeur de copie)
-
-
 Valeur::Valeur ( string val ) 
-    : Symbole(val, VAL, true), valeur(stoi(val))
+    : Symbole( val, VAL, true ), valeur ( stoi ( val ) )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Valeur>" << endl;

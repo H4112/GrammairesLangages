@@ -31,15 +31,6 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-OperateurMult::OperateurMult ( const OperateurMult & unOperateurMult ) 
-    : Symbole(unOperateurMult)
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <OperateurMult>" << endl;
-#endif
-} //----- Fin de OperateurMult (constructeur de copie)
-
-
 OperateurMult::OperateurMult ( string type ) 
     : Symbole ( type, OPM, true )
 {

@@ -33,19 +33,28 @@ class Programme : public Symbole
 public:
 //----------------------------------------------------- Méthodes publiques
     void Executer ( );
-    // Mode d'emploi : exécute le programme
-    // Contrat : aucun
+    // Mode d'emploi :
+    //     Exécute le programme.
+    // Contrat :
+    //     L'analyse statique a réussi.
     
-    bool Verifier();
-    /* Vérifier que:
-        — Une variable est utilisée (en partie droite d’une affectation ou dans une opération d’écriture) sans avoir
-        jamais été affectée.
-        — Une variable a été déclarée et jamais affectée ou utilisée.
-        — Une variable n’a pas été déclarée.
-        — Une constante ne peut être modifiée.
-    */
+    bool Verifier ( );
+    // Mode d'emploi :
+    //     Vérifie que:
+    //     — Une variable est utilisée (en partie droite d’une affectation ou dans une opération d’écriture) sans avoir
+    //       jamais été affectée.
+    //     — Une variable a été déclarée et jamais affectée ou utilisée.
+    //     — Une variable n’a pas été déclarée.
+    //     — Une constante ne peut être modifiée.
+    // Contrat :
+    //     Le programme est valide.
 
-    void Simplifier();
+    void Simplifier ( );
+    // Mode d'emploi : simplifie l'expression en propageant les
+    //     constantes, supprimant les éléments neutres, etc.
+    //     Retourne l'expression simplifiée.
+    // Contrat :
+    //     Les variables/constantes utilisées sont bien déclarées.
 
 //------------------------------------------------- Surcharge d'opérateurs
     friend ostream & operator << ( ostream & out,
@@ -53,9 +62,10 @@ public:
     
 //-------------------------------------------- Constructeurs - destructeur
     Programme ( const Programme & unProgramme );
+    // Interdit
 
     Programme ( ); 
-    // Interdit.
+    // Interdit
 
     Programme ( map < string, Declaration * > tableDeclarations,
         list < Instruction * > listeInstructions );

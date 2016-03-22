@@ -13,6 +13,7 @@
 #include <iostream>
 #include <string>
 #include <boost/algorithm/string/trim.hpp>
+#include <boost/regex.hpp>
 
 using namespace std;
 

@@ -36,15 +36,6 @@ void ListeIdentifiants::AjouterVariable ( Identifiant * id )
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-ListeIdentifiants::ListeIdentifiants ( const ListeIdentifiants & uneListeIdentifiants ) 
-    : ListeDeclaration(uneListeIdentifiants)
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <ListeIdentifiants>" << endl;
-#endif
-} //----- Fin de ListeIdentifiants (constructeur de copie)
-
-
 ListeIdentifiants::ListeIdentifiants ( ) 
     : ListeDeclaration( LID )
 {
@@ -52,7 +43,6 @@ ListeIdentifiants::ListeIdentifiants ( )
     cout << "Appel au constructeur de <ListeIdentifiants>" << endl;
 #endif
 } //----- Fin de ListeIdentifiants
-
 
 ListeIdentifiants::~ListeIdentifiants ( )
 {

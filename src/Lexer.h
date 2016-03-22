@@ -17,7 +17,6 @@ class Lexer; //Etat utilise Lexer, nous devons l'avoir déclaré
 #include <map>
 #include <string>
 #include <fstream>
-#include <boost/regex.hpp>
 
 #include "symboles/Symbole.h"
 

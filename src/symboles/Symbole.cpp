@@ -57,19 +57,9 @@ int Symbole::GetChar ( )
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Symbole::Symbole ( const Symbole & unSymbole ) :
-    ident(unSymbole.ident), nom(unSymbole.nom), terminal(unSymbole.terminal),
-    numLine(unSymbole.numLine), numChar(unSymbole.numChar)
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Symbole>" << endl;
-#endif
-} //----- Fin de Symbole (constructeur de copie)
-
-
-Symbole::Symbole(string nomTemp, int identTemp, bool terminalTemp)
-    : ident(identTemp), nom(nomTemp), terminal(terminalTemp),
-    numLine(0), numChar(0)
+Symbole::Symbole ( string nomTemp, int identTemp, bool terminalTemp )
+    : ident ( identTemp ), nom ( nomTemp ), terminal ( terminalTemp ),
+    numLine ( 0 ), numChar ( 0 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Symbole>" << endl;

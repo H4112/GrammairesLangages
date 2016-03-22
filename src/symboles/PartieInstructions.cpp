@@ -41,17 +41,8 @@ void PartieInstructions::AjouterInstruction ( Instruction * instruction )
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-PartieInstructions::PartieInstructions ( const PartieInstructions & unePartieInstructions ) 
-    : Symbole(unePartieInstructions), listeObtenue (unePartieInstructions.listeObtenue)
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <PartieInstructions>" << endl;
-#endif
-} //----- Fin de PartieInstructions (constructeur de copie)
-
-
 PartieInstructions::PartieInstructions ( ) 
-    : Symbole("", PI, false), listeObtenue ( false )
+    : Symbole ( "", PI, false ), listeObtenue ( false )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <PartieInstructions>" << endl;

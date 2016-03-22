@@ -90,16 +90,6 @@ void Programme::Simplifier ( )
 }
 
 //-------------------------------------------- Constructeurs - destructeur
-Programme::Programme ( const Programme & unProgramme ) 
-    : Symbole ( unProgramme ),
-      tableDeclarations ( unProgramme.tableDeclarations ),
-      listeInstructions ( unProgramme.listeInstructions )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Programme>" << endl;
-#endif
-} //----- Fin de Programme (constructeur de copie)
-
 Programme::Programme ( map < string, Declaration * > tblDeclarations,
         list < Instruction * > lstInstructions )
     : Symbole ( "", PROG, false ), tableDeclarations(tblDeclarations),
