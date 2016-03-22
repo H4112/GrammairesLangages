@@ -31,17 +31,7 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Egal::Egal ( const Egal & unEgal ) 
-	: Symbole(unEgal)
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Egal>" << endl;
-#endif
-} //----- Fin de Egal (constructeur de copie)
-
-
-Egal::Egal ( ) 
-	: Symbole("=", EGAL, true)
+Egal::Egal ( ) : Symbole ( "=", EGAL, true )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Egal>" << endl;

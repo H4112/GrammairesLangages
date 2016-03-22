@@ -32,7 +32,7 @@ using namespace std;
 
 //-------------------------------------------- Constructeurs - destructeur
 OuvrePar::OuvrePar ( const OuvrePar & unOuvrePar ) 
-	: Symbole(unOuvrePar)
+    : Symbole(unOuvrePar)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <OuvrePar>" << endl;
@@ -41,7 +41,7 @@ OuvrePar::OuvrePar ( const OuvrePar & unOuvrePar )
 
 
 OuvrePar::OuvrePar ( ) 
-	: Symbole("(", OUVREPAR, true)
+    : Symbole("(", OUVREPAR, true)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <OuvrePar>" << endl;

@@ -33,42 +33,42 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void E12::Afficher ( ) const 
 {
-	cout << "E12" << endl;
+    cout << "E12" << endl;
 }
 
 bool E12::Transition ( Automate & automate, Symbole * s )
 {
-	switch(*s)
-	{
-		case VIRGULE:
-		case POINT_VIRGULE:
-		{
-			Identifiant * id = (Identifiant *) automate.PopSymbole();
+    switch(*s)
+    {
+        case VIRGULE:
+        case POINT_VIRGULE:
+        {
+            Identifiant * id = (Identifiant *) automate.PopSymbole();
 
-			ListeIdentifiants * lid = new ListeIdentifiants();
-			lid->AjouterVariable(id);
-			
-			//réduire R6
-			automate.Reduction(lid, 1);
-			return true;
-		}
-	}
-	
-	return false;
+            ListeIdentifiants * lid = new ListeIdentifiants();
+            lid->AjouterVariable(id);
+            
+            //réduire R6
+            automate.Reduction(lid, 1);
+            return true;
+        }
+    }
+    
+    return false;
 }
 
 Symbole * E12::Recuperation ( Symbole * symb )
 {
-	if(*symb == ID)
-	{
-		// Certainement une virgule oubliée
-		return new Virgule;
-	}
-	else
-	{
-		// On considère que nous avons commencé une autre expression
-		return new PointVirgule;
-	}
+    if(*symb == ID)
+    {
+        // Certainement une virgule oubliée
+        return new Virgule;
+    }
+    else
+    {
+        // On considère que nous avons commencé une autre expression
+        return new PointVirgule;
+    }
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

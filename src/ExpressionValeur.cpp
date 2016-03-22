@@ -31,7 +31,7 @@ using namespace std;
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 int ExpressionValeur::Evaluer( map < string, Declaration * > & tableDeclarations )
 {
-	return valeur;
+    return valeur;
 }
     
 Expression * ExpressionValeur::Simplifier( map < string, Declaration * > & tableDeclarations )
@@ -52,14 +52,14 @@ int ExpressionValeur::GetValeur ( )
 
 void ExpressionValeur::Afficher ( ostream & out ) const
 {
-	out << valeur;
+    out << valeur;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
 ExpressionValeur::ExpressionValeur ( const ExpressionValeur & unExpressionValeur )
-	: Expression ( unExpressionValeur )
+    : Expression ( unExpressionValeur )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <ExpressionValeur>" << endl;
@@ -68,7 +68,7 @@ ExpressionValeur::ExpressionValeur ( const ExpressionValeur & unExpressionValeur
 
 
 ExpressionValeur::ExpressionValeur ( int val )
-	: Expression ( EXPR_VAL ), valeur ( val )
+    : Expression ( EXPR_VAL ), valeur ( val )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <ExpressionValeur>" << endl;

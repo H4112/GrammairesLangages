@@ -29,39 +29,39 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void E35::Afficher ( ) const 
 {
-	cout << "E35" << endl;
+    cout << "E35" << endl;
 }
 
 bool E35::Transition ( Automate & automate, Symbole * s )
 {
-	switch(*s)
-	{
-		case POINT_VIRGULE:
-		case FERMEPAR:
-		case OPA:
-		case OPM:
-		{
-			Expression * f = (Expression *) automate.PopSymbole();
-			OperateurMult * opm = (OperateurMult *) automate.PopSymbole();
-			Expression * t = (Expression *) automate.PopSymbole();
-			ExpressionBinaire * eb;
-			if(opm->GetNom() == "*")
-			{
-				eb = new ExpressionMultiplication(t, f);
-			}
-			else
-			{
-				eb = new ExpressionDivision(t, f);
-			}
-			eb->SetIdent(T);
-			delete opm;
-			//réduire R16
-			automate.Reduction(eb, 3);
-			return true;
-		}
-	}
-	
-	return false;
+    switch(*s)
+    {
+        case POINT_VIRGULE:
+        case FERMEPAR:
+        case OPA:
+        case OPM:
+        {
+            Expression * f = (Expression *) automate.PopSymbole();
+            OperateurMult * opm = (OperateurMult *) automate.PopSymbole();
+            Expression * t = (Expression *) automate.PopSymbole();
+            ExpressionBinaire * eb;
+            if(opm->GetNom() == "*")
+            {
+                eb = new ExpressionMultiplication(t, f);
+            }
+            else
+            {
+                eb = new ExpressionDivision(t, f);
+            }
+            eb->SetIdent(T);
+            delete opm;
+            //réduire R16
+            automate.Reduction(eb, 3);
+            return true;
+        }
+    }
+    
+    return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

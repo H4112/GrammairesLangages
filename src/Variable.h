@@ -18,7 +18,7 @@
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <Variable>
-//	Permet de décrire une variable, avec un identifiant et une valeur.
+//    Permet de décrire une variable, avec un identifiant et une valeur.
 //
 //------------------------------------------------------------------------ 
 
@@ -39,10 +39,10 @@ public:
     bool EstConstante ( ) const;
     // Mode d'emploi :
     //     Renvoie vrai si la variable a une valeur constante (affectée à partir de constantes)
-	
-	void Affecter ( );
-	// Mode d'emploi :
-	//		Passe affecte à true
+    
+    void Affecter ( );
+    // Mode d'emploi :
+    //        Passe affecte à true
 
     void SetValeur ( int val );
     // Mode d'emploi : 
@@ -81,7 +81,7 @@ protected:
 
 private:
 //------------------------------------------------------- Attributs privés
-	bool affecte;
+    bool affecte;
     bool constante;
 //---------------------------------------------------------- Classes amies
 

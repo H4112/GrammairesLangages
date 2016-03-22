@@ -34,43 +34,43 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void E1::Afficher ( ) const 
 {
-	cout << "E1" << endl;
+    cout << "E1" << endl;
 }
 
 bool E1::Transition ( Automate & automate, Symbole * s )
 {
-	switch(*s)
-	{
-		case VAR:
-		{
-			automate.Decalage(s, new E4);
-			return true;
-		}
-		case CONST:
-		{
-			automate.Decalage(s, new E5);
-			return true;
-		}
-		case LIRE:
-		case ECRIRE:
-		case ID:
-		case FIN:
-		{
-			automate.Reduction(new PartieInstructions, 0);
-			return true;
-		}
-		case D:
-		{
-			automate.Decalage(s, new E3);
-			return true;
-		}
-		case PI:
-		{
-			automate.Decalage(s, new E2);
-			return true;
-		}
-	}
-	return false;
+    switch(*s)
+    {
+        case VAR:
+        {
+            automate.Decalage(s, new E4);
+            return true;
+        }
+        case CONST:
+        {
+            automate.Decalage(s, new E5);
+            return true;
+        }
+        case LIRE:
+        case ECRIRE:
+        case ID:
+        case FIN:
+        {
+            automate.Reduction(new PartieInstructions, 0);
+            return true;
+        }
+        case D:
+        {
+            automate.Decalage(s, new E3);
+            return true;
+        }
+        case PI:
+        {
+            automate.Decalage(s, new E2);
+            return true;
+        }
+    }
+    return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

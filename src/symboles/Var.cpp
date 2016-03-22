@@ -32,7 +32,7 @@ using namespace std;
 
 //-------------------------------------------- Constructeurs - destructeur
 Var::Var ( const Var & unVar ) 
-	: Symbole(unVar)
+    : Symbole(unVar)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Var>" << endl;
@@ -41,7 +41,7 @@ Var::Var ( const Var & unVar )
 
 
 Var::Var ( ) 
-	: Symbole("var", VAR, true)
+    : Symbole("var", VAR, true)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Var>" << endl;

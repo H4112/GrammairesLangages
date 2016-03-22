@@ -33,6 +33,7 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
     Ecrire ( const Ecrire & unEcrire );
+    // Interdit
 
     Ecrire ( ); 
 

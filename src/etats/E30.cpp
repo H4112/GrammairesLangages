@@ -30,33 +30,33 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void E30::Afficher ( ) const 
 {
-	cout << "E30" << endl;
+    cout << "E30" << endl;
 }
 
 bool E30::Transition ( Automate & automate, Symbole * s )
 {
-	switch(*s)
-	{
-		case POINT_VIRGULE:
-		{
-			Expression * e = (Expression *) automate.PopSymbole();
-			//Symbole * affectation = 
-			delete automate.PopSymbole();
-			Identifiant * id = (Identifiant *) automate.PopSymbole();
+    switch(*s)
+    {
+        case POINT_VIRGULE:
+        {
+            Expression * e = (Expression *) automate.PopSymbole();
+            //Symbole * affectation = 
+            delete automate.PopSymbole();
+            Identifiant * id = (Identifiant *) automate.PopSymbole();
 
-			Instruction * i = new Affectation(*id,e);
-			delete id;
-			//réduire R13
-			automate.Reduction(i, 3);
-			return true;
-		}
-		case OPA:
-		{
-			automate.Decalage(s, new E27);
-			return true;
-		}
-	}
-	return false;
+            Instruction * i = new Affectation(*id,e);
+            delete id;
+            //réduire R13
+            automate.Reduction(i, 3);
+            return true;
+        }
+        case OPA:
+        {
+            automate.Decalage(s, new E27);
+            return true;
+        }
+    }
+    return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

@@ -1,4 +1,4 @@
 .PHONY: default
 
 default:
-	make -C ..
+    make -C ..

@@ -31,30 +31,30 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void E15::Afficher ( ) const 
 {
-	cout << "E15" << endl;
+    cout << "E15" << endl;
 }
 
 bool E15::Transition ( Automate & automate, Symbole * s )
 {
-	switch(*s)
-	{
-		case LIRE:
-		case ECRIRE:
-		case ID:
-		case FIN:
-		{
-			//Symbole * point_virgule = 
-			delete automate.PopSymbole();
-			Instruction * i = (Instruction *) automate.PopSymbole();
-			PartieInstructions * pi = (PartieInstructions *) automate.PopSymbole();
+    switch(*s)
+    {
+        case LIRE:
+        case ECRIRE:
+        case ID:
+        case FIN:
+        {
+            //Symbole * point_virgule = 
+            delete automate.PopSymbole();
+            Instruction * i = (Instruction *) automate.PopSymbole();
+            PartieInstructions * pi = (PartieInstructions *) automate.PopSymbole();
 
-			pi->AjouterInstruction(i);
-			//réduire R9
-			automate.Reduction(pi, 3);
-			return true;
-		}
-	}
-	return false;
+            pi->AjouterInstruction(i);
+            //réduire R9
+            automate.Reduction(pi, 3);
+            return true;
+        }
+    }
+    return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

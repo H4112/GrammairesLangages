@@ -51,8 +51,8 @@ private:
 
 protected:
 //----------------------------------------------------- Attributs protégés
-	Expression * expGauche;
-	Expression * expDroite;
+    Expression * expGauche;
+    Expression * expDroite;
 
 private:
 //------------------------------------------------------- Attributs privés

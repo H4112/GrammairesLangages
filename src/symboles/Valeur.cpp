@@ -32,7 +32,7 @@ using namespace std;
 
 //-------------------------------------------- Constructeurs - destructeur
 Valeur::Valeur ( const Valeur & unValeur ) 
-	: Symbole(unValeur)
+    : Symbole(unValeur)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Valeur>" << endl;
@@ -41,7 +41,7 @@ Valeur::Valeur ( const Valeur & unValeur )
 
 
 Valeur::Valeur ( string val ) 
-	: Symbole(val, VAL, true), valeur(stoi(val))
+    : Symbole(val, VAL, true), valeur(stoi(val))
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Valeur>" << endl;

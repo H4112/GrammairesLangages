@@ -31,27 +31,27 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void E3::Afficher ( ) const 
 {
-	cout << "E3" << endl;
+    cout << "E3" << endl;
 }
 
 bool E3::Transition ( Automate & automate, Symbole * s )
 {
-	switch(*s)
-	{
-		case POINT_VIRGULE:
-		{
-			automate.Decalage(s, new E10);
-			return true;
-		}
-	}
-	return false;
+    switch(*s)
+    {
+        case POINT_VIRGULE:
+        {
+            automate.Decalage(s, new E10);
+            return true;
+        }
+    }
+    return false;
 }
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 Symbole * E3::Recuperation ( Symbole * symb )
 {
-	return new PointVirgule;
+    return new PointVirgule;
 }
 #pragma GCC diagnostic pop
 

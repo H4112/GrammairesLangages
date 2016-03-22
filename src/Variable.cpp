@@ -31,12 +31,12 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 bool Variable::EstAffectable ( ) const
 {
-	return true;
+    return true;
 }
 
 bool Variable::EstAffecte ( ) const
 {
-	return affecte;
+    return affecte;
 }
 
 bool Variable::EstConstante ( ) const
@@ -46,7 +46,7 @@ bool Variable::EstConstante ( ) const
 
 void Variable::Affecter ( )
 {
-	affecte = true;
+    affecte = true;
 }
 
 void Variable::SetValeur ( int val )
@@ -63,7 +63,7 @@ void Variable::SetConstante ( bool val )
 
 //-------------------------------------------- Constructeurs - destructeur
 Variable::Variable ( const Variable & uneVariable )
-	: Declaration(uneVariable), affecte(uneVariable.affecte)
+    : Declaration(uneVariable), affecte(uneVariable.affecte)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Variable>" << endl;

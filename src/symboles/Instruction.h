@@ -39,14 +39,14 @@ public:
     virtual void Simplifier( map < string, Declaration * > & tableDeclarations ) = 0;
     // Mode d'emploi : simplifie l'instruction en propageant les
     //     constantes, supprimant les éléments neutres, etc.
-	virtual void Afficher( ostream & out ) const = 0;
+    virtual void Afficher( ostream & out ) const = 0;
 
     virtual bool Verifier( map < string, Declaration * > & tableDeclarations ) = 0;
     // Mode d'emploi : vérification statique
 
-	int GetType ( ) const;
-	// Mode d'emploi :
-	//	Permet de connaître le type de l'instruction
+    int GetType ( ) const;
+    // Mode d'emploi :
+    //    Permet de connaître le type de l'instruction
 //------------------------------------------------- Surcharge d'opérateurs
     friend ostream & operator << ( ostream & out,
         const Instruction & instruction );
@@ -70,7 +70,7 @@ protected:
 
 private:
 //------------------------------------------------------- Attributs privés
-	int typeInstruction;
+    int typeInstruction;
 
 //---------------------------------------------------------- Classes amies
 

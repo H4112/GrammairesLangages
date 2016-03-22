@@ -31,28 +31,28 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void E9::Afficher ( ) const 
 {
-	cout << "E9" << endl;
+    cout << "E9" << endl;
 }
 
 bool E9::Transition ( Automate & automate, Symbole * s )
 {
-	switch(*s)
-	{
-		case AFFECTATION:
-		{
-			automate.Decalage(s, new E23);
-			return true;
-		}
-	}
-	
-	return false;
+    switch(*s)
+    {
+        case AFFECTATION:
+        {
+            automate.Decalage(s, new E23);
+            return true;
+        }
+    }
+    
+    return false;
 }
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 Symbole * E9::Recuperation ( Symbole * symb )
 {
-	return new Affecter;
+    return new Affecter;
 }
 #pragma GCC diagnostic pop
 

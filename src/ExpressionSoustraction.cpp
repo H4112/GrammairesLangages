@@ -30,8 +30,8 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 int ExpressionSoustraction::Evaluer( map < string, Declaration * > & tableDeclarations )
 {
-	return expGauche->Evaluer(tableDeclarations) 
-		 - expDroite->Evaluer(tableDeclarations);
+    return expGauche->Evaluer(tableDeclarations) 
+         - expDroite->Evaluer(tableDeclarations);
 }
 
 Expression * ExpressionSoustraction::Simplifier( map < string, Declaration * > & tableDeclarations )
@@ -71,7 +71,7 @@ void ExpressionSoustraction::Afficher ( ostream & out ) const
 
 //-------------------------------------------- Constructeurs - destructeur
 ExpressionSoustraction::ExpressionSoustraction ( const ExpressionSoustraction & unExpressionSoustraction )
-	: ExpressionBinaire ( unExpressionSoustraction )
+    : ExpressionBinaire ( unExpressionSoustraction )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <ExpressionSoustraction>" << endl;
@@ -80,7 +80,7 @@ ExpressionSoustraction::ExpressionSoustraction ( const ExpressionSoustraction & 
 
 
 ExpressionSoustraction::ExpressionSoustraction ( Expression * gauche, Expression * droite )
-	 : ExpressionBinaire ( gauche, droite, EXPR_SOUS )
+     : ExpressionBinaire ( gauche, droite, EXPR_SOUS )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <ExpressionSoustraction>" << endl;

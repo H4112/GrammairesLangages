@@ -31,53 +31,53 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void Lecture::Executer( map < string, Declaration * > & tableDeclarations )
 {
-	int nb;
-	cin >> nb;
-	
-	//on devrait avoir vérifié que la déclaration est bien une variable
-	//et non une constante au niveau de l'analyse statique
-	Variable * variable = (Variable *) tableDeclarations[nomVariable];
-	variable->SetValeur(nb);
+    int nb;
+    cin >> nb;
+    
+    //on devrait avoir vérifié que la déclaration est bien une variable
+    //et non une constante au niveau de l'analyse statique
+    Variable * variable = (Variable *) tableDeclarations[nomVariable];
+    variable->SetValeur(nb);
 }
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 void Lecture::Simplifier( map < string, Declaration * > & tableDeclarations )
 {
-	((Variable *)tableDeclarations[nomVariable])->SetConstante(false);
+    ((Variable *)tableDeclarations[nomVariable])->SetConstante(false);
 }
 #pragma GCC diagnostic pop
 
 void Lecture::Afficher( ostream & out ) const
 {
-	out << "lire " << nomVariable;
+    out << "lire " << nomVariable;
 }
 
 bool Lecture::Verifier( map < string, Declaration * > & tableDeclarations )
 {
-	if(tableDeclarations.find(nomVariable) == tableDeclarations.end())
-	{
-		cerr << "\"" << nomVariable << "\" non déclaré." << endl;
-		return false;
-	}
-	else if(!tableDeclarations[nomVariable]->EstAffectable())
-	{
-		cerr << "\"" << nomVariable << "\" est une constante et ne peut pas être affectée." << endl;
-		return false;
-	}
-	else
-	{
-		((Variable *)tableDeclarations[nomVariable])->Affecter();
-		((Variable *)tableDeclarations[nomVariable])->SetConstante(false);
-		return true;
-	}
+    if(tableDeclarations.find(nomVariable) == tableDeclarations.end())
+    {
+        cerr << "\"" << nomVariable << "\" non déclaré." << endl;
+        return false;
+    }
+    else if(!tableDeclarations[nomVariable]->EstAffectable())
+    {
+        cerr << "\"" << nomVariable << "\" est une constante et ne peut pas être affectée." << endl;
+        return false;
+    }
+    else
+    {
+        ((Variable *)tableDeclarations[nomVariable])->Affecter();
+        ((Variable *)tableDeclarations[nomVariable])->SetConstante(false);
+        return true;
+    }
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
 Lecture::Lecture ( const Lecture & unLecture )
-	: Instruction ( unLecture ), nomVariable ( unLecture.nomVariable )
+    : Instruction ( unLecture ), nomVariable ( unLecture.nomVariable )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Lecture>" << endl;
@@ -86,7 +86,7 @@ Lecture::Lecture ( const Lecture & unLecture )
 
 
 Lecture::Lecture ( string nom )
-	: Instruction ( INSTR_LIRE ), nomVariable ( nom )
+    : Instruction ( INSTR_LIRE ), nomVariable ( nom )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Lecture>" << endl;

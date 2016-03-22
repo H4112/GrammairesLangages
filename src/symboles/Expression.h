@@ -37,33 +37,42 @@ class Expression : public Symbole
 
 public:
 //----------------------------------------------------- Méthodes publiques
-	virtual int Evaluer( map < string, Declaration * > & tableDeclarations ) = 0;
+    virtual int Evaluer( map < string, Declaration * > & tableDeclarations ) = 0;
     // Mode d'emploi : 
-	//	Calcule la valeur de l'expression.
+    //     Calcule la valeur de l'expression.
+    // Contrat :
+    //     Les variables/constantes utilisées sont bien déclarées
+
     virtual Expression * Simplifier( map < string, Declaration * > & tableDeclarations ) = 0;
     // Mode d'emploi : simplifie l'instruction en propageant les
     //     constantes, supprimant les éléments neutres, etc.
     //     Retourne l'expression simplifiée.
+    // Contrat :
+    //     Les variables/constantes utilisées sont bien déclarées
+
     virtual bool Verifier( map < string, Declaration * > & tableDeclarations ) = 0;
-    // Mode d'emploi : vérification statique
+    // Mode d'emploi :
+    //     Vérification statique
+
     void SetIdent ( int id );
     // Mode d'emploi :
-    //  Permet de changer le type de Symbole
-	
-	int GetType ( );
-	// Mode d'emploi :
-	//	Permet de connaître le type de l'expression
+    //     Permet de changer le type de Symbole
+    
+    int GetType ( );
+    // Mode d'emploi :
+    //     Permet de connaître le type de l'expression
 
-	virtual void Afficher ( ostream & out ) const = 0;
-	// Mode d'emploi :
-	//	Ecrit expression sur la sortie donnée en paramètre
+    virtual void Afficher ( ostream & out ) const = 0;
+    // Mode d'emploi :
+    //     Ecrit expression sur la sortie donnée en paramètre
 
 //------------------------------------------------- Surcharge d'opérateurs
-friend ostream & operator << ( ostream & out,
-        const Expression & expression );
+    friend ostream & operator << ( ostream & out,
+            const Expression & expression );
 
 //-------------------------------------------- Constructeurs - destructeur
     Expression ( const Expression & unExpression );
+    // Interdit
 
     Expression ( int type ); 
 
@@ -82,7 +91,7 @@ protected:
 
 private:
 //------------------------------------------------------- Attributs privés
-	int typeExpression;
+    int typeExpression;
 
 //---------------------------------------------------------- Classes amies
 

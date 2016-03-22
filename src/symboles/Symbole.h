@@ -52,45 +52,45 @@ class Symbole
 
 public:
 //----------------------------------------------------- Méthodes publiques
-	string GetNom();
-	//Mode d'emploi :
-	//	Permet d'obtenir un nom affichable pour le symbole.
-	//Contrat :
-	//	Aucun
-	
-	bool EstTerminal();
-	//Mode d'emploi :
-	//	Vaut true si le symbole est terminal, sinon false.
-	//Contrat :
-	//	Aucun
+    string GetNom();
+    //Mode d'emploi :
+    //    Permet d'obtenir un nom affichable pour le symbole.
+    //Contrat :
+    //    Aucun
+    
+    bool EstTerminal();
+    //Mode d'emploi :
+    //    Vaut true si le symbole est terminal, sinon false.
+    //Contrat :
+    //    Aucun
 
-	void SetPosition ( int numL, int numC );
-	//Mode d'emploi :
-	//	Modifie la position du symbole dans le fichier source.
-	//Contrat :
-	//	La position donnée est cohérente
+    void SetPosition ( int numL, int numC );
+    //Mode d'emploi :
+    //    Modifie la position du symbole dans le fichier source.
+    //Contrat :
+    //    La position donnée est cohérente
 
-	int GetLigne ( ) ;
-	//Mode d'emploi :
-	//	Renvoie la ligne à laquelle ce symbole a été trouvé.
-	//Contrat :
-	//	SetPosition a été appelée.
+    int GetLigne ( ) ;
+    //Mode d'emploi :
+    //    Renvoie la ligne à laquelle ce symbole a été trouvé.
+    //Contrat :
+    //    SetPosition a été appelée.
 
-	int GetChar ( );
-	//Mode d'emploi :
-	//	Renvoie la position dans la ligne à laquelle 
-	//	ce symbole a été trouvé.
-	//Contrat :
-	//	SetPosition a été appelée.
+    int GetChar ( );
+    //Mode d'emploi :
+    //    Renvoie la position dans la ligne à laquelle 
+    //    ce symbole a été trouvé.
+    //Contrat :
+    //    SetPosition a été appelée.
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-	operator int() const { return ident; }
+    operator int() const { return ident; }
 
 //-------------------------------------------- Constructeurs - destructeur
 
-	Symbole ( );
-	// Interdit
+    Symbole ( );
+    // Interdit
 
     Symbole ( const Symbole & unSymbole );
 
@@ -108,13 +108,13 @@ private:
 
 protected:
 //----------------------------------------------------- Attributs protégés
-	int ident;
+    int ident;
 private:
 //------------------------------------------------------- Attributs privés
-	string nom;
-	bool terminal;
-	int numLine;
-	int numChar;
+    string nom;
+    bool terminal;
+    int numLine;
+    int numChar;
 
 //---------------------------------------------------------- Classes amies
 

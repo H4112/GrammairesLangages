@@ -32,7 +32,7 @@ using namespace std;
 
 //-------------------------------------------- Constructeurs - destructeur
 Fin::Fin ( const Fin & unFin ) 
-	: Symbole(unFin)
+    : Symbole(unFin)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Fin>" << endl;
@@ -41,7 +41,7 @@ Fin::Fin ( const Fin & unFin )
 
 
 Fin::Fin ( ) 
-	: Symbole("", FIN, true)
+    : Symbole("", FIN, true)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Fin>" << endl;

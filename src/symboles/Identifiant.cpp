@@ -32,7 +32,7 @@ using namespace std;
 
 //-------------------------------------------- Constructeurs - destructeur
 Identifiant::Identifiant ( const Identifiant & unIdentifiant ) 
-	: Symbole(unIdentifiant)
+    : Symbole(unIdentifiant)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Identifiant>" << endl;
@@ -41,7 +41,7 @@ Identifiant::Identifiant ( const Identifiant & unIdentifiant )
 
 
 Identifiant::Identifiant ( string unId ) 
-	: Symbole(unId, ID, true), id(unId)
+    : Symbole(unId, ID, true), id(unId)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Identifiant>" << endl;

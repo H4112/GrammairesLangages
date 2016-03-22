@@ -32,44 +32,44 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void E33::Afficher ( ) const 
 {
-	cout << "E33" << endl;
+    cout << "E33" << endl;
 }
 
 bool E33::Transition ( Automate & automate, Symbole * s )
 {
-	switch(*s)
-	{
-		case VIRGULE:
-		case POINT_VIRGULE:
-		{
-			Valeur * val = (Valeur *) automate.PopSymbole();
-			//Symbole * egal = 
-			delete automate.PopSymbole();
-			Identifiant * id = (Identifiant *) automate.PopSymbole();
-			
-			ListeIdentifiantsValeurs * lidv = new ListeIdentifiantsValeurs();
-			lidv->AjouterConstante(id,val);
-			//réduire R8
-			automate.Reduction(lidv, 3);
-			return true;
-		}
-	}
-	
-	return false;
+    switch(*s)
+    {
+        case VIRGULE:
+        case POINT_VIRGULE:
+        {
+            Valeur * val = (Valeur *) automate.PopSymbole();
+            //Symbole * egal = 
+            delete automate.PopSymbole();
+            Identifiant * id = (Identifiant *) automate.PopSymbole();
+            
+            ListeIdentifiantsValeurs * lidv = new ListeIdentifiantsValeurs();
+            lidv->AjouterConstante(id,val);
+            //réduire R8
+            automate.Reduction(lidv, 3);
+            return true;
+        }
+    }
+    
+    return false;
 }
 
 Symbole * E33::Recuperation ( Symbole * symb )
 {
-	if(*symb == ID)
-	{
-		//certainement une virgule oubliée
-		return new Virgule;
-	}
-	else
-	{
-		//on considère que nous avons commencé une autre expression
-		return new PointVirgule;
-	}
+    if(*symb == ID)
+    {
+        //certainement une virgule oubliée
+        return new Virgule;
+    }
+    else
+    {
+        //on considère que nous avons commencé une autre expression
+        return new PointVirgule;
+    }
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

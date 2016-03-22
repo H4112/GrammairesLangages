@@ -29,10 +29,10 @@ class ExpressionAddition : public ExpressionBinaire
 public:
 //----------------------------------------------------- Méthodes publiques
     int Evaluer( map < string, Declaration * > & tableDeclarations );
-	
-	Expression * Simplifier( map < string, Declaration * > & tableDeclarations );
+    
+    Expression * Simplifier( map < string, Declaration * > & tableDeclarations );
 
-	void Afficher ( ostream & out ) const;
+    void Afficher ( ostream & out ) const;
 
 
 //------------------------------------------------- Surcharge d'opérateurs

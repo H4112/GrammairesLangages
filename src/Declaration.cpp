@@ -29,17 +29,17 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 bool Declaration::EstUtilise ( ) const
 {
-	return utilise;
+    return utilise;
 }
 
 string Declaration::GetId ( ) const
 {
-	return id;
+    return id;
 }
 
 void Declaration::Utiliser ( )
 {
-	utilise = true;
+    utilise = true;
 }
 
 int Declaration::GetValeur ( ) const
@@ -63,7 +63,7 @@ ostream & operator << ( ostream & out, const Declaration & declaration )
 
 //-------------------------------------------- Constructeurs - destructeur
 Declaration::Declaration ( string unId, int uneValeur )
-	: valeur ( uneValeur ), id ( unId ), utilise ( false )
+    : valeur ( uneValeur ), id ( unId ), utilise ( false )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Declaration>" << endl;
@@ -71,7 +71,7 @@ Declaration::Declaration ( string unId, int uneValeur )
 } //----- Fin de Declaration
 
 Declaration::Declaration ( const Declaration & uneDeclaration )
-	: valeur ( uneDeclaration.valeur ), id ( uneDeclaration.id )
+    : valeur ( uneDeclaration.valeur ), id ( uneDeclaration.id )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Declaration>" << endl;

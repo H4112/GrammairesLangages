@@ -29,33 +29,33 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void E36::Afficher ( ) const 
 {
-	cout << "E36" << endl;
+    cout << "E36" << endl;
 }
 
 bool E36::Transition ( Automate & automate, Symbole * s )
 {
-	switch(*s)
-	{
-		case POINT_VIRGULE:
-		case FERMEPAR:
-		case OPA:
-		case OPM:
-		{
-			//Symbole * fermepar = 
-			delete automate.PopSymbole();
-			Expression * e = (Expression *) automate.PopSymbole();
-			//Symbole * ouvrepar = 
-			delete automate.PopSymbole();
+    switch(*s)
+    {
+        case POINT_VIRGULE:
+        case FERMEPAR:
+        case OPA:
+        case OPM:
+        {
+            //Symbole * fermepar = 
+            delete automate.PopSymbole();
+            Expression * e = (Expression *) automate.PopSymbole();
+            //Symbole * ouvrepar = 
+            delete automate.PopSymbole();
 
-			Parentheses * p = new Parentheses(e);
-			p->SetIdent(F);
-			//réduire R18
-			automate.Reduction(p, 3);
-			return true;
-		}
-	}
-	
-	return false;
+            Parentheses * p = new Parentheses(e);
+            p->SetIdent(F);
+            //réduire R18
+            automate.Reduction(p, 3);
+            return true;
+        }
+    }
+    
+    return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

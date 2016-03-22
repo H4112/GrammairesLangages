@@ -37,50 +37,50 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void E2::Afficher ( ) const 
 {
-	cout << "E2" << endl;
+    cout << "E2" << endl;
 }
 
 bool E2::Transition ( Automate & automate, Symbole * s )
 {
-	switch(*s)
-	{
-		case LIRE:
-		{
-			automate.Decalage(s, new E7);
-			return true;
-		}
-		case ECRIRE:
-		{
-			automate.Decalage(s, new E8);
-			return true;
-		}
-		case ID:
-		{
-			automate.Decalage(s, new E9);
-			return true;
-		}
-		case FIN:
-		{
-			PartieInstructions * pi = (PartieInstructions *) automate.PopSymbole();
-			PartieDeclarative * pd = (PartieDeclarative *) automate.PopSymbole();
-			
-			Programme * prog = new Programme(pd->GetDeclarations(), pi->GetInstructions());
-			
-			delete pi;
-			delete pd;
-			
-			//réduire R0
-			automate.Reduction(prog, 2);
-			
-			return true;
-		}
-		case I:
-		{
-			automate.Decalage(s, new E6);
-			return true;
-		}
-	}
-	return false;
+    switch(*s)
+    {
+        case LIRE:
+        {
+            automate.Decalage(s, new E7);
+            return true;
+        }
+        case ECRIRE:
+        {
+            automate.Decalage(s, new E8);
+            return true;
+        }
+        case ID:
+        {
+            automate.Decalage(s, new E9);
+            return true;
+        }
+        case FIN:
+        {
+            PartieInstructions * pi = (PartieInstructions *) automate.PopSymbole();
+            PartieDeclarative * pd = (PartieDeclarative *) automate.PopSymbole();
+            
+            Programme * prog = new Programme(pd->GetDeclarations(), pi->GetInstructions());
+            
+            delete pi;
+            delete pd;
+            
+            //réduire R0
+            automate.Reduction(prog, 2);
+            
+            return true;
+        }
+        case I:
+        {
+            automate.Decalage(s, new E6);
+            return true;
+        }
+    }
+    return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

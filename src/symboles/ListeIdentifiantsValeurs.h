@@ -34,8 +34,8 @@ class ListeIdentifiantsValeurs : public ListeDeclaration
 
 public:
 //----------------------------------------------------- Méthodes publiques
-	void AjouterConstante ( Identifiant * id, Valeur * val );
-	// Mode d'emploi : crée une nouvelle constante et l'ajoute à la liste.
+    void AjouterConstante ( Identifiant * id, Valeur * val );
+    // Mode d'emploi : crée une nouvelle constante et l'ajoute à la liste.
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur

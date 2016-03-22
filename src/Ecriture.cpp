@@ -30,13 +30,13 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void Ecriture::Executer( map < string, Declaration * > & tableDeclarations )
 {
-	int result = expression->Evaluer(tableDeclarations);
-	cout << result << endl;
+    int result = expression->Evaluer(tableDeclarations);
+    cout << result << endl;
 }
 
 void Ecriture::Simplifier( map < string, Declaration * > & tableDeclarations )
 {
-	Expression * expr = expression->Simplifier(tableDeclarations);
+    Expression * expr = expression->Simplifier(tableDeclarations);
     if(expr != expression)
     {
         delete expression;
@@ -66,7 +66,7 @@ bool Ecriture::Verifier( map < string, Declaration * > & tableDeclarations )
 
 //-------------------------------------------- Constructeurs - destructeur
 Ecriture::Ecriture ( const Ecriture & unEcriture )
-	: Instruction ( unEcriture ), expression ( unEcriture.expression )
+    : Instruction ( unEcriture ), expression ( unEcriture.expression )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Ecriture>" << endl;
@@ -75,7 +75,7 @@ Ecriture::Ecriture ( const Ecriture & unEcriture )
 
 
 Ecriture::Ecriture ( Expression * expr )
-	: Instruction ( INSTR_ECRIRE ), expression ( expr )
+    : Instruction ( INSTR_ECRIRE ), expression ( expr )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Ecriture>" << endl;

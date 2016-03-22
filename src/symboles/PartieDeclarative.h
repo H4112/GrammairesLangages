@@ -33,19 +33,19 @@ class PartieDeclarative : public Symbole
 
 public:
 //----------------------------------------------------- Méthodes publiques
-	bool AjouterDeclarations( ListeDeclaration * liste );
-	// Mode d'emploi :
-	//	Ajoute une liste de déclarations à cette partie déclarative.
-	//	Renvoie true si aucun identifiant n'a été dupliqué, sinon false.
-	// Contrat :
-	//	Aucun
-	
-	map< string, Declaration * > GetDeclarations ( );
-	// Mode d'emploi :
-	//	Permet d'obtenir la table des déclarations ajoutées à cette
-	//	partie déclarative.
-	// Contrat :
-	//	Aucuns
+    bool AjouterDeclarations( ListeDeclaration * liste );
+    // Mode d'emploi :
+    //    Ajoute une liste de déclarations à cette partie déclarative.
+    //    Renvoie true si aucun identifiant n'a été dupliqué, sinon false.
+    // Contrat :
+    //    Aucun
+    
+    map< string, Declaration * > GetDeclarations ( );
+    // Mode d'emploi :
+    //    Permet d'obtenir la table des déclarations ajoutées à cette
+    //    partie déclarative.
+    // Contrat :
+    //    Aucuns
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -69,9 +69,9 @@ protected:
 
 private:
 //------------------------------------------------------- Attributs privés
-	map< string, Declaration * > tableDeclarations;
+    map< string, Declaration * > tableDeclarations;
 
-	bool tableObtenue;
+    bool tableObtenue;
 
 //---------------------------------------------------------- Classes amies
 

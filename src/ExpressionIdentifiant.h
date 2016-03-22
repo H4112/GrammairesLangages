@@ -33,7 +33,7 @@ public:
     
     Expression * Simplifier( map < string, Declaration * > & tableDeclarations );
 
-	void Afficher ( ostream & out ) const;
+    void Afficher ( ostream & out ) const;
 
     bool Verifier ( map < string, Declaration * > & tableDeclarations );
 

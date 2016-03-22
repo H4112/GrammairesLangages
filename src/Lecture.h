@@ -20,8 +20,8 @@
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <Lecture>
-//	Instruction demandant à l'utilisateur de saisir un nombre,
-//	puis affectant ce nombre à la variable donnée en paramètre.
+//    Instruction demandant à l'utilisateur de saisir un nombre,
+//    puis affectant ce nombre à la variable donnée en paramètre.
 //
 //------------------------------------------------------------------------ 
 
@@ -33,12 +33,12 @@ public:
 //----------------------------------------------------- Méthodes publiques
     void Executer( map < string, Declaration * > & tableDeclarations );
     // Mode d'emploi : 
-	//	Demande un nombre à l'utilisateur, puis l'affecte à la variable
-	//	dont le nom a été passé au constructeur.
-	
+    //    Demande un nombre à l'utilisateur, puis l'affecte à la variable
+    //    dont le nom a été passé au constructeur.
+    
     void Simplifier( map < string, Declaration * > & tableDeclarations );
     // Mode d'emploi : 
-	//	Ne fait rien.
+    //    Ne fait rien.
 
     void Afficher( ostream & out ) const;
 
@@ -50,13 +50,13 @@ public:
     Lecture ( const Lecture & unLecture );
 
     Lecture ( );
-	// Interdit
-	
-	Lecture ( string nom );
-	// Mode d'emploi :
-	//	Construit une instruction de lecture d'un nombre, pour ensuite
-	//	mettre le résultat dans la variable dont le nom est passé
-	//	en paramètre.
+    // Interdit
+    
+    Lecture ( string nom );
+    // Mode d'emploi :
+    //    Construit une instruction de lecture d'un nombre, pour ensuite
+    //    mettre le résultat dans la variable dont le nom est passé
+    //    en paramètre.
 
     virtual ~Lecture ( );
 
@@ -67,7 +67,7 @@ protected:
 
 private:
 //------------------------------------------------------- Méthodes privées
-	string nomVariable;
+    string nomVariable;
 
 protected:
 //----------------------------------------------------- Attributs protégés

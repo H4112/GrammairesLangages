@@ -33,6 +33,7 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
     Affecter ( const Affecter & unAffecter );
+    // Interdit
 
     Affecter ( ); 
 

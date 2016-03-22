@@ -30,8 +30,8 @@ class ListeIdentifiants : public ListeDeclaration
 
 public:
 //----------------------------------------------------- Méthodes publiques
-	void AjouterVariable ( Identifiant * id );
-	// Mode d'emploi : crée une nouvelle variable et l'ajoute à la liste.
+    void AjouterVariable ( Identifiant * id );
+    // Mode d'emploi : crée une nouvelle variable et l'ajoute à la liste.
 
 //------------------------------------------------- Surcharge d'opérateurs
 

@@ -31,31 +31,31 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void E13::Afficher ( ) const 
 {
-	cout << "E13" << endl;
+    cout << "E13" << endl;
 }
 
 bool E13::Transition ( Automate & automate, Symbole * s )
 {
-	switch(*s)
-	{
-		case VIRGULE:
-		{
-			automate.Decalage(s, new E25);
-			return true;
-		}
-		case POINT_VIRGULE:
-		{
-			ListeIdentifiantsValeurs * lidv = (ListeIdentifiantsValeurs *) automate.PopSymbole();
-			lidv->SetIdent(D);
-			//Symbole * constante = 
-			delete automate.PopSymbole();
+    switch(*s)
+    {
+        case VIRGULE:
+        {
+            automate.Decalage(s, new E25);
+            return true;
+        }
+        case POINT_VIRGULE:
+        {
+            ListeIdentifiantsValeurs * lidv = (ListeIdentifiantsValeurs *) automate.PopSymbole();
+            lidv->SetIdent(D);
+            //Symbole * constante = 
+            delete automate.PopSymbole();
 
-			//réduire R4
-			automate.Reduction(lidv, 2);
-			return true;
-		}
-	}
-	return false;
+            //réduire R4
+            automate.Reduction(lidv, 2);
+            return true;
+        }
+    }
+    return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

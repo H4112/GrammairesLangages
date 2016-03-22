@@ -33,7 +33,7 @@ public:
 
     int GetValeur ( );
 
-	void Afficher ( ostream & out ) const;
+    void Afficher ( ostream & out ) const;
     
     bool Verifier ( map < string, Declaration * > & tableDeclarations );
 

@@ -32,7 +32,7 @@ using namespace std;
 
 //-------------------------------------------- Constructeurs - destructeur
 PointVirgule::PointVirgule ( const PointVirgule & unPointVirgule ) 
-	: Symbole(unPointVirgule)
+    : Symbole(unPointVirgule)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <PointVirgule>" << endl;
@@ -41,7 +41,7 @@ PointVirgule::PointVirgule ( const PointVirgule & unPointVirgule )
 
 
 PointVirgule::PointVirgule ( ) 
-	: Symbole(";", POINT_VIRGULE, true)
+    : Symbole(";", POINT_VIRGULE, true)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <PointVirgule>" << endl;

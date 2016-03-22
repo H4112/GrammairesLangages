@@ -31,19 +31,19 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 bool Constante::EstAffectable ( ) const
 {
-	return false;
+    return false;
 }
 
 bool Constante::EstAffecte ( ) const
 {
-	return true;
+    return true;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
 Constante::Constante ( const Constante & uneConstante )
-	: Declaration(uneConstante)
+    : Declaration(uneConstante)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Constante>" << endl;

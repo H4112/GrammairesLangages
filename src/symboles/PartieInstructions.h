@@ -30,13 +30,13 @@ class PartieInstructions : public Symbole
 
 public:
 //----------------------------------------------------- Méthodes publiques
-	list < Instruction * > GetInstructions ( );
-	// Mode d'emploi :
-	//	Renvoie les instructions de cette liste.
-	
-	void AjouterInstruction ( Instruction * instruction );
-	//Mode d'emploi :
-	//	Ajoute une instruction à la liste.
+    list < Instruction * > GetInstructions ( );
+    // Mode d'emploi :
+    //    Renvoie les instructions de cette liste.
+    
+    void AjouterInstruction ( Instruction * instruction );
+    //Mode d'emploi :
+    //    Ajoute une instruction à la liste.
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -60,9 +60,9 @@ protected:
 
 private:
 //------------------------------------------------------- Attributs privés
-	list < Instruction * > listeInstructions;
+    list < Instruction * > listeInstructions;
 
-	bool listeObtenue;
+    bool listeObtenue;
 
 //---------------------------------------------------------- Classes amies
 

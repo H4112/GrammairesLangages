@@ -32,14 +32,14 @@ class ListeDeclaration : public Symbole
 
 public:
 //----------------------------------------------------- Méthodes publiques
-	list < Declaration * > GetListeDeclarations ( ) ;
-	// Mode d'emploi :
-	//	Permet d'obtenir la liste des déclarations contenue 
-	//	dans cette ListeDeclaration.
-	// Contrat :
-	//	Aucun
-	
-	void SetIdent ( int id );
+    list < Declaration * > GetListeDeclarations ( ) ;
+    // Mode d'emploi :
+    //    Permet d'obtenir la liste des déclarations contenue 
+    //    dans cette ListeDeclaration.
+    // Contrat :
+    //    Aucun
+    
+    void SetIdent ( int id );
     // Mode d'emploi :
     //  Permet de changer le type de Symbole
 
@@ -56,7 +56,7 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-	void ajouterDeclaration ( Declaration * declaration );
+    void ajouterDeclaration ( Declaration * declaration );
 
 private:
 //------------------------------------------------------- Méthodes privées
@@ -66,9 +66,9 @@ protected:
 
 private:
 //------------------------------------------------------- Attributs privés
-	list < Declaration * > listeDeclarations;
+    list < Declaration * > listeDeclarations;
 
-	bool declarationsObtenues;
+    bool declarationsObtenues;
 
 //---------------------------------------------------------- Classes amies
 

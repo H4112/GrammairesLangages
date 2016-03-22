@@ -30,20 +30,20 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void E26::Afficher ( ) const 
 {
-	cout << "E26" << endl;
+    cout << "E26" << endl;
 }
 
 bool E26::Transition ( Automate & automate, Symbole * s )
 {
-	switch(*s)
-	{
-		case VAL:
-		{
-			automate.Decalage(s, new E33);
-			return true;
-		}
-	}
-	return false;
+    switch(*s)
+    {
+        case VAL:
+        {
+            automate.Decalage(s, new E33);
+            return true;
+        }
+    }
+    return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

@@ -58,14 +58,14 @@ public:
     //    Renvoie NULL si aucun symbole n'est présent.
     //Contrat :
     //    Aucun.
-	
-	Programme * Executer ( );
-	//Mode d'emploi :
-	//    Exécute entièrement l'automate jusqu'à l'acceptation du fichier
-	//    (dans lequel cas Executer renvoie le symbole Programme) ou jusqu'à la rencontre
-	//    d'une erreur de syntaxe (Executer renvoie NULL/0).
-	//Contrat :
-	//    Aucun
+    
+    Programme * Executer ( );
+    //Mode d'emploi :
+    //    Exécute entièrement l'automate jusqu'à l'acceptation du fichier
+    //    (dans lequel cas Executer renvoie le symbole Programme) ou jusqu'à la rencontre
+    //    d'une erreur de syntaxe (Executer renvoie NULL/0).
+    //Contrat :
+    //    Aucun
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -87,11 +87,11 @@ protected:
 
 private:
 //------------------------------------------------------- Méthodes privées
-	void viderPiles();
-	//Mode d'emploi :
-	//    Permet de vider les piles et de détruire tous les symboles et états.
-	//Contrat :
-	//    Aucun
+    void viderPiles();
+    //Mode d'emploi :
+    //    Permet de vider les piles et de détruire tous les symboles et états.
+    //Contrat :
+    //    Aucun
 
 protected:
 //----------------------------------------------------- Attributs protégés

@@ -33,6 +33,7 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
     Egal ( const Egal & unEgal );
+    // Interdit
 
     Egal ( ); 
 

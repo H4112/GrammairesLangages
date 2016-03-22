@@ -18,9 +18,9 @@
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <Declaration>
-//	Cette classe représente une variable ou une constante
-//	du programme Lutin, que le programme peut manipuler
-//	par le biais d'une table de déclarations.
+//    Cette classe représente une variable ou une constante
+//    du programme Lutin, que le programme peut manipuler
+//    par le biais d'une table de déclarations.
 //
 //------------------------------------------------------------------------ 
 
@@ -32,27 +32,27 @@ public:
 //----------------------------------------------------- Méthodes publiques
     virtual bool EstAffectable ( ) const = 0;
     // Mode d'emploi :
-    //	Indique s'il est possible de modifier la valeur
-    //	de cette déclaration.
+    //    Indique s'il est possible de modifier la valeur
+    //    de cette déclaration.
     // Contrat :
-    //	Aucun
+    //    Aucun
 
-	bool EstUtilise ( ) const;
+    bool EstUtilise ( ) const;
     // Mode d'emploi :
-    //	Indique si la variable a été utilisée (GetValeur() a été appelé
-	//	au moins 1 fois).
+    //    Indique si la variable a été utilisée (GetValeur() a été appelé
+    //    au moins 1 fois).
     // Contrat :
-    //	Aucun
-	
-	string GetId ( ) const;
-	// Mode d'emploi :
-	//	Renvoie l'identifiant de cette variable.
-	// Contrat :
-	//	Aucun
-	
-	void Utiliser ( );
-	// Mode d'emploi :
-	//	Passe utilise à true
+    //    Aucun
+    
+    string GetId ( ) const;
+    // Mode d'emploi :
+    //    Renvoie l'identifiant de cette variable.
+    // Contrat :
+    //    Aucun
+    
+    void Utiliser ( );
+    // Mode d'emploi :
+    //    Passe utilise à true
 
     int GetValeur ( ) const;
     // Mode d'emploi :
@@ -61,13 +61,13 @@ public:
     // Contrat :
     //  Si la variable n'est pas affectée, le comportement de cette méthode
     //  est indéfini.
-	
-	virtual bool EstAffecte ( ) const = 0;
-	// Mode d'emploi :
-	//	Indique si la variable possède une valeur valide.
-	//	A appeler avant GetValeur().
-	// Contrat :
-	//	Aucun
+    
+    virtual bool EstAffecte ( ) const = 0;
+    // Mode d'emploi :
+    //    Indique si la variable possède une valeur valide.
+    //    A appeler avant GetValeur().
+    // Contrat :
+    //    Aucun
 
 //------------------------------------------------- Surcharge d'opérateurs
     friend ostream & operator << ( ostream & out,
@@ -76,22 +76,22 @@ public:
 //-------------------------------------------- Constructeurs - destructeur
     Declaration ( string unId, int uneValeur = 0 );
     // Mode d'emploi :
-    //	Permet de créer une nouvelle variable, avec des valeurs
-    //	initiales pour le nom et la valeur.
+    //    Permet de créer une nouvelle variable, avec des valeurs
+    //    initiales pour le nom et la valeur.
     // Contrat :
-    //	Aucun
+    //    Aucun
 
     Declaration ( const Declaration & uneDeclaration );
     // Mode d'emploi (constructeur de copie) :
-    //	Permet de copier l'id et la valeur de la déclaration.
+    //    Permet de copier l'id et la valeur de la déclaration.
     // Contrat :
-    //	Aucun
+    //    Aucun
 
     virtual ~Declaration ( );
     // Mode d'emploi :
-    //	Détruit la déclaration.
+    //    Détruit la déclaration.
     // Contrat :
-    //	Aucun
+    //    Aucun
 
 
 //------------------------------------------------------------------ PRIVE 
@@ -104,12 +104,12 @@ private:
 
 protected:
 //----------------------------------------------------- Attributs protégés
-	int valeur;
+    int valeur;
 
 private:
 //------------------------------------------------------- Attributs privés
-	string id;
-	bool utilise;
+    string id;
+    bool utilise;
 
 //---------------------------------------------------------- Classes amies
 

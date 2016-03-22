@@ -32,31 +32,31 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void E17::Afficher ( ) const 
 {
-	cout << "E17" << endl;
+    cout << "E17" << endl;
 }
 
 bool E17::Transition ( Automate & automate, Symbole * s )
 {
-	switch(*s)
-	{
-		case POINT_VIRGULE:
-		{
-			Expression * e = (Expression *) automate.PopSymbole();
-			//Symbole * ecrire = 
-			delete automate.PopSymbole();
+    switch(*s)
+    {
+        case POINT_VIRGULE:
+        {
+            Expression * e = (Expression *) automate.PopSymbole();
+            //Symbole * ecrire = 
+            delete automate.PopSymbole();
 
-			Ecriture * ecriture = new Ecriture(e);
-			//réduire R12
-			automate.Reduction(ecriture, 2);
-			return true;
-		}
-		case OPA:
-		{
-			automate.Decalage(s, new E27);
-			return true;
-		}
-	}	
-	return false;
+            Ecriture * ecriture = new Ecriture(e);
+            //réduire R12
+            automate.Reduction(ecriture, 2);
+            return true;
+        }
+        case OPA:
+        {
+            automate.Decalage(s, new E27);
+            return true;
+        }
+    }    
+    return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

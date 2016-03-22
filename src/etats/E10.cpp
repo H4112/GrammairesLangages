@@ -31,50 +31,50 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void E10::Afficher ( ) const 
 {
-	cout << "E10" << endl;
+    cout << "E10" << endl;
 }
 
 bool E10::Transition ( Automate & automate, Symbole * s )
 {
-	switch(*s)
-	{
-		case VAR:
-		case CONST:
-		case LIRE:
-		case ECRIRE:
-		case ID:
-		case FIN:
-		{
-			//Symbole * point_virgule = 
-			delete automate.PopSymbole();
-			ListeDeclaration * d = (ListeDeclaration *) automate.PopSymbole();
-			PartieDeclarative * pd = (PartieDeclarative *) automate.PopSymbole();
+    switch(*s)
+    {
+        case VAR:
+        case CONST:
+        case LIRE:
+        case ECRIRE:
+        case ID:
+        case FIN:
+        {
+            //Symbole * point_virgule = 
+            delete automate.PopSymbole();
+            ListeDeclaration * d = (ListeDeclaration *) automate.PopSymbole();
+            PartieDeclarative * pd = (PartieDeclarative *) automate.PopSymbole();
 
-			if( ! pd->AjouterDeclarations(d) )
-			{
-				// nettoyer les Declaration
-				for(Declaration * decl : d->GetListeDeclarations())
-				{
-					delete decl;
-				}
-				delete d;
-				for(auto & decl : pd->GetDeclarations())
-				{
-					delete decl.second;
-				}
-				delete pd;
+            if( ! pd->AjouterDeclarations(d) )
+            {
+                // nettoyer les Declaration
+                for(Declaration * decl : d->GetListeDeclarations())
+                {
+                    delete decl;
+                }
+                delete d;
+                for(auto & decl : pd->GetDeclarations())
+                {
+                    delete decl.second;
+                }
+                delete pd;
 
-				throw DOUBLE_DECLARATION;
-			}
-			else
-			{
-				delete d;
-				automate.Reduction(pd, 3);
-				return true;
-			}
-		}
-	}
-	return false;
+                throw DOUBLE_DECLARATION;
+            }
+            else
+            {
+                delete d;
+                automate.Reduction(pd, 3);
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

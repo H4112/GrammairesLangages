@@ -31,17 +31,7 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Const::Const ( const Const & unConst ) 
-	: Symbole(unConst)
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Const>" << endl;
-#endif
-} //----- Fin de Const (constructeur de copie)
-
-
-Const::Const ( ) 
-	: Symbole("const", CONST, true)
+Const::Const ( ) : Symbole ( "const", CONST, true )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Const>" << endl;

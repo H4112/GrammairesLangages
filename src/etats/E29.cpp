@@ -31,25 +31,25 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void E29::Afficher ( ) const 
 {
-	cout << "E29" << endl;
+    cout << "E29" << endl;
 }
 
 bool E29::Transition ( Automate & automate, Symbole * s )
 {
-	switch(*s)
-	{
-		case FERMEPAR:
-		{
-			automate.Decalage(s, new E36);
-			return true;
-		}
-		case OPA:
-		{
-			automate.Decalage(s, new E27);
-			return true;
-		}
-	}
-	return false;
+    switch(*s)
+    {
+        case FERMEPAR:
+        {
+            automate.Decalage(s, new E36);
+            return true;
+        }
+        case OPA:
+        {
+            automate.Decalage(s, new E27);
+            return true;
+        }
+    }
+    return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

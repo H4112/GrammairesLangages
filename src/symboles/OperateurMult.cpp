@@ -32,7 +32,7 @@ using namespace std;
 
 //-------------------------------------------- Constructeurs - destructeur
 OperateurMult::OperateurMult ( const OperateurMult & unOperateurMult ) 
-	: Symbole(unOperateurMult)
+    : Symbole(unOperateurMult)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <OperateurMult>" << endl;
@@ -41,7 +41,7 @@ OperateurMult::OperateurMult ( const OperateurMult & unOperateurMult )
 
 
 OperateurMult::OperateurMult ( string type ) 
-	: Symbole ( type, OPM, true )
+    : Symbole ( type, OPM, true )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <OperateurMult>" << endl;

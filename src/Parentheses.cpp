@@ -29,12 +29,12 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 int Parentheses::Evaluer( map < string, Declaration * > & tableDeclarations )
 {
-	return expression->Evaluer(tableDeclarations);
+    return expression->Evaluer(tableDeclarations);
 }
 
 Expression * Parentheses::Simplifier( map < string, Declaration * > & tableDeclarations )
 {
-	Expression * e = expression->Simplifier(tableDeclarations);
+    Expression * e = expression->Simplifier(tableDeclarations);
     if(expression != e)
     {
         delete expression;
@@ -63,7 +63,7 @@ bool Parentheses::Verifier ( map < string, Declaration * > & tableDeclarations )
 
 //-------------------------------------------- Constructeurs - destructeur
 Parentheses::Parentheses ( const Parentheses & unParentheses )
-	: Expression(unParentheses), expression(unParentheses.expression)
+    : Expression(unParentheses), expression(unParentheses.expression)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Parentheses>" << endl;
@@ -72,7 +72,7 @@ Parentheses::Parentheses ( const Parentheses & unParentheses )
 
 
 Parentheses::Parentheses ( Expression * exp )
-	: Expression ( EXPR_PAR ), expression( exp )
+    : Expression ( EXPR_PAR ), expression( exp )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Parentheses>" << endl;

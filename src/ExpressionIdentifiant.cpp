@@ -29,7 +29,7 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 int ExpressionIdentifiant::Evaluer( map < string, Declaration * > & tableDeclarations )
 {
-	return tableDeclarations[id]->GetValeur();
+    return tableDeclarations[id]->GetValeur();
 }
 
 #pragma GCC diagnostic push
@@ -76,7 +76,7 @@ bool ExpressionIdentifiant::Verifier ( map < string, Declaration * > & tableDecl
 
 //-------------------------------------------- Constructeurs - destructeur
 ExpressionIdentifiant::ExpressionIdentifiant ( const ExpressionIdentifiant & unExpressionIdentifiant )
-	: Expression ( unExpressionIdentifiant )
+    : Expression ( unExpressionIdentifiant )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <ExpressionIdentifiant>" << endl;
@@ -85,7 +85,7 @@ ExpressionIdentifiant::ExpressionIdentifiant ( const ExpressionIdentifiant & unE
 
 
 ExpressionIdentifiant::ExpressionIdentifiant ( string ident )
-	: Expression (EXPR_ID ), id(ident)
+    : Expression (EXPR_ID ), id(ident)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <ExpressionIdentifiant>" << endl;

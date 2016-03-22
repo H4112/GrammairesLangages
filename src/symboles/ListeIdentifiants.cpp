@@ -29,7 +29,7 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void ListeIdentifiants::AjouterVariable ( Identifiant * id )
 {
-	ajouterDeclaration(new Variable(*id));
+    ajouterDeclaration(new Variable(*id));
     delete id;
 }
 
@@ -37,7 +37,7 @@ void ListeIdentifiants::AjouterVariable ( Identifiant * id )
 
 //-------------------------------------------- Constructeurs - destructeur
 ListeIdentifiants::ListeIdentifiants ( const ListeIdentifiants & uneListeIdentifiants ) 
-	: ListeDeclaration(uneListeIdentifiants)
+    : ListeDeclaration(uneListeIdentifiants)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <ListeIdentifiants>" << endl;
@@ -46,7 +46,7 @@ ListeIdentifiants::ListeIdentifiants ( const ListeIdentifiants & uneListeIdentif
 
 
 ListeIdentifiants::ListeIdentifiants ( ) 
-	: ListeDeclaration( LID )
+    : ListeDeclaration( LID )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <ListeIdentifiants>" << endl;

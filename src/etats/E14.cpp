@@ -31,28 +31,28 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void E14::Afficher ( ) const 
 {
-	cout << "E14" << endl;
+    cout << "E14" << endl;
 }
 
 bool E14::Transition ( Automate & automate, Symbole * s )
 {
-	switch(*s)
-	{
-		case EGAL:
-		{
-			automate.Decalage(s, new E26);
-			return true;
-		}
-	}
-	
-	return false;
+    switch(*s)
+    {
+        case EGAL:
+        {
+            automate.Decalage(s, new E26);
+            return true;
+        }
+    }
+    
+    return false;
 }
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 Symbole * E14::Recuperation ( Symbole * symb )
 {
-	return new Egal;
+    return new Egal;
 }
 #pragma GCC diagnostic pop
 

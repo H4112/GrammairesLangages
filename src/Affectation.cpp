@@ -30,7 +30,7 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void Affectation::Executer( map < string, Declaration * > & tableDeclarations )
 {
-	((Variable*)tableDeclarations[nomVariable])->SetValeur(expression->Evaluer(tableDeclarations));
+    ((Variable*)tableDeclarations[nomVariable])->SetValeur(expression->Evaluer(tableDeclarations));
 }
 
 void Affectation::Simplifier( map < string, Declaration * > & tableDeclarations )
@@ -85,7 +85,7 @@ bool Affectation::Verifier( map < string, Declaration * > & tableDeclarations )
 
 //-------------------------------------------- Constructeurs - destructeur
 Affectation::Affectation ( const Affectation & unAffectation )
-	: Instruction ( unAffectation )
+    : Instruction ( unAffectation )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Affectation>" << endl;
@@ -94,7 +94,7 @@ Affectation::Affectation ( const Affectation & unAffectation )
 
 
 Affectation::Affectation ( string nomVar, Expression * expr )
-	: Instruction ( INSTR_AFF ), nomVariable(nomVar), expression(expr)
+    : Instruction ( INSTR_AFF ), nomVariable(nomVar), expression(expr)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Affectation>" << endl;

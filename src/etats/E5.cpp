@@ -31,26 +31,26 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void E5::Afficher ( ) const 
 {
-	cout << "E5" << endl;
+    cout << "E5" << endl;
 }
 
 bool E5::Transition ( Automate & automate, Symbole * s )
 {
-	switch(*s)
-	{
-		case ID:
-		{
-			automate.Decalage(s, new E14);
-			return true;
-		}
-		case LIDV:
-		{
-			automate.Decalage(s, new E13);
-			return true;
-		}
-	}
-	
-	return false;
+    switch(*s)
+    {
+        case ID:
+        {
+            automate.Decalage(s, new E14);
+            return true;
+        }
+        case LIDV:
+        {
+            automate.Decalage(s, new E13);
+            return true;
+        }
+    }
+    
+    return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

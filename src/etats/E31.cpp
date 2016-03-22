@@ -31,43 +31,43 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void E31::Afficher ( ) const 
 {
-	cout << "E31" << endl;
+    cout << "E31" << endl;
 }
 
 bool E31::Transition ( Automate & automate, Symbole * s )
 {
-	switch(*s)
-	{
-		case VIRGULE:
-		case POINT_VIRGULE:
-		{
-			Identifiant * id = (Identifiant *) automate.PopSymbole();
-			//Symbole * virgule = 
-			delete automate.PopSymbole();
-			ListeIdentifiants * lid = (ListeIdentifiants *) automate.PopSymbole();
-			lid->AjouterVariable(id);
+    switch(*s)
+    {
+        case VIRGULE:
+        case POINT_VIRGULE:
+        {
+            Identifiant * id = (Identifiant *) automate.PopSymbole();
+            //Symbole * virgule = 
+            delete automate.PopSymbole();
+            ListeIdentifiants * lid = (ListeIdentifiants *) automate.PopSymbole();
+            lid->AjouterVariable(id);
 
-			//réduire R5
-			automate.Reduction(lid, 3);
-			return true;
-		}
-	}
-	return false;
+            //réduire R5
+            automate.Reduction(lid, 3);
+            return true;
+        }
+    }
+    return false;
 }
 
 
 Symbole * E31::Recuperation ( Symbole * symb )
 {
-	if(*symb == ID)
-	{
-		// Certainement une virgule oubliée
-		return new Virgule;
-	}
-	else
-	{
-		// On considère que nous avons commencé une autre expression
-		return new PointVirgule;
-	}
+    if(*symb == ID)
+    {
+        // Certainement une virgule oubliée
+        return new Virgule;
+    }
+    else
+    {
+        // On considère que nous avons commencé une autre expression
+        return new PointVirgule;
+    }
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

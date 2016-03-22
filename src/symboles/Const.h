@@ -33,6 +33,7 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
     Const ( const Const & unConst );
+    // Interdit
 
     Const ( ); 
 

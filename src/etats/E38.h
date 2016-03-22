@@ -38,15 +38,15 @@ public:
     //     Ecrit le nom de l'état sur la sortie standard.
     // Contrat :
     //     Aucun
-	
-	bool Transition ( Automate & automate, Symbole * s );
+    
+    bool Transition ( Automate & automate, Symbole * s );
     // Mode d'emploi :
     //     Appelle l'automate donné en paramètre pour effectuer le décalage
-	//     ou la réduction correspondant au symbole passé en paramètre.
+    //     ou la réduction correspondant au symbole passé en paramètre.
     // Contrat :
     //     Aucun
 
-	Symbole * Recuperation ( Symbole * symb );
+    Symbole * Recuperation ( Symbole * symb );
     // Mode d'emploi :
     //     Renvoie le symbole sur lequel faire la transition,
     //     à la place du symbole lu passé en paramètre, pour récupérer d'une erreur.

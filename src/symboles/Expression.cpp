@@ -29,7 +29,7 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 int Expression::GetType ( )
 {
-	return typeExpression;
+    return typeExpression;
 }
 
 void Expression::SetIdent ( int id )
@@ -49,22 +49,12 @@ ostream & operator << ( ostream & out,
         const Expression & expression )
 {
     expression.Afficher(out);
-
     return out;
 }
 
 //-------------------------------------------- Constructeurs - destructeur
-Expression::Expression ( const Expression & unExpression ) 
-	: Symbole(unExpression), typeExpression ( unExpression.typeExpression )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Expression>" << endl;
-#endif
-} //----- Fin de Expression (constructeur de copie)
-
-
 Expression::Expression ( int type ) 
-	: Symbole("", E, false), typeExpression ( type )
+    : Symbole ( "", E, false ), typeExpression ( type )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Expression>" << endl;

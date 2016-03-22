@@ -32,7 +32,7 @@ using namespace std;
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 Symbole * Etat::Recuperation ( Symbole * symb )
 {
-	return NULL;
+    return NULL;
 }
 #pragma GCC diagnostic pop
 

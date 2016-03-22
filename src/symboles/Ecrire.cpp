@@ -31,17 +31,7 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Ecrire::Ecrire ( const Ecrire & unEcrire ) 
-	: Symbole(unEcrire)
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Ecrire>" << endl;
-#endif
-} //----- Fin de Ecrire (constructeur de copie)
-
-
-Ecrire::Ecrire ( ) 
-	: Symbole("ecrire", ECRIRE, true)
+Ecrire::Ecrire ( ) : Symbole ( "ecrire", ECRIRE, true )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Ecrire>" << endl;

@@ -31,17 +31,8 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-FermePar::FermePar ( const FermePar & unFermePar ) 
-	: Symbole(unFermePar)
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <FermePar>" << endl;
-#endif
-} //----- Fin de FermePar (constructeur de copie)
-
-
 FermePar::FermePar ( ) 
-	: Symbole(")", FERMEPAR, true)
+    : Symbole ( ")", FERMEPAR, true )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <FermePar>" << endl;

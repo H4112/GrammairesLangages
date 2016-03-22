@@ -30,44 +30,44 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void E34::Afficher ( ) const 
 {
-	cout << "E34" << endl;
+    cout << "E34" << endl;
 }
 
 bool E34::Transition ( Automate & automate, Symbole * s )
 {
-	switch(*s)
-	{
-		case POINT_VIRGULE:
-		case FERMEPAR:
-		case OPA:
-		{
-			Expression * t = (Expression *) automate.PopSymbole();
-			OperateurAdd * opa = (OperateurAdd *) automate.PopSymbole();
-			Expression * e = (Expression *) automate.PopSymbole();
+    switch(*s)
+    {
+        case POINT_VIRGULE:
+        case FERMEPAR:
+        case OPA:
+        {
+            Expression * t = (Expression *) automate.PopSymbole();
+            OperateurAdd * opa = (OperateurAdd *) automate.PopSymbole();
+            Expression * e = (Expression *) automate.PopSymbole();
 
-			ExpressionBinaire * eb;
-			if(opa->GetNom() == "+")
-			{
-				eb = new ExpressionAddition(e,t);
-			}
-			else
-			{
-				eb = new ExpressionSoustraction(e,t);
-			}
-			eb->SetIdent(E);
-			delete opa;
-			//réduire R14
-			automate.Reduction(eb, 3);
-			return true;
-		}
-		case OPM:
-		{
-			automate.Decalage(s, new E28);
-			return true;
-		}
-	}
-	
-	return false;
+            ExpressionBinaire * eb;
+            if(opa->GetNom() == "+")
+            {
+                eb = new ExpressionAddition(e,t);
+            }
+            else
+            {
+                eb = new ExpressionSoustraction(e,t);
+            }
+            eb->SetIdent(E);
+            delete opa;
+            //réduire R14
+            automate.Reduction(eb, 3);
+            return true;
+        }
+        case OPM:
+        {
+            automate.Decalage(s, new E28);
+            return true;
+        }
+    }
+    
+    return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

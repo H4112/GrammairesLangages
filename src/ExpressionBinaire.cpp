@@ -35,8 +35,8 @@ bool ExpressionBinaire::Verifier ( map < string, Declaration * > & tableDeclarat
 
 //-------------------------------------------- Constructeurs - destructeur
 ExpressionBinaire::ExpressionBinaire ( const ExpressionBinaire & uneExpressionBinaire ) 
-	: Expression(uneExpressionBinaire), expGauche(uneExpressionBinaire.expGauche),
-	  expDroite(uneExpressionBinaire.expDroite)
+    : Expression(uneExpressionBinaire), expGauche(uneExpressionBinaire.expGauche),
+      expDroite(uneExpressionBinaire.expDroite)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <ExpressionBinaire>" << endl;
@@ -45,7 +45,7 @@ ExpressionBinaire::ExpressionBinaire ( const ExpressionBinaire & uneExpressionBi
 
 
 ExpressionBinaire::ExpressionBinaire ( Expression * gauche, Expression * droite, int type ) 
-	: Expression( type ), expGauche(gauche), expDroite(droite)
+    : Expression( type ), expGauche(gauche), expDroite(droite)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <ExpressionBinaire>" << endl;

@@ -29,20 +29,20 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 list < Instruction * > PartieInstructions::GetInstructions ( )
 {
-	listeObtenue = true;
-	return listeInstructions;
+    listeObtenue = true;
+    return listeInstructions;
 }
 
 void PartieInstructions::AjouterInstruction ( Instruction * instruction )
 {
-	listeInstructions.push_back(instruction);
+    listeInstructions.push_back(instruction);
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
 PartieInstructions::PartieInstructions ( const PartieInstructions & unePartieInstructions ) 
-	: Symbole(unePartieInstructions), listeObtenue (unePartieInstructions.listeObtenue)
+    : Symbole(unePartieInstructions), listeObtenue (unePartieInstructions.listeObtenue)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <PartieInstructions>" << endl;
@@ -51,7 +51,7 @@ PartieInstructions::PartieInstructions ( const PartieInstructions & unePartieIns
 
 
 PartieInstructions::PartieInstructions ( ) 
-	: Symbole("", PI, false), listeObtenue ( false )
+    : Symbole("", PI, false), listeObtenue ( false )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <PartieInstructions>" << endl;
@@ -64,13 +64,13 @@ PartieInstructions::~PartieInstructions ( )
 #ifdef MAP
     cout << "Appel au destructeur de <PartieInstructions>" << endl;
 #endif
-	if(!listeObtenue)
-	{
-		for(Instruction * instr : listeInstructions)
-		{
-			delete instr;
-		}
-	}
+    if(!listeObtenue)
+    {
+        for(Instruction * instr : listeInstructions)
+        {
+            delete instr;
+        }
+    }
 } //----- Fin de ~PartieInstructions
 
 

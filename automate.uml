@@ -1,7 +1,7 @@
 @startuml
 
 skinparam state {
-	AttributeFontName Consolas
+    AttributeFontName Consolas
 }
 
 0 : PROG -> •PD PI

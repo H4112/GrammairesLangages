@@ -32,28 +32,28 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void E32::Afficher ( ) const 
 {
-	cout << "E32" << endl;
+    cout << "E32" << endl;
 }
 
 bool E32::Transition ( Automate & automate, Symbole * s )
 {
-	switch(*s)
-	{
-		case EGAL:
-		{
-			automate.Decalage(s, new E37);
-			return true;
-		}
-	}
-	
-	return false;
+    switch(*s)
+    {
+        case EGAL:
+        {
+            automate.Decalage(s, new E37);
+            return true;
+        }
+    }
+    
+    return false;
 }
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 Symbole * E32::Recuperation ( Symbole * symb )
 {
-	return new Egal;
+    return new Egal;
 }
 #pragma GCC diagnostic pop
 

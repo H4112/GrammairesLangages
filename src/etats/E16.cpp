@@ -32,36 +32,36 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void E16::Afficher ( ) const 
 {
-	cout << "E16" << endl;
+    cout << "E16" << endl;
 }
 
 bool E16::Transition ( Automate & automate, Symbole * s )
 {
-	switch(*s)
-	{
-		case POINT_VIRGULE:
-		{
-			Identifiant * id = (Identifiant *) automate.PopSymbole();
-			//Symbole * lire = 
-			delete automate.PopSymbole();
+    switch(*s)
+    {
+        case POINT_VIRGULE:
+        {
+            Identifiant * id = (Identifiant *) automate.PopSymbole();
+            //Symbole * lire = 
+            delete automate.PopSymbole();
 
-			Lecture * lecture = new Lecture(*id);
-			delete id;
-			
-			//réduire R11
-			automate.Reduction(lecture, 2);
-			return true;
-		}
-	}
-	
-	return false;
+            Lecture * lecture = new Lecture(*id);
+            delete id;
+            
+            //réduire R11
+            automate.Reduction(lecture, 2);
+            return true;
+        }
+    }
+    
+    return false;
 }
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 Symbole * E16::Recuperation ( Symbole * symb )
 {
-	return new PointVirgule;
+    return new PointVirgule;
 }
 #pragma GCC diagnostic pop
 
@@ -69,7 +69,7 @@ Symbole * E16::Recuperation ( Symbole * symb )
 
 //-------------------------------------------- Constructeurs - destructeur
 E16::E16 ( )
-	: Etat ( )
+    : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E16>" << endl;

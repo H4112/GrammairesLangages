@@ -30,7 +30,7 @@ public:
 //----------------------------------------------------- Méthodes publiques
 
 //------------------------------------------------- Surcharge d'opérateurs
-	operator string() const { return id; }
+    operator string() const { return id; }
 //-------------------------------------------- Constructeurs - destructeur
     Identifiant ( const Identifiant & unIdentifiant );
 
@@ -53,7 +53,7 @@ protected:
 
 private:
 //------------------------------------------------------- Attributs privés
-	string id;
+    string id;
 //---------------------------------------------------------- Classes amies
 
 //-------------------------------------------------------- Classes privées

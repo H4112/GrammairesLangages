@@ -30,8 +30,8 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 int ExpressionDivision::Evaluer( map < string, Declaration * > & tableDeclarations )
 {
-	return expGauche->Evaluer(tableDeclarations) 
-		 / expDroite->Evaluer(tableDeclarations);
+    return expGauche->Evaluer(tableDeclarations) 
+         / expDroite->Evaluer(tableDeclarations);
 }
 
 Expression * ExpressionDivision::Simplifier( map < string, Declaration * > & tableDeclarations )
@@ -70,7 +70,7 @@ void ExpressionDivision::Afficher ( ostream & out ) const
 
 //-------------------------------------------- Constructeurs - destructeur
 ExpressionDivision::ExpressionDivision ( const ExpressionDivision & unExpressionDivision )
-	: ExpressionBinaire ( unExpressionDivision )
+    : ExpressionBinaire ( unExpressionDivision )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <ExpressionDivision>" << endl;
@@ -79,7 +79,7 @@ ExpressionDivision::ExpressionDivision ( const ExpressionDivision & unExpression
 
 
 ExpressionDivision::ExpressionDivision ( Expression * gauche, Expression * droite )
-	: ExpressionBinaire ( gauche, droite, EXPR_DIV )
+    : ExpressionBinaire ( gauche, droite, EXPR_DIV )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <ExpressionDivision>" << endl;

@@ -53,40 +53,40 @@ ostream & operator << ( ostream & out, const Programme & programme )
 
 bool Programme::Verifier ( )
 {    
-	/*
+    /*
     1 — Une variable est utilisée (en partie droite d’une affectation ou dans une opération d’écriture) sans avoir
-    	jamais été affectée.
+        jamais été affectée.
     3 — Une variable a été déclarée et jamais affectée ou utilisée.
     3 — Une variable n’a pas été déclarée.
     4 — Une constante ne peut être modifiée.
     */
-	bool resultat = true;
-	for(Instruction * instruction : listeInstructions)
-	{
-		if(!instruction->Verifier(tableDeclarations))
-		{
-			//cerr << "Instruction incorrecte : " << *instruction << endl;
-			resultat = false;
-		}
-	}
-	for(auto & declaration : tableDeclarations)
-	{
-		if(!declaration.second->EstUtilise())
-		{
-			cerr << "La " << (declaration.second->EstAffectable() ? "variable" : "constante");
-			cerr << " \"" << declaration.second->GetId() << "\" n'est pas utilisée." << endl;
-			resultat = false;
-		}
-	}
-	return resultat;	
+    bool resultat = true;
+    for(Instruction * instruction : listeInstructions)
+    {
+        if(!instruction->Verifier(tableDeclarations))
+        {
+            //cerr << "Instruction incorrecte : " << *instruction << endl;
+            resultat = false;
+        }
+    }
+    for(auto & declaration : tableDeclarations)
+    {
+        if(!declaration.second->EstUtilise())
+        {
+            cerr << "La " << (declaration.second->EstAffectable() ? "variable" : "constante");
+            cerr << " \"" << declaration.second->GetId() << "\" n'est pas utilisée." << endl;
+            resultat = false;
+        }
+    }
+    return resultat;    
 }
 
 void Programme::Simplifier ( )
 {
-	for(Instruction * instruction : listeInstructions)
-	{
-		instruction->Simplifier(tableDeclarations);
-	}
+    for(Instruction * instruction : listeInstructions)
+    {
+        instruction->Simplifier(tableDeclarations);
+    }
 }
 
 //-------------------------------------------- Constructeurs - destructeur

@@ -26,8 +26,8 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 int ExpressionMultiplication::Evaluer( map < string, Declaration * > & tableDeclarations )
 {
-	return expGauche->Evaluer(tableDeclarations) 
-		 * expDroite->Evaluer(tableDeclarations);
+    return expGauche->Evaluer(tableDeclarations) 
+         * expDroite->Evaluer(tableDeclarations);
 }
 
 Expression * ExpressionMultiplication::Simplifier( map < string, Declaration * > & tableDeclarations )
@@ -67,7 +67,7 @@ void ExpressionMultiplication::Afficher ( ostream & out ) const
 
 //-------------------------------------------- Constructeurs - destructeur
 ExpressionMultiplication::ExpressionMultiplication ( const ExpressionMultiplication & uneExpressionMultiplication )
-	: ExpressionBinaire ( uneExpressionMultiplication )
+    : ExpressionBinaire ( uneExpressionMultiplication )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <ExpressionMultiplication>" << endl;
@@ -76,7 +76,7 @@ ExpressionMultiplication::ExpressionMultiplication ( const ExpressionMultiplicat
 
 
 ExpressionMultiplication::ExpressionMultiplication ( Expression * gauche, Expression * droite )
-	:	ExpressionBinaire ( gauche, droite, EXPR_MULT )
+    :    ExpressionBinaire ( gauche, droite, EXPR_MULT )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <ExpressionMultiplication>" << endl;

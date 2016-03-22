@@ -31,7 +31,7 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 int Instruction::GetType ( ) const
 {
-	return typeInstruction;
+    return typeInstruction;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -42,7 +42,7 @@ ostream & operator << ( ostream & out, const Instruction & instruction )
 }
 //-------------------------------------------- Constructeurs - destructeur
 Instruction::Instruction ( const Instruction & unInstruction ) 
-	: Symbole(unInstruction)
+    : Symbole(unInstruction)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Instruction>" << endl;
@@ -51,7 +51,7 @@ Instruction::Instruction ( const Instruction & unInstruction )
 
 
 Instruction::Instruction ( int type ) 
-	: Symbole( "", I, false ), typeInstruction ( type )
+    : Symbole( "", I, false ), typeInstruction ( type )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Instruction>" << endl;

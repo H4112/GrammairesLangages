@@ -30,7 +30,7 @@ public:
 //----------------------------------------------------- Méthodes publiques
 
 //------------------------------------------------- Surcharge d'opérateurs
-	operator int() const { return valeur; }
+    operator int() const { return valeur; }
 //-------------------------------------------- Constructeurs - destructeur
     Valeur ( const Valeur & unValeur );
 
@@ -53,7 +53,7 @@ protected:
 
 private:
 //------------------------------------------------------- Attributs privés
-	int valeur;
+    int valeur;
 //---------------------------------------------------------- Classes amies
 
 //-------------------------------------------------------- Classes privées

@@ -29,29 +29,29 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void E21::Afficher ( ) const 
 {
-	cout << "E21" << endl;
+    cout << "E21" << endl;
 }
 
 bool E21::Transition ( Automate & automate, Symbole * s )
 {
-	switch(*s)
-	{
-		case POINT_VIRGULE:
-		case FERMEPAR:
-		case OPA:
-		case OPM:
-		{
-			Identifiant * id = (Identifiant *) automate.PopSymbole();
+    switch(*s)
+    {
+        case POINT_VIRGULE:
+        case FERMEPAR:
+        case OPA:
+        case OPM:
+        {
+            Identifiant * id = (Identifiant *) automate.PopSymbole();
 
-			ExpressionIdentifiant * exprId = new ExpressionIdentifiant(*id);
-			exprId->SetIdent(F);
-			delete id;
-			//réduire R19
-			automate.Reduction(exprId, 1);
-			return true;
-		}
-	}
-	return false;
+            ExpressionIdentifiant * exprId = new ExpressionIdentifiant(*id);
+            exprId->SetIdent(F);
+            delete id;
+            //réduire R19
+            automate.Reduction(exprId, 1);
+            return true;
+        }
+    }
+    return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

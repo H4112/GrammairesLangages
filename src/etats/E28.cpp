@@ -33,35 +33,35 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void E28::Afficher ( ) const 
 {
-	cout << "E28" << endl;
+    cout << "E28" << endl;
 }
 
 bool E28::Transition ( Automate & automate, Symbole * s )
 {
-	switch(*s)
-	{
-		case OUVREPAR:
-		{
-			automate.Decalage(s, new E20);
-			return true;
-		}
-		case ID:
-		{
-			automate.Decalage(s, new E21);
-			return true;
-		}
-		case VAL:
-		{
-			automate.Decalage(s, new E22);
-			return true;
-		}
-		case F:
-		{
-			automate.Decalage(s, new E35);
-			return true;
-		}
-	}
-	return false;
+    switch(*s)
+    {
+        case OUVREPAR:
+        {
+            automate.Decalage(s, new E20);
+            return true;
+        }
+        case ID:
+        {
+            automate.Decalage(s, new E21);
+            return true;
+        }
+        case VAL:
+        {
+            automate.Decalage(s, new E22);
+            return true;
+        }
+        case F:
+        {
+            automate.Decalage(s, new E35);
+            return true;
+        }
+    }
+    return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

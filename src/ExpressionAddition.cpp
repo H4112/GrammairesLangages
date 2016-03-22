@@ -30,8 +30,8 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 int ExpressionAddition::Evaluer( map < string, Declaration * > & tableDeclarations )
 {
-	return expGauche->Evaluer(tableDeclarations) 
-		 + expDroite->Evaluer(tableDeclarations);
+    return expGauche->Evaluer(tableDeclarations) 
+         + expDroite->Evaluer(tableDeclarations);
 }
 
 Expression * ExpressionAddition::Simplifier( map < string, Declaration * > & tableDeclarations )
@@ -71,7 +71,7 @@ void ExpressionAddition::Afficher ( ostream & out ) const
 
 //-------------------------------------------- Constructeurs - destructeur
 ExpressionAddition::ExpressionAddition ( const ExpressionAddition & unExpressionAddition )
-	: ExpressionBinaire ( unExpressionAddition )
+    : ExpressionBinaire ( unExpressionAddition )
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <ExpressionAddition>" << endl;
@@ -80,7 +80,7 @@ ExpressionAddition::ExpressionAddition ( const ExpressionAddition & unExpression
 
 
 ExpressionAddition::ExpressionAddition ( Expression * gauche, Expression * droite )
-	: ExpressionBinaire ( gauche, droite, EXPR_ADD )
+    : ExpressionBinaire ( gauche, droite, EXPR_ADD )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <ExpressionAddition>" << endl;

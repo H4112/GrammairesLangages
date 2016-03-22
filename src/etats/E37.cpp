@@ -30,21 +30,21 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void E37::Afficher ( ) const 
 {
-	cout << "E37" << endl;
+    cout << "E37" << endl;
 }
 
 bool E37::Transition ( Automate & automate, Symbole * s )
 {
-	switch(*s)
-	{
-		case VAL:
-		{
-			automate.Decalage(s, new E38);
-			return true;
-		}
-	}
-	
-	return false;
+    switch(*s)
+    {
+        case VAL:
+        {
+            automate.Decalage(s, new E38);
+            return true;
+        }
+    }
+    
+    return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

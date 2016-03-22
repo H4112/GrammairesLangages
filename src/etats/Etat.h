@@ -21,9 +21,9 @@ const int DOUBLE_DECLARATION = 1;
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <Etat>
-//	Cette classe représente un état de l'analyseur
-//	syntaxique. La méthode transition permet à l'automate
-//	de passer à l'état suivant en fonction du symbole lu.
+//    Cette classe représente un état de l'analyseur
+//    syntaxique. La méthode transition permet à l'automate
+//    de passer à l'état suivant en fonction du symbole lu.
 //
 //------------------------------------------------------------------------ 
 
@@ -33,19 +33,19 @@ class Etat
 
 public:
 //----------------------------------------------------- Méthodes publiques
-	virtual void Afficher ( ) const = 0;
+    virtual void Afficher ( ) const = 0;
     // Mode d'emploi :
     //     Ecrit le nom de l'état sur la sortie standard.
     // Contrat :
     //     Aucun
-	
-	virtual bool Transition ( Automate & automate, Symbole * s ) = 0;
+    
+    virtual bool Transition ( Automate & automate, Symbole * s ) = 0;
     // Mode d'emploi :
     //     Permet d'effectuer la transition vers l'état suivant.
     // Contrat :
     //     Aucun
 
-	virtual Symbole * Recuperation ( Symbole * symb );
+    virtual Symbole * Recuperation ( Symbole * symb );
     // Mode d'emploi :
     //     Renvoie le symbole sur lequel faire la transition,
     //     à la place du symbole lu passé en paramètre, pour récupérer d'une erreur.
@@ -60,18 +60,18 @@ public:
 //-------------------------------------------- Constructeurs - destructeur
     virtual ~Etat ( );
     // Mode d'emploi :
-    //	Détruit un état.
+    //    Détruit un état.
     // Contrat :
-    //	Aucun
+    //    Aucun
 
     Etat ( const Etat & unEtat );
     // Interdit
 
     Etat ( );
     // Mode d'emploi :
-    //	Crée un état. Ne peut pas être utilisé directement.
+    //    Crée un état. Ne peut pas être utilisé directement.
     // Contrat :
-    //	Aucun
+    //    Aucun
 
 //------------------------------------------------------------------ PRIVE 
 

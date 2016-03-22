@@ -31,17 +31,7 @@ using namespace std;
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Affecter::Affecter ( const Affecter & unAffecter ) 
-	: Symbole(unAffecter)
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Affecter>" << endl;
-#endif
-} //----- Fin de Affecter (constructeur de copie)
-
-
-Affecter::Affecter ( ) 
-	: Symbole(":=", AFFECTATION, true)
+Affecter::Affecter ( ) : Symbole ( ":=", AFFECTATION, true )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Affecter>" << endl;

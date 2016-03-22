@@ -20,7 +20,7 @@
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <Ecriture>
-//	Instruction écrivant la valeur d'une expression sur la sortie standard.
+//    Instruction écrivant la valeur d'une expression sur la sortie standard.
 //
 //------------------------------------------------------------------------ 
 
@@ -32,11 +32,11 @@ public:
 //----------------------------------------------------- Méthodes publiques
     void Executer( map < string, Declaration * > & tableDeclarations );
     // Mode d'emploi : 
-	//	Affiche la valeur de l'expression sur la sortie standard.
-	
+    //    Affiche la valeur de l'expression sur la sortie standard.
+    
     void Simplifier( map < string, Declaration * > & tableDeclarations );
     // Mode d'emploi : 
-	//	Simplifie l'expression associée à l'instruction d'écriture.
+    //    Simplifie l'expression associée à l'instruction d'écriture.
 
     void Afficher( ostream & out ) const;
 
@@ -48,12 +48,12 @@ public:
     Ecriture ( const Ecriture & unEcriture );
 
     Ecriture ( );
-	// Interdit
-	
-	Ecriture ( Expression * expr );
-	// Mode d'emploi :
-	//	Construit une instruction d'écriture d'une expression, qui affiche
-	//	la valeur de l'expression sur la sortie standard.
+    // Interdit
+    
+    Ecriture ( Expression * expr );
+    // Mode d'emploi :
+    //    Construit une instruction d'écriture d'une expression, qui affiche
+    //    la valeur de l'expression sur la sortie standard.
 
     virtual ~Ecriture ( );
 
@@ -64,7 +64,7 @@ protected:
 
 private:
 //------------------------------------------------------- Méthodes privées
-	Expression * expression;
+    Expression * expression;
 
 protected:
 //----------------------------------------------------- Attributs protégés
