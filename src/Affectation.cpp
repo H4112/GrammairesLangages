@@ -46,6 +46,10 @@ void Affectation::Simplifier( map < string, Declaration * > & tableDeclarations 
         ((Variable *)tableDeclarations[nomVariable])->SetConstante(true);
         ((Variable *)tableDeclarations[nomVariable])->SetValeur(((ExpressionValeur *)expression)->GetValeur());
     }
+    else
+    {
+        ((Variable *)tableDeclarations[nomVariable])->SetConstante(false);
+    }
 }
 
 void Affectation::Afficher( ostream & out ) const
