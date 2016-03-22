@@ -68,6 +68,7 @@ bool Lecture::Verifier( map < string, Declaration * > & tableDeclarations )
 	else
 	{
 		((Variable *)tableDeclarations[nomVariable])->Affecter();
+		((Variable *)tableDeclarations[nomVariable])->SetConstante(false);
 		return true;
 	}
 }
