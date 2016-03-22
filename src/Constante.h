@@ -1,7 +1,7 @@
 /*************************************************************************
-                  Constante  -  Déclaration d'une constante
+                  Constante  -  DÃ©claration d'une constante
                              -------------------
-    début                : 8 mars 2016 11:22:14
+    dÃ©but                : 8 mars 2016 11:22:14
     copyright            : (C) 2016 par H4112
 *************************************************************************/
 
@@ -9,7 +9,7 @@
 #if ! defined ( CONSTANTE_H )
 #define CONSTANTE_H
 
-//--------------------------------------------------- Interfaces utilisées
+//--------------------------------------------------- Interfaces utilisÃ©es
 #include <string>
 #include "Declaration.h"
 //------------------------------------------------------------- Constantes 
@@ -17,8 +17,8 @@
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <Constante>
-// Représente une constante du programme, qui ne peut pas être modifiée.
+// RÃ´le de la classe <Constante>
+// ReprÃ©sente une constante du programme, qui ne peut pas Ãªtre modifiÃ©e.
 //
 //------------------------------------------------------------------------ 
 
@@ -27,7 +27,7 @@ class Constante : public Declaration
 //----------------------------------------------------------------- PUBLIC
 
 public:
-//----------------------------------------------------- Méthodes publiques
+//----------------------------------------------------- MÃ©thodes publiques
     bool EstAffectable ( ) const;
     // Mode d'emploi :
     //     Renvoie toujours faux.
@@ -36,7 +36,7 @@ public:
     // Mode d'emploi :
     //     Renvoie toujours vrai.
 
-//------------------------------------------------- Surcharge d'opérateurs
+//------------------------------------------------- Surcharge d'opÃ©rateurs
 
 //-------------------------------------------- Constructeurs - destructeur
     Constante ( const Constante & uneConstante );
@@ -52,25 +52,25 @@ public:
 //------------------------------------------------------------------ PRIVE 
 
 protected:
-//----------------------------------------------------- Méthodes protégées
+//----------------------------------------------------- MÃ©thodes protÃ©gÃ©es
 
 private:
-//------------------------------------------------------- Méthodes privées
+//------------------------------------------------------- MÃ©thodes privÃ©es
 
 protected:
-//----------------------------------------------------- Attributs protégés
+//----------------------------------------------------- Attributs protÃ©gÃ©s
 
 private:
-//------------------------------------------------------- Attributs privés
+//------------------------------------------------------- Attributs privÃ©s
 
 //---------------------------------------------------------- Classes amies
 
-//-------------------------------------------------------- Classes privées
+//-------------------------------------------------------- Classes privÃ©es
 
-//----------------------------------------------------------- Types privés
+//----------------------------------------------------------- Types privÃ©s
 
 };
 
-//----------------------------------------- Types dépendants de <Constante>
+//----------------------------------------- Types dÃ©pendants de <Constante>
 
 #endif // CONSTANTE_H

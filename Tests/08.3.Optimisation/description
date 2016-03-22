@@ -1,0 +1,3 @@
+Optimisation du programme option -o - propagation de constantes.
+Vérifie qu'une variable n'est pas remplacée abusivement.
+
