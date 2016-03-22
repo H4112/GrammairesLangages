@@ -18,7 +18,7 @@ class Automate;
 #include "etats/Etat.h"
 #include "symboles/Symbole.h"
 #include "symboles/Programme.h"
-#include "Lexer.h"
+#include "AnalyseurLexical.h"
 
 //------------------------------------------------------------- Constantes 
 
@@ -100,7 +100,7 @@ private:
 //------------------------------------------------------- Attributs privés
     stack < Symbole * > pileSymboles;
     stack < Etat * > pileEtats;
-    Lexer lexer;
+    AnalyseurLexical lexer;
 
 //---------------------------------------------------------- Classes amies
 
