@@ -99,8 +99,13 @@ protected:
 private:
 //------------------------------------------------------- Attributs privés
     stack < Symbole * > pileSymboles;
+    // pile des symboles de l'automate
+
     stack < Etat * > pileEtats;
+    // pile des états de l'automate
+
     AnalyseurLexical lexer;
+    // analyseur lexical fournissant des symboles à l'automate
 
 //---------------------------------------------------------- Classes amies
 

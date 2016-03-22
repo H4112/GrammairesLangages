@@ -37,9 +37,27 @@ class AnalyseurLexical
 public:
 //----------------------------------------------------- Méthodes publiques
     Symbole* LireSymbole();
+    // Mode d'emploi :
+    //     Lit un symbole et le renvoie, sans le consommer.
+    //     Le symbole récupéré sera toujours identique tant que ni
+    //     ConsommerSymbole ni SetSymboleRecuperation ne sont appelés.
+    // Contrat :
+    //     Un fichier valide est ouvert
+
     void ConsommerSymbole();
+    // Mode d'emploi :
+    //     Consomme le symbole actuel. LireSymbole() renverra le symbole
+    //     suivant du fichier.
+    // Contrat :
+    //     Un fichier valide est ouvert
 
     void SetSymboleRecuperation( Symbole * symbole );
+    // Mode d'emploi :
+    //     Insère un symbole à la tête de lecture. LireSymbole() renverra
+    //     ce symbole et ConsommerSymbole() le consommera (LireSymbole()
+    //     renverra alors le symbole original).
+    // Contrat :
+    //     Le symbole est non nul
     
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -62,22 +80,37 @@ protected:
 private:
 //------------------------------------------------------- Méthodes privées
     Symbole * creerSymbole ( string nom, int type );
+    // crée un symbole à partir de son identifiant, avec le contenu spécifié
+
     bool lireLigne ( );
+    // lit une ligne du fichier
+
 protected:
 //----------------------------------------------------- Attributs protégés
 
 private:
 //------------------------------------------------------- Attributs privés
     ifstream fichier;
+    // fichier lu par l'analyseur
+
     string ligne;
+    // dernière ligne lue
+
     string::const_iterator debut;
+    // position du curseur dans la ligne
+
     string::const_iterator fin;
+    // fin de la ligne
 
     Symbole * symboleCourant;
+    // dernier symbole lu par l'analyseur
+
     Symbole * symboleRecuperation;
+    // symbole remplaçant symboleCourant pendant une récupération
 
     int numLigne;
     int numChar;
+    // position dans le fichier
 
 //---------------------------------------------------------- Classes amies
 
