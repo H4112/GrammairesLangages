@@ -149,7 +149,15 @@ Lexer::~Lexer ( )
 #ifdef MAP
     cout << "Appel au destructeur de <Lexer>" << endl;
 #endif
-    delete symboleCourant;
+	if(symboleRecuperation != 0)
+	{
+		delete symboleRecuperation;
+	}
+	if(symboleCourant != 0)
+	{
+		delete symboleCourant;
+	}
+	
     fichier.close();
 } //----- Fin de ~Lexer
 
