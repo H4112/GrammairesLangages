@@ -90,38 +90,54 @@ Programme * Automate::Executer ( )
 		cerr << "##" << *s << "(" << s->GetNom() << ") ";
 		pileEtats.top()->Afficher();
 #endif
-		if(!pileEtats.top()->Transition(*this, s))
+
+		try
 		{
-			Symbole * tentativeRecuperation = pileEtats.top()->Recuperation(s);
-			if(tentativeRecuperation == NULL)
+			if(!pileEtats.top()->Transition(*this, s))
 			{
+				cerr << "Erreur syntaxique ligne " << s->GetLigne() << ":" << s->GetChar();
 
-				//une transition a échoué, supprimer tous les symboles/états de l'automate
-				//et renvoyer false
+				Symbole * tentativeRecuperation = pileEtats.top()->Recuperation(s);
+				if(tentativeRecuperation == NULL)
+				{
+					//une transition a échoué, supprimer tous les symboles/états de l'automate
+					//et renvoyer false
+					cerr << " (\"" << s->GetNom() << "\" non attendu dans ce contexte)." << endl;
+
 #ifdef AUTOMAP
-				cout << "Error while applying transition " << (int)(*lexer.LireSymbole())
-				     << " to state ";
-				pileEtats.top()->Afficher();
+					cout << "Error while applying transition " << (int)(*lexer.LireSymbole())
+					     << " to state ";
+					pileEtats.top()->Afficher();
 #endif
-				viderPiles();
-		
-				return NULL;
-			}
-			else
-			{
-				cout << "Attention : le symbole " 
-				     << tentativeRecuperation->GetNom() << " a été ajouté" << endl;
 
-				lexer.SetSymboleRecuperation(tentativeRecuperation);
-				pileEtats.top()->Transition(*this, tentativeRecuperation);
+					viderPiles();
+		
+					return NULL;
+				}
+				else
+				{
+					cerr << " (\"" << tentativeRecuperation->GetNom() << "\" attendu, \"" 
+					     << s->GetNom() << "\" trouvé)." << endl;
+
+					lexer.SetSymboleRecuperation(tentativeRecuperation);
+					pileEtats.top()->Transition(*this, tentativeRecuperation);
+				}
 			}
 		}
+		catch(int err)
+		{
+			viderPiles();
+			return NULL;
+		}
+
 #ifdef AUTOMAP
 		cerr << " -> ";
 		pileEtats.top()->Afficher();
 		//cerr << "###" << (int)*(pileSymboles.top()) << endl;
 #endif
-	} while(pileSymboles.empty() || (int)*(pileSymboles.top()) != PROG);
+	} 
+	while(pileSymboles.empty() || (int)*(pileSymboles.top()) != PROG);
+
 #ifdef AUTOMAP
 	cerr << "###" << pileSymboles.size() << endl;
 #endif
@@ -265,7 +281,9 @@ int main ( int argc, char ** argv )
 		{
 			return 1;
 		}
-	} catch(string msg) {
+	} 
+	catch(string msg) 
+	{
 		cerr << msg << endl;
 		return 1;
 	}

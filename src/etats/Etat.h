@@ -15,6 +15,7 @@ class Etat;
 #include "../symboles/Symbole.h"
 
 //------------------------------------------------------------- Constantes 
+const int DOUBLE_DECLARATION = 1;
 
 //------------------------------------------------------------------ Types 
 

@@ -63,7 +63,8 @@ bool E10::Transition ( Automate & automate, Symbole * s )
 					delete decl.second;
 				}
 				delete pd;
-				return false;
+
+				throw DOUBLE_DECLARATION;
 			}
 			else
 			{

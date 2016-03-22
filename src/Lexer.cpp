@@ -12,8 +12,7 @@
 //-------------------------------------------------------- Include système
 #include <iostream>
 #include <string>
-#include <boost/algorithm/string/trim_all.hpp>
-#include <boost/algorithm/string/replace.hpp>
+#include <boost/algorithm/string/trim.hpp>
 
 using namespace std;
 
@@ -76,6 +75,7 @@ Symbole * Lexer::LireSymbole()
 		if(debut == fin && !lireLigne())
 		{
 			symboleCourant = new Fin();
+			symboleCourant->SetPosition(numLigne, numChar);
 			return symboleCourant;
 		}
 		boost::smatch occurence;
@@ -90,14 +90,18 @@ Symbole * Lexer::LireSymbole()
 #ifdef AUTOMAP
 				cerr << "lexer: reconnu : " << string(occurence[1].first, occurence[1].second) << endl;
 #endif
+				symboleCourant = creerSymbole(string(occurence[1].first, occurence[1].second), regexSymbole.second);
+				symboleCourant->SetPosition(numLigne, numChar + (occurence[1].first - debut));
+
 				numChar += occurence[0].second - debut;
 				debut = occurence[0].second;
-				symboleCourant = creerSymbole(string(occurence[1].first, occurence[1].second), regexSymbole.second);
+
 				return symboleCourant;
 			}
 		}
 		cerr << "Caractère non reconnu : \"" << *debut << "\" (ligne " << numLigne << ":" << numChar << ")" << endl;
 		debut++;
+		numChar++;
 	}
 	return 0;
 }
@@ -212,11 +216,8 @@ bool Lexer::lireLigne ( )
 		}
 		getline (fichier, ligne);
 
-		boost::algorithm::replace_all(ligne, "\n", " ");
-		boost::algorithm::replace_all(ligne, "\r", " ");
-		boost::algorithm::replace_all(ligne, "\t", " ");
+		boost::algorithm::trim_right(ligne);
 
-		boost::algorithm::trim_all(ligne);
 		numLigne++;
 	}
 	while(ligne.empty());

@@ -38,11 +38,28 @@ bool Symbole::EstTerminal()
 	return terminal;
 }
 
+void Symbole::SetPosition ( int numL, int numC )
+{
+	numLine = numL;
+	numChar = numC;
+}
+
+int Symbole::GetLigne ( )
+{
+	return numLine;
+}
+
+int Symbole::GetChar ( )
+{
+	return numChar;
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
 Symbole::Symbole ( const Symbole & unSymbole ) :
-	ident(unSymbole.ident), nom(unSymbole.nom), terminal(unSymbole.terminal)
+	ident(unSymbole.ident), nom(unSymbole.nom), terminal(unSymbole.terminal),
+	numLine(unSymbole.numLine), numChar(unSymbole.numChar)
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Symbole>" << endl;
@@ -51,7 +68,8 @@ Symbole::Symbole ( const Symbole & unSymbole ) :
 
 
 Symbole::Symbole(string nomTemp, int identTemp, bool terminalTemp)
-	: ident(identTemp), nom(nomTemp), terminal(terminalTemp)
+	: ident(identTemp), nom(nomTemp), terminal(terminalTemp),
+	numLine(0), numChar(0)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Symbole>" << endl;
