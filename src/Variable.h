@@ -56,15 +56,12 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
     Variable ( const Variable & uneVariable );
+    // Interdit
 
     Variable ( );
     // Interdit
 
     Variable ( string id );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
     virtual ~Variable ( );
 
@@ -82,7 +79,10 @@ protected:
 private:
 //------------------------------------------------------- Attributs privés
     bool affecte;
+    // indique si la variable possède une valeur
+
     bool constante;
+    // indique si la valeur assignée à cette variable est une constante
 //---------------------------------------------------------- Classes amies
 
 //-------------------------------------------------------- Classes privées

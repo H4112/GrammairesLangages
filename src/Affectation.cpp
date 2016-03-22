@@ -84,15 +84,6 @@ bool Affectation::Verifier( map < string, Declaration * > & tableDeclarations )
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Affectation::Affectation ( const Affectation & unAffectation )
-    : Instruction ( unAffectation )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Affectation>" << endl;
-#endif
-} //----- Fin de Affectation (constructeur de copie)
-
-
 Affectation::Affectation ( string nomVar, Expression * expr )
     : Instruction ( INSTR_AFF ), nomVariable(nomVar), expression(expr)
 {

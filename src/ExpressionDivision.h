@@ -1,5 +1,5 @@
 /*************************************************************************
-                           ExpressionDivision  -  description
+                 ExpressionDivision  -  Division entière de 2 termes
                              -------------------
     début                : 15/03/2016 09:59:17
     copyright            : (C) 2016 par H4112
@@ -29,18 +29,27 @@ class ExpressionDivision : public ExpressionBinaire
 public:
 //----------------------------------------------------- Méthodes publiques
     int Evaluer( map < string, Declaration * > & tableDeclarations );
+    // Mode d'emploi : 
+    //     Calcule la valeur de l'expression.
+    // Contrat :
+    //     Les variables/constantes utilisées sont bien déclarées
+
     
-    Expression * Simplifier ( map < string, Declaration * > & tableDeclarations );
+    Expression * Simplifier( map < string, Declaration * > & tableDeclarations );
+    // Mode d'emploi : simplifie l'expression en propageant les
+    //     constantes, supprimant les éléments neutres, etc.
+    //     Retourne l'expression simplifiée.
+    // Contrat :
+    //     Les variables/constantes utilisées sont bien déclarées
 
     void Afficher ( ostream & out ) const;
+    // Mode d'emploi :
+    //     Ecrit l'expression sur la sortie donnée en paramètre
 
 //------------------------------------------------- Surcharge d'opérateurs
 //-------------------------------------------- Constructeurs - destructeur
     ExpressionDivision ( const ExpressionDivision & unExpressionDivision );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
+    // Interdit
 
     ExpressionDivision ( );
     // Interdit
@@ -48,10 +57,6 @@ public:
     ExpressionDivision ( Expression * gauche, Expression * droite );
 
     virtual ~ExpressionDivision ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
 //------------------------------------------------------------------ PRIVE 
 

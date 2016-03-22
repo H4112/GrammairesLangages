@@ -1,5 +1,5 @@
 /*************************************************************************
-                           Parentheses  -  description
+                       Parentheses  -  Expression parenthésée
                              -------------------
     début                : 15/03/2016 09:29:28
     copyright            : (C) 2016 par H4112
@@ -62,15 +62,6 @@ bool Parentheses::Verifier ( map < string, Declaration * > & tableDeclarations )
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Parentheses::Parentheses ( const Parentheses & unParentheses )
-    : Expression(unParentheses), expression(unParentheses.expression)
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Parentheses>" << endl;
-#endif
-} //----- Fin de Parentheses (constructeur de copie)
-
-
 Parentheses::Parentheses ( Expression * exp )
     : Expression ( EXPR_PAR ), expression( exp )
 {
@@ -81,8 +72,6 @@ Parentheses::Parentheses ( Expression * exp )
 
 
 Parentheses::~Parentheses ( )
-// Algorithme :
-//
 {
     delete expression;
 #ifdef MAP

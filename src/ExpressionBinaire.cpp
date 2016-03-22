@@ -34,16 +34,6 @@ bool ExpressionBinaire::Verifier ( map < string, Declaration * > & tableDeclarat
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-ExpressionBinaire::ExpressionBinaire ( const ExpressionBinaire & uneExpressionBinaire ) 
-    : Expression(uneExpressionBinaire), expGauche(uneExpressionBinaire.expGauche),
-      expDroite(uneExpressionBinaire.expDroite)
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <ExpressionBinaire>" << endl;
-#endif
-} //----- Fin de ExpressionBinaire (constructeur de copie)
-
-
 ExpressionBinaire::ExpressionBinaire ( Expression * gauche, Expression * droite, int type ) 
     : Expression( type ), expGauche(gauche), expDroite(droite)
 {

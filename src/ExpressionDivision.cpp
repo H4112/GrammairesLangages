@@ -1,5 +1,5 @@
 /*************************************************************************
-                           ExpressionDivision  -  description
+               ExpressionDivision  -  Division entière de 2 termes
                              -------------------
     début                : 15/03/2016 09:59:17
     copyright            : (C) 2016 par H4112
@@ -69,15 +69,6 @@ void ExpressionDivision::Afficher ( ostream & out ) const
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-ExpressionDivision::ExpressionDivision ( const ExpressionDivision & unExpressionDivision )
-    : ExpressionBinaire ( unExpressionDivision )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <ExpressionDivision>" << endl;
-#endif
-} //----- Fin de ExpressionDivision (constructeur de copie)
-
-
 ExpressionDivision::ExpressionDivision ( Expression * gauche, Expression * droite )
     : ExpressionBinaire ( gauche, droite, EXPR_DIV )
 {
@@ -88,8 +79,6 @@ ExpressionDivision::ExpressionDivision ( Expression * gauche, Expression * droit
 
 
 ExpressionDivision::~ExpressionDivision ( )
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au destructeur de <ExpressionDivision>" << endl;

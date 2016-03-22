@@ -1,5 +1,5 @@
 /*************************************************************************
-                           ExpressionSoustraction  -  description
+                 ExpressionSoustraction  -  Soustraction de 2 termes
                              -------------------
     début                : 15/03/2016 10:04:16
     copyright            : (C) 2016 par H4112
@@ -70,15 +70,6 @@ void ExpressionSoustraction::Afficher ( ostream & out ) const
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-ExpressionSoustraction::ExpressionSoustraction ( const ExpressionSoustraction & unExpressionSoustraction )
-    : ExpressionBinaire ( unExpressionSoustraction )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <ExpressionSoustraction>" << endl;
-#endif
-} //----- Fin de ExpressionSoustraction (constructeur de copie)
-
-
 ExpressionSoustraction::ExpressionSoustraction ( Expression * gauche, Expression * droite )
      : ExpressionBinaire ( gauche, droite, EXPR_SOUS )
 {
@@ -89,8 +80,6 @@ ExpressionSoustraction::ExpressionSoustraction ( Expression * gauche, Expression
 
 
 ExpressionSoustraction::~ExpressionSoustraction ( )
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au destructeur de <ExpressionSoustraction>" << endl;

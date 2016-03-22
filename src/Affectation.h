@@ -20,7 +20,8 @@
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <Affectation>
-//
+// Instruction permettant d'affecter la valeur d'une expression à
+// une variable.
 //
 //------------------------------------------------------------------------ 
 
@@ -31,21 +32,30 @@ class Affectation : public Instruction
 public:
 //----------------------------------------------------- Méthodes publiques
     void Executer( map < string, Declaration * > & tableDeclarations );
-
+    // Mode d'emploi : exécute l'instruction et met à jour les variables
+    //     si nécessaire.
+    
     void Simplifier( map < string, Declaration * > & tableDeclarations );
-
-    void Afficher( ostream & out ) const;
+    // Mode d'emploi : 
+    //     Simplifie l'instruction en propageant les
+    //     constantes, supprimant les éléments neutres, etc.
+    // Contrat :
+    //     Les variables/constantes utilisées sont bien déclarées
 
     bool Verifier( map < string, Declaration * > & tableDeclarations );
+    // Mode d'emploi :
+    //     Vérification statique
+
+    void Afficher( ostream & out ) const;
+    // Mode d'emploi :
+    //     Ecrit l'instruction sur la sortie donnée en paramètre
+
 
 //------------------------------------------------- Surcharge d'opérateurs
     
 //-------------------------------------------- Constructeurs - destructeur
-    Affectation ( const Affectation & unAffectation );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
+    Affectation ( const Affectation & uneAffectation );
+    // Interdit
 
     Affectation ( );
     // Interdit
@@ -53,10 +63,6 @@ public:
     Affectation ( string nomVar, Expression * expr );
 
     virtual ~Affectation ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
 //------------------------------------------------------------------ PRIVE 
 
@@ -72,7 +78,11 @@ protected:
 private:
 //------------------------------------------------------- Attributs privés
     string nomVariable;
+    // nom de la variable à modifier
+
     Expression * expression;
+    // expression à affecter à la variable
+
 //---------------------------------------------------------- Classes amies
 
 //-------------------------------------------------------- Classes privées

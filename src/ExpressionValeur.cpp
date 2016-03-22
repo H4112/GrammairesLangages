@@ -58,15 +58,6 @@ void ExpressionValeur::Afficher ( ostream & out ) const
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-ExpressionValeur::ExpressionValeur ( const ExpressionValeur & unExpressionValeur )
-    : Expression ( unExpressionValeur )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <ExpressionValeur>" << endl;
-#endif
-} //----- Fin de ExpressionValeur (constructeur de copie)
-
-
 ExpressionValeur::ExpressionValeur ( int val )
     : Expression ( EXPR_VAL ), valeur ( val )
 {
@@ -77,8 +68,6 @@ ExpressionValeur::ExpressionValeur ( int val )
 
 
 ExpressionValeur::~ExpressionValeur ( )
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au destructeur de <ExpressionValeur>" << endl;

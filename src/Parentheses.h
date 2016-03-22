@@ -1,5 +1,5 @@
 /*************************************************************************
-                           Parentheses  -  description
+                       Parentheses  -  Expression parenthésée
                              -------------------
     début                : 15/03/2016 09:29:28
     copyright            : (C) 2016 par H4112
@@ -28,17 +28,32 @@ class Parentheses : public Expression
 public:
 //----------------------------------------------------- Méthodes publiques
     int Evaluer( map < string, Declaration * > & tableDeclarations );
+    // Mode d'emploi : 
+    //     Calcule la valeur de l'expression.
+    // Contrat :
+    //     Les variables/constantes utilisées sont bien déclarées
     
     Expression * Simplifier( map < string, Declaration * > & tableDeclarations );
+    // Mode d'emploi : 
+    //     Simplifie l'expression en propageant les
+    //     constantes, supprimant les éléments neutres, etc.
+    //     Retourne l'expression simplifiée.
+    // Contrat :
+    //     Les variables/constantes utilisées sont bien déclarées
 
-    void Afficher ( ostream & out ) const;
+    void Afficher( ostream & out ) const;
+    // Mode d'emploi :
+    //     Ecrit l'expression sur la sortie donnée en paramètre
 
-    bool Verifier ( map < string, Declaration * > & tableDeclarations );
+    bool Verifier( map < string, Declaration * > & tableDeclarations );
+    // Mode d'emploi :
+    //     Vérification statique
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
     Parentheses ( const Parentheses & unParentheses );
-    // Mode d'emploi (constructeur de copie)
+    // Interdit
 
     Parentheses ( );
     // Interdit
@@ -46,7 +61,6 @@ public:
     Parentheses ( Expression * exp );
 
     virtual ~Parentheses ( );
-    // Mode d'emploi
 
 //------------------------------------------------------------------ PRIVE 
 
@@ -56,6 +70,8 @@ protected:
 private:
 //------------------------------------------------------- Méthodes privées
     Expression * expression;
+    // expression contenue dans la parenthèse
+
 protected:
 //----------------------------------------------------- Attributs protégés
 

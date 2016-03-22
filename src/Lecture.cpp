@@ -76,15 +76,6 @@ bool Lecture::Verifier( map < string, Declaration * > & tableDeclarations )
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Lecture::Lecture ( const Lecture & unLecture )
-    : Instruction ( unLecture ), nomVariable ( unLecture.nomVariable )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Lecture>" << endl;
-#endif
-} //----- Fin de Lecture (constructeur de copie)
-
-
 Lecture::Lecture ( string nom )
     : Instruction ( INSTR_LIRE ), nomVariable ( nom )
 {

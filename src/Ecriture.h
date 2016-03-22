@@ -39,13 +39,19 @@ public:
     //    Simplifie l'expression associée à l'instruction d'écriture.
 
     void Afficher( ostream & out ) const;
+    // Mode d'emploi :    
+    //     Ecrit l'instruction sur la sortie donnée en paramètre
 
-    bool Verifier( map < string, Declaration * > & tableDeclarations );
+    bool Verifier( map < string, Declaration * > & tableDeclarations );    
+    // Mode d'emploi :
+    //     Vérification statique
+
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
     Ecriture ( const Ecriture & unEcriture );
+    // Interdit
 
     Ecriture ( );
     // Interdit
@@ -65,6 +71,7 @@ protected:
 private:
 //------------------------------------------------------- Méthodes privées
     Expression * expression;
+    // expression dont il faut afficher la valeur
 
 protected:
 //----------------------------------------------------- Attributs protégés

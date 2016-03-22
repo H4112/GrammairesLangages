@@ -65,15 +65,6 @@ bool Ecriture::Verifier( map < string, Declaration * > & tableDeclarations )
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Ecriture::Ecriture ( const Ecriture & unEcriture )
-    : Instruction ( unEcriture ), expression ( unEcriture.expression )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Ecriture>" << endl;
-#endif
-} //----- Fin de Ecriture (constructeur de copie)
-
-
 Ecriture::Ecriture ( Expression * expr )
     : Instruction ( INSTR_ECRIRE ), expression ( expr )
 {

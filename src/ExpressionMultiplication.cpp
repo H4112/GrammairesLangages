@@ -1,5 +1,5 @@
 /*************************************************************************
-                           ExpressionMultiplication  -  description
+                   ExpressionMultiplication  -  Produit de 2 termes
                              -------------------
     début                : 15/03/2016 09:59:12
     copyright            : (C) 2016 par H4112
@@ -66,15 +66,6 @@ void ExpressionMultiplication::Afficher ( ostream & out ) const
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-ExpressionMultiplication::ExpressionMultiplication ( const ExpressionMultiplication & uneExpressionMultiplication )
-    : ExpressionBinaire ( uneExpressionMultiplication )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <ExpressionMultiplication>" << endl;
-#endif
-} //----- Fin de ExpressionMultiplication (constructeur de copie)
-
-
 ExpressionMultiplication::ExpressionMultiplication ( Expression * gauche, Expression * droite )
     :    ExpressionBinaire ( gauche, droite, EXPR_MULT )
 {
@@ -85,8 +76,6 @@ ExpressionMultiplication::ExpressionMultiplication ( Expression * gauche, Expres
 
 
 ExpressionMultiplication::~ExpressionMultiplication ( )
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au destructeur de <ExpressionMultiplication>" << endl;

@@ -1,5 +1,5 @@
 /*************************************************************************
-                           ExpressionValeur  -  description
+                      ExpressionValeur  -  Valeur constante
                              -------------------
     début                : 15/03/2016 11:56:06
     copyright            : (C) 2016 par H4112
@@ -17,7 +17,7 @@
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <ExpressionValeur>
-//
+// Expression possédant une valeur constante.
 //
 //------------------------------------------------------------------------ 
 
@@ -28,23 +28,34 @@ class ExpressionValeur : public Expression
 public:
 //----------------------------------------------------- Méthodes publiques
     int Evaluer( map < string, Declaration * > & tableDeclarations );
-    
-    Expression * Simplifier( map < string, Declaration * > & tableDeclarations );
+    // Mode d'emploi : 
+    //     Calcule la valeur de l'expression.
+    // Contrat :
+    //     Les variables/constantes utilisées sont bien déclarées
 
-    int GetValeur ( );
+    Expression * Simplifier( map < string, Declaration * > & tableDeclarations );
+    // Mode d'emploi : simplifie l'expression en propageant les
+    //     constantes, supprimant les éléments neutres, etc.
+    //     Retourne l'expression simplifiée.
+    // Contrat :
 
     void Afficher ( ostream & out ) const;
+    // Mode d'emploi :
+    //     Ecrit l'expression sur la sortie donnée en paramètre
+
+    int GetValeur ( );
+    // Mode d'emploi :
+    //     Renvoie la valeur constante de cette expression.
     
     bool Verifier ( map < string, Declaration * > & tableDeclarations );
+    // Mode d'emploi :
+    //     Ecrit l'expression sur la sortie donnée en paramètre
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
     ExpressionValeur ( const ExpressionValeur & unExpressionValeur );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
+    // Interdit
 
     ExpressionValeur ( );
     // Interdit
@@ -52,10 +63,6 @@ public:
     ExpressionValeur ( int val );
 
     virtual ~ExpressionValeur ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
 //------------------------------------------------------------------ PRIVE 
 
@@ -71,6 +78,8 @@ protected:
 private:
 //------------------------------------------------------- Attributs privés
     int valeur;
+    // valeur constante de cette expression
+
 //---------------------------------------------------------- Classes amies
 
 //-------------------------------------------------------- Classes privées

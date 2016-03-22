@@ -29,13 +29,17 @@ class ExpressionBinaire : public Expression
 public:
 //----------------------------------------------------- Méthodes publiques
     bool Verifier ( map < string, Declaration * > & tableDeclarations );
+    // Mode d'emploi :
+    //    Vérification statique
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-    ExpressionBinaire ( const ExpressionBinaire & unExpressionBinaire );
+    ExpressionBinaire ( const ExpressionBinaire & uneExpressionBinaire );
+    // Interdit
 
     ExpressionBinaire ( );
-    //Interdit
+    // Interdit
 
     ExpressionBinaire ( Expression * gauche, Expression * droite, int type ); 
 
@@ -46,13 +50,18 @@ public:
 protected:
 //----------------------------------------------------- Méthodes protégées
     void simplifierGaucheDroite ( map < string, Declaration * > & tableDeclarations );
+    // simplifie les deux membres de l'expression
+
 private:
 //------------------------------------------------------- Méthodes privées
 
 protected:
 //----------------------------------------------------- Attributs protégés
     Expression * expGauche;
+    // partie gauche de l'expression binaire
+
     Expression * expDroite;
+    // partie droite de l'expression binaire
 
 private:
 //------------------------------------------------------- Attributs privés

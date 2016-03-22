@@ -70,14 +70,6 @@ Declaration::Declaration ( string unId, int uneValeur )
 #endif
 } //----- Fin de Declaration
 
-Declaration::Declaration ( const Declaration & uneDeclaration )
-    : valeur ( uneDeclaration.valeur ), id ( uneDeclaration.id )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Declaration>" << endl;
-#endif
-} //----- Fin de Declaration (constructeur de copie)
-
 Declaration::~Declaration ( )
 {
 #ifdef MAP

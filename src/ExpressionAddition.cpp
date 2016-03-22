@@ -1,5 +1,5 @@
 /*************************************************************************
-                           ExpressionAddition  -  description
+                  ExpressionAddition  -  Addition de 2 termes
                              -------------------
     début                : 15/03/2016 09:59:21
     copyright            : (C) 2016 par H4112
@@ -70,15 +70,6 @@ void ExpressionAddition::Afficher ( ostream & out ) const
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-ExpressionAddition::ExpressionAddition ( const ExpressionAddition & unExpressionAddition )
-    : ExpressionBinaire ( unExpressionAddition )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <ExpressionAddition>" << endl;
-#endif
-} //----- Fin de ExpressionAddition (constructeur de copie)
-
-
 ExpressionAddition::ExpressionAddition ( Expression * gauche, Expression * droite )
     : ExpressionBinaire ( gauche, droite, EXPR_ADD )
 {
@@ -89,8 +80,6 @@ ExpressionAddition::ExpressionAddition ( Expression * gauche, Expression * droit
 
 
 ExpressionAddition::~ExpressionAddition ( )
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au destructeur de <ExpressionAddition>" << endl;

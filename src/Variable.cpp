@@ -62,15 +62,6 @@ void Variable::SetConstante ( bool val )
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Variable::Variable ( const Variable & uneVariable )
-    : Declaration(uneVariable), affecte(uneVariable.affecte)
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Variable>" << endl;
-#endif
-} //----- Fin de Variable (constructeur de copie)
-
-
 Variable::Variable ( string id ) : Declaration(id, 0), affecte(false), constante(false)
 {
 #ifdef MAP

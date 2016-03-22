@@ -41,13 +41,18 @@ public:
     //    Ne fait rien.
 
     void Afficher( ostream & out ) const;
+    // Mode d'emploi :
+    //     Ecrit l'expression sur la sortie donnée en paramètre
 
     bool Verifier( map < string, Declaration * > & tableDeclarations );
+    // Mode d'emploi :
+    //     Vérification statique
 
 //------------------------------------------------- Surcharge d'opérateurs
     
 //-------------------------------------------- Constructeurs - destructeur
     Lecture ( const Lecture & unLecture );
+    // Interdit
 
     Lecture ( );
     // Interdit
@@ -68,6 +73,7 @@ protected:
 private:
 //------------------------------------------------------- Méthodes privées
     string nomVariable;
+    // nom de la variable à laquelle donner la valeur saisie
 
 protected:
 //----------------------------------------------------- Attributs protégés

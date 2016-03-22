@@ -1,5 +1,5 @@
 /*************************************************************************
-                           ExpressionIdentifiant  -  description
+                 ExpressionIdentifiant  -  Valeur d'une variable
                              -------------------
     début                : 15/03/2016 12:01:49
     copyright            : (C) 2016 par H4112
@@ -75,15 +75,6 @@ bool ExpressionIdentifiant::Verifier ( map < string, Declaration * > & tableDecl
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-ExpressionIdentifiant::ExpressionIdentifiant ( const ExpressionIdentifiant & unExpressionIdentifiant )
-    : Expression ( unExpressionIdentifiant )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <ExpressionIdentifiant>" << endl;
-#endif
-} //----- Fin de ExpressionIdentifiant (constructeur de copie)
-
-
 ExpressionIdentifiant::ExpressionIdentifiant ( string ident )
     : Expression (EXPR_ID ), id(ident)
 {

@@ -18,7 +18,7 @@
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <Constante>
-//
+// Représente une constante du programme, qui ne peut pas être modifiée.
 //
 //------------------------------------------------------------------------ 
 
@@ -40,25 +40,14 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
     Constante ( const Constante & uneConstante );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
+    // Interdit
 
     Constante ( );
     // Interdit
 
     Constante ( string id, int val );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
     virtual ~Constante ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
 //------------------------------------------------------------------ PRIVE 
 

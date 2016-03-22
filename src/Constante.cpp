@@ -42,15 +42,6 @@ bool Constante::EstAffecte ( ) const
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Constante::Constante ( const Constante & uneConstante )
-    : Declaration(uneConstante)
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Constante>" << endl;
-#endif
-} //----- Fin de Constante (constructeur de copie)
-
-
 Constante::Constante ( string id, int val ) : Declaration(id, val)
 {
 #ifdef MAP

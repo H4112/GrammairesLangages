@@ -81,11 +81,11 @@ public:
     // Contrat :
     //    Aucun
 
+    Declaration ( );
+    // Interdit
+
     Declaration ( const Declaration & uneDeclaration );
-    // Mode d'emploi (constructeur de copie) :
-    //    Permet de copier l'id et la valeur de la déclaration.
-    // Contrat :
-    //    Aucun
+    // Interdit
 
     virtual ~Declaration ( );
     // Mode d'emploi :
@@ -105,11 +105,15 @@ private:
 protected:
 //----------------------------------------------------- Attributs protégés
     int valeur;
+    // valeur de la variable / constante
 
 private:
 //------------------------------------------------------- Attributs privés
     string id;
+    // nom de la variable / constante
+
     bool utilise;
+    // indique si la variable / constante a été utilisée dans le programme
 
 //---------------------------------------------------------- Classes amies
 

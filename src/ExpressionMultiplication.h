@@ -1,5 +1,5 @@
 /*************************************************************************
-                           ExpressionMultiplication  -  description
+                   ExpressionMultiplication  -  Produit de 2 termes
                              -------------------
     début                : 15/03/2016 09:59:12
     copyright            : (C) 2016 par H4112
@@ -29,19 +29,27 @@ class ExpressionMultiplication : public ExpressionBinaire
 public:
 //----------------------------------------------------- Méthodes publiques
     int Evaluer( map < string, Declaration * > & tableDeclarations );
-    
+    // Mode d'emploi : 
+    //     Calcule la valeur de l'expression.
+    // Contrat :
+    //     Les variables/constantes utilisées sont bien déclarées
+
     Expression * Simplifier( map < string, Declaration * > & tableDeclarations );
+    // Mode d'emploi : simplifie l'expression en propageant les
+    //     constantes, supprimant les éléments neutres, etc.
+    //     Retourne l'expression simplifiée.
+    // Contrat :
 
     void Afficher ( ostream & out ) const;
+    // Mode d'emploi :
+    //     Ecrit l'expression sur la sortie donnée en paramètre
+
     
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
     ExpressionMultiplication ( const ExpressionMultiplication & unExpressionMultiplication );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
+    // Interdit
 
     ExpressionMultiplication ( );
     // Interdit
@@ -49,10 +57,6 @@ public:
     ExpressionMultiplication ( Expression * gauche, Expression * droite );
 
     virtual ~ExpressionMultiplication ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
 //------------------------------------------------------------------ PRIVE 
 
