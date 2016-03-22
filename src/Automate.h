@@ -67,13 +67,6 @@ public:
 	//Contrat :
 	//    Aucun
 
-	Programme * GetProgramme ( );
-	//Mode d'emploi :
-	//    Renvoie le programme reconnu, ou NULL si aucun programme
-	//    n'est actuellement dans l'automate.
-	//Contrat :
-	//    Aucun
-
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
