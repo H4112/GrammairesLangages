@@ -43,30 +43,18 @@ bool E26::Transition ( Automate & automate, Symbole * s )
 			return true;
 		}
 	}
-	
 	return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E26::E26 ( const E26 & unE26 )
-	: Etat ( unE26 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E26>" << endl;
-#endif
-} //----- Fin de E26 (constructeur de copie)
-
-
-E26::E26 ( )
-	: Etat ( )
+E26::E26 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E26>" << endl;
 #endif
 } //----- Fin de E26
-
 
 E26::~E26 ( )
 {
@@ -74,7 +62,6 @@ E26::~E26 ( )
     cout << "Appel au destructeur de <E26>" << endl;
 #endif
 } //----- Fin de ~E26
-
 
 //------------------------------------------------------------------ PRIVE
 

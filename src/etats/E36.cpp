@@ -61,17 +61,7 @@ bool E36::Transition ( Automate & automate, Symbole * s )
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E36::E36 ( const E36 & unE36 )
-	: Etat ( unE36 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E36>" << endl;
-#endif
-} //----- Fin de E36 (constructeur de copie)
-
-
-E36::E36 ( )
-	: Etat ( )
+E36::E36 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E36>" << endl;

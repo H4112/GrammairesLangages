@@ -73,30 +73,18 @@ bool E23::Transition ( Automate & automate, Symbole * s )
 			return true;
 		}
 	}
-	
 	return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E23::E23 ( const E23 & unE23 )
-	: Etat ( unE23 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E23>" << endl;
-#endif
-} //----- Fin de E23 (constructeur de copie)
-
-
-E23::E23 ( )
-	: Etat ( )
+E23::E23 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E23>" << endl;
 #endif
 } //----- Fin de E23
-
 
 E23::~E23 ( )
 {
@@ -104,7 +92,6 @@ E23::~E23 ( )
     cout << "Appel au destructeur de <E23>" << endl;
 #endif
 } //----- Fin de ~E23
-
 
 //------------------------------------------------------------------ PRIVE
 

@@ -34,22 +34,23 @@ public:
 //----------------------------------------------------- Méthodes publiques
     void Afficher ( ) const;
     // Mode d'emploi :
-    //  Ecrit le nom de l'état sur la sortie standard.
+    //     Ecrit le nom de l'état sur la sortie standard.
     // Contrat :
-    //  Aucun
+    //     Aucun
 	
 	bool Transition ( Automate & automate, Symbole * s );
     // Mode d'emploi :
-    //  Appelle l'automate donné en paramètre pour effectuer le décalage
-	//  ou la réduction correspondant au symbole passé en paramètre.
+    //     Appelle l'automate donné en paramètre pour effectuer le décalage
+	//     ou la réduction correspondant au symbole passé en paramètre.
     // Contrat :
-    //  Aucun
+    //     Aucun
 
 //------------------------------------------------- Surcharge d'opérateurs
     
 
 //-------------------------------------------- Constructeurs - destructeur
     E36 ( const E36 & unE36 );
+    // Interdit
 
     E36 ( ); 
 

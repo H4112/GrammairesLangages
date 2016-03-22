@@ -80,17 +80,7 @@ bool E8::Transition ( Automate & automate, Symbole * s )
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E8::E8 ( const E8 & unE8 )
-	: Etat ( unE8 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E8>" << endl;
-#endif
-} //----- Fin de E8 (constructeur de copie)
-
-
-E8::E8 ( )
-	: Etat ( )
+E8::E8 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E8>" << endl;

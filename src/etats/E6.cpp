@@ -48,25 +48,18 @@ bool E6::Transition ( Automate & automate, Symbole * s )
 	return false;
 }
 
-Symbole * E6::Recuperation ( )
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+Symbole * E6::Recuperation ( Symbole * symb )
 {
 	return new PointVirgule;
 }
+#pragma GCC diagnostic pop
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E6::E6 ( const E6 & unE6 )
-	: Etat ( unE6 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E6>" << endl;
-#endif
-} //----- Fin de E6 (constructeur de copie)
-
-
-E6::E6 ( )
-	: Etat ( )
+E6::E6 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E6>" << endl;

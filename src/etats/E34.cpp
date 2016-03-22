@@ -73,17 +73,7 @@ bool E34::Transition ( Automate & automate, Symbole * s )
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E34::E34 ( const E34 & unE34 )
-	: Etat ( unE34 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E34>" << endl;
-#endif
-} //----- Fin de E34 (constructeur de copie)
-
-
-E34::E34 ( )
-	: Etat ( )
+E34::E34 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E34>" << endl;

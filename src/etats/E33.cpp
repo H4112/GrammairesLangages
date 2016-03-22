@@ -75,17 +75,7 @@ Symbole * E33::Recuperation ( Symbole * symb )
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E33::E33 ( const E33 & unE33 )
-	: Etat ( unE33 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E33>" << endl;
-#endif
-} //----- Fin de E33 (constructeur de copie)
-
-
-E33::E33 ( )
-	: Etat ( )
+E33::E33 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E33>" << endl;

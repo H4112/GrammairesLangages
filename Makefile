@@ -1,5 +1,5 @@
 COMPFLAGS += -I/opt/local/include
-COMPFLAGS += -Wall -Wextra -std=c++11 -g #-DAUTOMAP -DMAP
+COMPFLAGS += -Wall -Wextra -Werror -std=c++11 -g #-DAUTOMAP -DMAP
 
 LDFLAGS += -L/opt/local/lib
 LDFLAGS += -lboost_regex
@@ -10,12 +10,12 @@ CPP = $(shell ls src/*.cpp src/*/*.cpp)
 OBJ = $(subst .cpp,.o,$(CPP))
 
 $(OUTFILE) : $(OBJ)
-	@echo ">> Linking $@"
+	@echo ">> Édition des liens de $@"
 	mkdir -p build
 	g++ $(LDFLAGS) -o $@ $^
 	
 %.o : %.cpp %.h src/symboles/Symbole.h src/Automate.h src/etats/Etat.h
-	@echo ">> Compiling $@"
+	@echo ">> Compilation de $@"
 	g++ -c $(COMPFLAGS) -o $@ $<
 
 automate.png : automate.uml
@@ -23,7 +23,7 @@ automate.png : automate.uml
 
 .PHONY: clean
 clean:
-	@echo ">> Removing all *.o and build"
+	@echo ">> Suppression de tous les *.o et build"
 	rm -rfv $(OBJ) build
 
 test : $(OUTFILE)

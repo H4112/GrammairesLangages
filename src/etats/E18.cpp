@@ -53,30 +53,18 @@ bool E18::Transition ( Automate & automate, Symbole * s )
 			return true;
 		}
 	}
-	
 	return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E18::E18 ( const E18 & unE18 )
-	: Etat ( unE18 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E18>" << endl;
-#endif
-} //----- Fin de E18 (constructeur de copie)
-
-
-E18::E18 ( )
-	: Etat ( )
+E18::E18 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E18>" << endl;
 #endif
 } //----- Fin de E18
-
 
 E18::~E18 ( )
 {
@@ -84,7 +72,6 @@ E18::~E18 ( )
     cout << "Appel au destructeur de <E18>" << endl;
 #endif
 } //----- Fin de ~E18
-
 
 //------------------------------------------------------------------ PRIVE
 

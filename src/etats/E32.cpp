@@ -49,31 +49,23 @@ bool E32::Transition ( Automate & automate, Symbole * s )
 	return false;
 }
 
-Symbole * E32::Recuperation ( )
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+Symbole * E32::Recuperation ( Symbole * symb )
 {
 	return new Egal;
 }
+#pragma GCC diagnostic pop
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E32::E32 ( const E32 & unE32 )
-	: Etat ( unE32 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E32>" << endl;
-#endif
-} //----- Fin de E32 (constructeur de copie)
-
-
-E32::E32 ( )
-	: Etat ( )
+E32::E32 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E32>" << endl;
 #endif
 } //----- Fin de E32
-
 
 E32::~E32 ( )
 {
@@ -81,7 +73,6 @@ E32::~E32 ( )
     cout << "Appel au destructeur de <E32>" << endl;
 #endif
 } //----- Fin de ~E32
-
 
 //------------------------------------------------------------------ PRIVE
 

@@ -19,7 +19,6 @@ using namespace std;
 #include "E8.h"
 #include "E9.h"
 #include "E6.h"
-
 #include "../symboles/Programme.h"
 #include "../symboles/PartieDeclarative.h"
 #include "../symboles/PartieInstructions.h"
@@ -81,30 +80,18 @@ bool E2::Transition ( Automate & automate, Symbole * s )
 			return true;
 		}
 	}
-	
 	return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E2::E2 ( const E2 & unE2 )
-	: Etat ( unE2 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E2>" << endl;
-#endif
-} //----- Fin de E2 (constructeur de copie)
-
-
-E2::E2 ( )
-	: Etat ( )
+E2::E2 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E2>" << endl;
 #endif
 } //----- Fin de E2
-
 
 E2::~E2 ( )
 {

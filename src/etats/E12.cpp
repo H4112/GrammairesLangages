@@ -15,10 +15,8 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "E12.h"
-
 #include "../symboles/Virgule.h"
 #include "../symboles/PointVirgule.h"
-
 #include "../symboles/ListeIdentifiants.h"
 #include "../symboles/Identifiant.h"
 
@@ -63,12 +61,12 @@ Symbole * E12::Recuperation ( Symbole * symb )
 {
 	if(*symb == ID)
 	{
-		//certainement une virgule oubliée
+		// Certainement une virgule oubliée
 		return new Virgule;
 	}
 	else
 	{
-		//on considère que nous avons commencé une autre expression
+		// On considère que nous avons commencé une autre expression
 		return new PointVirgule;
 	}
 }
@@ -76,23 +74,12 @@ Symbole * E12::Recuperation ( Symbole * symb )
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E12::E12 ( const E12 & unE12 )
-	: Etat ( unE12 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E12>" << endl;
-#endif
-} //----- Fin de E12 (constructeur de copie)
-
-
-E12::E12 ( )
-	: Etat ( )
+E12::E12 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E12>" << endl;
 #endif
 } //----- Fin de E12
-
 
 E12::~E12 ( )
 {

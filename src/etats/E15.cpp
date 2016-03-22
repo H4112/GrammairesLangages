@@ -15,7 +15,6 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "E15.h"
-
 #include "../symboles/Instruction.h"
 #include "../symboles/PartieInstructions.h"
 
@@ -55,30 +54,18 @@ bool E15::Transition ( Automate & automate, Symbole * s )
 			return true;
 		}
 	}
-	
 	return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E15::E15 ( const E15 & unE15 )
-	: Etat ( unE15 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E15>" << endl;
-#endif
-} //----- Fin de E15 (constructeur de copie)
-
-
-E15::E15 ( )
-	: Etat ( )
+E15::E15 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E15>" << endl;
 #endif
 } //----- Fin de E15
-
 
 E15::~E15 ( )
 {

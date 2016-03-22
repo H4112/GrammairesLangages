@@ -61,30 +61,18 @@ bool E28::Transition ( Automate & automate, Symbole * s )
 			return true;
 		}
 	}
-	
 	return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E28::E28 ( const E28 & unE28 )
-	: Etat ( unE28 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E28>" << endl;
-#endif
-} //----- Fin de E28 (constructeur de copie)
-
-
-E28::E28 ( )
-	: Etat ( )
+E28::E28 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E28>" << endl;
 #endif
 } //----- Fin de E28
-
 
 E28::~E28 ( )
 {
@@ -92,7 +80,6 @@ E28::~E28 ( )
     cout << "Appel au destructeur de <E28>" << endl;
 #endif
 } //----- Fin de ~E28
-
 
 //------------------------------------------------------------------ PRIVE
 

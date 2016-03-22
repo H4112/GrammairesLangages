@@ -55,23 +55,12 @@ bool E19::Transition ( Automate & automate, Symbole * s )
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E19::E19 ( const E19 & unE19 )
-	: Etat ( unE19 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E19>" << endl;
-#endif
-} //----- Fin de E19 (constructeur de copie)
-
-
-E19::E19 ( )
-	: Etat ( )
+E19::E19 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E19>" << endl;
 #endif
 } //----- Fin de E19
-
 
 E19::~E19 ( )
 {
@@ -79,7 +68,6 @@ E19::~E19 ( )
     cout << "Appel au destructeur de <E19>" << endl;
 #endif
 } //----- Fin de ~E19
-
 
 //------------------------------------------------------------------ PRIVE
 

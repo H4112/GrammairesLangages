@@ -27,16 +27,12 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-Symbole * Etat::Recuperation ( )
-{
-	return NULL;
-}
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 Symbole * Etat::Recuperation ( Symbole * symb )
 {
-	return Recuperation();
+	return NULL;
 }
 #pragma GCC diagnostic pop
 
@@ -50,13 +46,6 @@ Etat::~Etat ( )
     cout << "Appel au destructeur de <Etat>" << endl;
 #endif
 } //----- Fin de ~Etat
-
-Etat::Etat ( const Etat & unEtat )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Etat>" << endl;
-#endif
-} //----- Fin de Etat (constructeur de copie)
 
 Etat::Etat ( )
 {

@@ -16,7 +16,6 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "E14.h"
 #include "E26.h"
-
 #include "../symboles/Egal.h"
 
 //------------------------------------------------------------- Constantes
@@ -49,31 +48,23 @@ bool E14::Transition ( Automate & automate, Symbole * s )
 	return false;
 }
 
-Symbole * E14::Recuperation ( )
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+Symbole * E14::Recuperation ( Symbole * symb )
 {
 	return new Egal;
 }
+#pragma GCC diagnostic pop
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E14::E14 ( const E14 & unE14 )
-	: Etat ( unE14 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E14>" << endl;
-#endif
-} //----- Fin de E14 (constructeur de copie)
-
-
-E14::E14 ( )
-	: Etat ( )
+E14::E14 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E14>" << endl;
 #endif
 } //----- Fin de E14
-
 
 E14::~E14 ( )
 {
@@ -81,7 +72,6 @@ E14::~E14 ( )
     cout << "Appel au destructeur de <E14>" << endl;
 #endif
 } //----- Fin de ~E14
-
 
 //------------------------------------------------------------------ PRIVE
 

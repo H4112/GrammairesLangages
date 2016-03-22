@@ -16,7 +16,6 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "E13.h"
 #include "E25.h"
-
 #include "../symboles/ListeDeclaration.h"
 
 //------------------------------------------------------------- Constantes
@@ -56,30 +55,18 @@ bool E13::Transition ( Automate & automate, Symbole * s )
 			return true;
 		}
 	}
-	
 	return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E13::E13 ( const E13 & unE13 )
-	: Etat ( unE13 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E13>" << endl;
-#endif
-} //----- Fin de E13 (constructeur de copie)
-
-
-E13::E13 ( )
-	: Etat ( )
+E13::E13 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E13>" << endl;
 #endif
 } //----- Fin de E13
-
 
 E13::~E13 ( )
 {

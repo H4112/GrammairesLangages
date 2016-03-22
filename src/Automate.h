@@ -71,6 +71,7 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
     Automate ( const Automate & unAutomate );
+    // Interdit
 
     Automate ( );
     // Interdit

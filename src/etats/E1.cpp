@@ -70,24 +70,13 @@ bool E1::Transition ( Automate & automate, Symbole * s )
 			return true;
 		}
 	}
-	
 	return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E1::E1 ( const E1 & unE1 )
-	: Etat ( unE1 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E1>" << endl;
-#endif
-} //----- Fin de E1 (constructeur de copie)
-
-
-E1::E1 ( )
-	: Etat ( )
+E1::E1 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E1>" << endl;

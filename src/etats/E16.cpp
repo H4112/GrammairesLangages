@@ -15,10 +15,8 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "E16.h"
-
 #include "../symboles/Identifiant.h"
 #include "../Lecture.h"
-
 #include "../symboles/PointVirgule.h"
 
 //------------------------------------------------------------- Constantes
@@ -59,23 +57,17 @@ bool E16::Transition ( Automate & automate, Symbole * s )
 	return false;
 }
 
-Symbole * E16::Recuperation ( )
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+Symbole * E16::Recuperation ( Symbole * symb )
 {
 	return new PointVirgule;
 }
+#pragma GCC diagnostic pop
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E16::E16 ( const E16 & unE16 )
-	: Etat ( unE16 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E16>" << endl;
-#endif
-} //----- Fin de E16 (constructeur de copie)
-
-
 E16::E16 ( )
 	: Etat ( )
 {

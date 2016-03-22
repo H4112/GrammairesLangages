@@ -50,17 +50,7 @@ bool E37::Transition ( Automate & automate, Symbole * s )
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E37::E37 ( const E37 & unE37 )
-	: Etat ( unE37 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E37>" << endl;
-#endif
-} //----- Fin de E37 (constructeur de copie)
-
-
-E37::E37 ( )
-	: Etat ( )
+E37::E37 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E37>" << endl;

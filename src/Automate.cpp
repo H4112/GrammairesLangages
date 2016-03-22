@@ -149,17 +149,6 @@ Programme * Automate::Executer ( )
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Automate::Automate ( const Automate & unAutomate )
-    : pileSymboles ( unAutomate.pileSymboles ),
-      pileEtats ( unAutomate.pileEtats ),
-      lexer ( unAutomate.lexer )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Automate>" << endl;
-#endif
-} //----- Fin de Automate (constructeur de copie)
-
-
 Automate::Automate ( string nomFichier ) : lexer ( nomFichier )
 {
 #ifdef MAP

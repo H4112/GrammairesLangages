@@ -35,33 +35,24 @@ public:
 //----------------------------------------------------- Méthodes publiques
 	virtual void Afficher ( ) const = 0;
     // Mode d'emploi :
-    //  Ecrit le nom de l'état sur la sortie standard.
+    //     Ecrit le nom de l'état sur la sortie standard.
     // Contrat :
-    //  Aucun
+    //     Aucun
 	
 	virtual bool Transition ( Automate & automate, Symbole * s ) = 0;
     // Mode d'emploi :
-    //  Permet d'effectuer la transition vers l'état suivant.
+    //     Permet d'effectuer la transition vers l'état suivant.
     // Contrat :
-    //  Aucun
-
-	virtual Symbole * Recuperation ( );
-    // Mode d'emploi :
-    //  Renvoie le symbole sur lequel faire la transition pour récupérer d'une erreur.
-    //  Renvoie NULL si l'erreur n'est pas récupérable.
-    // Contrat :
-    //  Avoir auparavant appelé Transition qui a renvoyé false
+    //     Aucun
 
 	virtual Symbole * Recuperation ( Symbole * symb );
     // Mode d'emploi :
-    //  Renvoie le symbole sur lequel faire la transition,
-    //  à la place du symbole lu passé en paramètre, pour récupérer d'une erreur.
-    //  Appelle également Recuperation().
-    //  Renvoie (null;null) si l'erreur n'est pas simplement récupérable.
+    //     Renvoie le symbole sur lequel faire la transition,
+    //     à la place du symbole lu passé en paramètre, pour récupérer d'une erreur.
+    //     Renvoie NULL si l'erreur n'est pas simplement récupérable.
     // Contrat :
-    //  Avoir auparavant appelé Transition qui a renvoyé false
-
-
+    //     Avoir auparavant appelé Transition qui a renvoyé false
+    //     symb n'est pas NULL.
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -74,10 +65,7 @@ public:
     //	Aucun
 
     Etat ( const Etat & unEtat );
-    // Mode d'emploi (constructeur de copie) :
-    //	
-    // Contrat :
-    //	Aucun
+    // Interdit
 
     Etat ( );
     // Mode d'emploi :

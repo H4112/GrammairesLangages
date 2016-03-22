@@ -44,36 +44,26 @@ bool E3::Transition ( Automate & automate, Symbole * s )
 			return true;
 		}
 	}
-	
 	return false;
-
 }
 
-Symbole * E3::Recuperation ( )
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+Symbole * E3::Recuperation ( Symbole * symb )
 {
 	return new PointVirgule;
 }
+#pragma GCC diagnostic pop
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E3::E3 ( const E3 & unE3 )
-	: Etat ( unE3 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E3>" << endl;
-#endif
-} //----- Fin de E3 (constructeur de copie)
-
-
-E3::E3 ( )
-	: Etat ( )
+E3::E3 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E3>" << endl;
 #endif
 } //----- Fin de E3
-
 
 E3::~E3 ( )
 {
@@ -81,7 +71,6 @@ E3::~E3 ( )
     cout << "Appel au destructeur de <E3>" << endl;
 #endif
 } //----- Fin de ~E3
-
 
 //------------------------------------------------------------------ PRIVE
 

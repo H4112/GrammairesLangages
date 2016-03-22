@@ -48,31 +48,23 @@ bool E9::Transition ( Automate & automate, Symbole * s )
 	return false;
 }
 
-Symbole * E9::Recuperation ( )
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+Symbole * E9::Recuperation ( Symbole * symb )
 {
 	return new Affecter;
 }
+#pragma GCC diagnostic pop
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E9::E9 ( const E9 & unE9 )
-	: Etat ( unE9 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E9>" << endl;
-#endif
-} //----- Fin de E9 (constructeur de copie)
-
-
-E9::E9 ( )
-	: Etat ( )
+E9::E9 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E9>" << endl;
 #endif
 } //----- Fin de E9
-
 
 E9::~E9 ( )
 {
@@ -80,7 +72,6 @@ E9::~E9 ( )
     cout << "Appel au destructeur de <E9>" << endl;
 #endif
 } //----- Fin de ~E9
-
 
 //------------------------------------------------------------------ PRIVE
 

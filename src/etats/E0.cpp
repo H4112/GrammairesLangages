@@ -31,51 +31,40 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void E0::Afficher ( ) const 
 {
-	cout << "E0" << endl;
+    cout << "E0" << endl;
 }
 
 bool E0::Transition ( Automate & automate, Symbole * s )
 {
-	switch(*s)
-	{
-		case VAR:
-		case CONST:
-		case LIRE:
-		case ECRIRE:
-		case ID:
-		case FIN:
-		{
-			automate.Reduction(new PartieDeclarative, 0);
-			return true;
-		}
-		case PROG:
-			//acceptation : empiler PROG
-			automate.Decalage(s, 0);
-			return true;
-		case PD:
-		{
-			automate.Decalage(s, new E1);
-			return true;
-		}
-	}
-	
-	return false;
+    switch(*s)
+    {
+        case VAR:
+        case CONST:
+        case LIRE:
+        case ECRIRE:
+        case ID:
+        case FIN:
+        {
+            automate.Reduction(new PartieDeclarative, 0);
+            return true;
+        }
+        case PROG:
+            //acceptation : empiler PROG
+            automate.Decalage(s, 0);
+            return true;
+        case PD:
+        {
+            automate.Decalage(s, new E1);
+            return true;
+        }
+    }
+    return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E0::E0 ( const E0 & unE0 )
-	: Etat ( unE0 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E0>" << endl;
-#endif
-} //----- Fin de E0 (constructeur de copie)
-
-
-E0::E0 ( )
-	: Etat ( )
+E0::E0 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E0>" << endl;

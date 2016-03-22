@@ -67,30 +67,18 @@ bool E27::Transition ( Automate & automate, Symbole * s )
 			return true;
 		}
 	}
-	
 	return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E27::E27 ( const E27 & unE27 )
-	: Etat ( unE27 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E27>" << endl;
-#endif
-} //----- Fin de E27 (constructeur de copie)
-
-
-E27::E27 ( )
-	: Etat ( )
+E27::E27 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E27>" << endl;
 #endif
 } //----- Fin de E27
-
 
 E27::~E27 ( )
 {
@@ -98,7 +86,6 @@ E27::~E27 ( )
     cout << "Appel au destructeur de <E27>" << endl;
 #endif
 } //----- Fin de ~E27
-
 
 //------------------------------------------------------------------ PRIVE
 

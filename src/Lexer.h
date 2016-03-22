@@ -46,6 +46,7 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
     Lexer ( const Lexer & unLexer );
+    // Interdit
 
     Lexer ( );
     // Interdit

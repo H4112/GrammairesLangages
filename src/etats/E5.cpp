@@ -56,17 +56,7 @@ bool E5::Transition ( Automate & automate, Symbole * s )
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E5::E5 ( const E5 & unE5 )
-	: Etat ( unE5 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E5>" << endl;
-#endif
-} //----- Fin de E5 (constructeur de copie)
-
-
-E5::E5 ( )
-	: Etat ( )
+E5::E5 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E5>" << endl;

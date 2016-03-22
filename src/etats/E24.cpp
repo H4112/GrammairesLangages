@@ -50,23 +50,12 @@ bool E24::Transition ( Automate & automate, Symbole * s )
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E24::E24 ( const E24 & unE24 )
-	: Etat ( unE24 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E24>" << endl;
-#endif
-} //----- Fin de E24 (constructeur de copie)
-
-
-E24::E24 ( )
-	: Etat ( )
+E24::E24 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E24>" << endl;
 #endif
 } //----- Fin de E24
-
 
 E24::~E24 ( )
 {
@@ -74,7 +63,6 @@ E24::~E24 ( )
     cout << "Appel au destructeur de <E24>" << endl;
 #endif
 } //----- Fin de ~E24
-
 
 //------------------------------------------------------------------ PRIVE
 

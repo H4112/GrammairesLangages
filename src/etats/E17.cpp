@@ -55,31 +55,19 @@ bool E17::Transition ( Automate & automate, Symbole * s )
 			automate.Decalage(s, new E27);
 			return true;
 		}
-	}
-	
+	}	
 	return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E17::E17 ( const E17 & unE17 )
-	: Etat ( unE17 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E17>" << endl;
-#endif
-} //----- Fin de E17 (constructeur de copie)
-
-
-E17::E17 ( )
-	: Etat ( )
+E17::E17 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E17>" << endl;
 #endif
 } //----- Fin de E17
-
 
 E17::~E17 ( )
 {
@@ -87,7 +75,6 @@ E17::~E17 ( )
     cout << "Appel au destructeur de <E17>" << endl;
 #endif
 } //----- Fin de ~E17
-
 
 //------------------------------------------------------------------ PRIVE
 

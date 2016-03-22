@@ -32,24 +32,32 @@ public:
 //----------------------------------------------------- Méthodes publiques
     void Afficher ( ) const;
     // Mode d'emploi :
-    //  Ecrit le nom de l'état sur la sortie standard.
+    //     Ecrit le nom de l'état sur la sortie standard.
     // Contrat :
-    //  Aucun
+    //     Aucun
 	
 	bool Transition ( Automate & automate, Symbole * s );
     // Mode d'emploi :
-    //  Appelle l'automate donné en paramètre pour effectuer le décalage
-	//  ou la réduction correspondant au symbole passé en paramètre.
+    //     Appelle l'automate donné en paramètre pour effectuer le décalage
+	//     ou la réduction correspondant au symbole passé en paramètre.
     // Contrat :
-    //  Aucun
+    //     Aucun
 
-	Symbole * Recuperation ( );
+	Symbole * Recuperation ( Symbole * symb );
+    // Mode d'emploi :
+    //     Renvoie le symbole sur lequel faire la transition,
+    //     à la place du symbole lu passé en paramètre, pour récupérer d'une erreur.
+    //     Renvoie NULL si l'erreur n'est pas simplement récupérable.
+    // Contrat :
+    //     Avoir auparavant appelé Transition qui a renvoyé false.
+    //     symb n'est pas NULL.
 
 //------------------------------------------------- Surcharge d'opérateurs
     
 
 //-------------------------------------------- Constructeurs - destructeur
     E32 ( const E32 & unE32 );
+    // Interdit
 
     E32 ( ); 
 

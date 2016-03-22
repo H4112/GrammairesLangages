@@ -43,24 +43,13 @@ bool E7::Transition ( Automate & automate, Symbole * s )
 			return true;
 		}
 	}
-	
 	return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E7::E7 ( const E7 & unE7 )
-	: Etat ( unE7 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E7>" << endl;
-#endif
-} //----- Fin de E7 (constructeur de copie)
-
-
-E7::E7 ( )
-	: Etat ( )
+E7::E7 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E7>" << endl;

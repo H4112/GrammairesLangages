@@ -78,17 +78,7 @@ Symbole * E38::Recuperation ( Symbole * symb )
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E38::E38 ( const E38 & unE38 )
-	: Etat ( unE38 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E38>" << endl;
-#endif
-} //----- Fin de E38 (constructeur de copie)
-
-
-E38::E38 ( )
-	: Etat ( )
+E38::E38 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E38>" << endl;

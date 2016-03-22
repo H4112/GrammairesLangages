@@ -126,14 +126,6 @@ void Lexer::SetSymboleRecuperation ( Symbole * symbole )
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Lexer::Lexer ( const Lexer & unLexer )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Lexer>" << endl;
-#endif
-} //----- Fin de Lexer (constructeur de copie)
-
-
 Lexer::Lexer ( string nomFichier ) : fichier ( nomFichier, ios::in ), symboleCourant ( 0 ), 
 	symboleRecuperation ( 0 ), numLigne ( 0 )
 {

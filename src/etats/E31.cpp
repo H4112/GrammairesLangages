@@ -15,7 +15,6 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "E31.h"
-
 #include "../symboles/Virgule.h"
 #include "../symboles/PointVirgule.h"
 
@@ -53,7 +52,6 @@ bool E31::Transition ( Automate & automate, Symbole * s )
 			return true;
 		}
 	}
-	
 	return false;
 }
 
@@ -62,12 +60,12 @@ Symbole * E31::Recuperation ( Symbole * symb )
 {
 	if(*symb == ID)
 	{
-		//certainement une virgule oubliée
+		// Certainement une virgule oubliée
 		return new Virgule;
 	}
 	else
 	{
-		//on considère que nous avons commencé une autre expression
+		// On considère que nous avons commencé une autre expression
 		return new PointVirgule;
 	}
 }
@@ -75,23 +73,12 @@ Symbole * E31::Recuperation ( Symbole * symb )
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-E31::E31 ( const E31 & unE31 )
-	: Etat ( unE31 )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <E31>" << endl;
-#endif
-} //----- Fin de E31 (constructeur de copie)
-
-
-E31::E31 ( )
-	: Etat ( )
+E31::E31 ( ) : Etat ( )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <E31>" << endl;
 #endif
 } //----- Fin de E31
-
 
 E31::~E31 ( )
 {
@@ -99,7 +86,6 @@ E31::~E31 ( )
     cout << "Appel au destructeur de <E31>" << endl;
 #endif
 } //----- Fin de ~E31
-
 
 //------------------------------------------------------------------ PRIVE
 
